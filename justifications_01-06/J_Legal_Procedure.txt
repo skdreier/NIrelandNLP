@@ -1,0 +1,1016 @@
+﻿Files\\DNV_round1\\DEFE 13 1358\\IMG_9567_DEFE_13_1358 - § 1 reference coded [ 1.92% Coverage]
+Reference 1 - 1.92% Coverage
+Following the shooting of L/Sgt McKay 6 men were arrested under SPA 11 of whom 2 have been held for questioning.
+Files\\DNV_round1\\DEFE 13 1358\\IMG_9572_DEFE_13_1358 - § 1 reference coded [ 1.54% Coverage]
+Reference 1 - 1.54% Coverage
+Page 1 : (89,637) - (545,668)
+Files\\DNV_round1\\DEFE 13 1358\\IMG_9577_DEFE_13_1358 - § 1 reference coded [ 1.92% Coverage]
+Reference 1 - 1.92% Coverage
+Following the shooting of L/Sgt McKay 6 men were arrested under SPA 11 of whom 2 have been held for questioning.
+Files\\DNV_round1\\DEFE 13 1358\\IMG_9579_DEFE_13_1358 - § 1 reference coded [ 1.03% Coverage]
+Reference 1 - 1.03% Coverage
+James ’Doc’ Docherty was arrested under SPA 11.
+Files\\DNV_round1\\DEFE 13 1358\\IMG_9853_DEFE_13_1358 - § 1 reference coded [ 5.73% Coverage]
+Reference 1 - 5.73% Coverage
+It has been confirmed that there is no objection to charges being brought 
+of membership of the IRA, being an unlawful association under the Special Powers Act. When there is evidence, arrests can therefore be made with a view to charges being brought.
+Files\\DNV_round1\\DEFE 24 877\\IMG_1724_DEFE_24_877 - § 1 reference coded [ 11.81% Coverage]
+Reference 1 - 11.81% Coverage
+Where a breach of the peace is not committed, but the 
+conduct of the pickets is intimidatory, they should be arrested only if there is no other way to get them to desist. In these circumstances the power of arrest to be used is SPA Regulation 11, in accordance with the Blue Card. The words to be used are: "I suspect you of being about to commit (or of committing) acts prejudicial to the peace".
+Files\\DNV_round1\\PREM 15 1000\\IMG_6459_PREM_15_1000 - § 1 reference coded [ 5.77% Coverage]
+Reference 1 - 5.77% Coverage
+And, provided that internment itself is properly managed (and this is for discussion under a later item on the agenda) and that the Army seem to be continuing to gain the upper hand over the IRA, the Government can probably afford to rest in this position at least for the time being.
+Files\\DNV_round1\\PREM 15 1000\\IMG_6468_PREM_15_1000 - § 1 reference coded [ 6.34% Coverage]
+Reference 1 - 6.34% Coverage
+Page 1 : (98,223) - (567,351)
+Files\\DNV_round1\\PREM 15 1000\\IMG_6489_PREM_15_1000 - § 1 reference coded [ 1.48% Coverage]
+Reference 1 - 1.48% Coverage
+Page 1 : (83,348) - (367,396)
+Files\\DNV_round1\\PREM 15 1000\\IMG_6497_PREM_15_1000 - § 2 references coded [ 5.33% Coverage]
+Reference 1 - 2.85% Coverage
+Page 1 : (52,100) - (531,166)
+Reference 2 - 2.48% Coverage
+Page 1 : (66,216) - (533,275)
+Files\\DNV_round1\\PREM 15 1000\\IMG_6538_PREM_15_1000 - § 1 reference coded [ 5.51% Coverage]
+Reference 1 - 5.51% Coverage
+Page 1 : (87,435) - (584,549)
+Files\\DNV_round1\\PREM 15 1000\\IMG_6558_PREM_15_1000 - § 1 reference coded [ 12.03% Coverage]
+Reference 1 - 12.03% Coverage
+Internment procedures. The Home Secretary raised with 
+Mr. Faulkner at their recent meeting the possibility of improving these procedures, e. g. by giving an internee a written statement of the allegation against him; by considering appeals in two stages, with legal representation at one but not at the other; and by enlarging the Appeals Committee in order to accelerate the hearings. Mr. Faulkner undertook to submit proposals on all these points; but we should keep up the pressure to ensure that he does so.
+Files\\DNV_round1\\PREM 15 1000\\IMG_6573_PREM_15_1000 - § 1 reference coded [ 1.81% Coverage]
+Reference 1 - 1.81% Coverage
+oe relaxation would anyway be justified on security
+Files\\DNV_round1\\PREM 15 1000\\IMG_6574_PREM_15_1000 - § 4 references coded [ 35.27% Coverage]
+Reference 1 - 6.36% Coverage
+g r ounds i f , as one may hope, the impr oved situation both 
+reduced the risk involved in setting free some of the internees, and increased the Availability of evidence on which others among them could be convicted.
+Reference 2 - 9.70% Coverage
+This, would not necessarily mean overriding the existing review procedure (unless and until it was judged expedient for symbolic reasons to dispense with Judge Brown and his colleagues) but the review committee would need to be given fresh policy directions and perhaps additional personnel so as to speed up their work.
+Reference 3 - 5.68% Coverage
+As for the hard core of internees who could not safely be released, the hope would of course be to acquire sufficient evidence, in the improved situation, to be able to prosecute most of them.
+Reference 4 - 13.54% Coverage
+As regards wanted men who are still at large, the Government 
+would certainly not wish to dispense altogether with the option of arresting ringleaders but it could be hinted fairly clearly that, since witnesses were showing greater willingness to come forward, the emphasis would thenceforth be on prosecution rather than internment and that the latter would in invoked, if at all, only for the most dangerous terrorists who were arrested in future.
+Files\\DNV_round1\\PREM 15 1001\\IMG_6634_PREM_15_1001 - § 1 reference coded [ 15.35% Coverage]
+Reference 1 - 15.35% Coverage
+What one can however do is to keep the policy of internment under review, so that those internees who are considered no longer to be a threat to security are released without delay, and so that - whenever witnesses are brave enough to come forward 
+- the internee in question can be prosecuted.
+Files\\DNV_round1\\PREM 15 1001\\IMG_6672_PREM_15_1001 - § 1 reference coded [ 8.05% Coverage]
+Reference 1 - 8.05% Coverage
+Meanwhile, however, arrests continues and as at 21 January, those in custody - whether under Regulation 10, under a detention order or 
+in internment - numbered 758 (of whom 543 were interned).
+Files\\DNV_round1\\PREM 15 1001\\IMG_6673_PREM_15_1001 - § 1 reference coded [ 8.95% Coverage]
+Reference 1 - 8.95% Coverage
+Transfer of Law and Order (i) What should this heading comprise? In GEN 47(71) 8 the Chairman of the Official Committee suggested the police, the Special Powers Acts, prosecutions, courts, prisons and internment camps and the probation and children’s ,services. It would thus involve all aspects of the internment policy, including decisions on the making of individual internment orders.
+Files\\DNV_round1\\PREM 15 1001\\IMG_6681_PREM_15_1001 - § 1 reference coded [ 14.44% Coverage]
+Reference 1 - 14.44% Coverage
+The latest complete figures for those arrested in Northern Ireland under the Special Powers Acts are as follows.
+Files\\DNV_round1\\PREM 15 1001\\IMG_6704_PREM_15_1001 - § 1 reference coded [ 6.81% Coverage]
+Reference 1 - 6.81% Coverage
+We also understand that the Northern Ireland Government have under consideration a number of proposals for improving the internment procedure, e. g. by using a Tribunal not only to review the cases of persons already interned but to make recommendations on whether internment orders should be served on persons detained.
+Files\\DNV_round1\\PREM 15 1001\\IMG_6711_PREM_15_1001 - § 2 references coded [ 5.52% Coverage]
+Reference 1 - 0.73% Coverage
+Page 1 : (107,823) - (633,843)
+Reference 2 - 4.79% Coverage
+continuing to recommend the release of those whom were now 
+so short of arms that large numbers of internees could safely be released. 
+they thought it right to release; about 30 had already been released. He did not think that the I
+Files\\DNV_round1\\PREM 15 1001\\IMG_6716_PREM_15_1001 - § 1 reference coded [ 6.81% Coverage]
+Reference 1 - 6.81% Coverage
+However, the Advisory Committee under Judge Brown has by now reviewed, at least once, the case against about threequarters of those interned; they should therefore have some idea of those who might qualify for release if the criteria wre altered somewhat.
+Files\\DNV_round1\\PREM 15 1001\\IMG_6721_PREM_15_1001 - § 2 references coded [ 100.00% Coverage]
+Reference 1 - 50.00% Coverage
+Page 1 : (0,0) - (671,922)
+Reference 2 - 50.00% Coverage
+e1aNd !`erppthe 
+e4nlete fi as for those arrnted in Northern pel Powrs Aots are as follows. They are 
+RleyAed tt hout detention order Rlaased after detentioni order 
+Ra1ºsed after considerntion by Advisory ComIttee Rloaod 
+-lfro interinmet on P900mmOndntion of ’"0 
+Hold under Regulation 10 Held under detention order Interned 
+Thr latest figurs for the Judee Brown kdvisory Committee 
+as at 12 Janunry are:Cases reviewed 
+thuber who refsed to appear before the Committee 
+Not recommended for release Recommended for release Released 
+Refused to take oath and consequently still interned 
+Recommendations still with the Kinistry of Home Affairs Cases adjourned 
+Files\\DNV_round1\\PREM 15 1002\\IMG_6742_PREM_15_1002 - § 1 reference coded [ 23.44% Coverage]
+Reference 1 - 23.44% Coverage
+Senior Prison Governor for Long Kesh 9. 
+The GOC has welcomed the move reported in Report No 78, at para 9 
+he agrees that it holds promise of achieving a more professional approach to the custody and treatment of internees, which was one of the main objectives that the GOC had in mind when he proposed the appointment of a director of internment 
+necessary in different constitutional circmstances. - a post which might still be
+Files\\DNV_round1\\PREM 15 1002\\IMG_6743_PREM_15_1002 - § 2 references coded [ 13.05% Coverage]
+Reference 1 - 11.24% Coverage
+the paper it was asserted that the members of the R.U.C. Special Branch "are for the most part known to those internees whom they have arrested or interrogated". If this is so, it removes part of the objection to bringing internees to trial, if necessary In some special court.
+Reference 2 - 1.82% Coverage
+The Prime Minister noted that in pargraph 3 o
+Files\\DNV_round1\\PREM 15 1002\\IMG_6751_PREM_15_1002 - § 1 reference coded [ 2.56% Coverage]
+Reference 1 - 2.56% Coverage
+It was agreed that a comprehensive press release setting out the law relating to internment and other pertinent facts should be produced.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6754_PREM_15_1002 - § 3 references coded [ 12.61% Coverage]
+Reference 1 - 6.79% Coverage
+COMPOSITION: A High Court Judge; and two Senior Queen’s Counsel appointed by the Lord Chief Justice of Northern Ireland to sit and assist the Judge. 
+Those sitting on the Bench would have Inquisitional powers.
+Reference 2 - 3.80% Coverage
+ROCEDURE: A Crown Representative to present the case, and the Defendant would have a right to legal representation.
+Reference 3 - 2.02% Coverage
+They would be subject to examination and cross-examination.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6755_PREM_15_1002 - § 3 references coded [ 35.07% Coverage]
+Reference 1 - 12.81% Coverage
+An understanding should be given that no proceedings should arise out 
+of evidence given by witnesses at the trial and defendants shall have a right to a Preliminary Inquiry.
+Reference 2 - 12.63% Coverage
+A committee should be set up by the Lord Chancellors Office in London for urgent consideration of the rules of evidence relating to the procedure to be adopted in the Court.
+Reference 3 - 9.63% Coverage
+Within two months, or sch other times as will be deemed reasonable, all internses not facing criminal charges should be released.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6779_PREM_15_1002 - § 1 reference coded [ 3.68% Coverage]
+Reference 1 - 3.68% Coverage
+The Army hope that those internees who are released 
+can be made subject to some form of licence or probation we understand that the legal means may exist to do this.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6784_PREM_15_1002 - § 2 references coded [ 100.00% Coverage]
+Reference 1 - 50.00% Coverage
+Page 1 : (0,0) - (604,796)
+Reference 2 - 50.00% Coverage
+MI .vt -ad =rth a ’. 
+re"amd wi tt detention order reamwd ,aer- at etion order -a fr:m eteti am 
+ree 4 ete-r cnsideation by 
+eem relesedfr= itaeran.t ed from intermet 
+i e 2yrte firm for top rrrested in Northern 1 Pzwers ct are as 1o.los. ’Ty are correct up to 
+eas moder z + 10 he’A =- 
+d-e Mc order 
+Files\\DNV_round1\\PREM 15 1002\\IMG_6804_PREM_15_1002 - § 1 reference coded [ 2.75% Coverage]
+Reference 1 - 2.75% Coverage
+6) I would think it desirable to do the following : 1. Modify internment by scaling down and bringing trials : separating sheep and goats.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6810_PREM_15_1002 - § 1 reference coded [ 7.58% Coverage]
+Reference 1 - 7.58% Coverage
+The main law and order functions are police; prisons (including internment camps); the functions of the Attorney-General in relation to prosecutions; judicial appointments; and the exercise for so long as necessary of the Special Powers Act.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6813_PREM_15_1002 - § 1 reference coded [ 9.43% Coverage]
+Reference 1 - 9.43% Coverage
+As a corollary to a run-down in the numbers at present 
+interned, it would be sensible to have some limitation on, if not a complete suspension of, further arrests under the Special Powers Act.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6840_PREM_15_1002 - § 2 references coded [ 100.00% Coverage]
+Reference 1 - 50.00% Coverage
+Page 1 : (0,0) - (596,789)
+Reference 2 - 50.00% Coverage
+Ireland under the Special Powers Act are as follows. 
+correct up to 7 February. arrested released without detention order released after detention order escaped from detentions 
+released after consideration by Advisory Committee 
+released from internment on recommendation of RUC 
+The latest complete figures for those arrested in Northern They are 
+2364 
+1408 113 10 31 2 
+1564 800 
+held under Regulation 10 held under detention order interned 
+42 
+160 598 800 
+31 January are as follows: cases reviewed 
+Statistics of proceedings before the Advisory Committee as at 383 Internees refused to appear 
+continued interment recommended release recommended 
+refused to give undertaking not to indulge 
+in violence or encourage others to do so and therfore still interned 
+cases adjourned 
+4 3 
+291 345 35 
+Files\\DNV_round1\\PREM 15 1002\\IMG_6842_PREM_15_1002 - § 1 reference coded [ 14.75% Coverage]
+Reference 1 - 14.75% Coverage
+"The Special Powers Regulations provide for the setting up of an Advisory Committee to consider representations from internees. 
+His Honour 
+Judge Brown nas agreed to act as Chairman of this Committee 
+............ The Committee’s 
+main function will be to assess whether or when the internee’s release can be safely permitted and, where appropriate, the Committee will consider whether or not they can accept any undertaking on his part that he will not engage in violence on his release."
+Files\\DNV_round1\\PREM 15 1002\\IMG_6843_PREM_15_1002 - § 2 references coded [ 7.19% Coverage]
+Reference 1 - 3.54% Coverage
+Page 1 : (85,108) - (524,184)
+Reference 2 - 3.65% Coverage
+Page 1 : (155,206) - (495,307)
+Files\\DNV_round1\\PREM 15 1003\\IMG_6913_PREM_15_1003 - § 2 references coded [ 100.00% Coverage]
+Reference 1 - 50.00% Coverage
+Page 1 : (0,0) - (587,783)
+Reference 2 - 50.00% Coverage
+Ireland under th Special Powers Act are as follows. They are correct u to 2 March. 
+arrested 
+released without detention order released after detention order escaped from detention 
+released after consideration by 
+Advisory Commiittee others released from internment 
+escaped from internment 1.568 148 10 44 4 1 
+1,775 869 
+held under Pegulation 10 held under detention order interned 
+55 129 
+685 869 
+2,644 The latest complete figures for those arrested in Northern 
+Files\\DNV_round1\\PREM 15 1003\\IMG_6958_PREM_15_1003 - § 1 reference coded [ 1.42% Coverage]
+Reference 1 - 1.42% Coverage
+The Joint Security Committee have noted these conclusions and have accepted
+Files\\DNV_round1\\PREM 15 1003\\IMG_6968_PREM_15_1003 - § 1 reference coded [ 2.22% Coverage]
+Reference 1 - 2.22% Coverage
+that security grounds rule out any releases other than through the machinery of the Advisory Committee.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6982_PREM_15_1003 - § 1 reference coded [ 0.54% Coverage]
+Reference 1 - 0.54% Coverage
+It was agreed that as much
+Files\\DNV_round1\\PREM 15 1003\\IMG_6983_PREM_15_1003 - § 2 references coded [ 10.71% Coverage]
+Reference 1 - 2.60% Coverage
+detail as possible would be made available to the Attorney General about the participation of the army in the various operations.
+Reference 2 - 8.11% Coverage
+The Prime Minister said that some thought was being given to ways of charging the internees and bringing them 
+to trial. 
+been made by Mr. Phelim O’Neil that Judge Brown’s Committee should be worked up into a kind of special court, had some merit. 
+The GCC said that the suggestion which had 
+members of the IRA; two convictions had however recently been obtained for this. 
+It was not easy to charge people with being
+Files\\DNV_round1\\PREM 15 1003\\IMG_7009_PREM_15_1003 - § 1 reference coded [ 10.27% Coverage]
+Reference 1 - 10.27% Coverage
+It will have to be argued that there is a limit to the extent to which any Government is prepared to hand over the investigation of complaints to outside agencies or to demonstrate lack of confidence in the good faith of the properly constituted civil authorites.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7165_PREM_15_1005 - § 1 reference coded [ 11.51% Coverage]
+Reference 1 - 11.51% Coverage
+JUDGE BROWN’S COMMITTEE 12. An appeal committee to hear applications from internees is mandatory under the existing regulations.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7202_PREM_15_1005 - § 1 reference coded [ 17.63% Coverage]
+Reference 1 - 17.63% Coverage
+Regulation 10 empowers the RUC be arrest and hold for up to 48 hours any person in order to question them. The initial arrests in the internment exercise have been under this power. Regulation 11 allows the detention of persons without trial for an unspecified period on the order of the Civil Authority. Those initially arrested under Regulation 10 since internment began have been held under this regulation after 48 hours but before internment. Regulation 12 provides for internment.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7209_PREM_15_1005 - § 1 reference coded [ 1.26% Coverage]
+Reference 1 - 1.26% Coverage
+HE SECRETARY OF STATE FOR NORTHERN IRELAND IS ESTABLISHING IMEDIATELY A PROCEDURE TO REVIEW EACH CASE PERSONALLY.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7218_PREM_15_1005 - § 1 reference coded [ 25.48% Coverage]
+Reference 1 - 25.48% Coverage
+Joint control by British and Northern Ireland Governments of internment policies and individual decisions, with veto tc each side. 
+Periodical referenda on Border. 
+Phasing out of Special Powers Act and replacement by less objectionable legislation, making use of internment dependent on declaration of emergency.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7226_PREM_15_1005 - § 1 reference coded [ 23.25% Coverage]
+Reference 1 - 23.25% Coverage
+The categories for this phasing out will be agreed by the Joint Security Committee, which will be augmented by a United Kingdom Minister, who will be joint chairman of the Committee with the Northern Ireland Minister of Home Affairs; each of these joint chairmen will have a right of veto; 
+The formal authority 
+in connection with internment, whether for purposes of release or future internment, will continue to rest with the Northern Ireland Minister for Home Affairs; and the representative of the United Kingdom Government will be associated with him in the decisions on individual cases.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7236_PREM_15_1005 - § 1 reference coded [ 15.46% Coverage]
+Reference 1 - 15.46% Coverage
+out of Special Powers Act and replacement by less objectionable legislation, making use of internment dependent on declaration of emergency. 
+Periodical referenda on Border. after violence ends
+Files\\DNV_round1\\PREM 15 1005\\IMG_7246_PREM_15_1005 - § 1 reference coded [ 6.89% Coverage]
+Reference 1 - 6.89% Coverage
+The Advisory Committee on Internment have been reviewing internment cases and recommending release where, because of a change in attitude, there is considered to be no appreciable degree of risk.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7251_PREM_15_1005 - § 1 reference coded [ 23.11% Coverage]
+Reference 1 - 23.11% Coverage
+Regulation 12 already empowers 
+the Minister of Home Affairs to make conditions of residence and reporting to the police and the like as an alternative to internment. 
+If we took over internment, we could 
+further modify the Regulation (and indeed it is understood that the Northern Ireland Government themselves had the possibility of a provision for conditional release in mind in any revision of the Regulations). 
+But if under the 
+existing Regulation internment were converted to a residence and reporting condition in the case of individuals it would seem to carry the advantage that the individuals would not cease to be persons judged to be a danger to public safety.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7253_PREM_15_1005 - § 1 reference coded [ 4.60% Coverage]
+Reference 1 - 4.60% Coverage
+The S of S for Northern 
+Ireland is establishing immediately a procedure to review each case personally.
+Files\\DNV_round1\\PREM 15 1006\\IMG_7290_PREM_15_1006 - § 1 reference coded [ 3.25% Coverage]
+Reference 1 - 3.25% Coverage
+As I promised I have begun to review personally the cases of the 728 people still interned under the Special Powers Act.
+Files\\DNV_round1\\PREM 15 1006\\IMG_7291_PREM_15_1006 - § 1 reference coded [ 4.08% Coverage]
+Reference 1 - 4.08% Coverage
+In addition to the internees, 26 men who were detained under Regulation 11 of the Special Powers Act have been released today.
+Files\\DNV_round1\\PREM 15 1008\\IMG_7508_PREM_15_1008 - § 1 reference coded [ 14.76% Coverage]
+Reference 1 - 14.76% Coverage
+The arrest of eight men last night, four of whom were on a ’wanted’ list, 
+raises the question in what circumstances such arrests should be made. Three of the men are thought to be senior officers of the Belfast Provisionals. The question is which people should be arrested and for what purposes; criminal charges, questioning under the Special Powers Act, or in rare cases detention or internment. The Northern Ireland Office will arrange for the subject to be considered by the Joint Security Committee in Northern Ireland.
+Files\\DNV_round1\\PREM 15 1010\\PREM_15_1010_032 - § 1 reference coded [ 2.92% Coverage]
+Reference 1 - 2.92% Coverage
+Most of the powers which the security forces are expected to recuire for the implementation of this plan are already available under the Special Powers Regulations.
+Files\\DNV_round1\\PREM 15 1010\\PREM_15_1010_040 - § 2 references coded [ 16.28% Coverage]
+Reference 1 - 7.80% Coverage
+A number of legal powers, in addition to the existing powers under 
+the Northern Ireland special powers legislation, would be required to be conferred to enable the Armed Forces to carry out efficiently the role allotted to them in the new emergency situation.
+Reference 2 - 8.48% Coverage
+A provision (not yet fully worked out) would be desirable to authorise the setting up of special or additional civilian criminal courts or to modify the procedure for the trial of offences in order to prevent undue delay in the administration of justice during the emergency period.
+Files\\DNV_round1\\PREM 15 1010\\PREM_15_1010_175 - § 1 reference coded [ 13.70% Coverage]
+Reference 1 - 13.70% Coverage
+Officials point out that the question of 
+indemnity only arises when the wide powers conferred under the Special Powers Acts are exceeded; that there are obvious objections to the enactment of a general indemnity before order has been restored and all detainees released; and that any form of indemnity which appreciably abridges existing domestic remedies in respect of the breaches of the Human Rights Convention alleged by the Government of the Republic would undermine our case against the admissibility of the allegations before the Commission at Strasbourg
+Files\\DNV_round1\\PREM 15 1689\\PREM_15_1689_031 - § 1 reference coded [ 4.42% Coverage]
+Reference 1 - 4.42% Coverage
+During the week a battalion adjutant, two company commanders, a company quartermaster, and two company explosives officers of the Provisional IRA were arrested. The Commissioners courts reviewed 18 cases and confirmed 16 for detention.
+Files\\DNV_round1\\PREM 15 1689\\PREM_15_1689_145 - § 1 reference coded [ 1.00% Coverage]
+Reference 1 - 1.00% Coverage
+In Feeny 4 RC (no trace) were arrested under SPA 11.
+Files\\DNV_round1\\PREM 15 1689\\PREM_15_1689_159 - § 2 references coded [ 16.65% Coverage]
+Reference 1 - 12.94% Coverage
+By 29 December the Commissioners had reviewed the cases of 167 men who had 
+been interned and ordered the release of 63. The following remain interned/ detained as at 31 December 1972: 
+10 interned under the previous powers whose cases have not yet 
+been reviewed by the Commissioners. b. 
+teen reviewed by the Commissioners. c. 
+d. 106 detained under the previous powers whose cases have not yet 104 who were previously interned and whose cases have been 
+reviewed by the Commissioners who have ordered that they should be detained. 
+72 detained since the introduction of the Commission and held under interim custody orders until their cases are heard by the Commissioners.
+Reference 2 - 3.71% Coverage
+It should be noted that since the introduction of the "Detention of Terrorists" (Northern Ireland) Order 1972 on 7 November 1972 there have been 265 arrests with a view to possible detention.
+Files\\DNV_round1\\PREM 15 1689\\PREM_15_1689_160 - § 4 references coded [ 10.85% Coverage]
+Reference 1 - 2.62% Coverage
+Lord Diplock has presented the report of his Commission on legal procedures to deal with terrorist activities and the Government has announced its intention to implement his recommendations.
+Reference 2 - 2.35% Coverage
+Legislation is therefore being prepared and this may include those emergency powers which will still be required if the Government decides to repeal the Special Powers Act.
+Reference 3 - 3.19% Coverage
+The Commission recognised that there was a continuing need for detention by the executive, but they proposed, amongst other things, various changes in court procedures which will be of considerable assistance to the Security Forces.
+Reference 4 - 2.69% Coverage
+The most significant of these are the trial of terrorist offences by a judge sitting alone, restrictions on the granting of bail and the admissibility of confessions and certain written statements.
+Files\\DNV_round1\\PREM 15 483\\IMG_5959_PREM_15_483 - § 1 reference coded [ 7.07% Coverage]
+Reference 1 - 7.07% Coverage
+The Prime Minister has emphasised to me that the Advisory Committee, on which an eminent English lawyer and a local businessman serve with Judge Brown, is able to review all cases, and that he has publicly stated that it would be quite extraordinary if he were not to accept this advice. He has, in fact, released every internee whose release the Committee has recommended.
+Files\\DNV_round1\\PREM 15 483\\IMG_5974_PREM_15_483 - § 1 reference coded [ 8.26% Coverage]
+Reference 1 - 8.26% Coverage
+Since that decision, all the other original arrests have either (as has happened in most cases) been overtaken by internment orders, or 
+the arrested 
+persons have been released. And, of course, the more recent arrests made under the Special Powers Act have been carried out in what the courts held to be the correct manner.
+Files\\DNV_round1\\PREM 15 483\\IMG_5990_PREM_15_483 - § 1 reference coded [ 1.98% Coverage]
+Reference 1 - 1.98% Coverage
+Since 9 August there have been 876 arrests under the Special
+Files\\DNV_round1\\PREM 15 483\\IMG_5991_PREM_15_483 - § 1 reference coded [ 0.33% Coverage]
+Reference 1 - 0.33% Coverage
+Powers Act.
+Files\\DNV_round1\\PREM 15 483\\IMG_6017_PREM_15_483 - § 1 reference coded [ 14.23% Coverage]
+Reference 1 - 14.23% Coverage
+My letter of 14 October ended with a reference to the Advisory Committee on Internment. The Advisory Committee has been making good headway and to date has reviewed 99 cases; of these they have recommended release for 10 men and continued internment for 83 with consideration deferred for the remaining 6. Of the 10 cases recommended for release 7 men have actually been sent home and release has been directed in one other case; 2 cases are at present under my consideration.
+Files\\DNV_round1\\PREM 15 483\\IMG_6019_PREM_15_483 - § 1 reference coded [ 7.07% Coverage]
+Reference 1 - 7.07% Coverage
+The Prime Minister has emphasised to me that the Advisory Committee, on which an eminent English lawyer and a local businessman serve with Judge Brown, is able to review all cases, and that he has publicly stated that it would be quite extraordinary if he were not to accept this advice. He has, in fact, released every internee whose release the Committee has recommended.
+Files\\DNV_round1\\PREM 15 483\\IMG_6031_PREM_15_483 - § 1 reference coded [ 7.42% Coverage]
+Reference 1 - 7.42% Coverage
+They are expected to show that 110 cases have been reviewed and 10 internees have been recommended for release. 9. 
+Some of the cases are taking a long time to prepare. The review 
+body will meet as often as is necessary to avoid a backlog of prepared cases.
+Files\\DNV_round1\\PREM 15 483\\IMG_6045_PREM_15_483 - § 1 reference coded [ 48.78% Coverage]
+Reference 1 - 48.78% Coverage
+You asked why Judge Brown’s Advisory Committee on 
+Internment Appeals seemed to have come to a standstill. In fact, their work is continuing and the figures in the note which you saw (implying no increase in the number of cases considered over the past week) were incorrect. 64 cases have now been considered. 7 have been released (including 2 released today). They have decided not to release 48 and 9 cases are still pending. But the number of cases considered will continue to grow. The Committee say that the main limitation on their speed of working is the time taken by solicitors to prepare cases for submission to them.
+Files\\DNV_round1\\PREM 15 483\\IMG_6049_PREM_15_483 - § 1 reference coded [ 7.76% Coverage]
+Reference 1 - 7.76% Coverage
+In order to avoid the impression that there is any unnecessary 
+delay in the review of the cases of internees the Home Office is considering whether the review body should be moved to make a further statement on the results of their activities.
+Files\\DNV_round1\\PREM 15 483\\IMG_6110_PREM_15_483 - § 1 reference coded [ 3.70% Coverage]
+Reference 1 - 3.70% Coverage
+Page 1 : (64,448) - (586,544)
+Files\\DNV_round1\\PREM 15 484\\IMG_6258_PREM_15_484 - § 1 reference coded [ 10.61% Coverage]
+Reference 1 - 10.61% Coverage
+12. Initial discussions with the Northern Ireland Government, conducted at the end of last week, indicated that they were likely to accept the need for changes both in the legal forms relating to internment (e.g. in the direction of informing the internee of the grounds for interning him) and in the administrative treatment of those in internment (e.g. in the direction of segregating the hard-
+Files\\DNV_round1\\PREM 15 484\\IMG_6261_PREM_15_484 - § 1 reference coded [ 9.89% Coverage]
+Reference 1 - 9.89% Coverage
+The Home Secretary told Mr. Faulkner that he proposed that Sir Edmund Compton 
+be asked to carry on dealing with complaints from persons arrested with a view to internment. This, together with the arrangements which were being made for a Board of Visitors to hear complaints of people once they were received into prison, should fill the gap which had been criticised.
+Files\\DNV_round1\\PREM 15 484\\IMG_6262_PREM_15_484 - § 2 references coded [ 11.02% Coverage]
+Reference 1 - 6.06% Coverage
+The Home Secretary said that much of the criticism in the recent debate 
+had centred on procedures for internment. If these could be modified it would be easier to retain support for the principle of internment itself. Mr. Faulkner said that this was under active consideration.
+Reference 2 - 4.96% Coverage
+He had it in mind that an internee might be told in writing of the allegation against him: the statement would be on the lines that he was a member of an unlawful association, or actively involved in the recent campaign of violence.
+Files\\DNV_round1\\PREM 15 484\\IMG_6305_PREM_15_484 - § 1 reference coded [ 5.11% Coverage]
+Reference 1 - 5.11% Coverage
+This is also the view of Mr Dalton, He said that the evidence put before the Advisory Committee by Special Branch was adequate to enable the Committee to reach a judgment, but that it would not convince a court.
+Files\\DNV_round1\\PREM 15 484\\IMG_6306_PREM_15_484 - § 2 references coded [ 18.85% Coverage]
+Reference 1 - 6.67% Coverage
+was the setting up of some form of Commission which would review the reasons for internment and the procedure which has so far been adopted.
+Reference 2 - 12.18% Coverage
+There are I think some improvements which might be made to the interrment 
+appeal procedure for example, by allowing legal representation of internees at the hearing - but this would be little more than window dressing and would be regarded as tinkering.
+Files\\DNV_round1\\PREM 15 484\\IMG_6315_PREM_15_484 - § 1 reference coded [ 2.16% Coverage]
+Reference 1 - 2.16% Coverage
+Page 1 : (89,170) - (495,219)
+Files\\DNV_round1\\PREM 15 484\\IMG_6343_PREM_15_484 - § 1 reference coded [ 6.12% Coverage]
+Reference 1 - 6.12% Coverage
+Judge Brown’s Advisory Body is making progress with the review 
+of the cases of internees and it is expected that it will soon be in a position to release some further figures.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7621_PREM_15_1009 - § 1 reference coded [ 6.06% Coverage]
+Reference 1 - 6.06% Coverage
+The emphasis is on arresting people only if they are wanted in connection with criminal offences but Regulation 11 (1) under the Special Powers Act may be used in certain circumstances.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7656_PREM_15_1009 - § 1 reference coded [ 3.45% Coverage]
+Reference 1 - 3.45% Coverage
+At least for presentational reasons it might be necessary for some of the internees to be detained and charged in the normal way.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7694_PREM_15_1009 - § 1 reference coded [ 8.71% Coverage]
+Reference 1 - 8.71% Coverage
+We have also to decide whether, given the Attorney General’s judgment that some 30 pending prosecutions will have to be abandoned, the persons concerned should be re-arrested under the Special Powers Act (paragraph 4). Several of those whose arrests on 9th August, 1971, were judged invalid on purely technical grounds were immediately re-arrested under a valid formula.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7697_PREM_15_1009 - § 1 reference coded [ 6.77% Coverage]
+Reference 1 - 6.77% Coverage
+If so, the new Directive should be issued without further delay; and in the case of Northern Ireland it should be accompanied, as the Attorney General has suggested, by a specific reminder about the domestic law on the subject in the Six Counties.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7698_PREM_15_1009 - § 3 references coded [ 10.21% Coverage]
+Reference 1 - 3.40% Coverage
+The modern practice is to take wide powers (as in the N I 
+Special Powers Acts and Regulations) to enable the executive to detain and take other steps to restore order.
+Reference 2 - 3.07% Coverage
+As long as soldiers and officials 
+act within such powers they require no indemnity because the jurisdiction of the courts is effectively excluded.
+Reference 3 - 3.74% Coverage
+The question of indemnity only 
+arises when even the wide powers so conferred are exceeded, eg by the use of excessive force or failure to comply with legal requirements as to arrest.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7699_PREM_15_1009 - § 3 references coded [ 12.75% Coverage]
+Reference 1 - 3.35% Coverage
+Irish case on an eighteenth century indemnity enactment that a good faith provision would allow proceedings for bodily maltreatment.
+Reference 2 - 9.02% Coverage
+The draft Bill prepared for the last N I 
+Government suffered from this vice since it would have prevented any proceedings, civil or criminal, in respect of anything purporting to have been done under Regulations 10 to 13 of the Special Powers Regulations or in carrying out any order made under then (thus covering internment and detention orders and interrogation).
+Reference 3 - 0.38% Coverage
+It seems from an
+Files\\EKG_round1\\PREM 15 1011\\IMG_7785_PREM_15_1011 - § 3 references coded [ 24.77% Coverage]
+Reference 1 - 7.48% Coverage
+Any action we take must be such as not to alienate the minority community as a whole: a consideration which must rule out the further use of internment in the arbitrary form which it now takes under the Special Powers Act.
+Reference 2 - 13.76% Coverage
+The most promising possibility is to create a system 
+of special courts whose function would not be to convict accused persons of criminal offences, but to judge whether they were guilty of certain specified conduct and commit them to "preventive detention" if they were. The Act making this provision (as to the necessity of an Act see below) could be of 6 months duration renewable by Order in Council.
+Reference 3 - 3.53% Coverage
+The provision would apply to conduct involving complicity in any degree with terrorism generally; it
+Files\\EKG_round1\\PREM 15 1011\\IMG_7786_PREM_15_1011 - § 3 references coded [ 13.43% Coverage]
+Reference 1 - 2.24% Coverage
+one of conviction for a crime so as to remove the taint of internment.
+Reference 2 - 5.98% Coverage
+Naturally anyone who could be brought before a criminal court would be and it could be provided that acquittal in a criminal court was no bar to proceedings for preventive detention.
+Reference 3 - 5.20% Coverage
+It might be possible to bring all persons interned under the present procedure before the special court for discharge or committal to preventive detention.
+Files\\EKG_round1\\PREM 15 1011\\IMG_7787_PREM_15_1011 - § 6 references coded [ 39.11% Coverage]
+Reference 1 - 10.10% Coverage
+Any person would be allowed to effect an arrest without warrant if there was reasonable suspicion complicity in the conduct referred to; and any list of suspects published by the authority of the Chief Constable or an Assistant Chief Constable of the RUC would be conclusive evidence that there was reasonable suspicion.
+Reference 2 - 9.83% Coverage
+An arrested person could be held for 72 hours for questioning; and then either discharged or brought before a magistrate to be committed to a special court. A special court would consist of a judge of the Supreme Court sitting with any other judge of the Supreme Court or a county court judge or a resident magistrate.
+Reference 3 - 4.65% Coverage
+The court would be obliged to inform the accused at least of the general tenor of the evidence against him and to hear him or his counsel in his defence.
+Reference 4 - 8.33% Coverage
+If the court found the case proved, it would commit the accused to preventive detention, and there would be provision for release by the Secretary of State on conditional licence. The duration of the detention would also be affected by the duration of the Act itself.
+Reference 5 - 2.89% Coverage
+There would be a right of appeal to the Court of Appeal in Northern Ireland sitting in camera.
+Reference 6 - 3.30% Coverage
+It might be argued that if special courts can be instituted in the manner described, the concept should be
+Files\\EKG_round1\\PREM 15 1011\\IMG_7788_PREM_15_1011 - § 1 reference coded [ 50.00% Coverage]
+Reference 1 - 50.00% Coverage
+the 1972 Actor of the Special Powers Act, The constitution of a court, court procedure including the laws of evidence, an appeal to the Supreme Court (which is a reserved matter) and the deprivation of a remedy for false imprisonment in /circumstances are all involved.
+Files\\EKG_round1\\PREM 15 1011\\IMG_7796_PREM_15_1011 - § 1 reference coded [ 8.40% Coverage]
+Reference 1 - 8.40% Coverage
+Internment or detention. I understand that the Secretary of State 
+remains unwilling to reintroduce internment but may be prepared to make detention orders for periods of up to 28 days on a fairly wide scale; and the Attorney General may say that the existing provisions of the Special Powers Acts suffice to make this legal, provided that interrogation is continued throughout this period.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7842_PREM_15_1012 - § 2 references coded [ 8.21% Coverage]
+Reference 1 - 2.37% Coverage
+Possible changes in the law or legal procedure are being considered by an inter-departmental group.
+Reference 2 - 5.84% Coverage
+It has been confirmed that there is no objection to charges being brought 
+of membership of the IRA, being an unlawful association under the Special Powers Act. When there is evidence, arrests can therefore be made with a view to charges being brought.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7924_PREM_15_1012 - § 1 reference coded [ 9.30% Coverage]
+Reference 1 - 9.30% Coverage
+Planning to legislate either in the overspill of the present Session or at the beginning of the next Session, with the corollary that in the interim the use of detention under the existing Regulation 11 (perhaps with some amendment which could be made during the Recess under the urgency procedure, subject to Affirmative Resolution when Parliament reassembles) might be justified by a declaration of an intention to introduce new legislation at an early date.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7987_PREM_15_1012 - § 1 reference coded [ 10.41% Coverage]
+Reference 1 - 10.41% Coverage
+There is no statutory time limit to the period for which persons arrested under Regulation 11 of the Special Powers Act can be held for interrogation. 
+However, if at the PO a subject 
+is recommended for extended uestioning beyond a period of 48 hours after arrest, the approval of the Secretary of State for Northern Ireland will be sought.
+Files\\EKG_round1\\PREM 15 1012\\IMG_8005_PREM_15_1012 - § 1 reference coded [ 3.41% Coverage]
+Reference 1 - 3.41% Coverage
+In effect, this would be a substitution of the administrative decision of (now) the Secretary of State by the decision of a committee.
+Files\\EKG_round1\\PREM 15 1012\\IMG_8006_PREM_15_1012 - § 1 reference coded [ 9.47% Coverage]
+Reference 1 - 9.47% Coverage
+In the opinion of the Attorney General it would be 
+possible to provide by legislation for the establishment of a procedure whereby persons would be subject to preventive detention on the exercise of the discretion of a tribunal which was satisfied that the persons brought before it had been concerned with terrorism.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8052_PREM_15_1013 - § 2 references coded [ 15.15% Coverage]
+Reference 1 - 10.18% Coverage
+HM Government it clear, on assuming direct responsibility for the government of Northern Ireland, t hat it was their objective to bring internment under the Special Powers Act to as soon as the security situation permitted; and to 
+consider how far the powers conferred under that Act could be dispensed with.
+Reference 2 - 4.97% Coverage
+o use 
+HM Government reaffirm these objectives and their determination the processes of law to the fullest possible extent in 
+dealing with terrorism.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8053_PREM_15_1013 - § 2 references coded [ 16.33% Coverage]
+Reference 1 - 10.60% Coverage
+In addition, they intend at an early date to introduce provisions under the Special Powers Act to set up a tribunal to deal with persons suspected of participation in terrorist activities by means of a procedure which will provide maximum safeguards for the protection of the individual and will eliminate the objectionable features of internment, notably judgment by executive decision alone, but which will be matched to the special conditions which unfortunately obtain in Northern Ireland.
+Reference 2 - 5.73% Coverage
+This tribunal will be asked to consider cases referred to it (which will include cases of those presently in internment or detention) to determine the nature of their involvement in terrorist activities with a view to their release or committal to a period of detention.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8056_PREM_15_1013 - § 1 reference coded [ 11.03% Coverage]
+Reference 1 - 11.03% Coverage
+On assuming direct responsibility for the government of Northern Ireland, 
+HM Government made clear that it was their objective to the system of internment under the Special Powers Act as 
+soon as the security situation permitted; and to enquire whether the powers conferred under that Act might be repealed in whole or in part.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8057_PREM_15_1013 - § 2 references coded [ 19.74% Coverage]
+Reference 1 - 12.04% Coverage
+Pending the report of the commission and of 
+the subsequent legislation on it, the Government therefore proposes at an early date to introduce interim legislation under the Special Powers Act to set up a special tribunal to deal with persons accused of terrorist activities by means of a procedure which will preserve the essentials of natural justice, but which will be matched to the special conditions which unfortunately obtain in Northern Ireland.
+Reference 2 - 7.70% Coverage
+This tribunal will be asked to 
+consider cases referred to it by the Secretary of State (which will include cases of those presently in internment), to determine the nature of their involvement in terrorist activities, and either to order release or to impose a definite period of detention.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8108_PREM_15_1013 - § 2 references coded [ 12.39% Coverage]
+Reference 1 - 5.54% Coverage
+Proposal (ii) admittedly reverses the normal onus of proof - i. e. it is incumbent on the defendant to establish his innocence instead of on the prosecution to establish his guilt. But this seems inherent in the nature of the case.
+Reference 2 - 6.85% Coverage
+In favour of the proposal to introduce special courts or tribunals (which is also discussed in Appendix 1 to GEN 79(72) 17) it can be argued that we should in principle be substituting a judicial process for the executive machinery which at present governs internment and detention.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8109_PREM_15_1013 - § 3 references coded [ 13.36% Coverage]
+Reference 1 - 3.30% Coverage
+But, if so, it will be necessary to find room for the necessary legislation; and some other item in the legislative programme may have to be sacrificed.
+Reference 2 - 5.69% Coverage
+As regards the "hard core" who cannot be released, the Secretary of State proposes that, pending the creation of the special courts, the individuals concerned should continue to be detained under Regulation 11, subject to review by a "special interim body".
+Reference 3 - 4.38% Coverage
+Given an intention to dispense with internment, there seems no alternative to the detention under Regulation 11 of persons arrested as terrorists until special courts or tribunals are introduced.
+Files\\EKG_round1\\PREM 15 1014\\IMG_8245_PREM_15_1013 - § 1 reference coded [ 7.42% Coverage]
+Reference 1 - 7.42% Coverage
+He intended to introduce in 
+Parliament measures to provide ways and means whereby the Court would be able to protect such witnesses, and in due course this arrangement would even further reduce the number of internees to a very small hard core.
+Files\\EKG_round1\\PREM 15 1015\\IMG_8291_PREM_15_1015 - § 1 reference coded [ 10.80% Coverage]
+Reference 1 - 10.80% Coverage
+The Prime Minister said that the British Government 
+were running into similar legal problems to those of the Irish Government. They had set up the tribunal to deal with the internees, so that they could in effect move over to a system of detention like that available to the Irish authorities.
+Files\\EKG_round1\\PREM 15 1015\\IMG_8441_PREM_15_1015 - § 1 reference coded [ 3.53% Coverage]
+Reference 1 - 3.53% Coverage
+In case this should happen, 
+it was all the more important that the Tribunals should be seen to be operating fairly and effectively.
+Files\\EKG_round1\\PREM 15 1016\\IMG_8505_PREM_15_1016 - § 2 references coded [ 4.07% Coverage]
+Reference 1 - 2.25% Coverage
+Page 1 : (65,165) - (507,212)
+Reference 2 - 1.82% Coverage
+Page 1 : (67,293) - (521,330)
+Files\\EKG_round1\\PREM 15 1016\\IMG_8589_PREM_15_1016 - § 2 references coded [ 9.04% Coverage]
+Reference 1 - 4.75% Coverage
+In addition, I am advised that if a warrant of arrest has been 
+issued for an offence in Northern Ireland against an individual who is in this country, including the offence under the Special Powers Act of being a member of the I.R.A., then that warrant can be backed and executed by the police in Great Britain.
+Reference 2 - 4.29% Coverage
+Then we have to bear in mind the Diplock enquiry. As I understand 
+it, this body is considering what arrangements for the administration of justice in Northern Ireland could be made in order to deal more effectively with terrorist organisations by bringing to book, otherwise
+Files\\EKG_round1\\PREM 15 1016\\IMG_8590_PREM_15_1016 - § 1 reference coded [ 7.59% Coverage]
+Reference 1 - 7.59% Coverage
+than by internment by the executive, individuals involved in terrorist activities, particularly’those who plan and direct but do not necessarily take part in terrorist acts..
+Files\\EKG_round1\\PREM 15 1690\\IMG_8715_PREM_15_1690 - § 1 reference coded [ 3.81% Coverage]
+Reference 1 - 3.81% Coverage
+uring February the Commissioners reviewed a further 111 cases. The cases of all former internees and detainees have now been reviewed.
+Files\\EKG_round1\\PREM 15 1690\\IMG_8716_PREM_15_1690 - § 2 references coded [ 4.18% Coverage]
+Reference 1 - 1.33% Coverage
+Page 1 : (84,12) - (505,42)
+Reference 2 - 2.85% Coverage
+Page 1 : (82,58) - (479,126)
+Files\\EKG_round1\\PREM 15 1691\\IMG_8880_PREM_15_1691 - § 1 reference coded [ 3.87% Coverage]
+Reference 1 - 3.87% Coverage
+Legislation would be needed to give effect to 
+Lord Diplock’s recommendations; it was hoped to introduce that legislation as soon as possible.
+Files\\EKG_round1\\PREM 15 1692\\IMG_9320_PREM_15_1692 - § 1 reference coded [ 7.37% Coverage]
+Reference 1 - 7.37% Coverage
+The Government therefore appointed a Commission, composed of distinguished laymen and lawyers, and chaired by a most eminent judge of the House of Lords, Lord Diplock
+Files\\EKG_round1\\PREM 15 1692\\IMG_9321_PREM_15_1692 - § 5 references coded [ 38.72% Coverage]
+Reference 1 - 6.77% Coverage
+no-one may be detained for more than 28 days without his case being referred for adjudication to an independent, legally-qualified commissioner
+Reference 2 - 4.24% Coverage
+a person detained by order of a commissioner has a right of appeal to an independent tribunal
+Reference 3 - 9.24% Coverage
+(d) a person appearing before a commissioner is given in advance a statement of the terrorist activities he is alleged to have engaged in; 
+(e) such a person may give evidence and be legally represented.
+Reference 4 - 15.29% Coverage
+Where these procedures contain departures from the normal judicial process 
+the commissioners’ inquiries are in private, 
+for example, and the person who is the subject of the enquiry may be excluded from parts of it) these are necessary because, as the Commission reported, witnesses will not give evidence in the ordinary courts.
+Reference 5 - 3.19% Coverage
+The procedures contain all possible safeguards against injustice.
+Files\\EKG_round1\\PREM 15 1692\\IMG_9322_PREM_15_1692 - § 1 reference coded [ 12.61% Coverage]
+Reference 1 - 12.61% Coverage
+No-one is now detained except under these 
+procedures and those detained have been found by an independent commissioner with legal training and experience to have been involved in terrorism and to be someone from whom the public need to be protected.
+Files\\EKG_round1\\PREM 15 1692\\IMG_9353_PREM_15_1692 - § 2 references coded [ 5.50% Coverage]
+Reference 1 - 4.74% Coverage
+explain the new procedures for detention and the legislative action now being taken in the light of the Diplock Report
+Reference 2 - 0.77% Coverage
+Such a message migh
+Files\\SKD_round1\\CJ 4 251\\IMG_1758_CJ_4_251 - § 3 references coded [ 9.45% Coverage]
+Reference 1 - 2.60% Coverage
+Page 1 : (126,153) - (478,221)
+Reference 2 - 3.87% Coverage
+Page 1 : (112,522) - (535,606)
+Reference 3 - 2.99% Coverage
+Page 1 : (85,685) - (477,755)
+Files\\SKD_round1\\CJ 4 251\\IMG_1760_CJ_4_251 - § 1 reference coded [ 5.43% Coverage]
+Reference 1 - 5.43% Coverage
+Anyone arrested, and not charged, will be released after 48 hours unless he is arrested under Regulation 11, in which case he will be released after another 
+24 hours unless a detention order has been signed.
+Files\\SKD_round1\\CJ 4 251\\IMG_1770_CJ_4_251 - § 1 reference coded [ 5.60% Coverage]
+Reference 1 - 5.60% Coverage
+Page 1 : (134,152) - (505,293)
+Files\\SKD_round1\\CJ 4 251\\IMG_1796_CJ_4_251 - § 1 reference coded [ 6.08% Coverage]
+Reference 1 - 6.08% Coverage
+in effect, be an amnesty for those IRA men who had managed to evade capture until the date of the truce and who, if they had been captured, could only have been detained or interned under the Special Powers Act, since there was insufficient evidence against them to bring a criminal charge.
+Files\\SKD_round1\\DEFE 13 919\\IMG_1938_DEFE_13_919 - § 1 reference coded [ 4.90% Coverage]
+Reference 1 - 4.90% Coverage
+Page 1 : (66,92) - (461,206)
+Files\\SKD_round1\\DEFE 13 919\\IMG_1977_DEFE_13_919 - § 1 reference coded [ 9.81% Coverage]
+Reference 1 - 9.81% Coverage
+If a person is arrested under Regulation 10, he may be held in custody for questioning for 48 hours; and if he is then re-arrested under Regulation 11, he may be held for questioning for a further 24 hours. He must then be released unless he is charged or made subject to a detention order. Similarly, a person arrested in the first instance under Regulation 11 may be hold in custody for questioning for a period of up to 72 hours before being released, charged or made subject to a detention order.
+Files\\SKD_round1\\DEFE 13 919\\IMG_2004_DEFE_13_919 - § 1 reference coded [ 6.15% Coverage]
+Reference 1 - 6.15% Coverage
+A person arrested under Regulation 10 may be questioned for 48 hours. If he is not released by being rearrested under Regulation 11 he may be questioned for a further 24 hours. He must then be released unless a detention order as been made against him.
+Files\\SKD_round1\\DEFE 13 919\\IMG_2031_DEFE_13_919 - § 2 references coded [ 8.89% Coverage]
+Reference 1 - 2.98% Coverage
+In the meantime, however, he was perfectly prepared 
+to make more extensive use of his powers to detain and would do so until the issue was discussed in the house.
+Reference 2 - 5.90% Coverage
+CGS mentioned the difference between Regulation 11 of the 
+Special Powers Act which allowed holding (and questioning) for an indefinite period and Regulation 10 which had a statutory 48 hour time limit; it was this time limit that had been extended to those held under Regulation 11, by usage rather than by statute.
+Files\\SKD_round1\\DEFE 13 919\\IMG_2104_DEFE_13_919 - § 1 reference coded [ 10.71% Coverage]
+Reference 1 - 10.71% Coverage
+INSTRUCTIONS HAVE BEEN ISSUED TO THE GENERAL OFFICER COMMANDING RE-EMPHASISING THAT WHILE THE ARMY IS EMPOWERED AND MAY BE REQUIRED TO ARREST PERSONS UNDER CERTAIN REGULATIONS OF THE SPECIAL POWERS ACTS, AND TO HAND THEM OVER TO THE CIVIL AUTHORITY, THE SUBSEQUENT DETENTION, INTERNMENT, OR INTERROGATION OF SUCH PERSONS ARE MATTERS SOLELY FOR THE CIVIL AUTHORITY.
+Files\\SKD_round1\\DEFE 13 919\\IMG_2105_DEFE_13_919 - § 1 reference coded [ 3.98% Coverage]
+Reference 1 - 3.98% Coverage
+SIR EDMUND COMPTON IS AVAILABLE TO INVESTIGATE COMPLAINTS OF ILLTREATMENT IN CONNECTION WITH ARRESTS MADE UNDER THE SPECIAL POWERS ACT.
+Files\\SKD_round1\\DEFE 13 919\\IMG_2141_DEFE_13_919 - § 1 reference coded [ 5.18% Coverage]
+Reference 1 - 5.18% Coverage
+Under conditions of emergency, or near emergency, there is likely 
+to be internal security legislation controlling the treatment of detainees and arrested persons.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2176_DEFE_24_1214 - § 1 reference coded [ 5.07% Coverage]
+Reference 1 - 5.07% Coverage
+Again, there is nothing in the Regula: which requires his to be done but, on the whole, I don’t think so. Under 
+agdlation 11(2) the Attorney-General has power to discharge the arson detained but not the Detention Order.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2179_DEFE_24_1214 - § 5 references coded [ 11.56% Coverage]
+Reference 1 - 2.63% Coverage
+The RUC may establish at MAGILIIGAN and BAILYKINLER centres for 
+holding and interrogatting persons arrested under the Special Powers Act.
+Reference 2 - 1.58% Coverage
+: 
+at the centre. b. 
+All legal formalities relating to the custody of arrested persons
+Reference 3 - 2.83% Coverage
+the conditions under which the arrested person are to be held in custody including arrangements for interrogation, exercise, visitors, messing etc.
+Reference 4 - 1.52% Coverage
+be released or detained on the order of the Civil Authority in a place of detention
+Reference 5 - 2.99% Coverage
+Act (Northern Ireland) 1922. 5. 
+Operation off Regional Holding Centres and Maidstone Used as Places of Detention Under Regulation 11 of the Civil Authorities
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2180_DEFE_24_1214 - § 4 references coded [ 15.57% Coverage]
+Reference 1 - 5.37% Coverage
+he "Officer in Charge of 
+the place of detention" will be appointed from the Prison Service and will as soon as possible be provided with the necessary staff from the Prison Service or RUC to interpret and implement within be place of detention the conditions of detention specified by the Civil Authority.
+Reference 2 - 3.38% Coverage
+common law a person may use such force as is reasonable in the circumstances in effecting or assisting in the lawful arrest of offenders or suspected offenders or persons unlawfully at large.
+Reference 3 - 4.52% Coverage
+Under Regulation 11 (6) of the 
+Special Powers Act, if any person assists or connives at the escape of any person in custody under that Regulation, or knowingly harbours or assists any person who has so escaped, he is guilty of an offence under the Regulations
+Reference 4 - 2.30% Coverage
+The unit commander appointed at each centre and MAIDSTONE is fully 
+briefed as to the legal aspects of his duties as detailed above.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2181_DEFE_24_1214 - § 3 references coded [ 12.55% Coverage]
+Reference 1 - 6.15% Coverage
+you will be receiving, from an officer in the RUC, an authorisation in the form at Annex A. 
+to make under Regulation 10
+Reference 2 - 3.49% Coverage
+To enable you to proeed with arrests under the Special Powers Acts
+Reference 3 - 2.92% Coverage
+This will provide the cover for any arrests you may have
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2183_DEFE_24_1214 - § 3 references coded [ 23.98% Coverage]
+Reference 1 - 8.48% Coverage
+are suspected of having committed an offence against Regulation 24 A made under the Civil Authorities (Special Powers) Act (Northern Ireland) 1922. 
+to this order and their detention Those named in the Annex referred to above Under Regulation 11 made under that Act any member of Her Majesty’s 
+forces on duty when the occasion for the arrest arises may arrest without warrant any person who is suspected of having committed an offence against the Regulations.
+Reference 2 - 9.25% Coverage
+When arresting a person under this order the soldier making the 
+arrest is to say "I am arresting you under the powers conferred by the Civil Authorities (Special Powers) Act(orthern Irelad) 1922". If the person arrested questions the authority for the arrest eg by asking what offence he has committed or under what Regulation he is arrested the soldier making the arrest is to. say "I am not required to give any further explanation. 
+I warn you that if you resist arrest you may be 
+committing an offence".
+Reference 3 - 6.25% Coverage
+units are to arrange that the 
+soldier making the arrest brings him to the appropriate Police Office and hands him over to a police officer or police constable notifying him of the full circumstances of the arrest in accordance with the procedure laid down in Annex B to Part 3 Section 3 of Northern Ireland Standing Security Instruction 1971
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2196_DEFE_24_1214 - § 1 reference coded [ 4.68% Coverage]
+Reference 1 - 4.68% Coverage
+The decision is, of course, Faulkners, since the 
+powers under which these measures are taken are powers. of the Northern Ireland Government.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2210_DEFE_24_1214 - § 1 reference coded [ 5.20% Coverage]
+Reference 1 - 5.20% Coverage
+Any 
+new draft regulations required for this purpose could now be prepared for immediate signature if and when the need arose. 
+Rules for the internal 
+administration of internment camps had been drafted
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2217_DEFE_24_1214 - § 1 reference coded [ 1.48% Coverage]
+Reference 1 - 1.48% Coverage
+Page 1 : (74,72) - (475,106)
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2227_DEFE_24_1214 - § 1 reference coded [ 9.73% Coverage]
+Reference 1 - 9.73% Coverage
+The Northern Ireland Government were advised that we presume that the 
+statue of internees and internal regulations will be dealt with under the Special Powers Acts, particularly Regulations 12 and 13. 
+Ireland Government pursuing this line and if so, what progress has been
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2233_DEFE_24_1214 - § 2 references coded [ 7.24% Coverage]
+Reference 1 - 3.94% Coverage
+Page 1 : (46,324) - (593,420)
+Reference 2 - 3.30% Coverage
+The power of internment is contained in Regulation 12 made under the Civil Authorities (Special Powers) Acts (Northern Ireland) 1922-43,
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2234_DEFE_24_1214 - § 1 reference coded [ 2.29% Coverage]
+Reference 1 - 2.29% Coverage
+Page 1 : (189,251) - (444,370)
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2262_DEFE_24_1214 - § 1 reference coded [ 6.08% Coverage]
+Reference 1 - 6.08% Coverage
+Como ’Of’fice’ thomsolves havoc no authority to finanoo any 
+priSaon accommodation outoido Great" Britian; and tho D of .E could not Fact an agents for them, or for ayothe boywtotteebi 
+(1) GEN 47(71); ist Mig Conclusion (2)
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2270_DEFE_24_1214 - § 1 reference coded [ 4.13% Coverage]
+Reference 1 - 4.13% Coverage
+Mr Nicholls said that certain aspects of 
+policy were still to be resolved including: a. b. 
+Status of internees Standards of accommodation
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2281_DEFE_24_1214 - § 1 reference coded [ 7.61% Coverage]
+Reference 1 - 7.61% Coverage
+You ITRELAND .A’- INT R1iE.NT uill know that considertion has been given to the need to 
+tighten up security arrangements in Torthern Ireland and, in piticuilar, to the possibility of introducing internment under the Spcal.Powers Act.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2290_DEFE_24_1214 - § 1 reference coded [ 4.79% Coverage]
+Reference 1 - 4.79% Coverage
+Status. The present terms of reference state that internees should be treated as convicted criminals. The Home Office official was most unhappy with this definition and believed that there would be humanitarian pressures to provide for creature comforts.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2293_DEFE_24_1214 - § 1 reference coded [ 3.98% Coverage]
+Reference 1 - 3.98% Coverage
+The legal status of internees would be no better than 
+that of convicted prisoners (under the Special Powers Act it is conceivable that they might be worse);
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2294_DEFE_24_1214 - § 1 reference coded [ 13.04% Coverage]
+Reference 1 - 13.04% Coverage
+On Home Office advice the use of Great Britain either in 
+terms of prisons or other accommodation or even the use of a Great Britain anchorage has been ruled out because legislation at Westminster would be required to enable internees to be accommodated in this country or in its territorial waters. (under existing law prisoners in Northern Ireland can only be transferred to prisons in Great Britain at their own request) The Isle of Man has also been ruled out: not only would legislation in Northern Ireland end the Isle of Man be necessary, but any scheme would also need prior discussion and agreement with the Isle of Man Government, which is highly unlikely to be forthcoming
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2298_DEFE_24_1214 - § 1 reference coded [ 5.43% Coverage]
+Reference 1 - 5.43% Coverage
+Regulation 12 made under the Civil Authorities (Special Powers) Acts 
+(Northern Ireland) 1922-43 confers on the Northern Ireland Government the power to intern without trial.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2299_DEFE_24_1214 - § 1 reference coded [ 1.61% Coverage]
+Reference 1 - 1.61% Coverage
+transfer to Great Britain would require legislation here.
+Files\\SKD_round1\\PREM 15 1035\\IMG_4924_PREM_15_475 - § 1 reference coded [ 7.02% Coverage]
+Reference 1 - 7.02% Coverage
+He is operating the inquisitorial procedure provided for in the Tribunals of Inquiry Act (a procedure which has been the subject of bitter criticism in the V and G case).
+Files\\SKD_round1\\PREM 15 1035\\IMG_4928_PREM_15_475 - § 1 reference coded [ 6.93% Coverage]
+Reference 1 - 6.93% Coverage
+For deep interrogation the penalties would probably be nominal and the Crown could stand by the personnel as in civil actions. If the possibility of a more serious penalty such as imprisonment was involved we should resort to an Act of Indemnity on an individual basis.
+Files\\SKD_round1\\PREM 15 1035\\IMG_4938_PREM_15_475 - § 1 reference coded [ 8.45% Coverage]
+Reference 1 - 8.45% Coverage
+Page 1 : (83,631) - (567,811)
+Files\\SKD_round1\\PREM 15 1035\\IMG_4939_PREM_15_475 - § 3 references coded [ 39.40% Coverage]
+Reference 1 - 13.51% Coverage
+V1efer1,0i to abovP ra rl su Esct ofr havn 9t atml.1eºd anr off’erse againM tigulatien ehlA made under the UivW nuthOrrities (gpasiaol Power+,) An4 (Nettorhrn Ireland) 190, Under 14egulatiion 1l made und01e that Ant any m fifr of’ har Majesty’ Purees on duty, when 0h Moeauioan for the Arrest arises, may arreat’ without warrant any" Pesn Who is AUspected of having ornmtted an offenoe ataint the hesulAtlonA,
+Reference 2 - 13.20% Coverage
+"I am arresting you under the powera co nerred by the Civil Auhorritis (speoisa vowerm) At (Northarn Ireland) 1922". If the person arrestow questiono the Authority for thO Arrest, t’ by asking what ofenooe he hs uommitted or under what Regulation he is avrrsted tho oldier making the arrent is to say " 
+am not required to give any furthr explanation. that if yourssaresyou may be committing an offenoe".
+Reference 3 - 12.69% Coverage
+he document of authority for arrest night be used to Justify an arrest under togulation 10 or regulation 11 of th Civil Authorities (peoisa. 
+1 warn you Powers) 
+Act (Northern Ireland) I22, There is also a pOwer of arrest conferred by BSotion 7(1) of the Act, but in different torms to, and with results differont from what follows on any arrest purported to e made under Regulationa 10 or 11.
+Files\\SKD_round1\\PREM 15 1035\\IMG_4940_PREM_15_475 - § 1 reference coded [ 4.72% Coverage]
+Reference 1 - 4.72% Coverage
+Mr McDermott confined the case to whether the arrest by warrant Officer Bullman on the 9th August was lawful under paragraph 10 of the 
+Regulations; 
+and it is on that basis I trot the matter.
+Files\\SKD_round1\\PREM 15 1035\\IMG_4975_PREM_15_475 - § 2 references coded [ 12.64% Coverage]
+Reference 1 - 7.99% Coverage
+He 
+still thought that it was essential to a fair trial that there should be a confrontation between the witness and the accused. 
+On reflection, however, he did not think that 
+either the accused or his legal representative was necessarily entitled to know the identity of the witness or be in a position to recognise him
+Reference 2 - 4.66% Coverage
+The court 
+would, however, have to know the identity of the witness and ought to be given the power to decide in each case whether it was justifiable that this procedure should be followed
+Files\\SKD_round1\\PREM 15 1035\\IMG_4996_PREM_15_475 - § 1 reference coded [ 3.95% Coverage]
+Reference 1 - 3.95% Coverage
+We have accordingly confined our 
+inquiry to interrogation in circumstances where some public emergency has arisen as a result of which suspects can legally be detained without trial.
+Files\\SKD_round1\\PREM 15 1035\\IMG_5013_PREM_15_475 - § 2 references coded [ 27.98% Coverage]
+Reference 1 - 15.13% Coverage
+In Northern Ireland in normal times the powers of the police and prison officers in relation to those in custody are substantially the same except for an immaterial difference in their Judges’ Rules. 
+Of 
+the Regulations scheduled to the Civil Authorities (Special Powers) Act (Northern Ireland) 1922, Regulation 10 provides that ’Any officer of The Royal Ulster Constabulary, for the preservation of the peace and maintenance of order, may authorise the arrest without warrant and detention for a period of not more then 48 hours of any person for the purpose of interrogation’.
+Reference 2 - 12.85% Coverage
+Regulation 11 
+provides a limited power of detention and a limited right to photograph and finger-print and Regulation 12 a limited right of internment. 
+Regulation 13(5) provides 
+that ’Persons detained or interned in any of Her Majesty’s prisons shall be subject to any rules for the government of prisoners awaiting trial including such general rules as are applicable to such prisoners, for the time being in force, except in so far as the said rules are inconsistent with this regulations.
+Files\\SKD_round1\\PREM 15 1035\\IMG_5027_PREM_15_475 - § 1 reference coded [ 12.44% Coverage]
+Reference 1 - 12.44% Coverage
+Under conditions of emergency, or near emergency, there is likely 
+to be internal security legislation controlling the treatment of detainees and arrested persons. 
+reflect prevailing conditions. 
+Legislation will vary from country to country and Military personnel are to acquaint themselves 
+with the laws of the country concerned, and will not act unlawfully under any circumstances whatever.
+Files\\SKD_round1\\PREM 15 1035\\IMG_5050_PREM_15_475 - § 2 references coded [ 15.93% Coverage]
+Reference 1 - 7.02% Coverage
+We feel sure that you do not intend us to cover police 
+interrogation under ordinary conditions but only interrogation under emergency conditions short of war such as prevail in Northern Ireland, e.g. where persons can be lawfully detained without trial.
+Reference 2 - 8.92% Coverage
+To consider whether, and if so in what respects - under conditions in which persons suspected of terrorism can be lawfully detained without trial in the traditional Courts - the procedures currently authorised for the interrogation of such persons and for their custody while subject to interrogation require amendment."
+Files\\SKD_round1\\PREM 15 1035\\IMG_5089_PREM_15_475 - § 1 reference coded [ 3.70% Coverage]
+Reference 1 - 3.70% Coverage
+Page 1 : (88,278) - (466,369)
+Files\\SKD_round1\\PREM 15 476\\IMG_5438_PREM_15_476 - § 1 reference coded [ 6.63% Coverage]
+Reference 1 - 6.63% Coverage
+He said that the Northern Ireland Government had powers 
+to order internment, though Major Chichester-Clark had not wished to exercise them.
+Files\\SKD_round1\\PREM 15 476\\IMG_5460_PREM_15_476 - § 1 reference coded [ 6.88% Coverage]
+Reference 1 - 6.88% Coverage
+It might be best to confine discussion to the purely military aspects 
+and to discuss such matters as legal problems (Items 3 and 4 of the Annex) under the Civil Contingency Planning item on the agenda.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_050 - § 1 reference coded [ 7.23% Coverage]
+Reference 1 - 7.23% Coverage
+I have therefore decided, after weighing all the relevant 
+considerations, including the views of the security authorities and after consultation with HMG in the UK last Thursday, to exercise where necessary the powers of detention and internment vested in me as minister of Home Affairs.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_165 - § 1 reference coded [ 8.93% Coverage]
+Reference 1 - 8.93% Coverage
+MR FAULKNER, THE PRIME MINISTER OF NORTHERN IRELAND, ANNOUNCED THIS MORNING, 9 AUGUST, THAT AFTER WEIGHING ALL THE RELEVANT CONSIDERATIONS, INCLUDING THE VIEWS OF THE SECURITY AUTHORITIES, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND COVERNENT HAD DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_166 - § 1 reference coded [ 3.94% Coverage]
+Reference 1 - 3.94% Coverage
+THOSE HELD WILL, WITHIN A REASONABLE PERIOD, EITHER BE CHARGED BEFORE A COURT, RELEASED, OR MADE THE SUBJECT OF AN INTERNMENT ORDER.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_175 - § 1 reference coded [ 12.55% Coverage]
+Reference 1 - 12.55% Coverage
+I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS,, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_179 - § 1 reference coded [ 11.18% Coverage]
+Reference 1 - 11.18% Coverage
+I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_180 - § 1 reference coded [ 3.22% Coverage]
+Reference 1 - 3.22% Coverage
+THE DECISION IS, OF COURSE, FAULKNER’S , SINCE THE POWERS UNDER WHICH THESE MEASURES ARE TAKEN ARE POWERS OF THE NORTHERN IRELAND GOVERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_185 - § 1 reference coded [ 12.96% Coverage]
+Reference 1 - 12.96% Coverage
+I am sending you this message to let you know 
+that the Prime Minister of Northern Ireland will very shortly be announcing that, in the light of the latest assessment of the security situation in Northern Ireland and all other relevant factors, and after consultation with the British Government, the Northern Ireland Government has decided to activate its powers of internment.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_189 - § 1 reference coded [ 14.16% Coverage]
+Reference 1 - 14.16% Coverage
+I am sending you this message to let you know 
+that the Prime Minister of Northern Ireland will very shortly be announcing that, in the light of the latest assessment of the security situation in Northern Ireland and all other relevant factors, and after consultation with the British Government, the Northern Ireland Government has decided to activate its powers of internment.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_192 - § 1 reference coded [ 7.93% Coverage]
+Reference 1 - 7.93% Coverage
+The decision is, of course, Faulkner’s, since the 
+powers under which these measures are taken are powers of the Northern Ireland Government.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_195 - § 1 reference coded [ 3.82% Coverage]
+Reference 1 - 3.82% Coverage
+I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME 
+MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_196 - § 2 references coded [ 1.98% Coverage]
+Reference 1 - 1.20% Coverage
+UNDER WHI H THESE MEASURES ARE TAKEN ARE POWERS OF THE NORTHERN IRELAND GOVERNMENT.
+Reference 2 - 0.77% Coverage
+THE DECISION IS OF COURSE FAULKNERS, SINCE THE POWERS
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_198 - § 1 reference coded [ 13.30% Coverage]
+Reference 1 - 13.30% Coverage
+I am sending you this message to let you know 
+that the Prime Minister of Northern Ireland will very shortly be announcing that, in the light of the latest assessment of the security situation in Northern Ireland and all other relevant factors, and after consultation with the British Government, the Northern Ireland Government has decided to activate its powers of internment.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_204 - § 1 reference coded [ 13.18% Coverage]
+Reference 1 - 13.18% Coverage
+I am sending you this message to let you know 
+that the Prime Minister of Northern Ireland will very shortly be announcing that, in the light of the latest assessment of the security situation in Northern Ireland and all other relevant factors, and after consultation with the British Government, the Northern Ireland Government has decided to activate its powers of internment.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_205 - § 1 reference coded [ 4.84% Coverage]
+Reference 1 - 4.84% Coverage
+The decision is, of course, Faulkner’s, since the 
+powers under which these measures are taken are powers of the Northern Ireland Government.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_211 - § 2 references coded [ 16.41% Coverage]
+Reference 1 - 11.91% Coverage
+THE PRIME MINISTER said that, after discussing with his colleagues the representations which Mr Faulkner had made at their meeting earlier in the afternoon, he had reached the conclusion that, if the position could be correctly described by saying that Mr Faulkner now wished to adopt a policy of internment and to invoke the statutory powers available to him for this purpose, the British Government would regard themselves as having been consulted by the Government of Northern Ireland and would be ready to acquiesce in this decision and to give the security forces the necessary instructions.
+Reference 2 - 4.49% Coverage
+This, 
+however, must be on the basis that all marches would be banned indefinitely; even if the Government of Northern Ireland’s powers in this respect were of only limited duration, they would have to be periodically renewed.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_213 - § 1 reference coded [ 3.62% Coverage]
+Reference 1 - 3.62% Coverage
+In present circumstances the banning of marches could clearly be justified by reference to all three of the criteria which were the foundation of the Government of Northern Ireland’s statutory powers in this respect.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_220 - § 1 reference coded [ 4.81% Coverage]
+Reference 1 - 4.81% Coverage
+The decision whether to proceed to internment is yours to make under the 
+Constitution but it is our mutual understanding, particularly in view of the involvement of UK forces, that such a decision would be agreed beforehand with us.
+Files\\SKD_round1\\PREM 15 479\\IMG_5824_PREM_15_479 - § 1 reference coded [ 12.09% Coverage]
+Reference 1 - 12.09% Coverage
+They are satisfied that they have got nothing 
+on which they could issue a warrant. If he landed here they would certainly lift him under the special powers but I gather that there is no hope of being able to use these outside Northern Ireland.
+Files\\SKD_round1\\PREM 15 479\\IMG_5828_PREM_15_479 - § 2 references coded [ 23.46% Coverage]
+Reference 1 - 12.30% Coverage
+You see we can go on holding him under our 
+immigration laws, but if there is no charge preferred, we should have in the end to send him back to Dublin and the general feeling is that if he has got to be sent back it is probably better to end him back earlier than later.
+Reference 2 - 11.16% Coverage
+The other/complication for us is that we do not allow political 
+him in as an immigrant on the grounds that he is a danger to national security to which they will say if he is a danger to national security why on earth can’t you deal with him.
+Files\\SKD_round1\\PREM 15 479\\IMG_5837_PREM_15_479 - § 2 references coded [ 7.73% Coverage]
+Reference 1 - 6.75% Coverage
+agreed to a request from the GOC, Northern Ireland, to introduce an independent inquiry to investigate the evidence relevant to allegations made by those arrested under the Special Powers Act on 9th August 1971 about their treatment while in the custody of the security forces, prior to subsequent release, the serving of a detention order or the preferral of criminal charges.
+Reference 2 - 0.98% Coverage
+It was announced on 21st August that the Government had
+Files\\SKD_round1\\PREM 15 479\\IMG_5872_PREM_15_479 - § 1 reference coded [ 5.72% Coverage]
+Reference 1 - 5.72% Coverage
+s to the committee itself, he was in process of setting it up and had invited Judge Brown, a Northern Ireland county court judge, to preside. The apparatus of the committee would not be required until internment orders (as opposed to detention orders) had been made.
+Files\\SKD_round1\\PREM 15 480\\IMG_5588_PREM_15_480 - § 1 reference coded [ 8.58% Coverage]
+Reference 1 - 8.58% Coverage
+Since 9th August persons have been detained under Orders made by me as Civil Authority under the Special Powers Act. 
+I have now made Orders interning 219 of these persons. Other detainees have been released 
+on the direction of the Atto rney-General, or their cases are still under consideration.
+Files\\SKD_round1\\PREM 15 480\\IMG_5591_PREM_15_480 - § 2 references coded [ 17.13% Coverage]
+Reference 1 - 6.19% Coverage
+The Special Powers Regulations provide for the setting up of an 
+Advisory Committee to consider representations from internees. His Honour 
+Judge Brown has agreed to act as Chairman of this Committee.
+Reference 2 - 10.94% Coverage
+It will be open to any internee, and all have been informed of their 
+rights, to put his case to the Committee, verbally or in writing, or by both means. 
+If he wishes to have legal advice in submitting a written case 
+he may do so and the Government has arranged that financial arrangements similar to those available under the legal aid scheme will be applicable.
+Files\\SKD_round1\\PREM 15 480\\IMG_5604_PREM_15_480 - § 2 references coded [ 3.25% Coverage]
+Reference 1 - 2.59% Coverage
+As internment had 
+been resorted to it was right to give all those confined access to the Appeal Tribunal.
+Reference 2 - 0.66% Coverage
+Anyone who contested this
+Files\\SKD_round1\\PREM 15 480\\IMG_5605_PREM_15_480 - § 1 reference coded [ 11.79% Coverage]
+Reference 1 - 11.79% Coverage
+allegation had the opportunity of putting the issue before the Tribunal.
+Files\\SKD_round1\\PREM 15 480\\IMG_5606_PREM_15_480 - § 2 references coded [ 5.65% Coverage]
+Reference 1 - 2.82% Coverage
+Page 1 : (67,336) - (499,396)
+Reference 2 - 2.83% Coverage
+Page 1 : (61,640) - (534,695)
+Files\\SKD_round1\\PREM 15 480\\IMG_5629_PREM_15_480 - § 1 reference coded [ 5.18% Coverage]
+Reference 1 - 5.18% Coverage
+"To investigate allegations by those arrested on 9 August under the Civil Authorities (Special Powers) Act Northern Ireland) 1922 of physical brutality while in the custody of the security forces prior to either their subsequent release, the preferring of a criminal charge or their being lodged in a place specified in a detention order".
+Files\\SKD_round1\\PREM 15 481\\IMG_5707_PREM_15_481 - § 1 reference coded [ 4.05% Coverage]
+Reference 1 - 4.05% Coverage
+Back this up with an undertaking that the appeals procedure (due to 
+begin on Saturday) will be conducted as rapidly as possible and will embrace all internees, whether they appeal or not.
+Files\\SKD_round1\\PREM 15 481\\IMG_5729_PREM_15_481 - § 1 reference coded [ 14.14% Coverage]
+Reference 1 - 14.14% Coverage
+But we all deplore the circumstances 
+which have led to internment; /and we welcome the assurance of the Government of Northern Ireland that every effort will be made to ensure that all those who wish to avail themselves of their statutory right to appeal against their continued detention will be enabled to do so as rapidly as possible and that the number of those held in internment will be reduced to the minimum constituting an indisputable threat to public security].
+Files\\SKD_round1\\PREM 15 481\\IMG_5732_PREM_15_481 - § 1 reference coded [ 17.91% Coverage]
+Reference 1 - 17.91% Coverage
+WE SHOULD LIKE YOU TO MAKE THE POINT THAT ’’BRIEFING REGARDING THE SITUATION PERTAINING NORTHERN IRELAND’’ SHOULD CONSTITUTIONALLY REACH THE SECRETARYGENERAL FROM THE UK MISSION ONLY AND THAT ANY INFORMAL DISCUSSION HE MAY HAVE WITH ANOTHER MISSION ON THE SUBJECT SHOULD NOT BE REFERRED TO IN A PUBLIC STATEMENT.
+Files\\SKD_round1\\PREM 15 481\\IMG_5754_PREM_15_481 - § 1 reference coded [ 32.11% Coverage]
+Reference 1 - 32.11% Coverage
+Internment Appeals Tribunal The Prime Minister considers that it is 
+very important, from the point of view of the tripartite meeting next week, that all the appointments to the Internment Appeals Tribunal should be finalised, and that there should, if possible, be a sitting of the Tribunal before the tripartite meeting.
+Files\\SKD_round1\\PREM 15 482\\IMG_6133_PREM_15_482 - § 1 reference coded [ 1.47% Coverage]
+Reference 1 - 1.47% Coverage
+Page 1 : (58,176) - (487,209)
+Files\\SKD_round1\\PREM 15 482\\IMG_6143_PREM_15_482 - § 1 reference coded [ 7.67% Coverage]
+Reference 1 - 7.67% Coverage
+Regulation 10 of the Special Powers Act. 
+The original arrest is under After 48 hours 
+the man has to be re-arrested under Regulation 11(i) so that he can be detained.
+Files\\SKD_round1\\PREM 15 482\\IMG_6169_PREM_15_482 - § 1 reference coded [ 7.91% Coverage]
+Reference 1 - 7.91% Coverage
+When the Internment Orders were signed no additional 
+information was conveyed to the next of kin although the internees themselves were given a copy of the Interment Order.
+Files\\SKD_round1\\PREM 15 482\\IMG_6174_PREM_15_482 - § 2 references coded [ 13.09% Coverage]
+Reference 1 - 4.89% Coverage
+It was, therefore, important that the Advisory Council should be seen to be working rapidly and justly, with the internees being allowed all proper facilities for legal representation and access to relevant documents.
+Reference 2 - 8.20% Coverage
+Lastly, while the processes in connection with internment should be seen to be working speedily and justly, an effort should be made to shorten the interval between the arrest and trial of persons charged with criminal offences in connection with public security. If the public could see that malefactors arrested by the security forces were brought swiftly to justice
+Files\\SKD_round1\\PREM 15 482\\IMG_6175_PREM_15_482 - § 5 references coded [ 26.98% Coverage]
+Reference 1 - 4.83% Coverage
+it would do much to increase public confidence, and the morale of the security forces themselves; their achievements in this regard had been considerable, but they were dimmed by the absence of a swift and manifest outcome of their efforts.
+Reference 2 - 4.62% Coverage
+The Advisory Committee had already held 4 meetings and had considered 16 cases; 32 more cases were pending and further meetings fixed to consider them. He was expecting the first batch of recommendations within the next few days.
+Reference 3 - 6.88% Coverage
+Internees were all given notice of their rights and were allowed legal advice in the preparation of their cases; but legal representation was not allowed at their appearance before the Committee, which was conducted in strict confidence with only the members of the Committee present, each of whom was provided with the relevant documents.
+Reference 4 - 7.70% Coverage
+As to the trial of those accused of criminal offences, he agreed that speedy justice was important. Delays arose not so much over offences tried summarily before the magistrates as over cases returned for trial by jury. He thought it would be advantageous if the establishment of special commissions of assize could be considered to deal speedily with offences involving security.
+Reference 5 - 2.96% Coverage
+The courts had in fact dealt firmly with a large number of cases and he would supply details of these to assist public presentation in Great Britain.
+Files\\SKD_round1\\PREM 15 482\\IMG_6176_PREM_15_482 - § 1 reference coded [ 6.56% Coverage]
+Reference 1 - 6.56% Coverage
+THE PRIME MINISTER, summing up this part of the discussion, said that it was agreed that, at least from the point of view of opinion in Great Britain, the success of all the measures in contemplation depended very largely on its being manifest that the machinery of the Advisory Committee was working speedily and justly.
+Files\\SKD_round1\\PREM 15 482\\IMG_6182_PREM_15_482 - § 1 reference coded [ 4.45% Coverage]
+Reference 1 - 4.45% Coverage
+On internment, Mr Faulkner said that he expected shortly to receive the first batch of recommendations of the advisory committee set up to consider the cases of interned persons.
+Files\\SKD_round1\\PREM 15 482\\IMG_6185_PREM_15_482 - § 2 references coded [ 16.43% Coverage]
+Reference 1 - 11.83% Coverage
+The nternenjsittion 
+Is there something to be said for a stadingcmmdission (Par ienthe implementation of the refor 
+C. 
+(1) Speed upte appeals procedure. (2) Make clear, in a single, comprehensive, public statement how the 
+appeals procedure wor.ks and what has been done to ensure that it approximates as closely as possible to a court (access to documents. legal representation etc.). Emphasise that its findings wilalmost always be accepted by the Government.
+Reference 2 - 4.60% Coverage
+(3) Legal representation. 
+a Fauilx1er, reinforced by fort’"awY 9 ., Is it agreed that this should be available not only for the preparation of cases but also or the actual hearinga ?
+Files\\SKD_round1\\PREM 15 482\\IMG_6188_PREM_15_482 - § 1 reference coded [ 20.90% Coverage]
+Reference 1 - 20.90% Coverage
+The British Government have noted that the Advisory Committee on 
+Internees has started its work and this committee will examine each case, and the cases of those who remain interned will be kept under continuous review. The Committee will have full access to the documentary material relevant to their work and the right to interview officials. In presenting himself to the Committee an internee will be entitled to legal aid and the presence of his legal adviser. The Prime Minister and Minister for Home Affairs of Northern Ireland has already stated that although the role of the Committee is an advisory one he would expect to accept its advice. In the exceptional circumstance in which he did not feel able to do so he would return the case to the Committee for its further consideration giving his reasons for doing so.
+Files\\SKD_round1\\PREM 15 482\\IMG_6235_PREM_15_482 - § 1 reference coded [ 2.77% Coverage]
+Reference 1 - 2.77% Coverage
+MR FAULKNER HAD INDICATED AT HIS PRESS CONFERENCE AFTER THE TRIPARTITE MEETINGS THAT ALTHOUGH THE COMMITTEE WAS AN ADVISORY ONE HE WOULD EXPECT TO TAKE ITS ADVICE.
+Files\\SKD_round1\\PREM 15 482\\IMG_6239_PREM_15_482 - § 1 reference coded [ 5.07% Coverage]
+Reference 1 - 5.07% Coverage
+Page 1 : (61,148) - (690,249)
+Files\\SKD_round1\\PREM 15 485\\IMG_5125_PREM_15_485 - § 1 reference coded [ 9.14% Coverage]
+Reference 1 - 9.14% Coverage
+Following the decision of the Northern Ireland Government, after consultation with Her Majesty’s Government, to exercise powers of detention and internment where necessary, the formal authority for the removal of certain individuals from the place specified in their detention orders to the interrogation centre was given by the Northern Ireland Minister of Home Affairs.
+Files\\SKD_round1\\PREM 15 485\\IMG_5131_PREM_15_485 - § 2 references coded [ 6.71% Coverage]
+Reference 1 - 5.53% Coverage
+consultation with Her Majesty’s Government, to exercise powers of detention and internment where necessary, the formal authority for the removal of certain individuals from the place specified in their detention orders to the interrogation centre was given by the Northern Ireland Minister of Home Affairs.
+Reference 2 - 1.18% Coverage
+Following the decision of the Northern Ireland Government, after
+Files\\SKD_round1\\PREM 15 485\\IMG_5160_PREM_15_485 - § 1 reference coded [ 11.20% Coverage]
+Reference 1 - 11.20% Coverage
+In considering the Committees report it is important to 
+have in mind the circumstances in Northern Ireland in which the Northern Ireland Government decided to exercise their powers under the Civil Authorities (Special Powers) Act (Northern Ireland) 1922 to arrest, detain or intern persons suspected of having acted or being about to act in a manner prejudicial to the preservation of the peace or the maintenance of order.
+Files\\SKD_round1\\PREM 15 485\\IMG_5162_PREM_15_485 - § 2 references coded [ 13.18% Coverage]
+Reference 1 - 8.10% Coverage
+I have therefore decided, after weighing all the relevant considerations, including the views of the security authorities and after consultation with Her Majesty’s Government in the United Kingdom last Thursday, to exercise where necessary the powers of detention and internment vested in me as Minister of Home Affairs"
+Reference 2 - 5.07% Coverage
+An advisory committee under Regulation 12 of the Special Powers 
+Act has been set up under the chairmanship of His Honour Judge Brown to review the cases of all those against whom internment orders are made.
+Files\\SKD_round1\\PREM 15 485\\IMG_5166_PREM_15_485 - § 1 reference coded [ 8.37% Coverage]
+Reference 1 - 8.37% Coverage
+Following the decision of the Northern Ireland Government; after 
+consultation with Her Majesty’s Government, to exercise powers of detention and internment where necessary, the formal authority for the removal of certain individuals from the place specified in their detention orders to the interrogation centre was given by the Northern Ireland Minister of Home Affairs.
+Files\\SKD_round1\\PREM 15 485\\IMG_5176_PREM_15_485 - § 1 reference coded [ 5.81% Coverage]
+Reference 1 - 5.81% Coverage
+Broad princples for the treatment of persons under 
+arrest or detention during civil disturbances are laid down in Article 3 of The Geneva Convention Relative to the Treatment of Prisoners of War (1949).
+Files\\SKD_round1\\PREM 15 485\\IMG_5185_PREM_15_485 - § 1 reference coded [ 2.89% Coverage]
+Reference 1 - 2.89% Coverage
+"I am arresting you under the powers conferred by the Civil Authorities (Special Powers) Act (Northern Ireland) 1922"
+Files\\SKD_round1\\PREM 15 485\\IMG_5215_PREM_15_485 - § 1 reference coded [ 4.37% Coverage]
+Reference 1 - 4.37% Coverage
+The Compton Enquiry was appointed by the Home Secretary on 31 August to 
+investigate allegations of physical brutality made by persons arrested on 9 August under the Special Powers Act.
+Files\\SKD_round1\\PREM 15 485\\IMG_5218_PREM_15_485 - § 1 reference coded [ 0.72% Coverage]
+Reference 1 - 0.72% Coverage
+They told me I was to be interned under the Special Powers Act.
+Files\\SKD_round1\\PREM 15 485\\IMG_5237_PREM_15_485 - § 1 reference coded [ 27.90% Coverage]
+Reference 1 - 27.90% Coverage
+IN A STATEMENT "IN 
+THE PRIME MINISTER OF NORTHERN IRELAND, MR FAULKNER. SAYS AN INTERVIEW IN THE ’WORLD THIS WEEKEND’ ON 
+ALLEGATIONS OF ILL TREATMENT OF PERSONS DETAINED UNDER THE SPECIAL POWERS ACT I INADVERTENTLY GAVE THE IMPRESSION BY A SLIP OF THE TONGUE THAT THE ADVISORY COMMITTEE HEADED BY JUDGE BROWN WAS IN SOME WAY CONCERNED WITH SUCH ALLEGATIONS.
