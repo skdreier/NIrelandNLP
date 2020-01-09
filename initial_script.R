@@ -9,7 +9,7 @@ jose <- F
 if(jose == T) {
 path <- "/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/justifications_01-06/justifications_txt/"
 text_fn <- "J_Denial.txt"
-} else {path <- "/Users/sarahdreier/OneDrive/Academic/repositories/NIreland_NLP/justifications_01-06/justifications_txt/"
+} else {setwd("/Users/sarahdreier/OneDrive/Academic/repositories/NIreland_NLP/justifications_01-06/justifications_txt/")
 text_fn <- "J_Denial.txt"
 }
 
@@ -26,6 +26,12 @@ file_number = str_extract_all(mystring, "(PREM_|DEFE_|CJ_)\\w+" )
 
 ### GOAL for/before Thursday: figure out how to ID the mis-named cases. From here, we separate the file and image name and paste back together
 
-
 # Regular expression backwards lookup
 # Conditional on specific words/aspects
+
+x = str_extract_all(mystring, "(PREM_15_478|PREM_15_1689|PREM_15_1010)")
+x = str_extract_all(mystring, "\\PREM_\\d{7}")
+x = str_extract_all(mystring, "\sPREM_")
+
+
+mystring
