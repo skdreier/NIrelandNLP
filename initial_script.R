@@ -7,13 +7,13 @@ library(stringr)
 jose <- F
 
 if(jose == T) {
-path <- "/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/justifications_01-06/justifications_txt/"
+path <- "/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/just_0106/justifications_txt/"
 text_fn <- "J_Denial.txt"
-} else { path <- "/Users/sarahdreier/OneDrive/Academic/repositories/NIreland_NLP/justifications_01-06/justifications_txt/"
+} else { path <- "/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP/just_0106/"
 text_fn <- "J_Denial.txt"
 }
 
-setwd("/Users/sarahdreier/OneDrive/Academic/repositories/NIreland_NLP/justifications_01-06/justifications_txt/")
+setwd("/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP/just_0106/")
 
 mystring <- read_file(text_fn)
 
