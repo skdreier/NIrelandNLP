@@ -20,6 +20,7 @@ import pandas as pd
 import re 
 import os
 
+
 ## Load txt document
 test_file = "/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP/just_0106/J_Denial.txt"
 f = open(test_file, "r")
@@ -52,6 +53,13 @@ prelim_df.head
 prelim_df["file_id"] = prelim_df["raw_text"].str.extract(r"(DEFE\w+|PREM\w+|CJ\w+)")
 prelim_df.head
 
+## Fixing File/Image number issue (PREM 15 478, 1010, 1689). 
+# Note: 1010/1689 and 487 have overlapping image numbers (1010/1689: IMGs 001-205; 487: IMGs 001-258)
+# This will be a problem later if we use IMG as a unique identifier
+prelim_df["image_id2"] = prelim_df["file_id"].str.extract(r"(PREM_15_.*_\S*)") 
+prelim_df["image_id2"] = r"IMG_0" + prelim_df["image_id2"].str.extract(r"(\d{3}$)")
+prelim_df["image_id"] = prelim_df["image_id"].fillna(prelim_df["image_id2"])
+
 ## Extracts justification text as its own raw-text column (Removes “Reference”)
 prelim_df["just_text_lump"] = prelim_df["raw_text"].str.replace(r"(?<!Files)(.*)(?<=Coverage)", "").str.strip()
 prelim_df["just_text_lump"].head
@@ -61,8 +69,19 @@ prelim_df["just_text_lump2"] = prelim_df["just_text_lump"].str.replace(r"\W+", "
 prelim_df["just_text"] = prelim_df["raw_text"].str.replace(r"(?<!Files)(.*)(?<=Coverage])", "").str.strip()
 prelim_df["just_text"].head
 
+## Extract the number of unique codes in this justification category a given document received
+prelim_df["reference_count"] = prelim_df["raw_text"].str.extract(r"(\d\sreference)")
+
 ## Write out as a csv
-prelim_df.to_csv("/Users/sarahdreier/OneDrive/NIreland_NLP/prelim_denial.csv")
+prelim_df.to_csv("prelim_denial.csv")
+
+## Text work to create a new variable for each unique reference
+#re.compile(r"^>(\w+)$$([.$]+)^$", re.MULTILINE) #
+#(Reference.\d)(.*)(?<=Reference.[2-5])
+#prelim_df["test"] = prelim_df["raw_text"].str.extract(r"(Reference)(.*)(Files)", re.MULTILINE)
+
+##################
+
 
 ## To set different rules for output
 #pd.set_option('display.max_rows', 10)
