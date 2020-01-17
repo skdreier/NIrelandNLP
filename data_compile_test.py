@@ -96,6 +96,15 @@ df_long["just_text_lump2"] = df_long["just_text_lump"].str.replace(r"\W+", " ") 
 df_long["just_text"] = df_long["raw_text"].str.replace(r"(?<!Files)(.*)(?<=Coverage])", "").str.strip()
 df_long["just_text"].head
 
+# split multiple reference text entries into new columns
+test = df_long["just_text"].str.split(r'.*(?=Reference)',expand = True) 
+test
+# will need to join to overall df 
+
+# better to create a list within a single column 
+df_long["coded_refs"] = df_long["just_text"].str.split(r'.*(?=Reference)',expand = False) 
+df_long["coded_refs"] # need to remove empty list items 
+
 ## Write out as a csv
 df_long.to_csv(os.path.join(path, 'denial_long_parsed.csv'))
 
