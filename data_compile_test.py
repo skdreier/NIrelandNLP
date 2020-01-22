@@ -4,14 +4,6 @@ from pathlib import Path
 import re
 import pandas as pd
 
-test_file = '/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/justifications_01-06/justifications_txt/J_Denial.txt'
-
-f = open(test_file, "r")
-text = f.read()
-f.close()
-
-text
-
 path = '/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/'
 
 files = []
@@ -104,8 +96,15 @@ test
 # better to create a list within a single column 
 df_long["coded_refs"] = df_long["just_text"].str.split(r'.*(?=Reference)',expand = False) 
 df_long["coded_refs"] # need to remove empty list items 
-
+df_long.shape
 ## Write out as a csv
 df_long.to_csv(os.path.join(path, 'denial_long_parsed.csv'))
 
+# Create a df that contains the references of images without text
+# example: "Reference 1 - 1.53% Coverage "Page 1 : (128,35)
+# Currently theres a list column that might contain these references
 
+df_pg_ref = df_long[df_long['just_text_lump'].str.contains("Page")]
+df_pg_ref.shape
+
+df_pg_ref.to_csv(os.path.join(path, 'page_ref.csv'))
