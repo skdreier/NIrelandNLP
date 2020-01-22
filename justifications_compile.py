@@ -133,5 +133,10 @@ df_long["coded_refs"] # need to remove empty list items
 df_long["page_captures"] = df_long["coded_refs"].str.extract(r"(Reference.\d.*\nPage.\d.:.*)")
 df_long["page_captures"] = df_long["page_captures"].str.replace(r"(?<=Reference.\d.)(.*\n)", "").str.strip()
 
+df_pg_ref = df_long[df_long['just_plain_text_all_ref'].str.contains("Page")]
+df_pg_ref.shape
+
+df_pg_ref.to_csv(os.path.join(path, 'page_ref.csv'))
+
 ## Write out as a csv
 df_long.to_csv(os.path.join(path, 'justifications_long_parsed.csv'))
