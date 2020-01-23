@@ -104,6 +104,8 @@ df_long["file_id"] = df_long["file_id_orig"].str.extract(r"(PREM_15_.*_\S*)")
 df_long["file_id"] = df_long["file_id"].str.extract(r"(PREM_15_\d*)")
 df_long["file_id"] = df_long["file_id"].fillna(df_long["file_id_orig"])
 
+# Merge Image and File names to output the original file name for merging purposes
+df_long["img_file"] = df_long.image_id.map(str) + "_" + df_long.file_id
 
 ## Extracts justification text as its own raw-text column (Removes “Reference”)
 df_long["just_plain_text_all_ref"] = df_long["raw_text"].str.replace(r"(?<!Files)(.*)(?<=Coverage)", "").str.strip()
@@ -132,7 +134,7 @@ df_pg_ref = df_long[df_long['just_text_all_ref'].str.contains("Page")]
 df_pg_ref.shape
 df_pg_ref.columns
 
-df_pg_ref = df_pg_ref[['justification', 'file_id', 'image_id', 'file_id_orig', 'ref_count', 'coded_refs']]
+df_pg_ref = df_pg_ref[['img_file', 'justification', 'file_id', 'image_id', 'file_id_orig', 'ref_count', 'coded_refs']]
 df_pg_ref.to_csv(os.path.join(path, 'page_ref.csv'))
 
 ## Write out as a csv
