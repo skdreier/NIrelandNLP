@@ -127,17 +127,14 @@ test
 df_long["coded_refs"] = df_long["just_text_all_ref"].str.split(r'.*(?=Reference)',expand = False) 
 df_long["coded_refs"] # need to remove empty list items 
 
-## Extract pieces coded as photo block (rather than as text)
-# This is more detailed than necessary in order to avoid false positives
-# ISSUE: THIS DOESN'T PULL ANY PAGE CAPTURE BEYOND THE FIRST REFERENCE!!!! WHATEVER SHALL WE DO? #
-df_long["page_captures"] = df_long["coded_refs"].str.extract(r"(Reference.\d.*\nPage.\d.:.*)")
-df_long["page_captures"] = df_long["page_captures"].str.replace(r"(?<=Reference.\d.)(.*\n)", "").str.strip()
-
-## New code from Jose from Tuesday
-df_pg_ref = df_long[df_long['just_plain_text_all_ref'].str.contains("Page")]
+## Extracts docs that have page capture codes (rather than text codes) and outputs it to a different doc
+df_pg_ref = df_long[df_long['just_text_all_ref'].str.contains("Page")]
 df_pg_ref.shape
+df_pg_ref.columns
 
+df_pg_ref = df_pg_ref[['justification', 'file_id', 'image_id', 'file_id_orig', 'ref_count', 'coded_refs']]
 df_pg_ref.to_csv(os.path.join(path, 'page_ref.csv'))
 
 ## Write out as a csv
 df_long.to_csv(os.path.join(path, 'justifications_long_parsed.csv'))
+
