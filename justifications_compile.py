@@ -133,6 +133,7 @@ df_long["coded_refs"] # need to remove empty list items
 df_long["page_captures"] = df_long["coded_refs"].str.extract(r"(Reference.\d.*\nPage.\d.:.*)")
 df_long["page_captures"] = df_long["page_captures"].str.replace(r"(?<=Reference.\d.)(.*\n)", "").str.strip()
 
+## New code from Jose from Tuesday
 df_pg_ref = df_long[df_long['just_plain_text_all_ref'].str.contains("Page")]
 df_pg_ref.shape
 
