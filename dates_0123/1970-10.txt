@@ -1,0 +1,45 @@
+﻿Files\\SKD_round1\\PREM 15 474\\IMG_5281_PREM_15_474 - § 1 reference coded [ 0.60% Coverage]
+Reference 1 - 0.60% Coverage
+Page 1 : (29,625) - (181,661)
+Files\\SKD_round1\\PREM 15 474\\IMG_5338_PREM_15_474 - § 1 reference coded [ 0.23% Coverage]
+Reference 1 - 0.23% Coverage
+Page 1 : (94,146) - (197,167)
+Files\\SKD_round1\\PREM 15 474\\IMG_5340_PREM_15_474 - § 1 reference coded [ 0.62% Coverage]
+Reference 1 - 0.62% Coverage
+Page 1 : (378,220) - (559,264)
+Files\\SKD_round1\\PREM 15 474\\IMG_5341_PREM_15_474 - § 1 reference coded [ 1.35% Coverage]
+Reference 1 - 1.35% Coverage
+Page 1 : (77,105) - (562,131)
+Files\\SKD_round1\\PREM 15 474\\IMG_5342_PREM_15_474 - § 1 reference coded [ 0.50% Coverage]
+Reference 1 - 0.50% Coverage
+Page 1 : (335,108) - (463,145)
+Files\\SKD_round1\\PREM 15 474\\IMG_5344_PREM_15_474 - § 1 reference coded [ 0.62% Coverage]
+Reference 1 - 0.62% Coverage
+Page 1 : (322,98) - (487,133)
+Files\\SKD_round1\\PREM 15 474\\IMG_5349_PREM_15_474 - § 1 reference coded [ 0.77% Coverage]
+Reference 1 - 0.77% Coverage
+Page 1 : (47,460) - (251,496)
+Files\\SKD_round1\\PREM 15 474\\IMG_5350_PREM_15_474 - § 1 reference coded [ 0.32% Coverage]
+Reference 1 - 0.32% Coverage
+Page 1 : (382,104) - (542,125)
+Files\\SKD_round1\\PREM 15 474\\IMG_5351_PREM_15_474 - § 1 reference coded [ 0.37% Coverage]
+Reference 1 - 0.37% Coverage
+Page 1 : (407,0) - (581,21)
+Files\\SKD_round1\\PREM 15 474\\IMG_5355_PREM_15_474 - § 1 reference coded [ 0.28% Coverage]
+Reference 1 - 0.28% Coverage
+Page 1 : (384,98) - (534,124)
+Files\\SKD_round1\\PREM 15 474\\IMG_5357_PREM_15_474 - § 1 reference coded [ 0.41% Coverage]
+Reference 1 - 0.41% Coverage
+Page 1 : (337,134) - (477,161)
+Files\\SKD_round1\\PREM 15 474\\IMG_5358_PREM_15_474 - § 1 reference coded [ 0.49% Coverage]
+Reference 1 - 0.49% Coverage
+Page 1 : (316,71) - (485,98)
+Files\\SKD_round1\\PREM 15 474\\IMG_5359_PREM_15_474 - § 1 reference coded [ 0.25% Coverage]
+Reference 1 - 0.25% Coverage
+Page 1 : (302,117) - (433,135)
+Files\\SKD_round1\\PREM 15 474\\IMG_5363_PREM_15_474 - § 1 reference coded [ 0.60% Coverage]
+Reference 1 - 0.60% Coverage
+Page 1 : (59,596) - (195,637)
+Files\\SKD_round1\\PREM 15 474\\IMG_5364_PREM_15_474 - § 1 reference coded [ 0.25% Coverage]
+Reference 1 - 0.25% Coverage
+Page 1 : (358,123) - (486,142)

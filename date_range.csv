@@ -1,0 +1,50 @@
+docs,file1,file2,file3,coder_r1,start_yr,start_mo,end_year,end_mo,description,blk1,completed,notes
+8,PREM,15,100,Sarah,1970,6,1970,7,Internal situation in Norther Ireland,YES,Done 11/19 ,Nothing relevant
+8,PREM,15,101,Sarah,1970,7,1970,8,"Internal situation in Norther Ireland, part 2",YES,Done 11/19,
+13,PREM,15,474,Sarah,1970,8,1971,1,"Internal situation in Norther Ireland, part 3",,NOT DONE,ACCIDENTALLY SKIPPED -- RETURN TO LATER
+72,PREM,15,475,Sarah,1971,2,1971,3,"Internal situation in Norther Ireland, part 4",,Done 12/1,"First 11 from 2/3-1972; after that, all from Nov 1971-1972"
+13,PREM,15,476,Sarah,1971,3,1971,4,"Internal situation in Norther Ireland, part 5",,Done 12/1,Contains draft of NI (Emergency Provisions) act; VERY eluminating justification docs
+10,PREM,15,477,Sarah,1971,4,1971,7,"Internal situation in Norther Ireland, part 6",,Done 12/1,
+100,PREM,15,478,Sarah,1971,7,1971,8,"Internal situation in Norther Ireland, part 7",,Done 12/2,
+41,PREM,15,479,Sarah,1971,8,1971,9,"Internal situation in Norther Ireland, part 8",,Done 12/5,
+23,PREM,15,480,Sarah,1971,9,1971,9,"Internal situation in Norther Ireland, part 9",,Done 12/5,
+23,PREM,15,481,Sarah,1971,9,1971,10,"Internal situation in Norther Ireland, part 10",,Done 12/5,
+30,PREM,15,482,Sarah,1971,10,1971,10,"Internal situation in Norther Ireland, part 11",,Done 12/6,
+72,PREM,15,485,Sarah,1971,8,1971,11,"Compton Enquiry into allegations of brutality by Army in Northern Ireland, part 1",,Done 12/30,Finished after PREM 15s
+20,PREM,15,483,Dani,1971,10,1971,11,"Internal situation in Norther Ireland, part 12",,Done 12/6,
+148,DEFE,24,1214,Sarah,1971,1,1971,12,Northern Ireland: internment and interrogation policy,YES,Done 11/27,
+9,PREM,15,486,Sarah,1971,3,1971,12,"Records of meetings between Prime Minister and Mr. Lynch, Taoiseach of Irish Republic",,Done 12/10,
+22,PREM,15,484,Dani,1971,11,1971,12,"Internal situation in Norther Ireland, part 13",,Done 12/06,
+29,DEFE,13,917,Sarah,1971,,1971,,Northern Ireland: interrogation,,Done 12/30,Finished after PREM 15s
+44,PREM,15,1000,Dani,1971,12,1972,1,"Situation in Northern Ireland, part 14",,Done 12/10,
+40,PREM,15,1001,Dani,1972,1,1972,2,"Situation in Northern Ireland, part 15",,Done 12/11,
+53,PREM,15,1002,Dani,1972,2,1972,2,"Situation in Northern Ireland, part 16",,Done 12/12,
+,PREM,15,1035,Sarah,1971,11,1972,3,"Allegations of brutality by Army in Northern Ireland: Parker Enquiry into interrogation procedures, part 2",,Done 12/01,Coded w PREM 15 475 (since they were mis-labeled as part of that folder)
+33,PREM,15,1003,Dani,1972,2,1972,3,"Situation in Northern Ireland, part 17",,Done 12/13,
+15,PREM,15,1004,Dani,1972,3,1972,3,"Situation in Northern Ireland, part 18",,Done 12/15,
+41,PREM,15,1005,Dani,1972,3,1972,3,"Situation in Northern Ireland, part 19",,Done 12/16,
+18,PREM,15,1006,Dani,1972,3,1972,4,"Situation in Northern Ireland, part 20",,Done 12/16,
+,PREM,15,1020,Sarah,1972,4,1972,4,Scarman Report on violence and civil disturbances in Northern Ireland in 1969,,NA,Nothing re internment
+20,PREM,15,1007,Dani,1972,4,1972,5,"Situation in Northern Ireland, part 21",,Done 12/17,
+15,PREM,15,1008,Dani,1972,5,1972,6,"Situation in Northern Ireland, part 22",,Done 12/17,
+36,PREM,15,1009,Emily,1972,6,1972,6,"Situation in Northern Ireland, part 23",,Done 12/18,
+19,PREM,15,1010,Dani,1972,7,1972,7,"Situation in Northern Ireland, part 24",,Done 12/23,
+12,PREM,15,1011,Emily,1972,7,1972,7,"Situation in Northern Ireland, part 25",,Done 12/24,
+24,CJ,4,251,Sarah,1972,6,1972,8,Ceasefire by Provisional IRA: policy on arrest of leaders_,,Done 12/24,
+50,PREM,15,1012,Emily,1972,8,1972,8,"Situation in Northern Ireland, part 26",,Done 12/25,
+28,PREM,15,1013,Emily,1972,8,1972,9,"Situation in Northern Ireland, part 27",,Done 12/25,
+,PREM,15,1014,Emily,1972,9,1972,10,"Situation in Northern Ireland, part 28",,Done 12/25,Coded w PREM 15 1013 (since they were mis-labeled as part of that folder)
+11,PREM,15,1015,Emily,1972,10,1972,11,"Situation in Northern Ireland, part 29",,Done 12/27,
+54,DEFE,13,1358,Dani,1972,1,1972,12,Northern Ireland: situation reports,,Done 12/29,Finished after PREM 15s
+21,PREM,15,1016,Emily,1972,11,1972,12,"Situation in Northern Ireland, part 30",,Done 12/27,
+45,DEFE,13,919,Sarah,1972,,1972,,Northern Ireland: interrogation,,Done 01/06,Finished after PREM 15s
+90,CJ,4,458,Sarah,1972,5,1973,1,Terrorist suspects: policy and procedures for arrest and interrogation_,,NOT DONE,SKIP -- RETURN TO LATER
+16,PREM,15,1689,Dani,1973,1,1973,2,"Situation in Northern Ireland, part 31",,Done 12/28,
+4,PREM,15,1690,Emily,1973,2,1973,3,"Situation in Northern Ireland, part 32",,Done 12/28,
+6,PREM,15,1691,Emily,1973,3,1973,3,"Situation in Northern Ireland, part 33",,Done 12/28,
+16,PREM,15,1692,Emily,1973,3,1973,4,"Situation in Northern Ireland, part 34",,Done 12/28,
+7,PREM,15,1693,Emily,1973,5,1973,7,"Situation in Northern Ireland, part 35",,Done 12/28,
+2,DEFE,24,876,Dani,1973,1,1973,12,Northern Ireland: force levels; reinforcement; contingency planning,,Done 01/06,
+12,DEFE,24,877,Dani,1973,1,1973,12,Northern Ireland: force levels; structure and organisation,,Done 01/06,
+1,DEFE,24,606,Dani,1971,,1973,,BAOR and Allied Mobile Force (Land) units in Northern Ireland,,Done 01/06,
+1374,,,,,,,,,,,,
