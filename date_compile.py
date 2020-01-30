@@ -113,6 +113,8 @@ df_long["img_file"] = df_long.image_id.map(str) + "_" + df_long.file_id
 
 df_long = df_long[['date', 'image_id', 'file_id', 'img_file']]
 
+df_long.head
+
 path = '/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP'
 
 ## Write out as a csv
