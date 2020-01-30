@@ -9,21 +9,14 @@ from pathlib import Path
 import re
 import pandas as pd
 
+this_file_path = os.path.abspath(__file__)
+project_root = os.path.split(this_file_path)[0]
+date_path = os.path.join(project_root, 'dates_0123') + '/'
+
 ## Load txt document
-#test_file = '/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/justifications_01-06/justifications_txt/J_Denial.txt'
-test_file = "/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP/dates_0123/1970-05.txt"
-
-f = open(test_file, "r")
-text = f.read()
-f.close()
-
-#path = '/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/'
-path = '/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP/dates_0123'
-
-
 files = []
 # r=root, d=directories, f = files
-for r, d, f in os.walk(path):
+for r, d, f in os.walk(date_path):
     for file in f:
         if '.txt' in file:
             files.append(os.path.join(r, file))
@@ -115,8 +108,6 @@ df_long = df_long[['date', 'image_id', 'file_id', 'img_file']]
 
 df_long.head
 
-path = '/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP'
-
 ## Write out as a csv
-df_long.to_csv(os.path.join(path, 'dates_long_parsed.csv'))
+df_long.to_csv(os.path.join(project_root, 'dates_long_parsed.csv'))
 
