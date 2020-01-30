@@ -19,7 +19,7 @@ text = f.read()
 f.close()
 
 #path = '/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/'
-path = '/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP/'
+path = '/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP/just_0106/'
 
 
 files = []
@@ -137,6 +137,8 @@ df_pg_ref.columns
 df_pg_ref = df_pg_ref[['img_file', 'justification', 'file_id', 'image_id', 'file_id_orig', 'ref_count', 'coded_refs']]
 df_pg_ref.to_csv(os.path.join(path, 'page_ref.csv'))
 
+
 ## Write out as a csv
+path = '/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP'
 df_long.to_csv(os.path.join(path, 'justifications_long_parsed.csv'))
 
