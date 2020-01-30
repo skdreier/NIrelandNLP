@@ -39,11 +39,9 @@ df_merge = pd.DataFrame.merge(df_just, df_date_range, 'left', on='file_id')
 df_merge_final = pd.DataFrame.merge(df_merge, df_dates, 'left', on="img_file")
 
 # output csv
-df_merge_final = df_merge_final[['img_file', 'file_id_orig', 'file_id', 'image_id', 'date', 'start_yr', 'start_mo', 'end_year', 'end_mo', 'justification', 'raw_text', 'just_plain_text_all_ref', 'just_text_all_ref', 'ref_count', 'coded_refs']]
+df_merge_final = df_merge_final[['img_file', 'img_file_orig', 'file_id_orig', 'file_id', 'image_id', 'date', 'start_yr', 'start_mo', 'end_year', 'end_mo', 'justification', 'raw_text', 'just_plain_text_all_ref', 'just_text_all_ref', 'ref_count', 'coded_refs']]
 
 df_merge_final.to_csv(os.path.join(path, 'justifications_dates_long_parsed.csv'))
-
-
 
 
 
