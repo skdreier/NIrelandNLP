@@ -10,26 +10,18 @@ from pathlib import Path
 import re
 import pandas as pd
 
+this_file_path = os.path.abspath(__file__)
+project_root = os.path.split(this_file_path)[0]
+j_path = os.path.join(project_root, 'just_0106') + '/'
+
 ## Load txt document
-#test_file = '/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/justifications_01-06/justifications_txt/J_Denial.txt'
-test_file = "/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP/just_0106/J_Denial.txt"
-
-f = open(test_file, "r")
-text = f.read()
-f.close()
-
-#path = '/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/'
-path = '/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP/just_0106/'
-
-
 files = []
 # r=root, d=directories, f = files
-for r, d, f in os.walk(path):
+for r, d, f in os.walk(j_path):
     for file in f:
         if '.txt' in file:
             files.append(os.path.join(r, file))
             
-
 files[1]
 name = Path(files[1]).name 
 # two different ways  
@@ -139,6 +131,5 @@ df_pg_ref.to_csv(os.path.join(path, 'page_ref.csv'))
 
 
 ## Write out as a csv
-path = '/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP'
-df_long.to_csv(os.path.join(path, 'justifications_long_parsed.csv'))
+df_long.to_csv(os.path.join(project_root, 'justifications_long_parsed.csv'))
 
