@@ -10,26 +10,18 @@ from pathlib import Path
 import re
 import pandas as pd
 
+this_file_path = os.path.abspath(__file__)
+project_root = os.path.split(this_file_path)[0]
+j_path = os.path.join(project_root, 'just_0106') + '/'
+
 ## Load txt document
-#test_file = '/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/justifications_01-06/justifications_txt/J_Denial.txt'
-test_file = "/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP/just_0106/J_Denial.txt"
-
-f = open(test_file, "r")
-text = f.read()
-f.close()
-
-#path = '/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/'
-path = '/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP/'
-
-
 files = []
 # r=root, d=directories, f = files
-for r, d, f in os.walk(path):
+for r, d, f in os.walk(j_path):
     for file in f:
         if '.txt' in file:
             files.append(os.path.join(r, file))
             
-
 files[1]
 name = Path(files[1]).name 
 # two different ways  
@@ -104,6 +96,11 @@ df_long["file_id"] = df_long["file_id_orig"].str.extract(r"(PREM_15_.*_\S*)")
 df_long["file_id"] = df_long["file_id"].str.extract(r"(PREM_15_\d*)")
 df_long["file_id"] = df_long["file_id"].fillna(df_long["file_id_orig"])
 
+# Merge Image and File names to output the original file name for merging purposes
+df_long["img_file"] = df_long.image_id.map(str) + "_" + df_long.file_id
+
+# Maintain original document ID number to merge with .txt from full corpus
+df_long["img_file_orig"] = df_long["raw_text"].str.extract(r"(?<=\d{2}\\\\)(.*)(?=.-)")
 
 ## Extracts justification text as its own raw-text column (Removes “Reference”)
 df_long["just_plain_text_all_ref"] = df_long["raw_text"].str.replace(r"(?<!Files)(.*)(?<=Coverage)", "").str.strip()
@@ -132,9 +129,10 @@ df_pg_ref = df_long[df_long['just_text_all_ref'].str.contains("Page")]
 df_pg_ref.shape
 df_pg_ref.columns
 
-df_pg_ref = df_pg_ref[['justification', 'file_id', 'image_id', 'file_id_orig', 'ref_count', 'coded_refs']]
+df_pg_ref = df_pg_ref[['img_file', 'img_file_orig', 'justification', 'file_id', 'image_id', 'file_id_orig', 'ref_count', 'coded_refs']]
 df_pg_ref.to_csv(os.path.join(path, 'page_ref.csv'))
 
+
 ## Write out as a csv
-df_long.to_csv(os.path.join(path, 'justifications_long_parsed.csv'))
+df_long.to_csv(os.path.join(project_root, 'justifications_long_parsed.csv'))
 
