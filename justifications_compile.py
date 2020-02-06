@@ -36,7 +36,7 @@ cat = []
 # create file paths list 
 files = []
 # r=root, d=directories, f = files
-for r, d, f in os.walk(path):
+for r, d, f in os.walk(j_path):
     for file in f:
         if '.txt' in file:
             files.append(os.path.join(r, file))
