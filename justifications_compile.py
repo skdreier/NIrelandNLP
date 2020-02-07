@@ -117,12 +117,32 @@ df_long["ref_count"] = df_long["ref_count"].str.extract(r"(\d)")
 
 # split multiple reference text entries into new columns
 test = df_long["just_text_all_ref"].str.split(r'.*(?=Reference)',expand = True) 
-test
-# will need to join to overall df 
+# 
+new_test = pd.concat([df_long[['image_id', 'justification']], test], axis=1).drop([0], axis=1)
+new_test.info()
 
-# better to create a list within a single column 
+idx = ['image_id', 'justification']
+
+multi_df = new_test.set_index(idx)
+multi_df.head
+
+stacked_df = multi_df.stack(dropna=False)
+long_df = stacked_df.reset_index()
+long_df.columns
+long_df.shape
+long_df = long_df.rename(columns = {0: 'text'})
+long_df.head(10)
+
+# clean up "None" missing text HERE
+
+# clean up "Refernce and weird characters here"
+
+# save the data 
+long_df.to_csv(os.path.join(project_root, 'justifications_long_training.csv'))
+
+# Creating a List within a column (proved to be a headache due to the non characters)
+# Create a list within a single column 
 df_long["coded_refs"] = df_long["just_text_all_ref"].str.split(r'.*(?=Reference)',expand = False) 
-df_long["coded_refs"] # need to remove empty list items 
 
 ## Extracts docs that have page capture codes (rather than text codes) and outputs it to a different doc
 df_pg_ref = df_long[df_long['just_text_all_ref'].str.contains("Page")]
@@ -135,4 +155,3 @@ df_pg_ref.to_csv(os.path.join(path, 'page_ref.csv'))
 
 ## Write out as a csv
 df_long.to_csv(os.path.join(project_root, 'justifications_long_parsed.csv'))
-
