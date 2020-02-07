@@ -43,8 +43,14 @@ class text_preprocess:
             self.text.append(list(filter(None, text)))
         return dict(zip(self.cat, self.text))
     # Individual files
+    # create dict with document id and corresponding text 
     def nvivo_ocr(self, img_id = None):
-        
+        for f in self.files: 
+        for img_id i n all_files: # get all files 
+        if op.exists(img_id):
+
+
+
 
 
 
