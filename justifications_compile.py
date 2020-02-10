@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 import re
 import pandas as pd
+import numpy as np
 
 this_file_path = os.path.abspath(__file__)
 project_root = os.path.split(this_file_path)[0]
@@ -118,10 +119,10 @@ df_long["ref_count"] = df_long["ref_count"].str.extract(r"(\d)")
 # split multiple reference text entries into new columns
 test = df_long["just_text_all_ref"].str.split(r'.*(?=Reference)',expand = True) 
 # 
-new_test = pd.concat([df_long[['image_id', 'justification']], test], axis=1).drop([0], axis=1)
+new_test = pd.concat([df_long[['image_id', 'file_id', 'img_file_orig', 'justification']], test], axis=1).drop([0], axis=1)
 new_test.info()
 
-idx = ['image_id', 'justification']
+idx = ['image_id', 'file_id', 'img_file_orig', 'justification']
 
 multi_df = new_test.set_index(idx)
 multi_df.head
@@ -134,24 +135,30 @@ long_df = long_df.rename(columns = {0: 'text'})
 long_df.head(10)
 
 # clean up "None" missing text HERE
+long_df.iloc[[3]]
+long_df.dropna(subset=['text'], inplace=True)
+long_df.shape
 
 # clean up "Refernce and weird characters here"
+long_df['text'] = long_df['text'].replace({"(Reference.\d)(.*)(Coverage\\n)": ""}, regex=True)
+long_df.head(20)
 
 # save the data 
 long_df.to_csv(os.path.join(project_root, 'justifications_long_training.csv'))
+long_df.columns
 
 # Creating a List within a column (proved to be a headache due to the non characters)
 # Create a list within a single column 
-df_long["coded_refs"] = df_long["just_text_all_ref"].str.split(r'.*(?=Reference)',expand = False) 
+# df_long["coded_refs"] = df_long["just_text_all_ref"].str.split(r'.*(?=Reference)',expand = False) 
 
 ## Extracts docs that have page capture codes (rather than text codes) and outputs it to a different doc
-df_pg_ref = df_long[df_long['just_text_all_ref'].str.contains("Page")]
+df_pg_ref = long_df[long_df['text'].str.contains(r"(Page.\d.:)")]
 df_pg_ref.shape
 df_pg_ref.columns
+df_pg_ref.head
 
-df_pg_ref = df_pg_ref[['img_file', 'img_file_orig', 'justification', 'file_id', 'image_id', 'file_id_orig', 'ref_count', 'coded_refs']]
-df_pg_ref.to_csv(os.path.join(path, 'page_ref.csv'))
-
+df_pg_ref = df_pg_ref[['image_id', 'file_id', 'img_file_orig', 'justification', 'level_4']]
+df_pg_ref.to_csv(os.path.join(project_root, 'page_ref.csv'))
 
 ## Write out as a csv
-df_long.to_csv(os.path.join(project_root, 'justifications_long_parsed.csv'))
+## df_long.to_csv(os.path.join(project_root, 'justifications_long_parsed.csv'))
