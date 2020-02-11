@@ -34,9 +34,7 @@ labels = df['index']
 for rect, label in zip(rects, labels): 
     height = rect.get_height()
     ax.text(rect.get_x() + rect.get_width()/2, height + 5, label, ha='center', va='bottom', fontsize=12)
-plt.show()
 plt.savefig('just_hist.png')
-
-
+plt.show()
 
 # For analysis, start with: Terrorism, Emergency, Legal_procedure, Political-strategic, Denial
