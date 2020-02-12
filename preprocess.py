@@ -7,31 +7,38 @@ this_file_path = os.path.abspath(__file__)
 project_root = os.path.split(this_file_path)[0]
 c_test_path = os.path.join(project_root, 'data') + '/'
 
-# Steps
-# 1. Load all file paths
-# 2. Filter option for what is found in the training file 
-# 3. parse filename from path and raw text into dict
-# individual 
-## Justifications + DATE  
-# 1. GET CATEGORY + RAW TEXT FROM PARSED CATEGORY
-## CORPUS
-# 1. LOAD RAW TEXT + DOCUMENT ID FROM FILE NAME INTO OUTPUT 
-
 class text_preprocess:
     """
-    Parameters:
+    Parameters
+    -----------
+    f_path: string
+        path to your data directory
+        Assumes all files are in a single directory in .txt format 
+        and follow the typical Nvivo file structure.
+    Initialize values for classes
+
     """
     # Initialize
     def __init__(self, f_path):
         self.files = []
         self.text = []
         self.cat = []
+        self.doc_text = {}
         for r, d, f in os.walk(f_path):
             for file in f:
                 if '.txt' in file:
                     self.files.append(os.path.join(r, file))
     # single files with clumped nvivo codes
     def nvivo_clumps(self):
+        """"
+        Parse nvivo coding code and text txt file into dict of category and accompanied text and file information.
+        It uses the nvivo file outputs where each txt file represents all the codings and source text in a particular category
+        
+        Returns
+        ----------
+        It will output a dictionary where the keys correspond to a specific category and accompanying text.   
+        
+        """"
         for f in self.files:
             docs = open(f, "r")
             text = docs.read()
@@ -45,63 +52,39 @@ class text_preprocess:
     # Individual files
     # create dict with document id and corresponding text 
     def nvivo_ocr(self, img_id = None):
-        for f in self.files: 
-            print(f)
+        """"
+        Load nvivo OCRd txt files into dict where key is the imgage or pdf id.
+        To be used in the case where you need the overall document of the individual 
+        coded sentences.
 
+        Parameters
+        ----------
+        img_id: list
+        List of strings of a subset of documents you need to upload
 
-for img_id in all_files: # get all files 
-if op.exists(img_id):
+        Returns
+        ----------
+        dictionary with keys corresponding to the file ID and values the text corpus for that document
 
-
-
-
-
-
-# create dict that we can use to create a df
-cat_text = dict(zip(cat, p_text))
-
-parse = os.path.join(project_root, 'data/')
-
-test = text_preprocess(f_path = parse)
-
-test.nvivo_clumps() 
-
-test.nvivo_ocr()
-
-path = os.path.join(project_root, 'data/')
-
-# Test The whole doc NEW
-keywords = ['IMG_1247_DEFE_24_876', 'IMG_1246_DEFE_24_876', 'PREM_15_1010_022']
-result = {}  # dict store our results
-
-for filename in os.listdir(path):
-    for keyword in keywords:
-        if keyword in filename:
-            docs = open(os.path.join(path, filename), "r")
-            text = docs.read()
-            docs.close()
-            result[keyword] = text
-
-            return(result)
-result
-#this works next incorporate
-
-
-# create method to extract relevant text and appropriate categories from file name
-for f in files:
-    if "Nodes" not in f:
-        print(f)
-        # Extract text and parse into df
-        docs = open(f, "r")
-        text = docs.read()
-        docs.close()
-        text = re.split(r'.*(?=Files)', text)
-        # get the file name 
-        cat_code = Path(f).name 
-        cat.append(re.sub('.txt', '', cat_code))
-        p_text.append(list(filter(None, text)))
-# create dict that we can use to create a df
-cat_text = dict(zip(cat, p_text))
-
-for key, value in cat_text.items() :
-    print (key)
+        """"
+        if img_id is not None:
+            if not isinstance(img_id, list):
+                raise ValueError('img_id must be a list of strings')
+            for f in self.files:
+                for keyword in img_id:
+                    if keyword in f:
+                        docs = open(f, "r")
+                        text = docs.read()
+                        docs.close()
+                        self.doc_text.update({keyword: text})
+            return self.doc_text
+        else:
+            for f in self.files:
+                docs = open(f, "r")
+                doc_text = docs.read()
+                docs.close()
+                cat_code = Path(f).name 
+                self.cat.append(re.sub('.txt', '', cat_code))
+                self.text.append(doc_text)
+        self.doc_text = dict(zip(self.cat, self.text))
+        return self.doc_text
