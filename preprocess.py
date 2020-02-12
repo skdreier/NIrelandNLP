@@ -46,8 +46,11 @@ class text_preprocess:
     # create dict with document id and corresponding text 
     def nvivo_ocr(self, img_id = None):
         for f in self.files: 
-        for img_id i n all_files: # get all files 
-        if op.exists(img_id):
+            print(f)
+
+
+for img_id in all_files: # get all files 
+if op.exists(img_id):
 
 
 
@@ -57,21 +60,32 @@ class text_preprocess:
 # create dict that we can use to create a df
 cat_text = dict(zip(cat, p_text))
 
-parse = os.path.join(project_root, 'just_0106/')
-test = text_preprocess()
+parse = os.path.join(project_root, 'data/')
 
-d = test.nvivo_clumps() 
-d
+test = text_preprocess(f_path = parse)
 
-def load_txt():
-    files = []
-    text = []
-    cat = []
-    # r=root, d=directories, f = files
-    for r, d, f in os.walk(path):
-        for file in f:
-            if '.txt' in file:
-                files.append(os.path.join(r, file))
+test.nvivo_clumps() 
+
+test.nvivo_ocr()
+
+path = os.path.join(project_root, 'data/')
+
+# Test The whole doc NEW
+keywords = ['IMG_1247_DEFE_24_876', 'IMG_1246_DEFE_24_876', 'PREM_15_1010_022']
+result = {}  # dict store our results
+
+for filename in os.listdir(path):
+    for keyword in keywords:
+        if keyword in filename:
+            docs = open(os.path.join(path, filename), "r")
+            text = docs.read()
+            docs.close()
+            result[keyword] = text
+
+            return(result)
+result
+#this works next incorporate
+
 
 # create method to extract relevant text and appropriate categories from file name
 for f in files:
