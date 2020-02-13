@@ -10,52 +10,20 @@ from pathlib import Path
 import re
 import pandas as pd
 
+
 this_file_path = os.path.abspath(__file__)
 project_root = os.path.split(this_file_path)[0]
 j_path = os.path.join(project_root, 'just_0106') + '/'
 
+sys.path # make sure the repo is in the path 
+
+import preprocess as pr
+
 ## Load txt document
-files = []
-# r=root, d=directories, f = files
-for r, d, f in os.walk(j_path):
-    for file in f:
-        if '.txt' in file:
-            files.append(os.path.join(r, file))
-            
-files[1]
-name = Path(files[1]).name 
-# two different ways  
-name.replace('.txt', '')
-re.sub('.txt', '', name)
+raw = pr.text_preprocess(j_path)
+raw.files
 
-# loop through the files exclude Nodes.txt <-- nVivo relic 
-# create lists 
-p_text = []
-cat = []
-
-# create file paths list 
-files = []
-# r=root, d=directories, f = files
-for r, d, f in os.walk(j_path):
-    for file in f:
-        if '.txt' in file:
-            files.append(os.path.join(r, file))
-
-# create method to extract relevant text and appropriate categories from file name
-for f in files:
-    if "Nodes" not in f:
-        print(f)
-        # Extract text and parse into df
-        docs = open(f, "r")
-        text = docs.read()
-        docs.close()
-        text = re.split(r'.*(?=Files)', text)
-        # get the file name 
-        cat_code = Path(f).name 
-        cat.append(re.sub('.txt', '', cat_code))
-        p_text.append(list(filter(None, text)))
-# create dict that we can use to create a df
-cat_text = dict(zip(cat, p_text))
+cat_text = raw.nvivo_clumps()
 
 for key, value in cat_text.items() :
     print (key)
