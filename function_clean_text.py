@@ -37,7 +37,10 @@ clean_func(column = df_just['text'], df = df_just) # Default analysis = false
 
 # One hot encoding after running this function
 cat_columns = ['justification']
-df_just = pd.get_dummies(df_just, columns=cat_columns)
+df_just_ohe = pd.get_dummies(df_just, columns=cat_columns)
+
+# Add justification column back in (for looping purposes later)
+df_just_ohe['justification_cat'] = df_just['justification']
 
 # Save it as a csv
-df_just.to_csv(os.path.join(project_root, 'justifications_clean_text_ohe.csv'))
+df_just_ohe.to_csv(os.path.join(project_root, 'justifications_clean_text_ohe.csv'))
