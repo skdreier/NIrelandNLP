@@ -1,9 +1,12 @@
 ###############################################
 ## NI NLP Project
 ## start analysis
+## Code runs binary classifiers for each category
+## Plots the words that have the most weight in classifying categories
+## Can use code for all words or just stopwords
+## this code can be cleaned/streamlined w a few functions (for a later date)
+## Updated: Sarah 23/02/2020
 ###############################################
-
-## THIS NEEDS TO BE CLEANED ## 
 
 import os
 from pathlib import Path
@@ -26,53 +29,47 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import LabelEncoder 
 
 
-##### Load data, etc. #####
+##### Load data #####
 this_file_path = os.path.abspath(__file__)
 project_root = os.path.split(this_file_path)[0]
 j_path = os.path.join(project_root) 
 
 df_just = pd.read_csv(os.path.join(j_path, 'justifications_clean_text_ohe.csv'))
 
+# Drops observations based on page captures (not highlighted text) -- these will be transcribed later
 df_just.dropna(subset=['clean_text'], inplace=True)
 
-sentences = df_just['clean_text']
+# Object with sentences-based text for analysis (type: pd.Series)
+clean_sentences = df_just['clean_text']
 
-###### Remove stopwords (optional) ######
-def rmv_stopwords(sent, tokenize = False):
+###### Function to remove stopwords (optional) ######
+def rmv_stopwords(sent):
         STOPWORDS = set(stopwords.words("english"))
         sent = [' '.join(word for word in x.split() if word not in STOPWORDS) for x in sent.tolist()]
-        #sent = sent.apply(lambda x: [word for word in x if word not in STOPWORDS])
         return sent
-       # if tokenize is True:
-       #     results = []
-       #     for sentence in sent:
-       #         tokenized_sentences = []
-       #         for s in sentence:
-       #             tokenized_sentences.append(nltk.word_tokenize(sentence))
-       #         results.append(tokenized_sentences)
-       #     return sent
-       #     return results
-       
-sentences_nosw = rmv_stopwords(sentences, tokenize=False)
+
+sentences_nosw = rmv_stopwords(clean_sentences)
 
 ###### Prep for binary classification
 
-# takes the words of each sentence and creates a vocabulary of all the unique words in the sentences.
+# Create a vocabulary of all the unique words in the sentences
 vectorizer = CountVectorizer(min_df=0, lowercase=False)
-vectorizer.fit(sentences)
+vectorizer.fit(sentences_nosw)
 vectorizer.vocabulary_
+vectorizer.transform(sentences_nosw).toarray() 
 
-# take each sentence and get the word occurrences of the words based on the previous vocabulary. The vocabulary consists of all five words in our sentences, each representing one word in the vocabulary. When you take the previous two sentences and transform them with the CountVectorizer you will get a vector representing the count of each word of the sentence:
-# vector line for each of 1734 sentences 
-# bag of words model
-vectorizer.transform(sentences).toarray() 
+#######################################
+## Defining a base model: BOW Logreg ##
+#######################################
 
-###########################
-## Defining a base model ##
-###########################
+###########################################################
+###### Logreg Binary Classifier: Terrorism category #######
+###########################################################
 
 # Split into training and testing dataset
-sentences = df_just['clean_text'].values
+# DECIDE WHETHER TO EXCLUDE STOPWORDS 
+# sentences = df_just['clean_text'].values # For all words
+sentences = pd.Series(sentences_nosw).values # exclude stopwords 
 y = df_just['justification_J_Terrorism'].values
 
 sentences_train, sentences_test, y_train, y_test = train_test_split(
@@ -92,41 +89,7 @@ score = classifier.score(X_test, y_test)
 print("Accuracy:", score)
 ## Accuracy: 0.76 for terrorism
 
-# Loop through all justifictions
-# First, rename justification categories so they match the OHE dummy variable names
-df_just['justification_cat2'] = 'justification_' + df_just['justification_cat'].astype(str)
-df_just['justification_cat2'].unique()
-
-for source in df_just['justification_cat2'].unique():
-    sentences = df_just['clean_text'].values
-    y = df_just[source].values
-
-    sentences_train, sentences_test, y_train, y_test = train_test_split(
-        sentences, y, test_size=0.25, random_state=1000)
-
-    vectorizer = CountVectorizer()
-    vectorizer.fit(sentences_train)
-    X_train = vectorizer.transform(sentences_train)
-    X_test  = vectorizer.transform(sentences_test)
-
-    #classifier = LogisticRegression()
-    #classifier = GaussianNB() # this one is better for overlap
-    classifier = LogisticRegression()
-    classifier.fit(X_train, y_train)
-    score = classifier.score(X_test, y_test)
-    print('Accuracy for {} code: {:.4f}'.format(source, score))
-
-
-### What word vectors are driving these classifications?
-
-# Trying for one model (terrorism):
-sentences = df_just['clean_text'].values
-y = df_just['justification_J_Terrorism'].values
-
-sentences_train, sentences_test, y_train, y_test = train_test_split(
-    sentences, y, test_size=0.25, random_state=1000)
-
-
+###### Determine which word vectors drive this terrorism classification ######
 logreg = Pipeline([('vect', CountVectorizer()),
                 ('tfidf', TfidfTransformer()),
                 ('log', LogisticRegression(n_jobs=1, C=1e5)),
@@ -159,6 +122,32 @@ plt.xticks(np.arange(1, 1 + 2 * 20), feature_names[top_coefficients], rotation=6
 plt.show()
 plt.savefig('biclass_logreg/terrorism' + '.png')
 
+#######################################################
+###### Logreg Binary Classifier: All categories #######
+#######################################################
+
+# Loop through all justifictions
+# First, rename justification categories so they match the OHE dummy variable names
+df_just['justification_cat2'] = 'justification_' + df_just['justification_cat'].astype(str)
+df_just['justification_cat2'].unique()
+
+for source in df_just['justification_cat2'].unique():
+    #sentences = df_just['clean_text'].values
+    sentences = pd.Series(sentences_nosw).values # exclude stopwords 
+    y = df_just[source].values
+
+    sentences_train, sentences_test, y_train, y_test = train_test_split(
+        sentences, y, test_size=0.25, random_state=1000)
+
+    vectorizer = CountVectorizer()
+    vectorizer.fit(sentences_train)
+    X_train = vectorizer.transform(sentences_train)
+    X_test  = vectorizer.transform(sentences_test)
+
+    classifier = LogisticRegression()
+    classifier.fit(X_train, y_train)
+    score = classifier.score(X_test, y_test)
+    print('Accuracy for {} code: {:.4f}'.format(source, score))
 
 ###### Plot for all category models:
 
@@ -167,7 +156,8 @@ accuracy_score_output={}
 #confusion_matrix_output={}
 
 for cat in df_just['justification_cat2'].unique():
-    sentences = df_just['clean_text'].values
+    # sentences = df_just['clean_text'].values
+    sentences = pd.Series(sentences_nosw).values # exclude stopwords 
     y = df_just[cat].values
     cat_title = cat.replace(r'justification_J_', "").strip()
 
@@ -201,7 +191,7 @@ for cat in df_just['justification_cat2'].unique():
     top_negative_coefficients = np.argsort(coef)[:20]
     top_coefficients = np.hstack([top_negative_coefficients, top_positive_coefficients])
     # create plot
-    plt.figure(figsize=(15, 5))
+    plt.figure(figsize=(15, 8))
     plt.title(cat_title)
     colors = ['red' if c < 0 else 'blue' for c in coef[top_coefficients]]
     plt.bar(np.arange(2 * 20), coef[top_coefficients], color=colors)
@@ -210,6 +200,24 @@ for cat in df_just['justification_cat2'].unique():
     plt.savefig('biclass_logreg/' + cat_title + '.png')
     plt.close()
 
-    # Remove stop words
-    # N-grams
-    # Word vectorization
+###################################################
+############### End Script ########################
+###################################################
+
+# Attempt at function that includes stopwords and tokenizes
+# Tokenization had issues
+
+    def rmv_stopwords(sent, tokenize = False):
+        STOPWORDS = set(stopwords.words("english"))
+        sent = [' '.join(word for word in x.split() if word not in STOPWORDS) for x in sent.tolist()]
+        #sent = sent.apply(lambda x: [word for word in x if word not in STOPWORDS])
+        return sent
+       # if tokenize is True:
+       #     results = []
+       #     for sentence in sent:
+       #         tokenized_sentences = []
+       #         for s in sentence:
+       #             tokenized_sentences.append(nltk.word_tokenize(sentence))
+       #         results.append(tokenized_sentences)
+       #     return sent
+       #     return results
