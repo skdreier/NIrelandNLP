@@ -24,6 +24,11 @@ import nltk
 from nltk.tokenize import word_tokenize
 nltk.download('stopwords')
 
+from nltk import word_tokenize          
+from nltk.stem import WordNetLemmatizer 
+import nltk
+nltk.download('wordnet')
+
 this_file_path = os.path.abspath(__file__)
 project_root = os.path.split(this_file_path)[0]
 j_path = os.path.join(project_root) 
@@ -57,6 +62,15 @@ def rmv_stopwords(sent):
         sent = [' '.join(word for word in x.split() if word not in STOPWORDS) for x in sent.tolist()]
         return sent
 
+
+class LemmaTokenizer:
+    def __init__(self):
+        self.wnl = WordNetLemmatizer()
+    def __call__(self, doc):
+        return [self.wnl.lemmatize(t) for t in word_tokenize(doc)]
+
+vect = CountVectorizer(tokenizer=LemmaTokenizer())
+
 sentences_nosw = rmv_stopwords(df['clean_text'])
 
 sentences = pd.Series(sentences_nosw).values # exclude stopwords 
@@ -66,31 +80,36 @@ y = df['just_categories'].values
 sentences_train, sentences_test, y_train, y_test = train_test_split(
     sentences, y, test_size=0.25, random_state=1000)
 
-from nltk import word_tokenize          
-from nltk.stem import WordNetLemmatizer 
-
-class LemmaTokenizer:
-    def __init__(self):
-        self.wnl = WordNetLemmatizer()
-    def __call__(self, doc):
-        return [self.wnl.lemmatize(t) for t in word_tokenize(doc)]
-
 ## Pipeline
-multinom = Pipeline([('vect', CountVectorizer()), # ngram_range=(1, 1), tokenizer = LemmaTokenizer
+multinom = Pipeline([('vect', CountVectorizer(tokenizer=LemmaTokenizer())), # ngram_range=(1, 1), tokenizer = LemmaTokenizer
                 ('tfidf', TfidfTransformer()),     # use_idf=True
                 ('multiclass', MultinomialNB()),    # alpha=1.0 # smoothing parameter
                ])
 
-# 4 hyperparameters: ngrams, tfidf, alpha, lemma tokenizer
+multinom.fit(sentences_train, y_train)
 
+y_pred = multinom.predict(sentences_test)
+
+print('accuracy %s' % accuracy_score(y_pred, y_test))
+print(classification_report(y_test, y_pred))
+print(confusion_matrix(y_test, y_pred))
+
+x = CountVectorizer(tokenizer=LemmaTokenizer())
+y = x.fit_transform(sentences_nosw)
+y = pd.DataFrame(y.toarray(), columns=x.get_feature_names())
+
+# 4 hyperparameters: ngrams, tfidf, alpha, lemma tokenizer
+help(CountVectorizer)
 from sklearn.model_selection import GridSearchCV
+
 # create dictionary {} of parameters
 parameters = {
     'vect__ngram_range': [(1,1),(1,4),(1,10)],
-    'vect__tokenizer': (LemmaTokenizer, None),
+    'vect__tokenizer': (LemmaTokenizer(), None),
     'tfidf__use_idf': (True, False),
     'multiclass__alpha': (0.5, 0.2, 2.0)
 }
+
 
 grid_output = GridSearchCV(multinom, parameters)
 
@@ -102,19 +121,11 @@ for param_name in sorted(parameters.keys()):
     print("%s: %r" % (param_name, grid_output.best_params_[param_name]))
 
 
-### Another approach to stemming -- doesn't seem to be workig
-
-import nltk
-import string
-
-def tokenize(text):
-    stem = nltk.stem.SnowballStemmer('english')
-    text = text.lower()
-
-    for token in nltk.word_tokenize(text):
-        if token in string.punctuation: continue
-        yield stem.stem(token)
-
-
-stem = nltk.stem.SnowballStemmer('english')
-x = stem.stem(str(sentences_nosw))
+# THIS WEEK:
+# Do grid search on stemming with ngrams
+# Work on getting rid of more categories; think about categorization substantively. Especially since Legal Procedure captures all of them
+# Try to encorporate word2vec based on article I was reading through; take notes on where things break.
+# Feature selection within a Pipeline
+# https://towardsdatascience.com/multi-class-text-classification-with-scikit-learn-12f1e60e0a9f
+## Friday: Simple multi-class neuro network implementation as a baseline
+### Broad goal: get over 50 percent (better than flipping a coin)
