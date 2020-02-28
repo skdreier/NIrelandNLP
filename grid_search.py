@@ -103,6 +103,7 @@ print('accuracy %s' % accuracy_score(y_pred, y_test))
 print(classification_report(y_test, y_pred))
 print(confusion_matrix(y_test, y_pred))
 
+
 ####### Add hyperparameters: min_df, ngrams,  stop words, tfidf, alpha, lemma tokenizer, stemming
 
 # create dictionary {} of parameters
@@ -139,6 +140,36 @@ for param_name in sorted(parameters.keys()):
 # Ngram range: (1, 2) -- includes unigrams and bigrams
 # Stopwords: english
 # use_idf: False
+
+
+#### Look at different machine learning models ####
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import LinearSVC
+from sklearn.model_selection import cross_val_score
+
+models = [
+    RandomForestClassifier(n_estimators=200, max_depth=3, random_state=0),
+    LinearSVC(),
+    MultinomialNB(),
+    LogisticRegression(random_state=0),
+]
+CV = 5
+cv_df = pd.DataFrame(index=range(CV * len(models)))
+entries = []
+for model in models:
+  model_name = model.__class__.__name__
+  accuracies = cross_val_score(model, features, labels, scoring='accuracy', cv=CV)
+  for fold_idx, accuracy in enumerate(accuracies):
+    entries.append((model_name, fold_idx, accuracy))
+cv_df = pd.DataFrame(entries, columns=['model_name', 'fold_idx', 'accuracy'])
+import seaborn as sns
+sns.boxplot(x='model_name', y='accuracy', data=cv_df)
+sns.stripplot(x='model_name', y='accuracy', data=cv_df, 
+              size=8, jitter=True, edgecolor="gray", linewidth=2)
+plt.show()
+
 
 
 
