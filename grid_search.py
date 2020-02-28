@@ -53,10 +53,11 @@ df['just_categories'] = df['just_category_7']
 col = ['just_categories', 'clean_text'] 
 df = df[col]
 df = df[pd.notnull(df['clean_text'])]
-df['category_num'] = df['just_categories'].factorize()[0]
-category_num_df = df[['just_categories', 'category_num']].drop_duplicates().sort_values('category_num')
-category_to_num = dict(category_num_df.values)
-num_to_category = dict(category_num_df[['category_num', 'just_categories']].values)
+df.columns = ['just_categories', 'clean_text']
+df['category_id'] = df['just_categories'].factorize()[0]
+category_id_df = df[['just_categories', 'category_id']].drop_duplicates().sort_values('category_id')
+category_to_id = dict(category_id_df.values)
+id_to_category = dict(category_id_df[['category_id', 'just_categories']].values)
 df.head()
 
 fig = plt.figure(figsize=(8,6))
@@ -149,6 +150,11 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import LinearSVC
 from sklearn.model_selection import cross_val_score
 
+tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2), stop_words='english')
+features = tfidf.fit_transform(df.clean_text).toarray()
+labels = df.just_categories
+features.shape
+
 models = [
     RandomForestClassifier(n_estimators=200, max_depth=3, random_state=0),
     LinearSVC(),
@@ -158,21 +164,58 @@ models = [
 CV = 5
 cv_df = pd.DataFrame(index=range(CV * len(models)))
 entries = []
+
 for model in models:
-  model_name = model.__class__.__name__
-  accuracies = cross_val_score(model, features, labels, scoring='accuracy', cv=CV)
-  for fold_idx, accuracy in enumerate(accuracies):
-    entries.append((model_name, fold_idx, accuracy))
+    model_name = model.__class__.__name__
+    accuracies = cross_val_score(model, features, labels, scoring='accuracy', cv=CV)
+    for fold_idx, accuracy in enumerate(accuracies):
+        entries.append((model_name, fold_idx, accuracy))
 cv_df = pd.DataFrame(entries, columns=['model_name', 'fold_idx', 'accuracy'])
+
 import seaborn as sns
 sns.boxplot(x='model_name', y='accuracy', data=cv_df)
 sns.stripplot(x='model_name', y='accuracy', data=cv_df, 
               size=8, jitter=True, edgecolor="gray", linewidth=2)
 plt.show()
 
+cv_df.groupby('model_name').accuracy.mean()
 
+##################################################################
+# Multinomial NB, LogReg, and Linear all perform well
+# Now look at what is producing misclassifications among Multinomial NB
+##################################################################
 
+model = MultinomialNB()
+X_train, X_test, y_train, y_test, indices_train, indices_test = train_test_split(features, labels, df.index, test_size=0.33, random_state=0)
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+from sklearn.metrics import confusion_matrix
+conf_mat = confusion_matrix(y_test, y_pred)
+fig, ax = plt.subplots(figsize=(5,5))
+sns.heatmap(conf_mat, annot=True, fmt='d',
+            xticklabels=category_id_df.just_categories, yticklabels=category_id_df.just_categories)
+plt.ylabel('Actual')
+plt.xlabel('Predicted')
+plt.show()
 
+from IPython.display import display
+
+# attempted correction
+for predicted in df.category_id:
+    for actual in df.category_id:
+        if predicted != actual and conf_mat[actual, predicted] >= 10:
+            print("'{}' predicted as '{}' : {} examples.".format(category_[actual], id_to_category[predicted], conf_mat[actual, predicted]))
+            display(df.loc[indices_test[(y_test == actual) & (y_pred == predicted)]][['just_categories', 'stem_text']])
+            print('')
+
+# original code
+for predicted in category_id_df.category_id:
+    for actual in category_id_df.category_id:
+        if predicted != actual and conf_mat[actual, predicted] >= 10:
+            print("'{}' predicted as '{}' : {} examples.".format(id_to_category[actual], id_to_category[predicted], conf_mat[actual, predicted]))
+            display(df.loc[indices_test[(y_test == actual) & (y_pred == predicted)]][['just_categories', 'stem_text']])
+            print('')
+            
 
 # THIS WEEK:
 # Do grid search on stemming with ngrams (ADD STEMMING OUTSIDE THE GRID)
