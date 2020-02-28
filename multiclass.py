@@ -20,7 +20,6 @@ import nltk
 from nltk.tokenize import word_tokenize
 nltk.download('stopwords')
 
-
 this_file_path = os.path.abspath(__file__)
 project_root = os.path.split(this_file_path)[0]
 j_path = os.path.join(project_root) 
@@ -65,17 +64,21 @@ def rmv_stopwords(sent):
 
 sentences_nosw = rmv_stopwords(df['clean_text'])
 
+### Set X and Y for training and testing set
+
 sentences = pd.Series(sentences_nosw).values # exclude stopwords 
 # sentences = df['clean_text'].values # include stopwords
+
 y = df['justification_cat'].values
 
 sentences_train, sentences_test, y_train, y_test = train_test_split(
     sentences, y, test_size=0.25, random_state=1000)
 
 multinom = Pipeline([('vect', CountVectorizer()), #vectorizes
-                ('tfidf', TfidfTransformer()),     #term frequency inverse document frequency
-                ('multiclass', MultinomialNB()),    #model (Naive Bayes)
-               ])
+        ('tfidf', TfidfTransformer()),     #term frequency inverse document frequency
+        #('tfidf', TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2), stop_words='english')), 
+        ('multiclass', MultinomialNB()),    #model (Naive Bayes)
+        ])
 
 classifier = multinom.fit(sentences_train, y_train)
 
@@ -121,5 +124,17 @@ for title, normalize, short_title in titles_options:
 #### Grid search hyperparameters + features ############
 ########################################################
 
-# Clean text (no stopwords): sentences_nosw
-# 
+# From website:
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2), stop_words='english')
+
+#min_df: mindocuments a word must be present in to be kept
+#norm: l2 to ensure all our feature vectors have a euclidian norm of 1.
+#ngram_range is set to (1, 2) to indicate that we want to consider both unigrams and bigrams.
+#stop_words is set to "english" 
+
+features = tfidf.fit_transform(sentences).toarray()
+labels = df.justification_cat
+features.shape
