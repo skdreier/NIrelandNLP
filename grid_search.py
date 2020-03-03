@@ -54,7 +54,7 @@ df = pd.read_csv(os.path.join(j_path, 'justifications_clean_text_ohe.csv'))
 ### Reclassify justifications into 7 categories ###
 ###################################################
 
-# Collapse justification categories from 12 to 7
+# Collapse justification categories from 12 to 7 -- approach #1
 df['just_category_12'] = df['justification_cat']
 df['just_category_7'] = df['justification_cat']
 df['just_category_7'] = df['just_category_7'].replace('J_Intl-Domestic_Precedent', 'J_Denial')
@@ -62,9 +62,39 @@ df['just_category_7'] = df['just_category_7'].replace(['J_Utilitarian-Deterrence
 df['just_category_7'] = df['just_category_7'].replace('J_Last-resort', 'J_Emergency-Policy')
 df['just_category_7'].unique()
 
+# Collapse justification categories from 12 to 6 -- approach #2
+df['just_category_6'] = df['justification_cat']
+df['just_category_6'] = df['just_category_6'].replace(['J_Emergency-Policy', 'J_Intelligence', 'J_Last-resort', 'J_Utilitarian-Deterrence', 'J_Law-and-order'], 'J_Security')
+df['just_category_6'] = df['just_category_6'].replace(['J_Legal_Procedure'], 'J_Legal')
+df['just_category_6'] = df['just_category_6'].replace(['J_Political-Strategic'], 'J_Political')
+df['just_category_6'] = df['just_category_6'].replace(['J_Denial', 'J_Intl-Domestic_Precedent'], 'J_HR_not_violated')
+df['just_category_6'] = df['just_category_6'].replace(['J_Development-Unity'], 'J_Misc')
+# Keep terrorism and Misc as-is
+df['just_category_6'].unique()
+
+# Collapse justification categories from 12 to 5 -- approach #3
+df['just_category_5'] = df['justification_cat']
+df['just_category_5'] = df['just_category_5'].replace(['J_Emergency-Policy', 'J_Intelligence', 'J_Last-resort', 'J_Utilitarian-Deterrence', 'J_Law-and-order', 'J_Terrorism'], 'J_Security')
+df['just_category_5'] = df['just_category_5'].replace(['J_Legal_Procedure'], 'J_Legal')
+df['just_category_5'] = df['just_category_5'].replace(['J_Political-Strategic'], 'J_Political')
+df['just_category_5'] = df['just_category_5'].replace(['J_Denial', 'J_Intl-Domestic_Precedent'], 'J_HR_not_violated')
+df['just_category_5'] = df['just_category_5'].replace(['J_Development-Unity'], 'J_Misc')
+# Keep terrorism and Misc as-is
+df['just_category_5'].unique()
+
+## Security: Emergency-Policy, Intelligence, Last-resort, Utilitarian-Deterrence, Law-and-order,
+## Legal: Legal_Procedure
+## Political: Political-Strategic
+## Terrorism: Terrorism
+## HR_maintained: Denial, Intl-Domestic_Precedent
+## Misc: Misc, Development-Unity
+
 # Define which category size to use in analysis (12, 7, etc)
 #df['just_categories'] = df['just_category_12']
-df['just_categories'] = df['just_category_7']
+#df['just_categories'] = df['just_category_7']
+df['just_categories'] = df['just_category_6']
+#df['just_categories'] = df['just_category_5']
+
 
 # Create a unique number id for each justification category
 col = ['just_categories', 'clean_text'] 
@@ -79,6 +109,7 @@ df.head()
 
 fig = plt.figure(figsize=(8,6))
 df.groupby('just_categories').clean_text.count().plot.bar(ylim=0)
+plt.savefig('multiclass_LR/just_6' + '.png')
 plt.show()
 
 ######################################
@@ -137,11 +168,12 @@ cv_df = pd.DataFrame(entries, columns=['model_name', 'fold_idx', 'accuracy'])
 sns.boxplot(x='model_name', y='accuracy', data=cv_df)
 sns.stripplot(x='model_name', y='accuracy', data=cv_df, 
               size=8, jitter=True, edgecolor="gray", linewidth=2)
+plt.savefig('multiclass_LR/models6' + '.png')
 plt.show()
 
 cv_df.groupby('model_name').accuracy.mean()
 
-# Here, Logistic Regression performs the best
+# Here, Logistic Regression performs the best (for both J=7 and J=6)
 
 
 ############################################
@@ -165,6 +197,7 @@ print('accuracy %s' % accuracy_score(y_pred, y_test))
 print(classification_report(y_test, y_pred))
 print(confusion_matrix(y_test, y_pred))
 
+# Accuracy for J=6: 0.449
 
 ####### Add hyperparameters: min_df, ngrams,  stop words, tfidf, alpha, lemma tokenizer, stemming, multi_class
 
@@ -213,6 +246,23 @@ for param_name in sorted(parameters.keys()):
 # use_idf: False
 # multi_class: ovr (one v. rest)
 
+##### Best LogisticRegression score and parameters for stemmed sentences, J=6:
+# score: 0.4808
+# alpha: NA
+# Min_df: 10
+# Ngram range: (1, 2) -- includes unigrams and bigrams
+# Stopwords: english
+# use_idf: False
+# multi_class: ovr (one v. rest)
+
+##### Best LogisticRegression score and parameters for stemmed sentences, J=5:
+# score: 0.5638
+# alpha: NA
+# Min_df: 10
+# Ngram range: (1, 1)
+# Stopwords: english
+# use_idf: True
+# multi_class: ovr (one v. rest)
 
 #####################################################################################
 #### Look at what is producing misclassifications among LogReg w best parameters ####
@@ -255,6 +305,9 @@ for predicted in category_id_df.category_id:
 
 # make a write-up of the interative / inductive / mixed-methods approach to machine learning that we can use based on these outputs:
 
+model = LogisticRegression()
+model.fit(features, labels)
+
 N = 5
 for just, category_id in sorted(category_to_id.items()):
   indices = np.argsort(model.coef_[category_id])
@@ -267,6 +320,7 @@ for just, category_id in sorted(category_to_id.items()):
 
 from sklearn import metrics
 print(metrics.classification_report(y_test, y_pred, target_names=df['just_categories'].unique()))
+
 
 # THIS WEEKEND:
 # UPDATE categories based on today's outputs Especially since Legal Procedure captures all of them
