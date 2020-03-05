@@ -68,7 +68,7 @@ df['stem_text'] = df['clean_text'].apply(stem_sentences)
 sentences = df['clean_text'] # include stopwords, unstemmed
 y = df['just_categories']
 
-x_train, x_test, y_train, y_test = train_test_split(sentences, y, test_size=.2, random_state = 40)
+x_train, x_test, y_train, y_test = train_test_split(sentences, y,test_size=.2, random_state = 40, stratify = y)
 
 max_words = 1000 #not all vocab is valuable
 
@@ -116,3 +116,33 @@ score = network.evaluate(x_test, y_test,
 
 print('Test accuracy:', score[1])
 
+### create a wrapper for cross validation
+## For intructional purposes only (don't mull over it yet) 
+## with cross validation but maybe not necessary at this step
+tokenize = Tokenizer(num_words=max_words, char_level=False)
+tokenize.fit_on_texts(sentences) 
+
+x_train = tokenize.texts_to_matrix(sentences)
+
+encoder = LabelEncoder()
+encoder.fit(y)
+y_train = encoder.transform(y)
+
+num_classes = np.max(y_train) + 1
+y_train = utils.to_categorical(y_train, num_classes)
+
+def baseline_nn():
+    network = models.Sequential()
+    network.add(layers.Dense(units=100, activation='relu', input_shape=(max_words,)))
+    network.add(layers.Dense(units=6, activation='softmax')) # ensures 0-1 probabilities for each class
+    network.compile(loss='categorical_crossentropy',
+        optimizer='adam',
+        metrics=['accuracy'])
+    return network
+
+neural_network = KerasClassifier(build_fn=baseline_nn, 
+                                 epochs=20, 
+                                 batch_size=100, 
+                                 verbose=0)
+
+cross_val_score(neural_network, x_train, y_train, cv=5)
