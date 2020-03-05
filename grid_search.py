@@ -21,6 +21,7 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegressionCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import LinearSVC
 from sklearn.model_selection import cross_val_score
@@ -142,8 +143,6 @@ type(y_train)
 
 from matplotlib import pyplot as plt 
 import numpy as np  
-  
-type(a)
 
 a = df['just_categories']
 plt.hist(sorted(a), bins = 11, normed=True) 
@@ -197,7 +196,6 @@ cv_df.groupby('model_name').accuracy.mean()
 
 # Here, Logistic Regression performs the best (for both J=7 and J=6)
 
-
 ############################################
 ### Develop Pipeline for hyperparameters ###
 ############################################
@@ -210,7 +208,7 @@ multinom = Pipeline([
                 #('multiclass', MultinomialNB()),    # alpha=1.0 # smoothing parameter
                 ('multiclass', LogisticRegression(random_state=0) )
                ])
-
+help(LogisticRegression)
 ###### Look at outputs without parameters
 multinom.fit(sentences_train, y_train)
 y_pred = multinom.predict(sentences_test)
@@ -234,7 +232,7 @@ parameters = {
     'multiclass__multi_class': ('ovr', 'multinomial') # ovr: one v. rest
 }
 
-grid_output = GridSearchCV(multinom, parameters)
+grid_output = GridSearchCV(multinom, parameters) #5-fold cross-validation
 
 grid_output.fit(sentences_train, y_train)
 
