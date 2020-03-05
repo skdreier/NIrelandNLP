@@ -137,6 +137,28 @@ y = df['just_categories'].values
 sentences_train, sentences_test, y_train, y_test = train_test_split(
     sentences, y, test_size=0.25, random_state=1000)
 
+type(sentences_train)
+type(y_train)
+
+from matplotlib import pyplot as plt 
+import numpy as np  
+  
+type(a)
+
+a = df['just_categories']
+plt.hist(sorted(a), bins = 11, normed=True) 
+plt.title("hist_whole") 
+plt.show()
+
+a = y_train
+plt.hist(sorted(a), bins = 11, normed=True) 
+plt.title("hist_train") 
+plt.show()
+
+a = y_test
+plt.hist(sorted(a), bins = 11, normed=True) 
+plt.title("hist_test") 
+plt.show()
 
 ############################################################
 ### Determine which machine learning models perform best ###
