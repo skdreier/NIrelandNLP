@@ -9,6 +9,8 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.wrappers.scikit_learn import KerasClassifier
 from keras.utils import np_utils
+from keras import utils
+
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import KFold
 from sklearn.preprocessing import LabelEncoder
@@ -19,8 +21,6 @@ from sklearn.model_selection import train_test_split
 
 
 ## Set the file pathway and download corpus
-from IPython.display import display
-
 this_file_path = os.path.abspath(__file__)
 project_root = os.path.split(this_file_path)[0]
 j_path = os.path.join(project_root) 
@@ -65,44 +65,35 @@ df['stem_text'] = df['clean_text'].apply(stem_sentences)
 #############################################
 
 #sentences = df['stem_text'].values # include stopwords, stemmed
-sentences = df['clean_text'].values # include stopwords, unstemmed
+sentences = df['clean_text'] # include stopwords, unstemmed
+y = df['just_categories']
 
-tokenizer = Tokenizer(num_words=max_words)
-word_index = tokenizer.word_index # dictionary of word and token number
-print('Found %s unique tokens.' % len(word_index)) # 5153 unique tokens (not total tokens)
+x_train, x_test, y_train, y_test = train_test_split(sentences, y,test_size=.2, random_state = 40, stratify = y)
 
-y = df['just_categories'].values
-labels = df['just_categories'].factorize()
-label_names = list(labels[1])
-label_values = list(range(0,6))
-labels_index = dict(zip(label_names, label_values))
-labels = list(labels[0])
+max_words = 1000 #not all vocab is valuable
 
-max_words = 5000 #not all vocab is valuable
+tokenize = Tokenizer(num_words=max_words, char_level=False)
+tokenize.fit_on_texts(x_train) 
+
+x_train = tokenize.texts_to_matrix(x_train)
+x_test = tokenize.texts_to_matrix(x_test)
+
+encoder = LabelEncoder()
+encoder.fit(y_train)
+y_train = encoder.transform(y_train)
+y_test = encoder.transform(y_test)
+
+num_classes = np.max(y_train) + 1
+y_train = utils.to_categorical(y_train, num_classes)
+y_test = utils.to_categorical(y_test, num_classes)
 # Set random seed
 np.random.seed(0)
-
-# Set the number of features we want (how many features do we need?)
-# look at the number of words
-
-# Load data from scikit learn pipeline
-
-# Convert feature data to a one-hot encoded feature matrix
-tokenizer = Tokenizer(num_words=max_words)
-tokenizer.fit_on_texts(sentences)
-sequences = tokenizer.texts_to_sequences(sentences)
-
-x = tokenizer.sequences_to_matrix(sentences, mode='binary')
-# One-hot encode target vector to create a target matrix
-labels
-
-x_train, x_test, y_train, y_test = train_test_split(sequences, labels, test_size=.2, random_state = 40)
 
 # Start neural network
 network = models.Sequential()
 
 # Add fully connected layer with a ReLU activation function
-network.add(layers.Dense(units=10, activation='relu', input_shape=(max_words,)))
+network.add(layers.Dense(units=100, activation='relu', input_shape=(max_words,)))
 
 # Add fully connected layer with a softmax activation function for the output
 network.add(layers.Dense(units=6, activation='softmax')) # ensures 0-1 probabilities for each class
@@ -115,13 +106,43 @@ network.compile(loss='categorical_crossentropy', # Cross-entropy
 # Train neural network
 history = network.fit(x_train, # Features
                       y_train, # Target vector
-                      epochs=3, # Three epochs
-                      verbose=0, # No output
+                      epochs=20, # Three epochs
+                      verbose=1, # No output
                       batch_size=100, # Number of observations per batch
                       validation_data=(x_test, y_test))
 
+score = network.evaluate(x_test, y_test,
+                       batch_size=100, verbose=1)
 
+print('Test accuracy:', score[1])
 
+### create a wrapper for cross validation
+## For intructional purposes only (don't mull over it yet) 
+## with cross validation but maybe not necessary at this step
+tokenize = Tokenizer(num_words=max_words, char_level=False)
+tokenize.fit_on_texts(sentences) 
 
-num_words = [len(words.split()) for words in sentences]
-max_sen_leng = max(num_words)
+x_train = tokenize.texts_to_matrix(sentences)
+
+encoder = LabelEncoder()
+encoder.fit(y)
+y_train = encoder.transform(y)
+
+num_classes = np.max(y_train) + 1
+y_train = utils.to_categorical(y_train, num_classes)
+
+def baseline_nn():
+    network = models.Sequential()
+    network.add(layers.Dense(units=100, activation='relu', input_shape=(max_words,)))
+    network.add(layers.Dense(units=6, activation='softmax')) # ensures 0-1 probabilities for each class
+    network.compile(loss='categorical_crossentropy',
+        optimizer='adam',
+        metrics=['accuracy'])
+    return network
+
+neural_network = KerasClassifier(build_fn=baseline_nn, 
+                                 epochs=20, 
+                                 batch_size=100, 
+                                 verbose=0)
+
+cross_val_score(neural_network, x_train, y_train, cv=5)
