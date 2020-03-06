@@ -15,6 +15,7 @@
 import os
 from pathlib import Path
 import gensim
+from gensim.models import Word2Vec
 import numpy as np
 import pandas as pd
 
@@ -55,7 +56,7 @@ google_model = KeyedVectors.load_word2vec_format(filename, binary=True)
 
 ## Then you can inspect the models 
 result = google_model.most_similar(positive=['woman', 'king'], negative=['man'], topn=1)
-result = google_model.most_similar(positive=['sushi', 'Italian'], negative=['pizza'], topn=1)
+result = google_model.most_similar(positive=['sushi', 'italian'], negative=['pizza'], topn=1)
 
 print(result)
 
@@ -73,7 +74,7 @@ ocr_text.files
 ocr_text_corpus = ocr_text.nvivo_ocr()
 len(ocr_text_corpus)
 
-# Convert to Dataframe to clean text
+# Convert to Dataframe
 ocr_corpus = pd.DataFrame(ocr_text_corpus.items())
 ocr_corpus.columns = ['img_file', 'raw_text']
 
@@ -83,14 +84,28 @@ def clean_func(column, df):
     new_col = new_col.replace(r"\n", " ", regex=True)
     new_col = new_col.replace(r"[^0-9a-z #+_]", "", regex=True)
     new_col = new_col.replace(r"#", " ", regex=True)
+  #  new_col = new_col.replace(r'\b\w{1,3}\b', '', regex=True)
     df['clean_text'] = new_col
     return(df)
 
 clean_func(ocr_corpus['raw_text'], ocr_corpus) 
 
-# Ready to be developed as a training model. 
+# Subset to pages that contain a justification
+j_path = '/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP'
+df = pd.read_csv(os.path.join(j_path, 'justifications_clean_text_ohe.csv'))
+just_imgs = np.ndarray.tolist(df['img_file_orig'].unique())
+ocr_corpus_subset = ocr_corpus.loc[ocr_corpus['img_file'].isin(just_imgs)]
 
-# load the list of Image IDs that have a justification and pass to ocr function: not working but not necessary
-#df = pd.read_csv(os.path.join(j_path, 'justifications_clean_text_ohe.csv'))
-#just_imgs = np.ndarray.tolist(df['img_file_orig'].unique())
-#ocr_justifications_docs_corpus = ocr_text.nvivo_ocr(img_id = just_imgs) # This step isn't working
+# Count the number of unique tokens in the subseted corpus
+#sentences = ocr_corpus['clean_text']
+sentences = ocr_corpus_subset['clean_text']
+
+from keras.preprocessing.text import Tokenizer
+tokenizer = Tokenizer()
+tokenizer.fit_on_texts(sentences)
+sequences = tokenizer.texts_to_sequences(sentences)
+
+word_index = tokenizer.word_index # word and their token # ordered by most frequent
+print('Found %s unique tokens.' % len(word_index))
+
+model = Word2Vec(sentences)
