@@ -82,9 +82,10 @@ ocr_corpus.columns = ['img_file', 'raw_text']
 def clean_func(column, df):
     new_col = column.str.lower()
     new_col = new_col.replace(r"\n", " ", regex=True)
-    new_col = new_col.replace(r"[^0-9a-z #+_]", "", regex=True)
+    #new_col = new_col.replace(r"[^0-9a-z #+_]", "", regex=True)
+    new_col = new_col.replace(r"[^a-z #+_]", "", regex=True)
     new_col = new_col.replace(r"#", " ", regex=True)
-  #  new_col = new_col.replace(r'\b\w{1,3}\b', '', regex=True)
+    new_col = new_col.replace(r'\b\w{1,3}\b', '', regex=True)
     df['clean_text'] = new_col
     return(df)
 
@@ -107,5 +108,10 @@ sequences = tokenizer.texts_to_sequences(sentences)
 
 word_index = tokenizer.word_index # word and their token # ordered by most frequent
 print('Found %s unique tokens.' % len(word_index))
+type(word_index) ### Move this from a dictionary to a string and see if that fixes the model.
+text = str(word_index)
+model = Word2Vec(tokens_sentences)
 
-model = Word2Vec(sentences)
+words = list(model.wv.vocab)
+print(words)
+len(words)
