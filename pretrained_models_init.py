@@ -64,13 +64,14 @@ print(result)
 import preprocess as pr
 
 path_corpus = '/Users/sarahdreier/OneDrive/Incubator/NI_docs/'
-path_corpus = '/Users/josehernandez/Documents/eScience/projects/NIreland_NLP/data/'
+
 ## Load txt document file names
 ocr_text = pr.text_preprocess(path_corpus)
 ocr_text.files
 
 # run through function to gather all text (as dictionary)
-ocr_text.nvivo_ocr(img_id=['IMG_1247_DEFE_24_876'])
+ocr_text_corpus = ocr_text.nvivo_ocr()
+len(ocr_text_corpus)
 
 # Convert to Dataframe to clean text
 ocr_corpus = pd.DataFrame(ocr_text_corpus.items())
