@@ -1,3 +1,5 @@
+### Code builds a simple, one-layer
+
 import numpy as np
 import pandas as pd
 import nltk

@@ -1,3 +1,5 @@
+######### JOSE: Line 115 begins to train the word2vec model with our own corpus -- this is what goes wrong. ##########
+
 ## Neural network boiler plate 
 ## using pretrained word2vec
 
@@ -60,9 +62,17 @@ result = google_model.most_similar(positive=['sushi', 'italian'], negative=['piz
 
 print(result)
 
-###### Our archive corpus
+
+
+#########################################################
+###### Training data based on our archive corpus ########
+#########################################################
 
 import preprocess as pr
+import pandas as pd
+import os
+import numpy as np
+from gensim.models import Word2Vec
 
 path_corpus = '/Users/sarahdreier/OneDrive/Incubator/NI_docs/'
 
@@ -96,6 +106,7 @@ j_path = '/Users/sarahdreier/OneDrive/Incubator/NIreland_NLP'
 df = pd.read_csv(os.path.join(j_path, 'justifications_clean_text_ohe.csv'))
 just_imgs = np.ndarray.tolist(df['img_file_orig'].unique())
 ocr_corpus_subset = ocr_corpus.loc[ocr_corpus['img_file'].isin(just_imgs)]
+#ocr_text_corpus_just = ocr_text.nvivo_ocr(img_id=just_imgs)
 
 # Count the number of unique tokens in the subseted corpus
 #sentences = ocr_corpus['clean_text']
@@ -107,11 +118,10 @@ tokenizer.fit_on_texts(sentences)
 sequences = tokenizer.texts_to_sequences(sentences)
 
 word_index = tokenizer.word_index # word and their token # ordered by most frequent
-print('Found %s unique tokens.' % len(word_index))
-type(word_index) ### Move this from a dictionary to a string and see if that fixes the model.
-text = str(word_index)
-model = Word2Vec(tokens_sentences)
+print('Found %s unique tokens.' % len(word_index)) #13,197 unique tokens
+type(word_index) ### I tried to transform from a dict to a string but that didn't fix the issue
+model = Word2Vec(word_index) # this should train the model
 
-words = list(model.wv.vocab)
-print(words)
+words = list(model.wv.vocab) # this should show the words in the model, but it is showing characters rather than words
+print(sorted(words))
 len(words)
