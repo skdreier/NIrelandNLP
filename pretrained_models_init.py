@@ -117,11 +117,20 @@ tokenizer = Tokenizer()
 tokenizer.fit_on_texts(sentences)
 sequences = tokenizer.texts_to_sequences(sentences)
 
+# This was our original code from last Friday
 word_index = tokenizer.word_index # word and their token # ordered by most frequent
 print('Found %s unique tokens.' % len(word_index)) #13,197 unique tokens
 type(word_index) ### I tried to transform from a dict to a string but that didn't fix the issue
-model = Word2Vec(word_index) # this should train the model
+model = Word2Vec(word_index, min_count=1) # this should train the model
 
 words = list(model.wv.vocab) # this should show the words in the model, but it is showing characters rather than words
 print(sorted(words))
 len(words)
+
+# This is our new code as of today (Mon Mar 09)
+from gensim.models import Word2Vec
+sentences
+type(sentences)
+sentences = list(sentences)
+model = Word2Vec(sentences, min_count=1)
+model.wv.vocab
