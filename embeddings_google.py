@@ -18,12 +18,18 @@ from sklearn.pipeline import Pipeline
 import os
 from nltk.stem import PorterStemmer
 from sklearn.model_selection import train_test_split
+from gensim.models import KeyedVectors
+
 
 
 ## Set the file pathway and download corpus
 this_file_path = os.path.abspath(__file__)
 project_root = os.path.split(this_file_path)[0]
 j_path = os.path.join(project_root) 
+
+this_file_path = os.path.abspath(__file__)
+project_root = os.path.split(this_file_path)[0]
+PATH_TO_GV = os.path.join(project_root, 'wordvec') + '/'
 
 df = pd.read_csv(os.path.join(j_path, 'justifications_clean_text_ohe.csv'))
 
@@ -143,7 +149,7 @@ model.fit(x_train, y_train, # Target vector
 word_vectors = KeyedVectors.load_word2vec_format(PATH_TO_GV + 'GoogleNews-vectors-negative300.bin', binary=True)
 
 word_vector_dim=300
-vocabulary_size= max_words+1
+vocabulary_size= max_words + 1
 embedding_matrix = np.zeros((vocabulary_size, word_vector_dim))
 
 for word, i in word_index.items():
@@ -163,6 +169,7 @@ type(embedding_matrix)
 nonzero_elements = np.count_nonzero(np.count_nonzero(embedding_matrix, axis=1))
 nonzero_elements / max_words
 
+# Setting parameters for the NN
 nb_filters = 128
 filter_size_a = 3
 drop_rate = 0.5
@@ -171,15 +178,18 @@ my_optimizer = 'adam'
 from keras.layers import Input, Embedding, Dropout, Conv1D, GlobalMaxPooling1D, Dense, Concatenate, MaxPooling1D, Flatten
 from keras.models import Model, load_model
 
-my_input = Input(shape=(None,))
+## Build the neural network
+
+my_input = Input(shape=(max_seq_len+1,))
 
 embedding = Embedding(input_dim=embedding_matrix.shape[0], # vocab size, including the 0-th word used for padding
                         output_dim=word_vector_dim,
                         weights=[embedding_matrix], # we pass our pre-trained embeddings
-                        input_length=max_seq_len,
-                        trainable=False,
+                        input_length=max_seq_len+1,
+                        trainable=True
                         )(my_input)
 
+# Kernel size is how big your window is. Putting x number of words into the NN together at a time from each sentence.
 x = Conv1D(filters = nb_filters, kernel_size = filter_size_a,
     activation = 'relu',)(embedding)
 
