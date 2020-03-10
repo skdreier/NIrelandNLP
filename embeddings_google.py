@@ -106,13 +106,14 @@ word_vector_dim=100
 vocabulary_size= max_words+1
 embedding_matrix = np.zeros((vocabulary_size, word_vector_dim))
 
-nb_filters = 128
-filter_size_a = 3
+nb_filters = 64
+filter_size_a = 2
 drop_rate = 0.5
 my_optimizer = 'adam'
 
 from keras.layers import Input, Embedding, Dropout, Conv1D, GlobalMaxPooling1D, Dense, Concatenate, MaxPooling1D, Flatten
 from keras.models import Model, load_model
+from keras.layers import SpatialDropout1D
 
 my_input = Input(shape=(None,))
 embedding = Embedding(input_dim=embedding_matrix.shape[0], input_length=max_seq_len,
@@ -120,6 +121,7 @@ embedding = Embedding(input_dim=embedding_matrix.shape[0], input_length=max_seq_
         
 x = Conv1D(filters = nb_filters, kernel_size = filter_size_a,
     activation = 'relu',)(embedding)
+x = SpatialDropout1D(drop_rate)(x)
 x = MaxPooling1D(pool_size=5)(x)
 x = Flatten()(x)
 x = Dense(128, activation='relu')(x)
