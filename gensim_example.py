@@ -35,6 +35,8 @@ ocr_corpus_subset = ocr_corpus.loc[ocr_corpus['img_file'].isin(just_imgs)]
 corpus = ocr_corpus
 #corpus = ocr_corpus_subset
 
+# Cleaning step 2: Remove list based on top 1000 most-occuring words (from word2vec model, below)
+
 # Function to clean text
 def clean_func(column, df):
     new_col = column.str.lower()
@@ -42,7 +44,8 @@ def clean_func(column, df):
     #new_col = new_col.replace(r"[^0-9a-z #+_]", "", regex=True)
     new_col = new_col.replace(r"[^a-z #+_]", " ", regex=True)
     new_col = new_col.replace(r"#", " ", regex=True)
-    #new_col = new_col.replace(r'\b\w{1,2}\b', '', regex=True)
+    new_col = new_col.replace(r'\b\w{1}\b', '', regex=True) # remove one-word words (loses "I" and "a")
+    #new_col = new_col.replace(remove_word_set, '', regex=True) # remove identified words
     df['clean_text'] = new_col
     return(df)
 
@@ -54,32 +57,94 @@ tokenized_docs = [word_tokenize(i) for i in corpus_text]
 for i in tokenized_docs:
     print(i)
 
-model= Word2Vec(tokenized_docs, min_count=2) # this should train the model
+### Cleaning step 1: Remove words from the model that appear only once or twice in the corpus (Original yield: 15567 words)
+model= Word2Vec(tokenized_docs, min_count=3) 
+len(list(model.wv.vocab))
 
-words = list(model.wv.vocab) # this should show the words in the model, but it is showing characters rather than words
+### Cleaning step 2: Look at the most frequently occurring 1000 words and remove non-word "noise"; rerun model
+model.wv.index2entity[:1000]
+    # non-word "words" to keep (abbreviations, acronyms, incomplete but informative, etc.): th, int, pr, sep, prot, pd, vsi, col, ni, cgs, tho, fco, gsw, goc, rc
+    # non-word "words" to remove:
+remove_word_set = ['bn', 'er', 'pte', 'si', 'ar', 'rt', 'il', 'al', 'ir', 'mod', 'regt', 'nd', 'mil', 'asd', 'br', 'ad', 'ra', 'sqn', 'bde', 'baor', 'li', 'gs', 'lt', 'ma', 'iii', 'ti', 'te', 'ds', 'rd', 'ii']
+
+tokenized_docs2 = [[word for word in sub if word not in remove_word_set] for sub in tokenized_docs] 
+
+model= Word2Vec(tokenized_docs2, min_count=3) 
+
+words = list(model.wv.vocab) 
 print(sorted(words))
-print(model['terrorism'])
-len(words)
+len(words) #15537
+
+### Cleaning step 3: Look at output among words most similar to the substantively most relevant words
+
+# Function to look at most similar words
+def most_sim(keyword, num):
+    return(model.most_similar(positive=[keyword], topn=num))
+most_sim('internment', 5)
+
+# Loop to print most similar words for a list
+keyword_list = ['internment', 'intern', 'interrogation', 'interrogate', 'detention', 'detain', 'security', 
+'emergency', 'special', 'powers', 'spa', 'parliament', 'policy', 'political', 'terrorism', 'terrorists', 'ira',
+'hmg', 'faulkner', 'protestant', 'catholic', 'ulster', 'westminster', 'stormont', 'britain', 'london',
+'belfast', 'ireland', 'england', 'northern', 'republican', 'loyalist']
+
+def most_sim_list(keyword, num):
+    new_list = []
+    for word in keyword_list:
+        new_list.append(model.most_similar(positive=word, topn=num))
+    return(new_list)
+    
+most_sim_list(keyword_list, 25)
+
+import re
+tokenized_docs3 = [[re.sub('(irel|irland|reland|iroland|ieland|irelan|irelnd|roland|irelandnd|tireland|irelandan|irelandanid)','ireland', x) for x in i] for i in tokenized_docs2]
+tokenized_docs3 = [[re.sub('(orthern|norther|ofnorthern|nothern|ncrthern|innorthern|rthern|thenorthern|northrn|nortern|northen|northernn|northorn|northernnn|xnorthern)','northern', x) for x in i] for i in tokenized_docs3]
+
+model= Word2Vec(tokenized_docs3, min_count=3) 
+
+words = list(model.wv.vocab) 
+print(sorted(words))
+len(words) #15522
+
 model.wv.save_word2vec_format('archive_corpus_w2v_model.bin')
 #model.wv.save_word2vec_format('archive_corpus_w2v_model.txt', binary=false) # Saved as ASCII format to view contents
 # Then to use later:
 # model = Word2Vec.load('archive_corpus_w2v_model.bin')
 print(model)
 
-model.most_similar(positive=['terrorism'], topn=5)
-model.most_similar(positive=['ira'], topn=5)
-model.most_similar(positive=['hmg'], topn=5)
-model.most_similar(positive=['internment'], topn=5)
-model.most_similar(positive=['faulkner'], topn=5)
+most_sim('faulkner', 5)
 
-model.most_similar(positive=['ulster'], topn=5)
-model.most_similar(positive=['westminster'], topn=5)
-model.most_similar(positive=['stormont'], topn=5)
+# other words to remove:
+thesecurity
+ander
+securi
+# sf ok -- abreviation
+rmoved
+millen
+hewas
+rees
+# eec: european economic council
+nio
+pss 
+fco 
+# jsc ok      
+irelandoffice
+irelandgovernment
+ofth
+northernireland
+aoc
+ofth
+cesa
+toal
+theruc
 
-model.most_similar(positive=['protestant'], topn=5)
-model.most_similar(positive=['catholic'], topn=5)
+print(model['terrorism'])
 
+
+##################################################
 ### Visualize word embeddings
+##################################################
+
 from sklearn.decomposition import PCA
 from matplotlib import pyplot
 
@@ -87,7 +152,6 @@ X = model[model.wv.vocab]
 pca = PCA(n_components=2)
 result = pca.fit_transform(X)
 pyplot.scatter(result[:, 0], result[:, 1])
-
 
 # Plot scatterplot for words most similar to Internment
 
@@ -100,7 +164,7 @@ df = pd.DataFrame(
     })
 
 # Pull words most associated w Internment
-token = 'internment'
+token = 'catholic'
 token_lst = pd.DataFrame(model.most_similar(positive=token, topn=25))[0]
 token_lst = token_lst.append(pd.Series([token]))
 df_token = df.loc[df['word'].isin(token_lst)]
@@ -108,51 +172,3 @@ df_token = df.loc[df['word'].isin(token_lst)]
 ax = df_token.plot(kind='scatter', x='pca1', y='pca2')
 df_token[['pca1','pca2','word']].apply(lambda row: ax.text(*row),axis=1);
 
-
-
-
-###########################################################################################
-###########################################################################################
-###### FULL CORPUS does better than the subsetted corpus for the words tested below #######
-###########################################################################################
-
-
-model_full = model
-words = list(model_full.wv.vocab) # this should show the words in the model, but it is showing characters rather than words
-print(sorted(words))
-len(words)
-
-model_subset = model
-words = list(model_subset.wv.vocab) # this should show the words in the model, but it is showing characters rather than words
-print(sorted(words))
-len(words)
-
-print(model['terrorism']) # will show embeddings 
-print(model)
-
-model.most_similar(positive=['terrorism'], topn=5)
-model.most_similar(positive=['ira'], topn=5)
-model.most_similar(positive=['hmg'], topn=5)
-model.most_similar(positive=['internment'], topn=5)
-model.most_similar(positive=['faulkner'], negative=['england'], topn=1)
-
-
-
-model_full.most_similar(positive=['terrorism'], topn=5)
-model_subset.most_similar(positive=['terrorism'], topn=5)
-
-model_full.most_similar(positive=['ira'], topn=5)
-model_subset.most_similar(positive=['ira'], topn=5)
-
-model_full.most_similar(positive=['hmg'], topn=5)
-model_subset.most_similar(positive=['hmg'], topn=5)
-
-model_full.most_similar(positive=['internment'], topn=5)
-model_subset.most_similar(positive=['internment'], topn=5)
-
-model_full.most_similar(positive=['faulkner'], topn=5)
-model_subset.most_similar(positive=['faulkner'], topn=5)
-
-model_full.most_similar(positive=['ulster'], topn=5)
-model_full.most_similar(positive=['westminster'], topn=5)
-model_full.most_similar(positive=['stormont'], topn=5)
