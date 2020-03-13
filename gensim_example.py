@@ -35,8 +35,6 @@ ocr_corpus_subset = ocr_corpus.loc[ocr_corpus['img_file'].isin(just_imgs)]
 corpus = ocr_corpus
 #corpus = ocr_corpus_subset
 
-# Cleaning step 2: Remove list based on top 1000 most-occuring words (from word2vec model, below)
-
 # Function to clean text
 def clean_func(column, df):
     new_col = column.str.lower()
@@ -106,6 +104,7 @@ words = list(model.wv.vocab)
 print(sorted(words))
 len(words) #15522
 
+# Save archive word2vec model:
 model.wv.save_word2vec_format('archive_corpus_w2v_model.bin')
 #model.wv.save_word2vec_format('archive_corpus_w2v_model.txt', binary=false) # Saved as ASCII format to view contents
 # Then to use later:
@@ -113,32 +112,11 @@ model.wv.save_word2vec_format('archive_corpus_w2v_model.bin')
 print(model)
 
 most_sim('faulkner', 5)
-
-# other words to remove:
-thesecurity
-ander
-securi
-# sf ok -- abreviation
-rmoved
-millen
-hewas
-rees
-# eec: european economic council
-nio
-pss 
-fco 
-# jsc ok      
-irelandoffice
-irelandgovernment
-ofth
-northernireland
-aoc
-ofth
-cesa
-toal
-theruc
-
 print(model['terrorism'])
+
+# other words to remove: thesecurity, ander, securi, rmoved, millen, hewas, rees, nio, pss, fco, irelandoffice
+# irelandgovernment, ofth, northernireland, aoc, ofth, cesa, toal, theruc
+# "words" to keep: sf, eec, jsc
 
 
 ##################################################
