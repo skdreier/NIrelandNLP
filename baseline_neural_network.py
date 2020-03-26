@@ -1,4 +1,11 @@
-### Code builds a simple, one-layer
+######################################################
+### Code builds a simple, one-layer                ###
+### Uses: justifications_clean_text_ohe.csv        ###
+###### Collapses justifications to 6 categories.   ###
+###### Stems and tokenizes words                   ###
+###### Trains a basic neural network               ###
+### Next step: Sarah needs to talk through w Jose  ###
+######################################################
 
 import numpy as np
 import pandas as pd
@@ -49,9 +56,9 @@ category_to_id = dict(category_id_df.values)
 id_to_category = dict(category_id_df[['category_id', 'just_categories']].values)
 df.head()
 
-######################################
-### Stem sentences outside of grid ###
-######################################
+######################
+### Stem sentences ###
+######################
 
 ps = PorterStemmer()
 
