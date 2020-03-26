@@ -29,7 +29,7 @@ ___
 
 - [function_clean_text.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/function_clean_text.py): Builds a function to clean text and one-hot-encode justifications. **Uses:** [justifications_long_training.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_training.csv). **Creates:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv) **Action:** Clean script.
 
-- [gensim_example.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/gensim_example.py):
+- [gensim_example.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/gensim_example.py): Builds Word vector model based on our archive data. **Uses:** NI_docs, [preprocessing.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocessing.py). **Creates:** [archive_corpus_w2v_model.bin](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/archive_corpus_w2v_model.bin). **Action:** Move NI_docs to Github (?), save visualized output to new GitHub folder, talk through "cleaning" tactics with Jose, add as an embedded layer to NN.
 
 - [grid_search.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/grid_search.py):
 - [justifications_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_compile.py):
