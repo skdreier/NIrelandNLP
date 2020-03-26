@@ -2,7 +2,7 @@
 #### Code examines various multi-class model and parameters for predicting classifications.
 #### Basic code adapted from: https://towardsdatascience.com/multi-class-text-classification-with-scikit-learn-12f1e60e0a9f
 #### Added code: text stemming, pipelines to add hyperparmeters
-#### 7 justification categories
+#### Multiple justification categories (12,7,6,5)
 #### Feb 28 2020
 ####################################################################################################################
 
