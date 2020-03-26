@@ -1,6 +1,13 @@
 # This script builds a function to clean the data! 
 # SKD Feb 13
 
+######################################################
+### Builds a function to clean, OHE data           ###
+### Uses: justifications_long_training.csv         ###
+### Creates: justifications_clean_text_ohe.csv     ###
+### Script needs to be cleaned                     ###
+######################################################
+
 import os
 from pathlib import Path
 import re
