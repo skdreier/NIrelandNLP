@@ -48,14 +48,17 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
   + B) Load Nvivo OCRd txt files into dict where key is the imgage or pdf id To be used in the case where you need the overall document of the individual coded sentences.
 
+  **Used by:** [gensim_example.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/gensim_example.py), [justifications_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_compile.py)
 
-**Uses:** **Creates:** **Actions:**
+- [pretrained_models_init.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/pretrained_models_init.py): Code to use pretrained word vector models (e.g., Stanford GloVe model, Google Word2Vec model). Code also contains old code to train based on our archive corpus, but this code does not work; see [gensim_example.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/gensim_example.py) for working code. **Uses:** Glove and Word2Vec files from online. **Action:** Move old, defunct code to "old_docs" file. Save GloVe and Word2Vec original files onto Repo?
 
-   Used by: gensim_example.py, justifications_compile.py
-
-- [pretrained_models_init.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/pretrained_models_init.py):
 - [random_docs_error_check.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/random_docs_error_check.py):
+**Uses:** **Creates:** **Action:**
+
 - [text_classification_intro.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/text_classification_intro.py):
+**Uses:** **Creates:** **Action:**
+
+
 
 ### Files (data and models):
 
