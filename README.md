@@ -38,6 +38,9 @@ ___
 - [multiclass.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass.py):
 - [nn_start.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/nn_start.py):
 - [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py):
+
+   Used by: gensim_example.py
+
 - [pretrained_models_init.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/pretrained_models_init.py):
 - [random_docs_error_check.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/random_docs_error_check.py):
 - [text_classification_intro.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/text_classification_intro.py):
@@ -45,6 +48,9 @@ ___
 ### Files (data and models):
 
 - archive_corpus_w2v_model.bin
+
+   Created by: gensim_example.py
+
 - date_range.csv
 - dates_long_parsed.csv
 - justifications_clean_text_ohe.csv: 
