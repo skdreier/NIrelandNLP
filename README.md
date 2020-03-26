@@ -10,9 +10,9 @@ ___
  
  - [dates_0123](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_0123 "dates_0123"): Contains Nvivo output text for each specific "date" code in Nviov (codes as of Jan 2020). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts.
  
- - [just_0106](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/just_0106 "just_0106"): Contains Nvivo output text for each specific "justification" code in Nvivo (codes as of Jan 2020). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts!
+ - [just_0106](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/just_0106 "just_0106"): Contains Nvivo output text for each specific "justification" code in Nvivo (codes as of Jan 2020). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts (**Used by:** justifications_compile.py).
  
-- [multiclass_LR](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_LR "multiclass_LR"): Distribution plots for justification categories (6, 7) and performance (accuracy) for each of several regression/ML models. **Action:** Link to python script, relocate Justification histograms in unique folder.
+- [multiclass_LR](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_LR "multiclass_LR"): Distribution plots for justification categories (6, 7) and performance (accuracy) for each of several regression/ML models. Scripts: [grid_search.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/grid_search.py) **Action:** Move justification histograms in unique folder.
    
 - [multiclass_NB](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_NB "multiclass_NB"): Multi-class Naive Bayes confusion matrices. **Action:** Link to python script, draft description. Consider doing this for LR (not just NB).
 
@@ -31,15 +31,21 @@ ___
 
 - [gensim_example.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/gensim_example.py): Builds Word vector model based on our archive data. **Uses:** NI_docs, [preprocessing.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocessing.py). **Creates:** [archive_corpus_w2v_model.bin](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/archive_corpus_w2v_model.bin). **Action:** Move NI_docs to Github (?), save visualized output to new GitHub folder, talk through "cleaning" tactics with Jose, add as an embedded layer to NN.
 
-- [grid_search.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/grid_search.py):
-- [justifications_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_compile.py):
-- [merge_codes.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/merge_codes.py):
-- [mlc_plots.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/mlc_plots.py):
-- [multiclass.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass.py):
-- [nn_start.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/nn_start.py):
-- [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py):
+- [grid_search.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/grid_search.py): Examines various multi-class models and parameters for predicting classification (includes: histograms of distribution of categories by training/testing data, plots accuracy for various model approaches, confusion matrices, grid search to output best performing model/parameters, most "important" unigram/bigrams for each justification category. **Uses:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv). **Creates:** Histograms for justification categories and box plots to show which model (Random forest, SVC, Multinom NB, LR) performs best (in [multiclass_LR](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_LR "multiclass_LR")). **Actions: Clean script**
 
-   Used by: gensim_example.py
+- [justifications_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_compile.py): Prepares justification code files from Nvivo for text analysis. Specifically: Appends each of 12 justification.txt files (from Nvivo), parses text into relevant components, fixes image naming issue, creates file of Nvivo page captures (rather than text codes) for hand transcription. **Uses:** [just_0106](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/just_0106) and [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py). **Creates:** [justifications_long_training.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_training.csv), [page_ref.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/page_ref.csv). **Actions: Clean script**
+
+- [merge_codes.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/merge_codes.py): **Uses:** **Creates:** **Actions:**
+
+- [mlc_plots.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/mlc_plots.py): **Uses:** **Creates:** **Actions:**
+
+- [multiclass.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass.py): **Uses:** **Creates:** **Actions:**
+
+- [nn_start.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/nn_start.py): **Uses:** **Creates:** **Actions:**
+
+- [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py): **Uses:** **Creates:** **Actions:**
+
+   Used by: gensim_example.py, justifications_compile.py
 
 - [pretrained_models_init.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/pretrained_models_init.py):
 - [random_docs_error_check.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/random_docs_error_check.py):
@@ -56,15 +62,19 @@ ___
 - justifications_clean_text_ohe.csv: 
 
    Created by: function_clean_text.py
-   Used by: baseline_neural_network.py, embeddings_google.py
+   Used by: baseline_neural_network.py, embeddings_google.py, grid_search.py
    
 - justifications_dates_long_parsed.csv
-- justifications_long_parsed.csv
+- justifications_long_parsed.csv: Perhaps obsolete (originally created by justifications_compile.py)
 - justifications_long_training.csv
 
+  Created by: justifications_compile.py
   Used by: function_clean_text.py
 
-- page_ref.csv
+- page_ref.csv: Page captures (rather than text captures -- for hand transcription).
+
+  Created by: justifications_compile.py
+
 - random_docs_error_check.csv
 
    **Action:** None.
