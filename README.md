@@ -12,9 +12,9 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
  
  - [just_0106](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/just_0106 "just_0106"): Contains Nvivo output text for each specific "justification" code in Nvivo (codes as of Jan 2020). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts (**Used by:** justifications_compile.py).
  
-- [multiclass_LR](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_LR "multiclass_LR"): Distribution plots for justification categories (6, 7) and performance (accuracy) for each of several regression/ML models. Scripts: [grid_search.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/grid_search.py) **Action:** Move justification histograms in unique folder.
+- [multiclass_LR](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_LR "multiclass_LR"): Distribution plots for justification categories (6, 7) and performance (accuracy) for each of several regression/ML models. **Created by:**[grid_search.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/grid_search.py) **Action:** Move justification histograms in unique folder.
    
-- [multiclass_NB](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_NB "multiclass_NB"): Multi-class Naive Bayes confusion matrices. **Action:** Link to python script, draft description. Consider doing this for LR (not just NB).
+- [multiclass_NB](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_NB "multiclass_NB"): Multi-class Naive Bayes confusion matrices. **Created by:** [multiclass.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass.py) **Action:** Draft description. Consider doing this for LR (not just NB), maybe integrate script into grid_search.py file.
 
 - [old_docs](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/old_docs "old_docs"): Files/scripts no longer being used.  
 
@@ -37,9 +37,9 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
 - [merge_codes.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/merge_codes.py): Code merges justification and data codes. **Uses:** [justifications_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_parsed.csv), [dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_long_parsed.csv). **Creates:** [justifications_dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_dates_long_parsed.csv). **Actions:** None of these text files are used in analysis. If we want to have date included in text, we should add date to the "justifications_long_training.csv". *Otherwise, this code and its outputs are obsolete.*
 
-- [mlc_plots.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/mlc_plots.py): **Uses:** **Creates:** **Actions:**
+- [mlc_plots.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/mlc_plots.py): Creates basic histogram of frequency for each justification category (plot not saved anywhere). **Uses:** [justifications_long_training.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_training.csv) **Actions:** Rename file and/or join this with justificaiton histograms created in grid_search.py. 
 
-- [multiclass.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass.py): **Uses:** **Creates:** **Actions:**
+- [multiclass.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass.py): Looks like this is the first cut at a multi-class analysis. **Uses:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv) **Creates:** Confusion matrices (stored in [multiclass_NB](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_NB)) **Actions:** Integrate this code into "grid_search.py" and delete this as a stand-alone script. 
 
 - [nn_start.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/nn_start.py): **Uses:** **Creates:** **Actions:**
 
@@ -64,7 +64,7 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 - justifications_clean_text_ohe.csv: 
 
    Created by: function_clean_text.py
-   Used by: baseline_neural_network.py, embeddings_google.py, grid_search.py
+   Used by: baseline_neural_network.py, embeddings_google.py, grid_search.py, multiclass.py
    
 - justifications_dates_long_parsed.csv: Perhaps obsolete (created by merge_codes.py)
 
@@ -73,7 +73,7 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 - justifications_long_training.csv
 
   Created by: justifications_compile.py
-  Used by: function_clean_text.py
+  Used by: function_clean_text.py, mlc_plots.py
 
 - page_ref.csv: Page captures (rather than text captures -- for hand transcription).
 
