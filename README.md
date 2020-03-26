@@ -4,7 +4,7 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 ## File Summaries (prelim-analysis branch)
 
 ### Folders:
-- [biclass_logreg](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/biclass_logreg "biclass_logreg"): Contains plots for each of justification (12) of the 40 words with the largest coefficients (absolute value) for each justification category. **Action:** Link to python script
+- [biclass_logreg](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/biclass_logreg "biclass_logreg"): Contains plots for each of justification (12) of the 40 words with the largest coefficients (absolute value) for each justification category. **Created by:** [text_classification_intro.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/text_classification_intro.py).
 
 - [data](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/data "sample data"): Contains 7 sample .txt files from the original document PDFs. **Action:** Rename as "sample_data"
  
