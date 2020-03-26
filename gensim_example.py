@@ -42,7 +42,7 @@ def clean_func(column, df):
     #new_col = new_col.replace(r"[^0-9a-z #+_]", "", regex=True)
     new_col = new_col.replace(r"[^a-z #+_]", " ", regex=True)
     new_col = new_col.replace(r"#", " ", regex=True)
-    new_col = new_col.replace(r'\b\w{1}\b', '', regex=True) # remove one-word words (loses "I" and "a")
+    new_col = new_col.replace(r'\b\w{1}\b', '', regex=True) # remove one-letter words (loses "I" and "a")
     #new_col = new_col.replace(remove_word_set, '', regex=True) # remove identified words
     df['clean_text'] = new_col
     return(df)
@@ -59,7 +59,7 @@ for i in tokenized_docs:
 model= Word2Vec(tokenized_docs, min_count=3) 
 len(list(model.wv.vocab))
 
-### Cleaning step 2: Look at the most frequently occurring 1000 words and remove non-word "noise"; rerun model
+### Cleaning step 2: Look at the most frequently occurring 1000 words and remove non-word "noise"; rerun model 
 model.wv.index2entity[:1000]
     # non-word "words" to keep (abbreviations, acronyms, incomplete but informative, etc.): th, int, pr, sep, prot, pd, vsi, col, ni, cgs, tho, fco, gsw, goc, rc
     # non-word "words" to remove:
@@ -112,6 +112,10 @@ model.wv.save_word2vec_format('archive_corpus_w2v_model.bin')
 print(model)
 
 most_sim('faulkner', 5)
+most_sim('interrogation', 5)
+most_sim('internment', 5)
+most_sim('terrorism', 5)
+
 print(model['terrorism'])
 
 # other words to remove: thesecurity, ander, securi, rmoved, millen, hewas, rees, nio, pss, fco, irelandoffice
@@ -142,7 +146,7 @@ df = pd.DataFrame(
     })
 
 # Pull words most associated w Internment
-token = 'catholic'
+token = 'faulkner'
 token_lst = pd.DataFrame(model.most_similar(positive=token, topn=25))[0]
 token_lst = token_lst.append(pd.Series([token]))
 df_token = df.loc[df['word'].isin(token_lst)]

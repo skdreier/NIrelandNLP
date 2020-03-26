@@ -205,7 +205,7 @@ model = Model(my_input, prob)
 model.compile(loss='categorical_crossentropy', optimizer = my_optimizer,
     metrics = ['accuracy']) 
 
-model.fit(x_train, y_train, # Target vector
+x = model.fit(x_train, y_train, # Target vector
     epochs=20, # Three epochs
     verbose=1, # No output
     batch_size=100, # Number of observations per batch
