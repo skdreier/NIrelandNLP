@@ -8,7 +8,7 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
 - [data](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/data "sample data"): Contains 7 sample .txt files from the original document PDFs. **Action:** Rename as "sample_data"
  
- - [dates_0123](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_0123 "dates_0123"): Contains Nvivo output text for each specific "date" code in Nviov (codes as of Jan 2020). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts.
+ - [dates_0123](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_0123 "dates_0123"): Contains Nvivo output text for each specific "date" code in Nviov (codes as of Jan 2020). **Used by:** [date_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/date_compile.py:). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts.
  
  - [just_0106](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/just_0106 "just_0106"): Contains Nvivo output text for each specific "justification" code in Nvivo (codes as of Jan 2020). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts (**Used by:** justifications_compile.py).
  
