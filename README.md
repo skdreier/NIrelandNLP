@@ -12,9 +12,9 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
  
  - [just_0106](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/just_0106 "just_0106"): Contains Nvivo output text for each specific "justification" code in Nvivo (codes as of Jan 2020). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts (**Used by:** justifications_compile.py).
  
-- [multiclass_LR](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_LR "multiclass_LR"): Distribution plots for justification categories (6, 7) and performance (accuracy) for each of several regression/ML models. **Created by:**[grid_search.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/grid_search.py) **Action:** Move justification histograms in unique folder.
+- [multiclass_LR](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_LR "multiclass_LR"): Distribution plots for justification categories (6, 7) and performance (accuracy) for each of several regression/ML models. **Created by:** [grid_search.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/grid_search.py). **Action:** Move justification histograms in unique folder.
    
-- [multiclass_NB](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_NB "multiclass_NB"): Multi-class Naive Bayes confusion matrices. **Created by:** [multiclass.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass.py) **Action:** Draft description. Consider doing this for LR (not just NB), maybe integrate script into grid_search.py file.
+- [multiclass_NB](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_NB "multiclass_NB"): Multi-class Naive Bayes confusion matrices. **Created by:** [multiclass.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass.py). **Action:** Draft description. Consider doing this for LR (not just NB), maybe integrate script into grid_search.py file.
 
 - [old_docs](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/old_docs "old_docs"): Files/scripts no longer being used.  
 
@@ -59,11 +59,9 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
 ### Files (data and models):
 
-- archive_corpus_w2v_model.bin
+- [archive_corpus_w2v_model.bin](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/archive_corpus_w2v_model.bin): Word2Vec model created using archive document. **Created by:** gensim_example.py.
 
-   Created by: gensim_example.py
-
-- date_range.csv
+- [date_range.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/date_range.csv): Date range for all archive files that contain an "internment" code (Round 1). Document developed by hand. **Action:** Move to "old_docs" or "Misc docs."
 
 - dates_long_parsed.csv: Perhaps obsolete (created by XXX, used by merge_codes.py)
 
