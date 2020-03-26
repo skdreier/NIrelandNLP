@@ -1,3 +1,11 @@
+######################################################
+### Builds Word vector model based on archive data ###
+### Inc: "cleaning" tactics (probably unnecessary) ###
+### Examines / visualizes model output             ###
+### Uses: NI_docs, preprocessing.py                ###
+### Creates: archive_corpus_w2v_model.bin          ###
+######################################################
+
 ## Gensim how-to and test with subset 
 import pandas as pd
 import os
