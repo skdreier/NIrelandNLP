@@ -52,12 +52,9 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
 - [pretrained_models_init.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/pretrained_models_init.py): Code to use pretrained word vector models (e.g., Stanford GloVe model, Google Word2Vec model). Code also contains old code to train based on our archive corpus, but this code does not work; see [gensim_example.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/gensim_example.py) for working code. **Uses:** Glove and Word2Vec files from online. **Action:** Move old, defunct code to "old_docs" file. Save GloVe and Word2Vec original files onto Repo?
 
-- [random_docs_error_check.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/random_docs_error_check.py):
-**Uses:** **Creates:** **Action:**
+- [random_docs_error_check.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/random_docs_error_check.py): Pulls a random sample of .txt files (from NI_docs) and counts characters appearing on each document. Used for error check exercise (completed by Arica 03/2020). **Uses:** NI_docs (not currently on GitHub). **Creates:** [random_docs_error_check.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/random_docs_error_check.csv). **Action:** Refile under a "Misc" folder.
 
-- [text_classification_intro.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/text_classification_intro.py):
-**Uses:** **Creates:** **Action:**
-
+- [text_classification_intro.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/text_classification_intro.py): Runs binary classifiers for each category, plots the words that have the most weight in classifying categories (biclass_logreg). Can use code for all words or just stopwords. **Uses:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv). **Creates:** [biclass_logreg](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/biclass_logreg "biclass_logreg"). **Action:** Code can be cleaned/streamlined with a few functions. 
 
 
 ### Files (data and models):
@@ -73,7 +70,7 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 - justifications_clean_text_ohe.csv: 
 
    Created by: function_clean_text.py
-   Used by: baseline_neural_network.py, embeddings_google.py, grid_search.py, multiclass.py
+   Used by: baseline_neural_network.py, embeddings_google.py, grid_search.py, multiclass.py, text_classification_intro.py
    
 - justifications_dates_long_parsed.csv: Perhaps obsolete (created by merge_codes.py)
 
@@ -89,6 +86,8 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
   Created by: justifications_compile.py
 
 - random_docs_error_check.csv
+
+  Created by: random_docs_error_check.py
 
    **Action:** None.
 
