@@ -1,3 +1,13 @@
+######################################################
+### Builds NN using google embeddings, parameters  ###
+### Uses: justifications_clean_text_ohe.csv        ###
+###### Collapses justifications to 6 categories.   ###
+###### Stems and tokenizes words                   ###
+### Next step: Sarah needs to talk through w Jose  ###
+### What is the difference bw this NN and the one  ###
+### built by "baseline_neural_network.py"?         ###
+######################################################
+
 import numpy as np
 import pandas as pd
 import nltk
