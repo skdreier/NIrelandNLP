@@ -39,11 +39,17 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
 - [mlc_plots.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/mlc_plots.py): Creates basic histogram of frequency for each justification category (plot not saved anywhere). **Uses:** [justifications_long_training.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_training.csv) **Actions:** Rename file and/or join this with justificaiton histograms created in grid_search.py. 
 
-- [multiclass.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass.py): Looks like this is the first cut at a multi-class analysis. **Uses:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv) **Creates:** Confusion matrices (stored in [multiclass_NB](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_NB)) **Actions:** Integrate this code into "grid_search.py" and delete this as a stand-alone script. 
+- [multiclass.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass.py): Looks like this is the first cut at a multi-class analysis. **Uses:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv). **Creates:** Confusion matrices (stored in [multiclass_NB](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/multiclass_NB)) **Actions:** Integrate this code into "grid_search.py" and delete this as a stand-alone script. 
 
-- [nn_start.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/nn_start.py): **Uses:** **Creates:** **Actions:**
+- [nn_start.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/nn_start.py): This is old code (adapted from on online resource) that starts to build a NN; this is obsolete. **Actions:** MOVE TO "old_docs" folder.
 
-- [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py): **Uses:** **Creates:** **Actions:**
+- [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py): Functions to: 
+  + A) Parse nvivo coding code and text txt file into dict of category and accompanied text and file information. It uses the nvivo file outputs where each txt file represents all the codings and source text in a particular category.
+
+  + B) Load Nvivo OCRd txt files into dict where key is the imgage or pdf id To be used in the case where you need the overall document of the individual coded sentences.
+
+
+**Uses:** **Creates:** **Actions:**
 
    Used by: gensim_example.py, justifications_compile.py
 
