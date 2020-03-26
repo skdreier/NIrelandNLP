@@ -2,7 +2,7 @@
 Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator Project)
 
 ## File Summaries (prelim-analysis branch)
-___
+
 ### Folders:
 - [biclass_logreg](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/biclass_logreg "biclass_logreg"): Contains plots for each of justification (12) of the 40 words with the largest coefficients (absolute value) for each justification category. **Action:** Link to python script
 
@@ -35,7 +35,7 @@ ___
 
 - [justifications_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_compile.py): Prepares justification code files from Nvivo for text analysis. Specifically: Appends each of 12 justification.txt files (from Nvivo), parses text into relevant components, fixes image naming issue, creates file of Nvivo page captures (rather than text codes) for hand transcription. **Uses:** [just_0106](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/just_0106) and [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py). **Creates:** [justifications_long_training.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_training.csv), [page_ref.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/page_ref.csv). **Actions: Clean script**
 
-- [merge_codes.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/merge_codes.py): **Uses:** **Creates:** **Actions:**
+- [merge_codes.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/merge_codes.py): Code merges justification and data codes. **Uses:** [justifications_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_parsed.csv), [dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_long_parsed.csv). **Creates:** [justifications_dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_dates_long_parsed.csv). **Actions:** None of these text files are used in analysis. If we want to have date included in text, we should add date to the "justifications_long_training.csv". *Otherwise, this code and its outputs are obsolete.*
 
 - [mlc_plots.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/mlc_plots.py): **Uses:** **Creates:** **Actions:**
 
@@ -58,14 +58,18 @@ ___
    Created by: gensim_example.py
 
 - date_range.csv
-- dates_long_parsed.csv
+
+- dates_long_parsed.csv: Perhaps obsolete (created by XXX, used by merge_codes.py)
+
 - justifications_clean_text_ohe.csv: 
 
    Created by: function_clean_text.py
    Used by: baseline_neural_network.py, embeddings_google.py, grid_search.py
    
-- justifications_dates_long_parsed.csv
-- justifications_long_parsed.csv: Perhaps obsolete (originally created by justifications_compile.py)
+- justifications_dates_long_parsed.csv: Perhaps obsolete (created by merge_codes.py)
+
+- justifications_long_parsed.csv: Perhaps obsolete (originally created by justifications_compile.py, used by merge_codes.py)
+
 - justifications_long_training.csv
 
   Created by: justifications_compile.py
