@@ -23,7 +23,7 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
 - [baseline_neural_network.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/baseline_neural_network.py): Builds a shallow, one-layer NN. **Uses:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv). **Action:** Talk through code w Jose. What is the difference between this and "embeddings_google.py"?
 
-- [date_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/date_compile.py): Appends each of 48 date code .txt files and cleans text. **Uses:** [dates_0123](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_0123). **Action:** Integrated with justifications_compile.py; DELETE SCRIPT.
+- [date_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/date_compile.py): Appends each of 48 date code .txt files and cleans text. **Uses:** [dates_0123](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_0123). **Creates:** [dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_long_parsed.csv). **Action:** Integrated with justifications_compile.py; DELETE SCRIPT.
 
 - [embeddings_google.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/embeddings_google.py): Builds NN using google embeddings and parameters. **Uses:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv). **Action:** What is the difference between this and "baseline_neural_network.py"?
 
@@ -63,38 +63,17 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
 - [date_range.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/date_range.csv): Date range for all archive files that contain an "internment" code (Round 1). Document developed by hand. **Action:** Move to "old_docs" or "Misc docs."
 
-- dates_long_parsed.csv: Perhaps obsolete (created by XXX, used by merge_codes.py)
+- [dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_long_parsed.csv): All date codes in entire corpus (from Nvivo codes). *Perhaps obsolete.* **Created by:** date_compile.py, **Used by:** merge_codes.py. **Action:** PUT ALL DATE SCRIPTS/CSV FILES IN A SPECIFIC FOLDER.
 
-- justifications_clean_text_ohe.csv: 
-
-   Created by: function_clean_text.py
-   Used by: baseline_neural_network.py, embeddings_google.py, grid_search.py, multiclass.py, text_classification_intro.py
+- [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv): ***Used for all of the analysis scripts.*** **Created by:** function_clean_text.py. **Used by:** baseline_neural_network.py, embeddings_google.py, grid_search.py, multiclass.py, text_classification_intro.py. 
    
-- justifications_dates_long_parsed.csv: Perhaps obsolete (created by merge_codes.py)
+- [justifications_dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_dates_long_parsed.csv): **Perhaps obsolete** (created by merge_codes.py)
 
-- justifications_long_parsed.csv: Perhaps obsolete (originally created by justifications_compile.py, used by merge_codes.py)
+- [justifications_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_parsed.csv): **Perhaps obsolete** (originally created by justifications_compile.py, used by merge_codes.py).
 
-- justifications_long_training.csv
+- [justifications_long_training.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_training.csv): **Created by:** justifications_compile.py
+  **Used by:** function_clean_text.py (to create justifications_clean_text_ohe.csv), mlc_plots.py
 
-  Created by: justifications_compile.py
-  Used by: function_clean_text.py, mlc_plots.py
+- [page_ref.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/page_ref_csv): Page captures (rather than text captures -- for hand transcription). **Created by:** justifications_compile.py. **Action:** Move to "Misc" folder.
 
-- page_ref.csv: Page captures (rather than text captures -- for hand transcription).
-
-  Created by: justifications_compile.py
-
-- random_docs_error_check.csv
-
-  Created by: random_docs_error_check.py
-
-   **Action:** None.
-
-- [ ](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/FILE ""):  
-
-   **Action:** .
-
-- [ ](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/FILE ""):  
-
-   **Action:** .
-
-
+- [random_docs_error_check.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis): For random error check RA tasks. **Created by:** random_docs_error_check.py. **Action:** Move to "Misc" folder.
