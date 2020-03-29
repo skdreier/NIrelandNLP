@@ -53,8 +53,8 @@ class text_preprocess:
         """
 
         if img_id is not None:
-            if not isinstance(img_id, list):
-                raise ValueError('img_id must be a list of strings')
+ #           if not isinstance(img_id, list):
+ #               raise ValueError('img_id must be a list of strings')
             for f in self.files:
                 for keyword in img_id:
                     if keyword in f:
