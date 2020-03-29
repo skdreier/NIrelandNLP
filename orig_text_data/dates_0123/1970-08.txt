@@ -1,0 +1,187 @@
+﻿Files\\SKD_round1\\PREM 15 101\\IMG_4586_PREM_15_101 - § 1 reference coded [ 0.29% Coverage]
+Reference 1 - 0.29% Coverage
+Page 1 : (107,551) - (253,577)
+Files\\SKD_round1\\PREM 15 101\\IMG_4587_PREM_15_101 - § 1 reference coded [ 0.34% Coverage]
+Reference 1 - 0.34% Coverage
+Page 1 : (347,184) - (496,205)
+Files\\SKD_round1\\PREM 15 101\\IMG_4588_PREM_15_101 - § 1 reference coded [ 0.26% Coverage]
+Reference 1 - 0.26% Coverage
+Page 1 : (393,100) - (531,121)
+Files\\SKD_round1\\PREM 15 101\\IMG_4590_PREM_15_101 - § 1 reference coded [ 0.98% Coverage]
+Reference 1 - 0.98% Coverage
+Page 1 : (282,150) - (456,203)
+Files\\SKD_round1\\PREM 15 101\\IMG_4591_PREM_15_101 - § 1 reference coded [ 0.57% Coverage]
+Reference 1 - 0.57% Coverage
+Page 1 : (365,123) - (522,157)
+Files\\SKD_round1\\PREM 15 101\\IMG_4592_PREM_15_101 - § 1 reference coded [ 0.59% Coverage]
+Reference 1 - 0.59% Coverage
+Page 1 : (339,122) - (507,155)
+Files\\SKD_round1\\PREM 15 101\\IMG_4594_PREM_15_101 - § 1 reference coded [ 0.77% Coverage]
+Reference 1 - 0.77% Coverage
+Page 1 : (349,575) - (429,663)
+Files\\SKD_round1\\PREM 15 101\\IMG_4596_PREM_15_101 - § 1 reference coded [ 0.78% Coverage]
+Reference 1 - 0.78% Coverage
+Page 1 : (332,152) - (497,196)
+Files\\SKD_round1\\PREM 15 101\\IMG_4597_PREM_15_101 - § 1 reference coded [ 0.78% Coverage]
+Reference 1 - 0.78% Coverage
+Page 1 : (308,140) - (496,179)
+Files\\SKD_round1\\PREM 15 101\\IMG_4600_PREM_15_101 - § 1 reference coded [ 0.20% Coverage]
+Reference 1 - 0.20% Coverage
+Page 1 : (384,106) - (495,123)
+Files\\SKD_round1\\PREM 15 101\\IMG_4602_PREM_15_101 - § 1 reference coded [ 0.27% Coverage]
+Reference 1 - 0.27% Coverage
+Page 1 : (412,103) - (506,129)
+Files\\SKD_round1\\PREM 15 101\\IMG_4612_PREM_15_101 - § 1 reference coded [ 0.50% Coverage]
+Reference 1 - 0.50% Coverage
+Page 1 : (65,515) - (213,547)
+Files\\SKD_round1\\PREM 15 101\\IMG_4613_PREM_15_101 - § 1 reference coded [ 2.11% Coverage]
+Reference 1 - 2.11% Coverage
+Page 1 : (233,223) - (728,270)
+Files\\SKD_round1\\PREM 15 101\\IMG_4614_PREM_15_101 - § 1 reference coded [ 0.68% Coverage]
+Reference 1 - 0.68% Coverage
+Page 1 : (304,142) - (521,171)
+Files\\SKD_round1\\PREM 15 101\\IMG_4615_PREM_15_101 - § 1 reference coded [ 0.51% Coverage]
+Reference 1 - 0.51% Coverage
+Page 1 : (321,187) - (505,213)
+Files\\SKD_round1\\PREM 15 101\\IMG_4616_PREM_15_101 - § 1 reference coded [ 4.31% Coverage]
+Reference 1 - 4.31% Coverage
+Page 1 : (20,211) - (512,294)
+Files\\SKD_round1\\PREM 15 101\\IMG_4617_PREM_15_101 - § 1 reference coded [ 0.97% Coverage]
+Reference 1 - 0.97% Coverage
+Page 1 : (340,129) - (537,175)
+Files\\SKD_round1\\PREM 15 101\\IMG_4618_PREM_15_101 - § 1 reference coded [ 0.60% Coverage]
+Reference 1 - 0.60% Coverage
+Page 1 : (347,161) - (541,190)
+Files\\SKD_round1\\PREM 15 101\\IMG_4620_PREM_15_101 - § 2 references coded [ 100.00% Coverage]
+Reference 1 - 50.00% Coverage
+Page 1 : (0,0) - (597,800)
+Reference 2 - 50.00% Coverage
+Could the Private Office please provide for 
+the P.M. an assessment about I.R.A. position and intentions in this country as well as an up to date assessment of what their position now is in Northern Ireland. back. 
+He will have this when he gets 
+Files\\SKD_round1\\PREM 15 101\\IMG_4622_PREM_15_101 - § 1 reference coded [ 0.26% Coverage]
+Reference 1 - 0.26% Coverage
+Page 1 : (423,225) - (535,247)
+Files\\SKD_round1\\PREM 15 101\\IMG_4630_PREM_15_101 - § 1 reference coded [ 0.27% Coverage]
+Reference 1 - 0.27% Coverage
+Page 1 : (178,66) - (332,82)
+Files\\SKD_round1\\PREM 15 101\\IMG_4634_PREM_15_101 - § 1 reference coded [ 1.28% Coverage]
+Reference 1 - 1.28% Coverage
+Page 1 : (123,187) - (592,212)
+Files\\SKD_round1\\PREM 15 101\\IMG_4635_PREM_15_101 - § 1 reference coded [ 0.33% Coverage]
+Reference 1 - 0.33% Coverage
+Page 1 : (374,132) - (520,154)
+Files\\SKD_round1\\PREM 15 101\\IMG_4636_PREM_15_101 - § 1 reference coded [ 0.83% Coverage]
+Reference 1 - 0.83% Coverage
+Page 1 : (317,151) - (509,191)
+Files\\SKD_round1\\PREM 15 101\\IMG_4637_PREM_15_101 - § 1 reference coded [ 0.80% Coverage]
+Reference 1 - 0.80% Coverage
+Page 1 : (301,165) - (523,199)
+Files\\SKD_round1\\PREM 15 101\\IMG_4638_PREM_15_101 - § 1 reference coded [ 3.08% Coverage]
+Reference 1 - 3.08% Coverage
+Page 1 : (79,166) - (594,242)
+Files\\SKD_round1\\PREM 15 101\\IMG_4639_PREM_15_101 - § 1 reference coded [ 0.44% Coverage]
+Reference 1 - 0.44% Coverage
+Page 1 : (302,129) - (468,154)
+Files\\SKD_round1\\PREM 15 101\\IMG_4640_PREM_15_101 - § 1 reference coded [ 2.31% Coverage]
+Reference 1 - 2.31% Coverage
+Page 1 : (94,181) - (497,234)
+Files\\SKD_round1\\PREM 15 101\\IMG_4641_PREM_15_101 - § 1 reference coded [ 0.45% Coverage]
+Reference 1 - 0.45% Coverage
+Page 1 : (679,116) - (759,170)
+Files\\SKD_round1\\PREM 15 101\\IMG_4642_PREM_15_101 - § 1 reference coded [ 0.61% Coverage]
+Reference 1 - 0.61% Coverage
+Page 1 : (325,180) - (520,210)
+Files\\SKD_round1\\PREM 15 101\\IMG_4643_PREM_15_101 - § 1 reference coded [ 0.92% Coverage]
+Reference 1 - 0.92% Coverage
+Page 1 : (365,95) - (543,143)
+Files\\SKD_round1\\PREM 15 101\\IMG_4644_PREM_15_101 - § 1 reference coded [ 0.57% Coverage]
+Reference 1 - 0.57% Coverage
+Page 1 : (385,33) - (542,67)
+Files\\SKD_round1\\PREM 15 101\\IMG_4645_PREM_15_101 - § 1 reference coded [ 0.29% Coverage]
+Reference 1 - 0.29% Coverage
+Page 1 : (104,167) - (234,194)
+Files\\SKD_round1\\PREM 15 101\\IMG_4648_PREM_15_101 - § 1 reference coded [ 0.72% Coverage]
+Reference 1 - 0.72% Coverage
+Page 1 : (324,154) - (516,189)
+Files\\SKD_round1\\PREM 15 101\\IMG_4649_PREM_15_101 - § 1 reference coded [ 1.04% Coverage]
+Reference 1 - 1.04% Coverage
+Page 1 : (72,148) - (535,171)
+Files\\SKD_round1\\PREM 15 101\\IMG_4650_PREM_15_101 - § 1 reference coded [ 1.13% Coverage]
+Reference 1 - 1.13% Coverage
+Page 1 : (314,92) - (530,142)
+Files\\SKD_round1\\PREM 15 101\\IMG_4651_PREM_15_101 - § 1 reference coded [ 0.51% Coverage]
+Reference 1 - 0.51% Coverage
+Page 1 : (89,698) - (200,741)
+Files\\SKD_round1\\PREM 15 101\\IMG_4652_PREM_15_101 - § 1 reference coded [ 0.23% Coverage]
+Reference 1 - 0.23% Coverage
+Page 1 : (320,704) - (407,729)
+Files\\SKD_round1\\PREM 15 101\\IMG_4653_PREM_15_101 - § 1 reference coded [ 0.52% Coverage]
+Reference 1 - 0.52% Coverage
+Page 1 : (359,110) - (466,156)
+Files\\SKD_round1\\PREM 15 101\\IMG_4654_PREM_15_101 - § 1 reference coded [ 0.73% Coverage]
+Reference 1 - 0.73% Coverage
+Page 1 : (57,373) - (343,397)
+Files\\SKD_round1\\PREM 15 101\\IMG_4655_PREM_15_101 - § 1 reference coded [ 0.49% Coverage]
+Reference 1 - 0.49% Coverage
+Page 1 : (302,174) - (456,205)
+Files\\SKD_round1\\PREM 15 101\\IMG_4656_PREM_15_101 - § 1 reference coded [ 2.29% Coverage]
+Reference 1 - 2.29% Coverage
+Page 1 : (112,197) - (488,255)
+Files\\SKD_round1\\PREM 15 101\\IMG_4657_PREM_15_101 - § 1 reference coded [ 1.11% Coverage]
+Reference 1 - 1.11% Coverage
+Page 1 : (304,142) - (514,192)
+Files\\SKD_round1\\PREM 15 101\\IMG_4658_PREM_15_101 - § 1 reference coded [ 3.50% Coverage]
+Reference 1 - 3.50% Coverage
+Page 1 : (50,158) - (506,231)
+Files\\SKD_round1\\PREM 15 101\\IMG_4660_PREM_15_101 - § 1 reference coded [ 0.58% Coverage]
+Reference 1 - 0.58% Coverage
+Page 1 : (111,551) - (281,589)
+Files\\SKD_round1\\PREM 15 101\\IMG_4661_PREM_15_101 - § 1 reference coded [ 1.95% Coverage]
+Reference 1 - 1.95% Coverage
+Page 1 : (69,148) - (523,188)
+Files\\SKD_round1\\PREM 15 101\\IMG_4662_PREM_15_101 - § 1 reference coded [ 2.84% Coverage]
+Reference 1 - 2.84% Coverage
+Page 1 : (99,141) - (475,211)
+Files\\SKD_round1\\PREM 15 101\\IMG_4663_PREM_15_101 - § 1 reference coded [ 0.38% Coverage]
+Reference 1 - 0.38% Coverage
+Page 1 : (345,175) - (505,197)
+Files\\SKD_round1\\PREM 15 101\\IMG_4664_PREM_15_101 - § 1 reference coded [ 1.19% Coverage]
+Reference 1 - 1.19% Coverage
+Page 1 : (123,239) - (509,268)
+Files\\SKD_round1\\PREM 15 101\\IMG_4665_PREM_15_101 - § 1 reference coded [ 0.27% Coverage]
+Reference 1 - 0.27% Coverage
+Page 1 : (270,177) - (397,198)
+Files\\SKD_round1\\PREM 15 101\\IMG_4666_PREM_15_101 - § 1 reference coded [ 0.38% Coverage]
+Reference 1 - 0.38% Coverage
+Page 1 : (340,188) - (480,213)
+Files\\SKD_round1\\PREM 15 101\\IMG_4667_PREM_15_101 - § 1 reference coded [ 1.00% Coverage]
+Reference 1 - 1.00% Coverage
+Page 1 : (94,220) - (538,242)
+Files\\SKD_round1\\PREM 15 101\\IMG_4668_PREM_15_101 - § 1 reference coded [ 0.42% Coverage]
+Reference 1 - 0.42% Coverage
+Page 1 : (464,134) - (632,163)
+Files\\SKD_round1\\PREM 15 101\\IMG_4669_PREM_15_101 - § 1 reference coded [ 0.49% Coverage]
+Reference 1 - 0.49% Coverage
+Page 1 : (54,721) - (207,751)
+Files\\SKD_round1\\PREM 15 101\\IMG_4670_PREM_15_101 - § 1 reference coded [ 0.76% Coverage]
+Reference 1 - 0.76% Coverage
+Page 1 : (391,98) - (536,156)
+Files\\SKD_round1\\PREM 15 101\\IMG_4671_PREM_15_101 - § 1 reference coded [ 0.15% Coverage]
+Reference 1 - 0.15% Coverage
+Page 1 : (424,89) - (548,103)
+Files\\SKD_round1\\PREM 15 101\\IMG_4676_PREM_15_101 - § 1 reference coded [ 0.69% Coverage]
+Reference 1 - 0.69% Coverage
+Page 1 : (52,119) - (359,140)
+Files\\SKD_round1\\PREM 15 101\\IMG_4678_PREM_15_101 - § 1 reference coded [ 0.96% Coverage]
+Reference 1 - 0.96% Coverage
+Page 1 : (282,166) - (475,216)
+Files\\SKD_round1\\PREM 15 101\\IMG_4679_PREM_15_101 - § 1 reference coded [ 0.54% Coverage]
+Reference 1 - 0.54% Coverage
+Page 1 : (184,88) - (520,106)
+Files\\SKD_round1\\PREM 15 474\\IMG_5392_PREM_15_474 - § 1 reference coded [ 0.16% Coverage]
+Reference 1 - 0.16% Coverage
+Page 1 : (380,93) - (492,107)
+Files\\SKD_round1\\PREM 15 474\\IMG_5395_PREM_15_474 - § 1 reference coded [ 0.35% Coverage]
+Reference 1 - 0.35% Coverage
+Page 1 : (326,208) - (496,233)
