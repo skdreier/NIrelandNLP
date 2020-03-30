@@ -1,6 +1,0 @@
-﻿Files\\SKD_round1\\PREM 15 101\\IMG_4735_PREM_15_101 - § 1 reference coded [ 0.33% Coverage]
-Reference 1 - 0.33% Coverage
-Page 1 : (427,176) - (555,212)
-Files\\SKD_round1\\PREM 15 101\\IMG_4738_PREM_15_101 - § 1 reference coded [ 0.26% Coverage]
-Reference 1 - 0.26% Coverage
-21 May, 1970.

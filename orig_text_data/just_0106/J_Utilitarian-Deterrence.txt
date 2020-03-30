@@ -1,0 +1,197 @@
+﻿Files\\DNV_round1\\DEFE 13 1358\\IMG_9660_DEFE_13_1358 - § 1 reference coded [ 2.96% Coverage]
+Reference 1 - 2.96% Coverage
+The second car bomb loaded with approximately 200 lbs, exploded in Marlborough Street. Significantly, Security Forces arrested yet another recently released internee as he was seen to run away after getting out of the car.
+Files\\DNV_round1\\PREM 15 1001\\IMG_6633_PREM_15_1001 - § 1 reference coded [ 15.83% Coverage]
+Reference 1 - 15.83% Coverage
+One has only to look at the harm which is still being caused by those who have not yet been arrested, and by one or two of those who have escaped from detention, to gain some idea of what would be likely to happen if all those now in internment were to be suddenly released.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6772_PREM_15_1002 - § 4 references coded [ 14.99% Coverage]
+Reference 1 - 3.52% Coverage
+THERE IS AN INHERENT RISK THAT ANY INTERNEE RELEASED AS A POLITICAL GESTURE WILL RETURN TO HIS PREVIOUS ACTIVITIES IN NORTHERN IRELAND, REPAIRING THE SUBSTANTIAL DAMAGE WHICH HAS BEEN INFLICTED ON BOTH FACTIONS OF THE IRA SINCE 9 AUG 71.
+Reference 2 - 3.31% Coverage
+THE PRIME TARGETS FOR RETALIATORY ACTION BY INTERNEES AFTER RELEASE ARE UNDOUBTEDLY THE MEMBERS OF THE SPECIAL BRANCH OF THE PUC: THESE ARE FOR THE MOST PART KNOWN TO THOSE INTERNES WHOM THEY HAVE ARRESTED OR INTERROGATED.
+Reference 3 - 4.78% Coverage
+ANY ATTEMPT TO LINK A PROGRAMME OF RELEASES WITH AN UNDERTAKING NOT TO MAKE FURTHER ARRESTS WOULD BE REGARDED BY THE IRA AS A STILL GREATER SUCCESS AND THEY MUST BE EXPECTED TO TAKE THE OPPORTUNITY TO RECOUP THEIR LOSSES AND TO EQUIP THEMSELVES TO INTENSIFY OPERATIONS THROUGHOUT THE PROVINCE AT A DATE OF THEIR OWN CHOOSING.
+Reference 4 - 3.38% Coverage
+IRA RECRUITING WILL BENEFIT TO THE EXTENT THAT THE RELUCTANCE TO JOIN OF THOSE WHO FEAR INTERNMENT IS OVERCOME, AND THOSE ON THE RUN WOULD BE ENCOURAGED TO RETURN: THERE ARE ABOUT 140 SUCH PEOPLE OPERATING FROM SOUTH OF THE BODER.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6778_PREM_15_1002 - § 1 reference coded [ 4.93% Coverage]
+Reference 1 - 4.93% Coverage
+Page 1 : (141,290) - (561,403)
+Files\\DNV_round1\\PREM 15 1002\\IMG_6779_PREM_15_1002 - § 2 references coded [ 9.96% Coverage]
+Reference 1 - 3.38% Coverage
+If that power no longer exists, the situation even in Belfast could quickly deteriorate again as those who are released come back into circulation.
+Reference 2 - 6.58% Coverage
+It will be necessary to keep a very close watch on whether the first releases are followed by any significant move towards reprisals against the Security Forces, especially the RUC Special Branch and the rest of the intelligence community, who will be extremely vulnerable at that stage.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6842_PREM_15_1002 - § 1 reference coded [ 14.75% Coverage]
+Reference 1 - 14.75% Coverage
+"The Special Powers Regulations provide for the setting up of an Advisory Committee to consider representations from internees. 
+His Honour 
+Judge Brown nas agreed to act as Chairman of this Committee 
+............ The Committee’s 
+main function will be to assess whether or when the internee’s release can be safely permitted and, where appropriate, the Committee will consider whether or not they can accept any undertaking on his part that he will not engage in violence on his release."
+Files\\DNV_round1\\PREM 15 1002\\IMG_6843_PREM_15_1002 - § 1 reference coded [ 1.58% Coverage]
+Reference 1 - 1.58% Coverage
+Page 1 : (156,304) - (454,354)
+Files\\DNV_round1\\PREM 15 1003\\IMG_6915_PREM_15_1003 - § 1 reference coded [ 4.97% Coverage]
+Reference 1 - 4.97% Coverage
+We can all understand the anxieties that the 
+progressive closure of Long Kesh and Magilligan will create in the minds of all who fear an intensification of violence.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6925_PREM_15_1003 - § 1 reference coded [ 5.55% Coverage]
+Reference 1 - 5.55% Coverage
+V/ THE SITLATIC ’EFCFE 
+C" THE CCN’TFAFY, IT VAS DETERICFATIING, DAY BY CAY AND WEEK PY VEEK. "’CT C’LN ’EE 
+’E L.CSIG LES AND PROPERTY EUT ’ACST CAAI"’G C f ALL - VE VERE SHCVING SIGNE CF w LCSS CF 
+CCF IP’CE /"’ / LC¶S CF I CPE. WHAT GCVERNMENT WITH A SHRED Cr RE-=C"I rIL ITY ’C Iis PLCPLE CCULD HAVE ALLCWEC THAT SITU/1 !C’ T CV.T I"UIE
+Files\\DNV_round1\\PREM 15 1003\\IMG_6926_PREM_15_1003 - § 1 reference coded [ 3.20% Coverage]
+Reference 1 - 3.20% Coverage
+’WHAT IF I WERE TO LISTEN NOW TO MR HUME AND HIS COLLEAGUES, 
+AND EMPTY THE CAMPS TOMORROW? WHO CAN SERIOUSLY IMAGINE THAT IN THAT SITUATION THEY WOULD BE ABLE TO EXERT ANY INFLUENCE FOR PEACE? THEY WOULD BE SWEPT ASIDE BY THE TRIUMPHANT GUNMAN.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6956_PREM_15_1003 - § 1 reference coded [ 5.23% Coverage]
+Reference 1 - 5.23% Coverage
+We are also reaching the point where areas of Belfast are being freed of IRA dominance and intimidation.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6958_PREM_15_1003 - § 1 reference coded [ 5.04% Coverage]
+Reference 1 - 5.04% Coverage
+If internees were released prematurely, ie before the IRA were defeated, the prime targets for retaliatory action would undoubtedly be the members of the Special Branch of the RUC: these are for the most part known to those internees whom they have arrested or interrogated.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6983_PREM_15_1003 - § 1 reference coded [ 3.22% Coverage]
+Reference 1 - 3.22% Coverage
+internees would do if they were released. 
+The Prime Minister asked the GCC what he thought the The G said 
+that he doubted whether the internees would mend their way
+Files\\DNV_round1\\PREM 15 1005\\IMG_7209_PREM_15_1005 - § 2 references coded [ 4.63% Coverage]
+Reference 1 - 2.66% Coverage
+IF THE MEASURES WHICH WE HAVE TAKEN LEAD, AS WE HOPE THEY WILL, TO A REDUCTION IN TERRORIST ACTIVITY, IT WILL BE POSSIBLE TO CONSIDER FURTHER RELEASES: BUT THIS MUST OF COURSE DEPEND ON A CLEARLY ESTABLISHED IMPROVEMENT IN THE SECURITY SITUATION.
+Reference 2 - 1.97% Coverage
+AS LONG AS ACTIVE TERRORISM PERSISTS AND BOMBING AND SHOOTING CONTINUE, WE MUST RETAIN THE POWER TO ARREST AND INTERN THOSE WHO THERE IS GOOD REASON TO BELIEVE ARE ACTIVELY INVOLVED.
+Files\\DNV_round1\\PREM 15 1006\\IMG_7292_PREM_15_1006 - § 1 reference coded [ 21.28% Coverage]
+Reference 1 - 21.28% Coverage
+I hope that today’s releases may here.ld the beginning of a phasing-out of internment but I must place on record once more that in considering the cases of internees I must have regard to the current security situation. It would be quite wrong to release men who might encourage an upsurge of violence against the security forces or the community in general.
+Files\\DNV_round1\\PREM 15 484\\IMG_6305_PREM_15_484 - § 1 reference coded [ 2.07% Coverage]
+Reference 1 - 2.07% Coverage
+Wesshould put individuals in peril; and prejudice the sources of the information.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7662_PREM_15_1009 - § 1 reference coded [ 8.95% Coverage]
+Reference 1 - 8.95% Coverage
+The Secretary of State said that he could not risk ending internment without an end of violence. If major acts of terrorism took place after the ending of internment his position would be impossible. If there were a genuine end of terrorism,even for a limited period, there would be a genuine response from the Governmentand,subject to consultations with his colleagues, he did not rule out the ending of internment in these circumstances.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7900_PREM_15_1012 - § 1 reference coded [ 4.56% Coverage]
+Reference 1 - 4.56% Coverage
+The Secretary of State said that he noted this point but felt that it would not be possible; if a date were issued the Provisional IRA would increase their violence to try and ensure that the deadline was not kept to.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7948_PREM_15_1012 - § 1 reference coded [ 0.12% Coverage]
+Reference 1 - 0.12% Coverage
+But he
+Files\\EKG_round1\\PREM 15 1012\\IMG_7950_PREM_15_1012 - § 1 reference coded [ 3.24% Coverage]
+Reference 1 - 3.24% Coverage
+also had evidence that some of those previously in internMent had returned to terrorism, and he was criticised for the resultant deaths.
+Files\\SKD_round1\\DEFE 13 919\\IMG_1963_DEFE_13_919 - § 2 references coded [ 8.02% Coverage]
+Reference 1 - 1.57% Coverage
+Page 1 : (85,324) - (522,357)
+Reference 2 - 6.45% Coverage
+Page 1 : (63,575) - (553,696)
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2163_DEFE_24_1214 - § 2 references coded [ 9.81% Coverage]
+Reference 1 - 7.48% Coverage
+but the organisations concerned are those which have murdered in cold blood, created situations which have led to death or injury to people quite uninvolved in disorder, maimed numerous people including young children and put at risk the jobs and the whole future of entire communities.
+Reference 2 - 2.33% Coverage
+Is it more of an evil than to allow the perpetrators of these outrages to remain at liberty?
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2193_DEFE_24_1214 - § 1 reference coded [ 4.23% Coverage]
+Reference 1 - 4.23% Coverage
+Faulkner’s judgment was that the consequences of that for the community would be worse than the consequences of what is no proposed.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2196_DEFE_24_1214 - § 1 reference coded [ 4.37% Coverage]
+Reference 1 - 4.37% Coverage
+Faulkner’s judgment was that the consequenes of that for the community would be worse than the consequences of what is now proposed.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2234_DEFE_24_1214 - § 1 reference coded [ 2.55% Coverage]
+Reference 1 - 2.55% Coverage
+Page 1 : (191,369) - (441,504)
+Files\\SKD_round1\\PREM 15 476\\IMG_5453_PREM_15_476 - § 1 reference coded [ 4.56% Coverage]
+Reference 1 - 4.56% Coverage
+It is conceivable that 
+even to apprehend so small a percentage would nevertheless have some deterrent effect upon the remainder.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_051 - § 1 reference coded [ 5.34% Coverage]
+Reference 1 - 5.34% Coverage
+I ask those who will quite sincerely consider the use of internment powers as evil to answer honestly this question:Is it more of an evil than to allow the perpetrators of these outrages to remain at liberty?
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_176 - § 1 reference coded [ 2.77% Coverage]
+Reference 1 - 2.77% Coverage
+FAULKNER’S JUDGEMENT WAS THAT THE CONSEQUENCES OF THAT FOR THE COMMUNITY WOULD BE WORSE THAN THE CONSEQUENCES OF WHAT IS NOW PROPOSED.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_180 - § 1 reference coded [ 3.06% Coverage]
+Reference 1 - 3.06% Coverage
+FAULKNER’S JUDGEMENT 
+WAS THAT THE CONSEQUENCES OF THAT FOR THE COMMUNITY WOULD BE WORSE THAN THE CONSEQUENCES OF WHAT IS NOW PROPOSED.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_186 - § 1 reference coded [ 7.02% Coverage]
+Reference 1 - 7.02% Coverage
+Page 1 : (62,199) - (426,318)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_190 - § 1 reference coded [ 4.04% Coverage]
+Reference 1 - 4.04% Coverage
+Page 1 : (111,360) - (464,423)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_195 - § 1 reference coded [ 1.39% Coverage]
+Reference 1 - 1.39% Coverage
+AND FAULKNERS JUDGEMENT WAS THAT THE CONSEQUENCES OF THAT FOR THE COMMUNITY WOULD BE WORSE THAN THE CONSEQUENCES OF WHAT IS NOW PROPOSED.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_196 - § 2 references coded [ 1.91% Coverage]
+Reference 1 - 1.60% Coverage
+WAS THAT THE CONSEQUENCES OF THAT FOR THE COMUNITY WOULD BE WORSE THAN THE CONSEQUENCES OF WHAT IS NOW PROPOSED.
+Reference 2 - 0.31% Coverage
+FAULKNERS JUDGEMENT
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_199 - § 1 reference coded [ 5.69% Coverage]
+Reference 1 - 5.69% Coverage
+Faulkner’s judgment was that the consequences of that for the community would be worse than the consequences of what is now proposed.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_200 - § 1 reference coded [ 8.68% Coverage]
+Reference 1 - 8.68% Coverage
+Page 1 : (97,141) - (453,302)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_205 - § 1 reference coded [ 4.55% Coverage]
+Reference 1 - 4.55% Coverage
+Faulkner’s 
+judgment was that the consequences of that for the community would be worse than the consequences of what is now proposed.
+Files\\SKD_round1\\PREM 15 479\\IMG_5835_PREM_15_479 - § 2 references coded [ 16.88% Coverage]
+Reference 1 - 9.66% Coverage
+Page 1 : (55,211) - (543,393)
+Reference 2 - 7.21% Coverage
+Page 1 : (37,479) - (521,616)
+Files\\SKD_round1\\PREM 15 479\\IMG_5836_PREM_15_479 - § 1 reference coded [ 2.90% Coverage]
+Reference 1 - 2.90% Coverage
+There continues to be little street activity but the incidence of explosions has been at least as high as before internment was introduced.
+Files\\SKD_round1\\PREM 15 479\\IMG_5871_PREM_15_479 - § 1 reference coded [ 4.57% Coverage]
+Reference 1 - 4.57% Coverage
+The arrests 
+had brought a dramatic reduction in the number of attacks on property by explosives, and the IRA in Belfast were, temporarily at any rate, seriously disorganised.
+Files\\SKD_round1\\PREM 15 479\\IMG_5885_PREM_15_479 - § 1 reference coded [ 14.14% Coverage]
+Reference 1 - 14.14% Coverage
+The internment operation has been a considerable success technically 
+Those detained include a considerable number of both the Goulding and Brady wings of the IRA. The evidence is that both wings have been much more seriously disrupted than statements from IRA sources suggest, and while they will undoubtedly continue to give trouble, there is reasonable hope that, with increased vigilance at the border, terrorist activity wi11 now be at a lower level than in the weeks before internment.
+Files\\SKD_round1\\PREM 15 480\\IMG_5590_PREM_15_480 - § 2 references coded [ 7.66% Coverage]
+Reference 1 - 4.47% Coverage
+When one is dealing with an armed 
+conspiracy it may be necessary to take pre-emptive action rather than wait until those involved can be caught red-handed.
+Reference 2 - 3.20% Coverage
+There comes a stage when a government cannot afford to wait until known terrorists choose the moment to strike.
+Files\\SKD_round1\\PREM 15 480\\IMG_5591_PREM_15_480 - § 1 reference coded [ 7.48% Coverage]
+Reference 1 - 7.48% Coverage
+The Committee’s main function will be to assess whether or when the internee’s release can be safely permitted, and much will depend on whether or not they can accept any undertaking on his part that he will not engage in violence on his release.
+Files\\SKD_round1\\PREM 15 480\\IMG_5592_PREM_15_480 - § 3 references coded [ 23.26% Coverage]
+Reference 1 - 12.10% Coverage
+How long anyone will be interned 
+will depend on two factors; namely, the credibility of any undertaking an individual may give as to his future behaviour if he were to be released in advance of any general release, and in the other cases, the restoration of normal law and order in the community.
+Reference 2 - 6.75% Coverage
+I should add the warning that so long as the present situation 
+prevails it will be necessary for the protection of decent people that the present policy be pursued.
+Reference 3 - 4.41% Coverage
+The Government has introduced internment solely for the protection 
+of the citizens of Northern Ireland.
+Files\\SKD_round1\\PREM 15 481\\IMG_5687_PREM_15_481 - § 1 reference coded [ 1.53% Coverage]
+Reference 1 - 1.53% Coverage
+Page 1 : (128,358) - (473,399)
+Files\\SKD_round1\\PREM 15 481\\IMG_5759_PREM_15_481 - § 2 references coded [ 20.91% Coverage]
+Reference 1 - 9.68% Coverage
+I think it 
+is important to recall the position 
+before internment was introduced, which I believe can be shown to have been one in which violence was already escalating very rapidly. 
+If so, 
+this should be brought but in order to answer the argument that internment has made the security situation worse.
+Reference 2 - 11.23% Coverage
+I think one should rewind the House, who will hear a great deal 
+about the evils of interment, about the far greater evils of the I.R.A. This, 
+i think, calls for some details of (a) 
+(b) (c) their activities and their callousness; 
+the open statements they have made about their activites; and 
+their recent demands as a price of calling off their campaign.
+Files\\SKD_round1\\PREM 15 482\\IMG_6175_PREM_15_482 - § 1 reference coded [ 2.65% Coverage]
+Reference 1 - 2.65% Coverage
+Internment should properly be regarded not so much as an alternative to trial as an alternative to being shot in an act of terrorism.
+Files\\SKD_round1\\PREM 15 482\\IMG_6207_PREM_15_482 - § 1 reference coded [ 5.71% Coverage]
+Reference 1 - 5.71% Coverage
+In principle internment has been a success. It has done what it was 
+intended to do; and, although there may still be a long haul ahead, the chance of gradually bringing terrorism to an end are now reasonably good.

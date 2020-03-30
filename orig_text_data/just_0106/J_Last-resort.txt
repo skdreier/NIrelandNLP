@@ -1,0 +1,78 @@
+﻿Files\\DNV_round1\\PREM 15 1010\\PREM_15_1010_004 - § 1 reference coded [ 5.24% Coverage]
+Reference 1 - 5.24% Coverage
+The reinstatement of internment and interrogation would be inevitable (on the basis of a potential "bag" of about 1600 additional internees in the first two weeks); and it would also be necessary to arrest on suspicion alone.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2155_DEFE_24_1214 - § 1 reference coded [ 4.36% Coverage]
+Reference 1 - 4.36% Coverage
+Page 1 : (62,108) - (486,203)
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2220_DEFE_24_1214 - § 2 references coded [ 6.32% Coverage]
+Reference 1 - 3.91% Coverage
+He referred to the political initiatives which he had taken, 
+and which had evoked no real response, as justifying firm action now without
+Reference 2 - 2.41% Coverage
+excessive regard for the susceptibilities of those who had declined to co-operate.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2221_DEFE_24_1214 - § 1 reference coded [ 2.79% Coverage]
+Reference 1 - 2.79% Coverage
+General Tuzo’s 
+view was that it would be better to try the scheme he had described before resorting to internment
+Files\\SKD_round1\\PREM 15 1035\\IMG_4972_PREM_15_475 - § 1 reference coded [ 5.51% Coverage]
+Reference 1 - 5.51% Coverage
+So far from its being a cause of death and destruction, it was introduced only because other measures had proved inadequate to counter the campaign of death and destruction previously launched by the organisations seeking to overthrow the institutions of the state.
+Files\\SKD_round1\\PREM 15 475\\IMG_4827_PREM_15_475 - § 1 reference coded [ 22.06% Coverage]
+Reference 1 - 22.06% Coverage
+THERE WAS SOME DISCUSSION OF THE CIRCUMSTANCES IN WHICH THE 
+NORTHERN IRELAND GOVT. MIGHT BE FORCED TO RESORT TO INTERNMENT AND THE PRIME MINISTER OF NORTHERN IRELAND SAID AGAIN THAT THERE WOULD BE, IN ANY EVENT, PRIOR CONSULTATION WITH US
+Files\\SKD_round1\\PREM 15 475\\IMG_4846_PREM_15_475 - § 1 reference coded [ 17.20% Coverage]
+Reference 1 - 17.20% Coverage
+Major Chichester-Clark said that there were three 
+possible sets of circumstances in which the Northern Ireland Government might be faced with the inevitability of a decision to introduce internment:(i) if the Government of the Republic started to intern; 
+(ii) if the IRA proceeded to a campaign of political assassination; 
+(iii) if it proved impossible otherwise to break the "wall of silence".
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_050 - § 1 reference coded [ 5.56% Coverage]
+Reference 1 - 5.56% Coverage
+Every means has been tried to make terrorists amenable to 
+the law. Nor have much methods been without success, because a substantial number of the most prominent leaders of the IRA are now serving ordinary prison sentences.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_153 - § 1 reference coded [ 7.01% Coverage]
+Reference 1 - 7.01% Coverage
+H.M.G. supported 
+the Northern Ireland Government in the view that murders and terrorists and intimidators could not be allowed to continue unchecked; although there was no doubt that the security forces could have contained the situation, it would have involved a very long haul and a deteriorating local situation.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_176 - § 1 reference coded [ 2.94% Coverage]
+Reference 1 - 2.94% Coverage
+IN PURELY MILITARY TERMS, SEEKING TO CONTAIN THIS DETERIORATING SITUATION BY THE MEANS EMPLOYED HITHERTO WOULD HAVE MEANT AT BESTA LONG HAUL.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_180 - § 1 reference coded [ 3.25% Coverage]
+Reference 1 - 3.25% Coverage
+IN PURELY MILITARY TERMS, SEEKING TO CONTAIN THIS DETERIORATING SITUATION BY THE MEANS EMPLOYED HITHERTO WOULD HAVE MEANT AT BEST A LONG HAUL.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_186 - § 1 reference coded [ 7.02% Coverage]
+Reference 1 - 7.02% Coverage
+Page 1 : (62,199) - (426,318)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_190 - § 1 reference coded [ 5.17% Coverage]
+Reference 1 - 5.17% Coverage
+Page 1 : (107,300) - (454,382)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_195 - § 1 reference coded [ 1.27% Coverage]
+Reference 1 - 1.27% Coverage
+IN PURELY 
+MILITARY TERMS, SEEKING TO CONTAIN THE SITUATION BY THE MEANS EMPLOYED HITHERTO WOULD HAVE MEANT AT BEST A LONG HAUL
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_196 - § 1 reference coded [ 1.82% Coverage]
+Reference 1 - 1.82% Coverage
+IN PURELY MILITARY 
+TERMS, SEEKING TO CONTAIN THE SITUATION BY THE MEANS EMPLOYED HITHERTO WOULD HAVE MEANT AT BEST A LONG HAUL.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_199 - § 1 reference coded [ 3.24% Coverage]
+Reference 1 - 3.24% Coverage
+Page 1 : (89,141) - (438,203)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_200 - § 1 reference coded [ 8.68% Coverage]
+Reference 1 - 8.68% Coverage
+Page 1 : (97,141) - (453,302)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_205 - § 1 reference coded [ 3.60% Coverage]
+Reference 1 - 3.60% Coverage
+Page 1 : (65,212) - (437,272)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_215 - § 1 reference coded [ 2.53% Coverage]
+Reference 1 - 2.53% Coverage
+Page 1 : (96,571) - (425,617)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_216 - § 1 reference coded [ 6.27% Coverage]
+Reference 1 - 6.27% Coverage
+Page 1 : (89,101) - (427,212)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_229 - § 1 reference coded [ 2.60% Coverage]
+Reference 1 - 2.60% Coverage
+HE COULD INTRODUCE IT AS A DRASTIC MEASURE IF THERE.WERE A TOTAL BREAKDOWN OF THE SYSTEM OF JUSTICE.
+Files\\SKD_round1\\PREM 15 485\\IMG_5162_PREM_15_485 - § 1 reference coded [ 1.63% Coverage]
+Reference 1 - 1.63% Coverage
+Every means has been tried to make terrorists amenable to the law.

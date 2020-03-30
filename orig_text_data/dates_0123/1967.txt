@@ -1,0 +1,11 @@
+﻿Files\\SKD_round1\\PREM 15 478\\PREM_15_478_062 - § 2 references coded [ 100.00% Coverage]
+Reference 1 - 50.00% Coverage
+Page 1 : (0,0) - (444,706)
+Reference 2 - 50.00% Coverage
+WESTMINSTER AND STORMONT A STUDY IN IMPERIAL DEVOLUTION 
+An examination of the political and financial relationships 
+between the Parliaments of the United Kingdom and Northern Ireland, compared with the experiences of other countries. 
+by 
+Michael Latham Conservative Research Department 
+Conservative Research Department 24 Old Queen Street, S.W.1 
+MAL/MQ 
