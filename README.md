@@ -5,7 +5,6 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
 ## File Summaries (prelim-analysis branch)
 
-### Folders:
 - [archive](): Old and/or exploratory scripts and text data corpora.
 
 - [class_biclass](): Binary classification analysis
@@ -30,6 +29,14 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
   
   + [pretrained_models_init.py](): Uses pretrained word vector models (e.g., Stanford GloVe model, Google Word2Vec model). 
   
+- [cleaning](): Uploads, appends, cleans Nvivo data ([orig_text_data]().
+
+  + [justifications_compile.py](): Prepares justification code files from Nvivo for text analysis: Appends each of 12 justification.txt files (from Nvivo, [orig_text_data/just_0106]()), parses text into relevant components, fixes image naming issue, saves justification text corpus ([justifications_long_training.csv]()), creates file of Nvivo page captures (rather than text codes) for hand transcription ([misc_tasks/page_ref.csv]()). **Actions:** Clean script.
+  
+  + [function_clean_text.py](): Builds a function to clean text, one-hot-encode justifications, and save text for main analysis [justifications_clean_text_ohe.csv](). **Action:** Clean script.
+
+  + [date_files](): [date_compile.py](): Appends each of 48 date code .txt files and cleans text; creates [dates_long_parsed.csv](). [merge_codes.py]() merges justification and data codes ([justifications_dates_long_parsed.csv]()). None of these text files are currently used in analysis. [date_range.csv]() represents date range for all archive files that contain an "internment" code (Round 1). Document developed by hand. 
+
 - [histograms](): Frequencies for justification categories.
 
   + [prelim_hist.py](): Frequency for each justification category (original 12).
@@ -42,21 +49,11 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
  
  - [just_0106](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/just_0106 "just_0106"): Contains Nvivo output text for each specific "justification" code in Nvivo (codes as of Jan 2020). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts (**Used by:** justifications_compile.py).
 
-- [old_docs](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/old_docs "old_docs"): Files/scripts no longer being used.  
-
 
 ### Files (python scripts):
 
 
-- [date_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/date_compile.py): Appends each of 48 date code .txt files and cleans text. **Uses:** [dates_0123](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_0123). **Creates:** [dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_long_parsed.csv). **Action:** Integrated with justifications_compile.py; DELETE SCRIPT.
 
-- [function_clean_text.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/function_clean_text.py): Builds a function to clean text and one-hot-encode justifications. **Uses:** [justifications_long_training.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_training.csv). **Creates:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv) **Action:** Clean script.
-
-- [justifications_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_compile.py): Prepares justification code files from Nvivo for text analysis. Specifically: Appends each of 12 justification.txt files (from Nvivo), parses text into relevant components, fixes image naming issue, creates file of Nvivo page captures (rather than text codes) for hand transcription. **Uses:** [just_0106](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/just_0106) and [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py). **Creates:** [justifications_long_training.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_training.csv), [page_ref.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/page_ref.csv). **Actions: Clean script**
-
-- [merge_codes.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/merge_codes.py): Code merges justification and data codes. **Uses:** [justifications_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_parsed.csv), [dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_long_parsed.csv). **Creates:** [justifications_dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_dates_long_parsed.csv). **Actions:** None of these text files are used in analysis. If we want to have date included in text, we should add date to the "justifications_long_training.csv". *Otherwise, this code and its outputs are obsolete.*
-
-- [nn_start.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/nn_start.py): This is old code (adapted from on online resource) that starts to build a NN; this is obsolete. **Actions:** MOVE TO "old_docs" folder.
 
 - [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py): Functions to: 
   + A) Parse nvivo coding code and text txt file into dict of category and accompanied text and file information. It uses the nvivo file outputs where each txt file represents all the codings and source text in a particular category.
@@ -67,14 +64,9 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
 - [random_docs_error_check.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/random_docs_error_check.py): Pulls a random sample of .txt files (from NI_docs) and counts characters appearing on each document. Used for error check exercise (completed by Arica 03/2020). **Uses:** NI_docs (not currently on GitHub). **Creates:** [random_docs_error_check.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/random_docs_error_check.csv). **Action:** Refile under a "Misc" folder.
 
-- [text_classification_intro.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/text_classification_intro.py): Runs binary classifiers for each category, plots the words that have the most weight in classifying categories (biclass_logreg). Can use code for all words or just stopwords. **Uses:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv). **Creates:** [biclass_logreg](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/biclass_logreg "biclass_logreg"). **Action:** Code can be cleaned/streamlined with a few functions. 
-
-
 ### Files (data and models):
 
 - [archive_corpus_w2v_model.bin](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/archive_corpus_w2v_model.bin): Word2Vec model created using archive document. **Created by:** gensim_example.py.
-
-- [date_range.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/date_range.csv): Date range for all archive files that contain an "internment" code (Round 1). Document developed by hand. **Action:** Move to "old_docs" or "Misc docs."
 
 - [dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_long_parsed.csv): All date codes in entire corpus (from Nvivo codes). *Perhaps obsolete.* **Created by:** date_compile.py, **Used by:** merge_codes.py. **Action:** PUT ALL DATE SCRIPTS/CSV FILES IN A SPECIFIC FOLDER.
 
