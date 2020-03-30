@@ -1,9 +1,13 @@
-# NEW README (03/30):
-
 # NIreland_NLP
+## British Justifications for Internment without Trial: NLP Approaches to Analyzing Government Archives. 
+## [2020 Incubator project](https://escience.washington.edu/winter-2020-incubator-projects/) with the [eScience Institute](https://escience.washington.edu/)
+**Project Lead:** [Sarah Dreier](https://escience.washington.edu/people/sarah-k-dreier) ([email](skdreier@uw.edu))
+**eScience Liaison:** [Jose Hernandez](https://escience.washington.edu/people/jose-hernandez/)
+*This project is funded by NSF Award [#1823547](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1823547&HistoricalAwards=false); Principal Investigators: [Emily Gade](http://emilykgade.com/), [Noah Smith](https://homes.cs.washington.edu/~nasmith/), and [Michael McCann](https://www.polisci.washington.edu/people/michael-w-mccann).*
+
 Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator Project)
 
-## File Summaries (file-management branch)
+## Analysis (file-management branch)
 
 - [preprocess.py](): ***Functions to concatenate Nvivo outputs or original .txt data for analysis***
   + A) Parse nvivo coding code and text txt file into dictionary of category and accompanied text and file information. It uses the nvivo file outputs where each txt file represents all the codings and source text in a particular category.
@@ -11,8 +15,6 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
   + B) Load Nvivo OCRd txt files into dict where key is the imgage or pdf id To be used in the case where you need the overall document of the individual coded sentences.
   
 - [justifications_clean_text_ohe.csv](): ***Cleaned justification text data used in all analysis scripts*** 
-
-- [archive](): Old and/or exploratory scripts and text data corpora.
 
 - [class_biclass](): Binary classification analysis
 
@@ -35,7 +37,9 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
   + [gensim_example.py](): Builds Word vector model based on our archive data ([archive_corpus_w2v_model.bin]()). **Action:** Save visualized output to GitHub, talk through "cleaning" tactics with Jose, add as an embedded layer to NN.
   
   + [pretrained_models_init.py](): Uses pretrained word vector models (e.g., Stanford GloVe model, Google Word2Vec model). 
-  
+
+#### Cleaning, Preliminary Scripts, and Miscellaneous Tasks (file-management branch)
+
 - [cleaning](): Uploads, appends, cleans Nvivo data ([orig_text_data]().
 
   + [justifications_compile.py](): Prepares justification code files from Nvivo for text analysis: Appends each of 12 justification.txt files (from Nvivo, [orig_text_data/just_0106]()), parses text into relevant components, fixes image naming issue, saves justification text corpus ([justifications_long_training.csv]()), creates file of Nvivo page captures (rather than text codes) for hand transcription ([misc_tasks/page_ref.csv]()). **Actions:** Clean script.
@@ -67,6 +71,9 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
   + [internment.txt]()
   
   + [terrorism.txt]()
+
+
+- [archive](): Old and/or exploratory scripts and text data corpora.
 
 
 # OLD README (from last week):
