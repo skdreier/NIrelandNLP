@@ -20,6 +20,16 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
   + [multiclass.py](): Initial development script for multi-class analysis. Produces multi-class Naive Bayes confusion matrices ([multiclass_NB]()). Code can be integrated into "grid_search.py." Consider building confusion matrices for LR. 
 
+- [class_nn](): Neural Network classification analysis
+
+  + [baseline_neural_network.py](): Builds a shallow, one-layer neural network. This uses the justification training data; takes sentences as inputs and tries to train a model. Uses stemmed vocabulary (tokenized) but no word-to-vector embeddings (just a few hidden nodes trying to train a classifier).
+  
+  + [embeddings_google.py](): Builds NN using google embeddings and parameters. This has two NN models: 1) One with an embedded layer but trained based on our own vocabulary (uses an embedded layer as a layer); 2) One which uses google word2vec embeddings as an added layer in the NN model (uses an embedded layer populated by the google word2vec model). 
+
+  + [gensim_example.py](): Builds Word vector model based on our archive data ([archive_corpus_w2v_model.bin]()). **Action:** Save visualized output to GitHub, talk through "cleaning" tactics with Jose, add as an embedded layer to NN.
+  
+  + [pretrained_models_init.py](): Uses pretrained word vector models (e.g., Stanford GloVe model, Google Word2Vec model). 
+  
 - [histograms](): Frequencies for justification categories.
 
   + [prelim_hist.py](): Frequency for each justification category (original 12).
@@ -37,15 +47,10 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
 ### Files (python scripts):
 
-- [baseline_neural_network.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/baseline_neural_network.py): Builds a shallow, one-layer NN. **Uses:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv). **Action:** Talk through code w Jose. What is the difference between this and "embeddings_google.py"? From Jose: Using the justification training data; take sentences as inputs and tries to train. Uses stemmed vocabulary (tokenized) but no word-to-vector embeddings. Just a few hidden nodes trying to train a classifier.
 
 - [date_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/date_compile.py): Appends each of 48 date code .txt files and cleans text. **Uses:** [dates_0123](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_0123). **Creates:** [dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_long_parsed.csv). **Action:** Integrated with justifications_compile.py; DELETE SCRIPT.
 
-- [embeddings_google.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/embeddings_google.py): Builds NN using google embeddings and parameters. **Uses:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv). **Action:** What is the difference between this and "baseline_neural_network.py"? From Jose: This has two NN models. First: has an embedded layer but trained based on our own vocabulary (uses an embedded layer as a layer); Second: Uses google word2vec embeddings as an added layer in the NN model (uses an embedded layer populated by the google word2vec model). 
-
 - [function_clean_text.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/function_clean_text.py): Builds a function to clean text and one-hot-encode justifications. **Uses:** [justifications_long_training.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_training.csv). **Creates:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv) **Action:** Clean script.
-
-- [gensim_example.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/gensim_example.py): Builds Word vector model based on our archive data. **Uses:** NI_docs, [preprocessing.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocessing.py). **Creates:** [archive_corpus_w2v_model.bin](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/archive_corpus_w2v_model.bin). **Action:** Move NI_docs to Github (?), save visualized output to new GitHub folder, talk through "cleaning" tactics with Jose, add as an embedded layer to NN.
 
 - [justifications_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_compile.py): Prepares justification code files from Nvivo for text analysis. Specifically: Appends each of 12 justification.txt files (from Nvivo), parses text into relevant components, fixes image naming issue, creates file of Nvivo page captures (rather than text codes) for hand transcription. **Uses:** [just_0106](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/just_0106) and [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py). **Creates:** [justifications_long_training.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_long_training.csv), [page_ref.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/page_ref.csv). **Actions: Clean script**
 
@@ -60,8 +65,6 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
   **Used by:** [gensim_example.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/gensim_example.py), [justifications_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_compile.py)
 
-- [pretrained_models_init.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/pretrained_models_init.py): Code to use pretrained word vector models (e.g., Stanford GloVe model, Google Word2Vec model). Code also contains old code to train based on our archive corpus, but this code does not work; see [gensim_example.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/gensim_example.py) for working code. **Uses:** Glove and Word2Vec files from online. **Action:** Move old, defunct code to "old_docs" file. Save GloVe and Word2Vec original files onto Repo?
-
 - [random_docs_error_check.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/random_docs_error_check.py): Pulls a random sample of .txt files (from NI_docs) and counts characters appearing on each document. Used for error check exercise (completed by Arica 03/2020). **Uses:** NI_docs (not currently on GitHub). **Creates:** [random_docs_error_check.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/random_docs_error_check.csv). **Action:** Refile under a "Misc" folder.
 
 - [text_classification_intro.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/text_classification_intro.py): Runs binary classifiers for each category, plots the words that have the most weight in classifying categories (biclass_logreg). Can use code for all words or just stopwords. **Uses:** [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv). **Creates:** [biclass_logreg](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/biclass_logreg "biclass_logreg"). **Action:** Code can be cleaned/streamlined with a few functions. 
@@ -75,7 +78,7 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
 - [dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_long_parsed.csv): All date codes in entire corpus (from Nvivo codes). *Perhaps obsolete.* **Created by:** date_compile.py, **Used by:** merge_codes.py. **Action:** PUT ALL DATE SCRIPTS/CSV FILES IN A SPECIFIC FOLDER.
 
-- [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv): ***Used for all of the analysis scripts.*** **Created by:** function_clean_text.py. **Used by:** baseline_neural_network.py, embeddings_google.py, grid_search.py, multiclass.py, text_classification_intro.py, prelim_hist.py
+- [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv): ***Used for all of the analysis scripts.*** **Created by:** function_clean_text.py. **Used by:** baseline_neural_network.py, embeddings_google.py, grid_search.py, multiclass.py, text_classification_intro.py, prelim_hist.py, gensim?
    
 - [justifications_dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_dates_long_parsed.csv): **Perhaps obsolete** (created by merge_codes.py)
 
