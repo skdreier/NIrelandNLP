@@ -56,11 +56,11 @@ ___
 
   + [date_files](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/date_files): [date_compile.py](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/date_files/date_compile.py): Appends each of 48 date code .txt files and cleans text; creates [dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/date_files/dates_long_parsed.csv). [merge_codes.py](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/date_files/merge_codes.py) merges justification and data codes ([justifications_dates_long_parsed.csv](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/date_files/justifications_dates_long_parsed.csv)). None of these text files are currently used in analysis. [date_range.csv](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/date_files/date_range.csv) represents date range for all archive files that contain an "internment" code; document developed by hand. 
 
-- [histograms](): Plots frequencies for justification categories.
+- [histograms](https://github.com/skdreier/NIreland_NLP/tree/master/histograms/): Plots frequencies for justification categories.
   
-- [misc_tasks]():
+- [misc_tasks](https://github.com/skdreier/NIreland_NLP/tree/master/misc_tasks/):
 
-  + [random_docs_error_check.py](): Pulls a random sample of .txt files (from NI_docs) and counts characters appearing on each document. Used for error check task (completed 03/2020). Creates: [random_docs_error_check.csv]().
+  + [random_docs_error_check.py](https://github.com/skdreier/NIreland_NLP/tree/master/misc_tasks/random_docs_error_check.py): Pulls a random sample of .txt files (from [NI_docs](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/NI_docs/)) and counts characters appearing on each document. Used for error check task (completed 03/2020). Creates: [random_docs_error_check.csv](https://github.com/skdreier/NIreland_NLP/tree/master/misc_tasks/random_docs_error_check.csv).
 
 - [orig_text_data](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/):
 
