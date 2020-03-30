@@ -48,7 +48,7 @@ ___
 
 ### Cleaning, Preliminary Scripts, and Miscellaneous Tasks (file-management branch)
 
-- [cleaning](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning): Uploads, appends, cleans Nvivo data ([orig_text_data](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/).
+- [cleaning](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning): Uploads, appends, cleans Nvivo data ([orig_text_data](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/)).
 
   + [justifications_compile.py](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/justifications_compile.py): Prepares justification code files from Nvivo for text analysis: Appends each of 12 justification.txt files (from Nvivo, [orig_text_data/just_0106](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/just_0106)), parses text into relevant components, fixes image naming issue, saves justification text corpus ([justifications_long_training.csv](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/justifications_long_training.csv)), creates file of Nvivo page captures (rather than text codes) for hand transcription ([page_ref.csv](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/page_ref.csv)). **Actions:** Clean script.
   
