@@ -15,18 +15,18 @@ ___
 
 ### Analysis
 
-- [preprocess.py](): ***Functions to concatenate Nvivo outputs or original .txt data for analysis***
+- [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/master/preprocess.py): ***Functions to concatenate Nvivo outputs or original .txt data for analysis***
   + A) Parse nvivo coding code and text txt file into dictionary of category and accompanied text and file information. It uses the nvivo file outputs where each txt file represents all the codings and source text in a particular category.
 
   + B) Load Nvivo OCRd txt files into dict where key is the imgage or pdf id To be used in the case where you need the overall document of the individual coded sentences.
   
-- [justifications_clean_text_ohe.csv](): ***Cleaned justification text data used in all analysis scripts*** 
+- [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/master/justifications_clean_text_ohe.csv): ***Cleaned justification text data used in all analysis scripts*** 
 
-- [class_biclass](): Binary classification analysis
+- [class_biclass](https://github.com/skdreier/NIreland_NLP/tree/master/class_biclass): Binary classification analysis
 
-  + [text_classification_intro.py](): Runs binary classifiers for each category. 
+  + [text_classification_intro.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_biclass/text_classification_intro.py): Runs binary classifiers for each category. 
 
-  + [biclass_logreg](): Plots words with the most weight in classifying each category.
+  + [biclass_logreg](https://github.com/skdreier/NIreland_NLP/tree/master/class_biclass/biclass_logreg): Plots words with the most weight in classifying each category.
 
 - [class_multiclass](): Multi-class classification analysis
 
