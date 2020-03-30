@@ -1,13 +1,15 @@
 # NIreland_NLP
-## British Justifications for Internment without Trial: NLP Approaches to Analyzing Government Archives. 
-## [2020 Incubator project](https://escience.washington.edu/winter-2020-incubator-projects/) with the [eScience Institute](https://escience.washington.edu/)
+## British Justifications for Internment without Trial: NLP Approaches to Analyzing Government Archives. [2020 Incubator project](https://escience.washington.edu/winter-2020-incubator-projects/) with the [eScience Institute](https://escience.washington.edu/)
+
 **Project Lead:** [Sarah Dreier](https://escience.washington.edu/people/sarah-k-dreier) ([email](skdreier@uw.edu))
+
 **eScience Liaison:** [Jose Hernandez](https://escience.washington.edu/people/jose-hernandez/)
+
 *This project is funded by NSF Award [#1823547](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1823547&HistoricalAwards=false); Principal Investigators: [Emily Gade](http://emilykgade.com/), [Noah Smith](https://homes.cs.washington.edu/~nasmith/), and [Michael McCann](https://www.polisci.washington.edu/people/michael-w-mccann).*
 
-Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator Project)
+**Repo Updated:** March 2020
 
-## Analysis (file-management branch)
+### Analysis (file-management branch)
 
 - [preprocess.py](): ***Functions to concatenate Nvivo outputs or original .txt data for analysis***
   + A) Parse nvivo coding code and text txt file into dictionary of category and accompanied text and file information. It uses the nvivo file outputs where each txt file represents all the codings and source text in a particular category.
