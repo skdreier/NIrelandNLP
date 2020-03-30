@@ -4,6 +4,7 @@
 **[2020 Incubator project](https://escience.washington.edu/winter-2020-incubator-projects/) with the [eScience Institute](https://escience.washington.edu/)**
 
 **Project Lead:** [Sarah Dreier](https://escience.washington.edu/people/sarah-k-dreier) ([email](skdreier@uw.edu))
+
 **eScience Liaison:** [Jose Hernandez](https://escience.washington.edu/people/jose-hernandez/)
 
 **Repo Updated:** March 2020
@@ -43,7 +44,9 @@ ___
   
   + [pretrained_models_init.py](): Uses pretrained word vector models (e.g., Stanford GloVe model, Google Word2Vec model). 
 
-#### Cleaning, Preliminary Scripts, and Miscellaneous Tasks (file-management branch)
+___
+
+### Cleaning, Preliminary Scripts, and Miscellaneous Tasks (file-management branch)
 
 - [cleaning](): Uploads, appends, cleans Nvivo data ([orig_text_data]().
 
