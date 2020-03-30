@@ -3,7 +3,7 @@
 
 **[2020 Incubator project](https://escience.washington.edu/winter-2020-incubator-projects/) with the [eScience Institute](https://escience.washington.edu/)**
 
-**Project Lead:** [Sarah Dreier](https://escience.washington.edu/people/sarah-k-dreier) ([email](skdreier@uw.edu))
+**Project Lead:** [Sarah Dreier](https://escience.washington.edu/people/sarah-k-dreier) ([email](skdreier@uw.edu))\n
 **eScience Liaison:** [Jose Hernandez](https://escience.washington.edu/people/jose-hernandez/)
 
 **Repo Updated:** March 2020
