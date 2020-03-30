@@ -26,13 +26,13 @@ ___
 
   + [text_classification_intro.py](): Runs binary classifiers for each category. 
 
-  + [biclass_logreg](): Words with the most weight in classifying each category.
+  + [biclass_logreg](): Plots words with the most weight in classifying each category.
 
 - [class_multiclass](): Multi-class classification analysis
 
   + [grid_search.py](): Uses grid search to examine and identify best-performing multi-class models and parameters for predicting classification. Produces: [histograms]() of distribution of categories by training/testing data, box plots demonstrating accuracy for various model approaches ([model_accuracy]()), confusion matrices, and most "important" unigram/bigrams for each justification category. 
 
-  + [multiclass.py](): Initial development script for multi-class analysis. Produces multi-class Naive Bayes confusion matrices ([multiclass_NB]()). Code can be integrated into "grid_search.py." Consider building confusion matrices for LR. 
+  + [multiclass.py](): Initial development script for multi-class analysis. Produces multi-class Naive Bayes confusion matrices ([multiclass_NB]()). Code can be integrated into [grid_search.py](). Consider building confusion matrices for LR. 
 
 - [class_nn](): Neural Network classification analysis
 
@@ -40,9 +40,9 @@ ___
   
   + [embeddings_google.py](): Builds NN using google embeddings and parameters. This has two NN models: 1) One with an embedded layer but trained based on our own vocabulary (uses an embedded layer as a layer); 2) One which uses google word2vec embeddings as an added layer in the NN model (uses an embedded layer populated by the google word2vec model). 
 
-  + [gensim_example.py](): Builds Word vector model based on our archive data ([archive_corpus_w2v_model.bin]()). **Action:** Save visualized output to GitHub, talk through "cleaning" tactics with Jose, add as an embedded layer to NN.
+  + [build_archive_corpus_w2v_model.py](): Builds Word vector model based on our archive data ([archive_corpus_w2v_model.bin]()). **Action:** Save visualized output to GitHub, address/improve/jettison model cleaning tactics, ***add as an embedded layer to NN.***
   
-  + [pretrained_models_init.py](): Uses pretrained word vector models (e.g., Stanford GloVe model, Google Word2Vec model). 
+  + [pretrained_models_init.py](): Uploads pretrained word vector models (e.g., Stanford GloVe model, Google Word2Vec model). 
 
 ___
 
