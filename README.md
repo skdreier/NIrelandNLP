@@ -5,12 +5,12 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
 ## File Summaries (file-management branch)
 
-- [preprocess.py](): **Functions to concatenate Nvivo outputs or original .txt data for analysis**
+- [preprocess.py](): ***Functions to concatenate Nvivo outputs or original .txt data for analysis***
   + A) Parse nvivo coding code and text txt file into dictionary of category and accompanied text and file information. It uses the nvivo file outputs where each txt file represents all the codings and source text in a particular category.
 
   + B) Load Nvivo OCRd txt files into dict where key is the imgage or pdf id To be used in the case where you need the overall document of the individual coded sentences.
   
-- [justifications_clean_text_ohe.csv](): ***Used for all of the analysis scripts.*** 
+- [justifications_clean_text_ohe.csv](): ***Cleanted justification text data used in all analysis scripts.*** 
 
 - [archive](): Old and/or exploratory scripts and text data corpora.
 
