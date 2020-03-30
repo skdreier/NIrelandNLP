@@ -56,9 +56,7 @@ ___
 
   + [date_files](): [date_compile.py](): Appends each of 48 date code .txt files and cleans text; creates [dates_long_parsed.csv](). [merge_codes.py]() merges justification and data codes ([justifications_dates_long_parsed.csv]()). None of these text files are currently used in analysis. [date_range.csv]() represents date range for all archive files that contain an "internment" code; document developed by hand. 
 
-- [histograms](): Frequencies for justification categories.
-
-  + [prelim_hist.py](): Frequency for each justification category (original 12).
+- [histograms](): Plots frequencies for justification categories.
   
 ## SKD must clean rest:
   
