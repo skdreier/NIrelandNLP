@@ -1,13 +1,17 @@
 # NIreland_NLP
-## British Justifications for Internment without Trial: NLP Approaches to Analyzing Government Archives. [2020 Incubator project](https://escience.washington.edu/winter-2020-incubator-projects/) with the [eScience Institute](https://escience.washington.edu/)
+## British Justifications for Internment without Trial: NLP Approaches to Analyzing Government Archives. 
+
+**[2020 Incubator project](https://escience.washington.edu/winter-2020-incubator-projects/) with the [eScience Institute](https://escience.washington.edu/)**
 
 **Project Lead:** [Sarah Dreier](https://escience.washington.edu/people/sarah-k-dreier) ([email](skdreier@uw.edu))
 
 **eScience Liaison:** [Jose Hernandez](https://escience.washington.edu/people/jose-hernandez/)
 
+**Repo Updated:** March 2020
+
 *This project is funded by NSF Award [#1823547](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1823547&HistoricalAwards=false); Principal Investigators: [Emily Gade](http://emilykgade.com/), [Noah Smith](https://homes.cs.washington.edu/~nasmith/), and [Michael McCann](https://www.polisci.washington.edu/people/michael-w-mccann).*
 
-**Repo Updated:** March 2020
+___
 
 ### Analysis (file-management branch)
 
