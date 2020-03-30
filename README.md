@@ -60,7 +60,7 @@ ___
   
 - [misc_tasks](https://github.com/skdreier/NIreland_NLP/tree/master/misc_tasks/):
 
-  + [random_docs_error_check.py](https://github.com/skdreier/NIreland_NLP/tree/master/misc_tasks/random_docs_error_check.py): Pulls a random sample of .txt files (from [NI_docs](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/NI_docs/)) and counts characters appearing on each document. Used for error check task (completed 03/2020). Creates: [random_docs_error_check.csv](https://github.com/skdreier/NIreland_NLP/tree/master/misc_tasks/random_docs_error_check.csv).
+  + [random_docs_error_check.py](https://github.com/skdreier/NIreland_NLP/tree/master/misc_tasks/random_docs_error_check.py): Pulls a random sample of .txt files (from [NI_docs](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/NI_docs)) and counts characters appearing on each document. Used for error check task (completed 03/2020). Creates: [random_docs_error_check.csv](https://github.com/skdreier/NIreland_NLP/tree/master/misc_tasks/random_docs_error_check.csv).
 
 - [orig_text_data](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/):
 
