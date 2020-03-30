@@ -4,7 +4,6 @@
 **[2020 Incubator project](https://escience.washington.edu/winter-2020-incubator-projects/) with the [eScience Institute](https://escience.washington.edu/)**
 
 **Project Lead:** [Sarah Dreier](https://escience.washington.edu/people/sarah-k-dreier) ([email](skdreier@uw.edu))
-
 **eScience Liaison:** [Jose Hernandez](https://escience.washington.edu/people/jose-hernandez/)
 
 **Repo Updated:** March 2020
@@ -13,7 +12,7 @@
 
 ___
 
-### Analysis (file-management branch)
+### Analysis
 
 - [preprocess.py](): ***Functions to concatenate Nvivo outputs or original .txt data for analysis***
   + A) Parse nvivo coding code and text txt file into dictionary of category and accompanied text and file information. It uses the nvivo file outputs where each txt file represents all the codings and source text in a particular category.
