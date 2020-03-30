@@ -28,11 +28,11 @@ ___
 
   + [biclass_logreg](https://github.com/skdreier/NIreland_NLP/tree/master/class_biclass/biclass_logreg): Plots words with the most weight in classifying each category.
 
-- [class_multiclass](): Multi-class classification analysis
+- [class_multiclass](https://github.com/skdreier/NIreland_NLP/tree/master/class_multiclass/): Multi-class classification analysis
 
-  + [grid_search.py](): Uses grid search to examine and identify best-performing multi-class models and parameters for predicting classification. Produces: [histograms]() of distribution of categories by training/testing data, box plots demonstrating accuracy for various model approaches ([model_accuracy]()), confusion matrices, and most "important" unigram/bigrams for each justification category. 
+  + [grid_search.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_multiclass/grid_search.py): Uses grid search to examine and identify best-performing multi-class models and parameters for predicting classification. Produces: [histograms](https://github.com/skdreier/NIreland_NLP/tree/master/histograms/) of distribution of categories by training/testing data, box plots demonstrating accuracy for various model approaches ([model_accuracy](https://github.com/skdreier/NIreland_NLP/tree/master/class_multiclass/model_accuracy)), confusion matrices, and most "important" unigram/bigrams for each justification category. 
 
-  + [multiclass.py](): Initial development script for multi-class analysis. Produces multi-class Naive Bayes confusion matrices ([multiclass_NB]()). Code can be integrated into [grid_search.py](). Consider building confusion matrices for LR. 
+  + [multiclass.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_multiclass/multiclass.py): Initial development script for multi-class analysis. Produces multi-class Naive Bayes confusion matrices ([multiclass_NB](https://github.com/skdreier/NIreland_NLP/tree/master/class_multiclass/multiclass_NB/)). Code can be integrated into [grid_search.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_multiclass/grid_search.py). Consider building confusion matrices for LR. 
 
 - [class_nn](): Neural Network classification analysis
 
