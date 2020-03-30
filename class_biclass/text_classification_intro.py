@@ -8,12 +8,12 @@
 ## Updated: Sarah 23/02/2020
 ###############################################
 
-import os
+import os, sys
 from pathlib import Path
 import re
 import pandas as pd
 import numpy as np
-import preprocess as pr
+
 import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
 import nltk
@@ -28,13 +28,16 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import LabelEncoder 
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import preprocess as pr
 
 ##### Load data #####
 this_file_path = os.path.abspath(__file__)
-project_root = os.path.split(this_file_path)[0]
-j_path = os.path.join(project_root) 
+folder_root = os.path.split(this_file_path)[0]
+repo_root = os.path.split(folder_root)[0]
+repo_path = os.path.join(repo_root)
 
-df_just = pd.read_csv(os.path.join(j_path, 'justifications_clean_text_ohe.csv'))
+df_just = pd.read_csv(os.path.join(repo_path, 'justifications_clean_text_ohe.csv'))
 
 # Drops observations based on page captures (not highlighted text) -- these will be transcribed later
 df_just.dropna(subset=['clean_text'], inplace=True)

@@ -3,6 +3,7 @@
 #### Basic code adapted from: https://towardsdatascience.com/multi-class-text-classification-with-scikit-learn-12f1e60e0a9f
 #### Added code: text stemming, pipelines to add hyperparmeters
 #### Multiple justification categories (12,7,6,5)
+#### SCRIPTS SHOULD BE CLEANED
 #### Feb 28 2020
 ####################################################################################################################
 
@@ -46,10 +47,11 @@ nltk.download('wordnet')
 from IPython.display import display
 
 this_file_path = os.path.abspath(__file__)
-project_root = os.path.split(this_file_path)[0]
-j_path = os.path.join(project_root) 
+folder_root = os.path.split(this_file_path)[0]
+repo_root = os.path.split(folder_root)[0]
+repo_path = os.path.join(repo_root)
 
-df = pd.read_csv(os.path.join(j_path, 'justifications_clean_text_ohe.csv'))
+df = pd.read_csv(os.path.join(repo_path, 'justifications_clean_text_ohe.csv'))
 
 ###################################################
 ### Reclassify justifications into 7 categories ###
@@ -110,7 +112,7 @@ df.head()
 
 fig = plt.figure(figsize=(8,6))
 df.groupby('just_categories').clean_text.count().plot.bar(ylim=0)
-plt.savefig('multiclass_LR/just_6' + '.png')
+plt.savefig(repo_path + '/histograms/just_6' + '.png')
 plt.show()
 
 ######################################
@@ -189,7 +191,7 @@ cv_df = pd.DataFrame(entries, columns=['model_name', 'fold_idx', 'accuracy'])
 sns.boxplot(x='model_name', y='accuracy', data=cv_df)
 sns.stripplot(x='model_name', y='accuracy', data=cv_df, 
               size=8, jitter=True, edgecolor="gray", linewidth=2)
-plt.savefig('multiclass_LR/models6' + '.png')
+plt.savefig('model_accuracy/model_6' + '.png')
 plt.show()
 
 cv_df.groupby('model_name').accuracy.mean()
@@ -208,7 +210,9 @@ multinom = Pipeline([
                 #('multiclass', MultinomialNB()),    # alpha=1.0 # smoothing parameter
                 ('multiclass', LogisticRegression(random_state=0) )
                ])
-help(LogisticRegression)
+               
+# help(LogisticRegression)
+
 ###### Look at outputs without parameters
 multinom.fit(sentences_train, y_train)
 y_pred = multinom.predict(sentences_test)

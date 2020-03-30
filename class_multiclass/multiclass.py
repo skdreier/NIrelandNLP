@@ -21,10 +21,11 @@ from nltk.tokenize import word_tokenize
 nltk.download('stopwords')
 
 this_file_path = os.path.abspath(__file__)
-project_root = os.path.split(this_file_path)[0]
-j_path = os.path.join(project_root) 
+folder_root = os.path.split(this_file_path)[0]
+repo_root = os.path.split(folder_root)[0]
+repo_path = os.path.join(repo_root)
 
-df_just = pd.read_csv(os.path.join(j_path, 'justifications_clean_text_ohe.csv'))
+df_just = pd.read_csv(os.path.join(repo_path, 'justifications_clean_text_ohe.csv'))
 
 # Create a unique number id for each justification category
 from io import StringIO
