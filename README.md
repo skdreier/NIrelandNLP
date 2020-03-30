@@ -49,26 +49,24 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
   
   + [page_ref.csv](): Page captures (rather than text captures -- for hand transcription). 
 
-- [orig_text_data]:
+- [orig_text_data]():
 
-  + [dates_0123](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/dates_0123 "dates_0123"): Contains Nvivo output text for each specific "date" code in Nviov (codes as of Jan 2020). **Used by:** [date_compile.py](). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts.
+  + [dates_0123](): Contains Nvivo output text for each specific "date" code in Nviov (codes as of Jan 2020). **Used by:** [date_compile.py](). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts.
   
-  + [just_0106](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/just_0106 "just_0106"): Contains Nvivo output text for each specific "justification" code in Nvivo (codes as of Jan 2020). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts (**Used by:** justifications_compile.py).
+  + [just_0106](): Contains Nvivo output text for each specific "justification" code in Nvivo (codes as of Jan 2020). **Action:** Update files fron Nvivo after coding is updated, rename file, update scripts (**Used by:** justifications_compile.py).
   
-  + [sample_data](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/data "sample data"): Contains 7 sample .txt files from the original document PDFs. 
+  + [sample_data](): Contains 7 sample .txt files from the original document PDFs. 
   
-  + [internment.txt]
+  + [internment.txt]()
   
-  + [terrorism.txt]
+  + [terrorism.txt]()
 
 - [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py): Functions to: 
   + A) Parse nvivo coding code and text txt file into dict of category and accompanied text and file information. It uses the nvivo file outputs where each txt file represents all the codings and source text in a particular category.
 
   + B) Load Nvivo OCRd txt files into dict where key is the imgage or pdf id To be used in the case where you need the overall document of the individual coded sentences.
-
-  **Used by:** [gensim_example.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/gensim_example.py), [justifications_compile.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_compile.py)
-
-- [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv): ***Used for all of the analysis scripts.*** **Created by:** function_clean_text.py. **Used by:** baseline_neural_network.py, embeddings_google.py, grid_search.py, multiclass.py, text_classification_intro.py, prelim_hist.py, gensim?
+  
+- [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv): ***Used for all of the analysis scripts.*** **Created by:** function_clean_text.py. 
 
 # OLD README (from last week):
 
