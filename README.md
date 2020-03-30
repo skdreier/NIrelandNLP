@@ -10,7 +10,7 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
   + B) Load Nvivo OCRd txt files into dict where key is the imgage or pdf id To be used in the case where you need the overall document of the individual coded sentences.
   
-- [justifications_clean_text_ohe.csv](): ***Cleanted justification text data used in all analysis scripts.*** 
+- [justifications_clean_text_ohe.csv](): ***Cleaned justification text data used in all analysis scripts*** 
 
 - [archive](): Old and/or exploratory scripts and text data corpora.
 
