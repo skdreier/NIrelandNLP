@@ -10,8 +10,11 @@ import re
 import pandas as pd
 
 this_file_path = os.path.abspath(__file__)
-project_root = os.path.split(this_file_path)[0]
-date_path = os.path.join(project_root, 'dates_0123') + '/'
+subfolder_root = os.path.split(this_file_path)[0]
+folder_root = os.path.split(subfolder_root)[0]
+repo_root = os.path.split(folder_root)[0]
+
+date_path = os.path.join(repo_root, 'orig_text_data/dates_0123') + '/'
 
 ## Load txt document
 files = []
@@ -36,7 +39,7 @@ cat = []
 # create file paths list 
 files = []
 # r=root, d=directories, f = files
-for r, d, f in os.walk(path):
+for r, d, f in os.walk(date_path):
     for file in f:
         if '.txt' in file:
             files.append(os.path.join(r, file))
@@ -109,5 +112,5 @@ df_long = df_long[['date', 'image_id', 'file_id', 'img_file']]
 df_long.head
 
 ## Write out as a csv
-df_long.to_csv(os.path.join(project_root, 'dates_long_parsed.csv'))
+df_long.to_csv(os.path.join(subfolder_root, 'dates_long_parsed.csv'))
 

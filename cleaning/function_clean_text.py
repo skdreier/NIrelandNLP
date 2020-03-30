@@ -15,8 +15,11 @@ import pandas as pd
 import numpy as np
 
 this_file_path = os.path.abspath(__file__)
-project_root = os.path.split(this_file_path)[0]
-train_path = os.path.join(project_root) + '/'
+folder_root = os.path.split(this_file_path)[0]
+train_path = os.path.join(folder_root) + '/'
+
+repo_root = os.path.split(folder_root)[0]
+repo_path = os.path.join(repo_root)
 
 df_just = pd.read_csv(os.path.join(train_path, "justifications_long_training.csv"))
 df_just.shape
@@ -50,4 +53,4 @@ df_just_ohe = pd.get_dummies(df_just, columns=cat_columns)
 df_just_ohe['justification_cat'] = df_just['justification']
 
 # Save it as a csv
-df_just_ohe.to_csv(os.path.join(project_root, 'justifications_clean_text_ohe.csv'))
+df_just_ohe.to_csv(os.path.join(repo_root, 'justifications_clean_text_ohe.csv'))

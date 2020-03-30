@@ -11,13 +11,14 @@ import re
 import pandas as pd
 import numpy as np
 
-
 this_file_path = os.path.abspath(__file__)
-project_root = os.path.split(this_file_path)[0]
-j_path = os.path.join(project_root, 'just_0106') + '/'
+folder_root = os.path.split(this_file_path)[0]
+repo_root = os.path.split(folder_root)[0]
+j_path = os.path.join(repo_root, 'orig_text_data/just_0106') + '/'
 
 sys.path # make sure the repo is in the path 
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import preprocess as pr
 
 ## Load txt document
@@ -112,7 +113,7 @@ long_df['text'] = long_df['text'].replace({"(Reference.\d)(.*)(Coverage\\n)": ""
 long_df.head(20)
 
 # save the data 
-long_df.to_csv(os.path.join(project_root, 'justifications_long_training.csv'))
+long_df.to_csv(os.path.join(folder_root, 'justifications_long_training.csv'))
 long_df.columns
 
 # Creating a List within a column (proved to be a headache due to the non characters)
@@ -126,7 +127,4 @@ df_pg_ref.columns
 df_pg_ref.head
 
 df_pg_ref = df_pg_ref[['image_id', 'file_id', 'img_file_orig', 'justification', 'level_4']]
-df_pg_ref.to_csv(os.path.join(project_root, 'page_ref.csv'))
-
-## Write out as a csv
-## df_long.to_csv(os.path.join(project_root, 'justifications_long_parsed.csv'))
+df_pg_ref.to_csv(os.path.join(repo_root, 'misc_tasks/page_ref.csv'))
