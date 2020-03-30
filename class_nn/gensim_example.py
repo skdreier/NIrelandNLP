@@ -8,20 +8,20 @@
 
 ## Gensim how-to and test with subset 
 import pandas as pd
-import os
+import os, sys
 import numpy as np
 from gensim.models import Word2Vec
 import nltk
 from nltk.tokenize import word_tokenize
 
 this_file_path = os.path.abspath(__file__)
-project_root = os.path.split(this_file_path)[0]
-data_root = os.path.split(project_root)[0]
+folder_root = os.path.split(this_file_path)[0]
+repo_root = os.path.split(folder_root)[0]
 
-sys.path.append(project_root)
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import preprocess as pr
 
-path_corpus = os.path.join(data_root, "NI_docs/") 
+path_corpus = os.path.join(repo_root, "orig_text_data/NI_docs/") 
 
 ## Load txt document file names
 ocr_text = pr.text_preprocess(path_corpus)
@@ -35,7 +35,7 @@ ocr_corpus = pd.DataFrame(ocr_text_corpus.items())
 ocr_corpus.columns = ['img_file', 'raw_text']
 
 # Subset to pages that contain a justification
-df = pd.read_csv(os.path.join(project_root, 'justifications_clean_text_ohe.csv'))
+df = pd.read_csv(os.path.join(repo_root, 'justifications_clean_text_ohe.csv'))
 just_imgs = np.ndarray.tolist(df['img_file_orig'].unique())
 ocr_corpus_subset = ocr_corpus.loc[ocr_corpus['img_file'].isin(just_imgs)]
 
@@ -129,7 +129,6 @@ print(model['terrorism'])
 # other words to remove: thesecurity, ander, securi, rmoved, millen, hewas, rees, nio, pss, fco, irelandoffice
 # irelandgovernment, ofth, northernireland, aoc, ofth, cesa, toal, theruc
 # "words" to keep: sf, eec, jsc
-
 
 ##################################################
 ### Visualize word embeddings

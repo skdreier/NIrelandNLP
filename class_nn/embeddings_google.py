@@ -33,15 +33,15 @@ from gensim.models import KeyedVectors
 
 
 ## Set the file pathway and download corpus
-this_file_path = os.path.abspath(__file__)
-project_root = os.path.split(this_file_path)[0]
-j_path = os.path.join(project_root) 
 
 this_file_path = os.path.abspath(__file__)
-project_root = os.path.split(this_file_path)[0]
-PATH_TO_GV = os.path.join(project_root, 'wordvec') + '/'
+folder_root = os.path.split(this_file_path)[0]
+repo_root = os.path.split(folder_root)[0]
+repo_path = os.path.join(repo_root)
 
-df = pd.read_csv(os.path.join(j_path, 'justifications_clean_text_ohe.csv'))
+PATH_TO_GV = os.path.join(folder_root, 'wordvec') + '/'
+
+df = pd.read_csv(os.path.join(repo_path, 'justifications_clean_text_ohe.csv'))
 
 # Collapse justification categories from 12 to 6 -- approach #2
 df['just_category_6'] = df['justification_cat']
