@@ -7,12 +7,15 @@ from pathlib import Path
 import re
 import pandas as pd
 import numpy as np
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import preprocess as pr
 
 ## Set project path 
 this_file_path = os.path.abspath(__file__)
-project_root = os.path.split(this_file_path)[0]
-all_path = os.path.join("/Users/sarahdreier/OneDrive/Incubator/", "NI_docs/") 
+folder_root = os.path.split(this_file_path)[0]
+repo_root = os.path.split(folder_root)[0]
+all_path = os.path.join(repo_root, "orig_text_data/NI_docs/") 
 
 #sys.path # make sure the repo is in the path 
 
@@ -54,4 +57,4 @@ random_df = random_df.rename(columns = {'index':'document', 0:"char_count"})
 np.sort(random_df['document'])
 
 ## Output random count csv
-random_df.to_csv(os.path.join(project_root, 'random_docs_error_check.csv'))
+random_df.to_csv(os.path.join(folder_root, 'random_docs_error_check.csv'))

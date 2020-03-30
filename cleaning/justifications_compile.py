@@ -127,4 +127,4 @@ df_pg_ref.columns
 df_pg_ref.head
 
 df_pg_ref = df_pg_ref[['image_id', 'file_id', 'img_file_orig', 'justification', 'level_4']]
-df_pg_ref.to_csv(os.path.join(repo_root, 'misc_tasks/page_ref.csv'))
+df_pg_ref.to_csv(os.path.join(folder_root, 'page_ref.csv'))
