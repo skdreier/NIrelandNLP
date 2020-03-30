@@ -3,7 +3,14 @@
 # NIreland_NLP
 Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator Project)
 
-## File Summaries (prelim-analysis branch)
+## File Summaries (file-management branch)
+
+- SKD MUST CLEAN: [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py): Functions to: 
+  + A) Parse nvivo coding code and text txt file into dict of category and accompanied text and file information. It uses the nvivo file outputs where each txt file represents all the codings and source text in a particular category.
+
+  + B) Load Nvivo OCRd txt files into dict where key is the imgage or pdf id To be used in the case where you need the overall document of the individual coded sentences.
+  
+- SKD MUST CLEAN: [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv): ***Used for all of the analysis scripts.*** **Created by:** function_clean_text.py. 
 
 - [archive](): Old and/or exploratory scripts and text data corpora.
 
@@ -41,7 +48,7 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
 
   + [prelim_hist.py](): Frequency for each justification category (original 12).
   
-## SKD Stopped cleaning here
+## SKD must clean rest:
   
 - [misc_tasks]():
 
@@ -61,12 +68,6 @@ Ongoing repo for NLP analysis of N.Ireland archive text (UW eScience Incubator P
   
   + [terrorism.txt]()
 
-- [preprocess.py](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/preprocess.py): Functions to: 
-  + A) Parse nvivo coding code and text txt file into dict of category and accompanied text and file information. It uses the nvivo file outputs where each txt file represents all the codings and source text in a particular category.
-
-  + B) Load Nvivo OCRd txt files into dict where key is the imgage or pdf id To be used in the case where you need the overall document of the individual coded sentences.
-  
-- [justifications_clean_text_ohe.csv](https://github.com/skdreier/NIreland_NLP/tree/prelim-analysis/justifications_clean_text_ohe.csv): ***Used for all of the analysis scripts.*** **Created by:** function_clean_text.py. 
 
 # OLD README (from last week):
 
