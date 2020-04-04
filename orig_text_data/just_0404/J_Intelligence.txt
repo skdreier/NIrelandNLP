@@ -1,0 +1,113 @@
+﻿Files\\DNV_round1\\DEFE 24 606\\IMG_2424_DEFE_24_606 - § 1 reference coded [ 4.16% Coverage]
+Reference 1 - 4.16% Coverage
+This Operation could be regarded as being completed by the end of November but there would be no let up in the Army’s arrest policy and intelligence effort.
+Files\\DNV_round1\\DEFE 24 877\\IMG_1476_DEFE_24_877 - § 2 references coded [ 2.32% Coverage]
+Reference 1 - 0.96% Coverage
+searches on goad intelligence.
+Reference 2 - 1.36% Coverage
+Continue the policy of selective arrests and
+Files\\DNV_round1\\DEFE 24 877\\IMG_1506_DEFE_24_877 - § 3 references coded [ 4.80% Coverage]
+Reference 1 - 2.20% Coverage
+It is considered, therefore that $ pp1 Ws stmwU ##s 4
+Reference 2 - 2.09% Coverage
+Carrying out selective arrests d intelligence,
+Reference 3 - 0.51% Coverage
+archeongoo
+Files\\SKD_round1\\CJ 4 458\\IMG_1807_CJ_4_458 - § 1 reference coded [ 2.93% Coverage]
+Reference 1 - 2.93% Coverage
+When in use it applies only to the situation in which the RUC wish to interrogate a person and are using troops as their agents to effect the arrest.
+Files\\SKD_round1\\CJ 4 458\\IMG_1871_CJ_4_458 - § 1 reference coded [ 2.83% Coverage]
+Reference 1 - 2.83% Coverage
+Paragraph (b) of the Army letter envisages that persons may be arrested under Regulation 10 "for purposes of questioning prior to preferment of criminal charges".
+Files\\SKD_round1\\CJ 4 458\\IMG_1931_CJ_4_458 - § 2 references coded [ 15.42% Coverage]
+Reference 1 - 10.37% Coverage
+Lord Windlesham explained that in the Secretary of State’s absence he was being invited to sign a Detention Order for a prisoner whom the RUC thought should be interrogated for longer than the 48-hour period which they would otherwise have been limited to. Because of the strong recommendation made to him, Lord Windlesham intended to sign this Detention Order, but before doing so asked that Mr Johnston should explain to him the process of interrogation which the man was now likely to face.
+Reference 2 - 5.05% Coverage
+When an admission was made during the course of interrogation, Special Branch called on the CID, would remove the prisoner to a Police Station and treat him there in strict accordance with the judges’ rules: statements would be taken, etc.
+Files\\SKD_round1\\CJ 4 458\\IMG_1932_CJ_4_458 - § 1 reference coded [ 9.30% Coverage]
+Reference 1 - 9.30% Coverage
+The judges’ rules were simply not compatible with the gaining of intelligence. In Mr Johnston’s view it was still essential to gain intelligence 
+- the initiative might fail, or it might take a 
+long time to succeed: in any event it would be wrong of the security forces not to keep themselves well informed of the threat of subversion. Interrogation was necessary to produce the intelligence which the security forces needed.
+Files\\SKD_round1\\DEFE 13 917\\IMG_2305_DEFE_13_917 - § 1 reference coded [ 3.54% Coverage]
+Reference 1 - 3.54% Coverage
+Intelligence is the key to successful operations against terrorists; and the key to intelligence is information regarding
+Files\\SKD_round1\\DEFE 13 917\\IMG_2327_DEFE_13_917 - § 1 reference coded [ 1.52% Coverage]
+Reference 1 - 1.52% Coverage
+Intelligence is the. key to successful operations
+Files\\SKD_round1\\DEFE 13 917\\IMG_2394_DEFE_13_917 - § 1 reference coded [ 7.12% Coverage]
+Reference 1 - 7.12% Coverage
+Interrogation of Detainees We are told that 
+the RUC team who have been doing the interrogation have already obtained so much material that they want to break off the questioning while they analyse the information already gleaned.
+Files\\SKD_round1\\DEFE 13 919\\IMG_1942_DEFE_13_919 - § 3 references coded [ 25.58% Coverage]
+Reference 1 - 2.03% Coverage
+Page 1 : (100,58) - (473,108)
+Reference 2 - 17.20% Coverage
+Page 1 : (77,164) - (493,544)
+Reference 3 - 6.35% Coverage
+Page 1 : (56,575) - (505,705)
+Files\\SKD_round1\\DEFE 13 919\\IMG_1943_DEFE_13_919 - § 1 reference coded [ 2.34% Coverage]
+Reference 1 - 2.34% Coverage
+There is no doubt that the informatio obtained by ches two ~ 
+tions directly and indirectly was responsible for the saving of lives of inn cnt citizens.
+Files\\SKD_round1\\DEFE 13 919\\IMG_1944_DEFE_13_919 - § 1 reference coded [ 3.33% Coverage]
+Reference 1 - 3.33% Coverage
+Page 1 : (73,238) - (466,316)
+Files\\SKD_round1\\DEFE 13 919\\IMG_1973_DEFE_13_919 - § 1 reference coded [ 8.75% Coverage]
+Reference 1 - 8.75% Coverage
+Anyone caught in the company of someone caught in the act of committing or having just committed a criminal offence if there is reason to think he may be able to give information about the offence or important information about the IRA generally.
+Files\\SKD_round1\\DEFE 13 919\\IMG_2001_DEFE_13_919 - § 1 reference coded [ 8.12% Coverage]
+Reference 1 - 8.12% Coverage
+Under the present arrest policy most people arrested are being questioned with 
+a view towards criminal charges being brought; but those against whom charges cannot be brought are being questioned for intelligence purposes according to instructions already issued (Ref A).
+Files\\SKD_round1\\DEFE 13 919\\IMG_2065_DEFE_13_919 - § 1 reference coded [ 7.33% Coverage]
+Reference 1 - 7.33% Coverage
+Persons arrested or detained during military operations, but particularly 
+during Internal Security operations or in near emergency situations are likely to be valuable sources of intelligence.
+Files\\SKD_round1\\DEFE 13 919\\IMG_2105_DEFE_13_919 - § 1 reference coded [ 5.14% Coverage]
+Reference 1 - 5.14% Coverage
+THEY WERE AWARE OF THE IMPORTANCE OF OBTAINING OPERATIONAL INTELLIGENCE AND THEY KNEW THAT THE DETAINEES WERE LIABLE TO BE SUBJECTED TO A MEASURE OF FATIGUE, ISOLATION AND NOISE.
+Files\\SKD_round1\\PREM 15 485\\IMG_5125_PREM_15_485 - § 1 reference coded [ 5.63% Coverage]
+Reference 1 - 5.63% Coverage
+In dealing with a terrorist campaign such as that in Northern Ireland intelligence is the key to successful operations; and the key to intelligence is information regarding the operations, dispositions and plans of the terrorists.
+Files\\SKD_round1\\PREM 15 485\\IMG_5131_PREM_15_485 - § 1 reference coded [ 4.14% Coverage]
+Reference 1 - 4.14% Coverage
+In dealing with a terrorist campaign such as that in Northern 
+Ireland intelligence is the key to successful operations; and the key to intelligence is information regarding the operations, dispositions and plans of the terrorists.
+Files\\SKD_round1\\PREM 15 485\\IMG_5164_PREM_15_485 - § 2 references coded [ 11.69% Coverage]
+Reference 1 - 4.16% Coverage
+Intelligence is the key to successful operations against 
+terrorists, and the key to intelligence is information regarding their operations, their dispositions and their plans.
+Reference 2 - 7.53% Coverage
+In the present circumstances of Northern Ireland, as described in 
+paragraphs 3-5 of this note, it is imperative to obtain all available intelligence in order to save the lives of civilians and members of the security forces; and it is therefore essential to interrogate suspects who are believed to have essential information.
+Files\\SKD_round1\\PREM 15 485\\IMG_5166_PREM_15_485 - § 1 reference coded [ 5.21% Coverage]
+Reference 1 - 5.21% Coverage
+In dealing with a terrorist campaign such as that in Northern Ireland, 
+intelligence is the key to successful operations, and the key to intelligence is information regarding the operations, dispositions, and plans of the terrorists.
+Files\\SKD_round1\\PREM 15 485\\IMG_5169_PREM_15_485 - § 1 reference coded [ 12.96% Coverage]
+Reference 1 - 12.96% Coverage
+In the present circumstances of Northern 
+Treland, as described in paragraphs 3-5 of this note, it is imperative to obtain all available intelligence in order to save the lives of civilians and members of the security forces; and it is therefore essential to interrogate suspects who are believed to have essential information.
+Files\\SKD_round1\\PREM 15 485\\IMG_5176_PREM_15_485 - § 1 reference coded [ 6.70% Coverage]
+Reference 1 - 6.70% Coverage
+Persons arrested or detained during Internal Security 
+operations or in near emergency situations are likely to be valuable sources of intelligence. They may be the only sources of intelligence at a time when it is urgently required.
+Files\\SKD_round1\\PREM 15 485\\IMG_5191_PREM_15_485 - § 1 reference coded [ 10.92% Coverage]
+Reference 1 - 10.92% Coverage
+Intelligence is the key to successful operations against terrorists; and the key to intelligence is information regarding their operations, their dispositions, and their plans. When combating 
+a terrorist campaign time is of the essence; information must be sought while it is still fresh so that it may be used as quickly as possible to effect the capture of persons, arms and explosives and thereby save the lives of members of the security forces and of the civil population.
+Files\\SKD_round1\\PREM 15 485\\IMG_5213_PREM_15_485 - § 1 reference coded [ 1.74% Coverage]
+Reference 1 - 1.74% Coverage
+Intelligence is the key to successful operations against
+Files\\SKD_round1\\PREM 15 485\\IMG_5232_PREM_15_485 - § 1 reference coded [ 27.66% Coverage]
+Reference 1 - 27.66% Coverage
+For this purpose prompt intelligence is indispensable; and it would be unfair (to put it no more strongly) to our own Forces to forgo any permissible means of securing such intelligence.
+Files\\SKD_round1\\PREM 15 485\\IMG_5240_PREM_15_485 - § 2 references coded [ 2.65% Coverage]
+Reference 1 - 0.57% Coverage
+are queetined.
+Reference 2 - 2.07% Coverage
+Theo n are intexne in severalcentres and of cure peaPgle
+Files\\SKD_round1\\PREM 15 485\\IMG_5241_PREM_15_485 - § 1 reference coded [ 0.94% Coverage]
+Reference 1 - 0.94% Coverage
+Page 1 : (139,142) - (293,198)

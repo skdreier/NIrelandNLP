@@ -1,0 +1,1128 @@
+﻿Files\\DNV_round1\\PREM 15 1000\\IMG_6459_PREM_15_1000 - § 1 reference coded [ 3.67% Coverage]
+Reference 1 - 3.67% Coverage
+But should it not add that this means, so far as the Government are concerned, that there can be no question of ending internment unilaterally, i.e. so long as violence persists ?
+Files\\DNV_round1\\PREM 15 1000\\IMG_6461_PREM_15_1000 - § 1 reference coded [ 4.28% Coverage]
+Reference 1 - 4.28% Coverage
+Page 1 : (127,107) - (527,207)
+Files\\DNV_round1\\PREM 15 1000\\IMG_6465_PREM_15_1000 - § 1 reference coded [ 14.14% Coverage]
+Reference 1 - 14.14% Coverage
+IF THE RUMOUR ABOUT INTERNING WOMEN IS FALSE, IT WOULD BE AS WELL TO KILL IT QUICKLY. IT IS HARD TO IMAGINE WHAT MILITARY ADVANTAGE IT COULD POSSIBLY HAVE TO OUTWEIGH THE HOSTILITY IT WOULD AROUSE AND THE BOOST IT WOULD GIVE TO THE I R A.
+Files\\DNV_round1\\PREM 15 1000\\IMG_6477_PREM_15_1000 - § 1 reference coded [ 4.88% Coverage]
+Reference 1 - 4.88% Coverage
+Page 1 : (180,235) - (562,361)
+Files\\DNV_round1\\PREM 15 1000\\IMG_6520_PREM_15_1000 - § 1 reference coded [ 2.93% Coverage]
+Reference 1 - 2.93% Coverage
+Page 1 : (105,595) - (250,781)
+Files\\DNV_round1\\PREM 15 1000\\IMG_6573_PREM_15_1000 - § 1 reference coded [ 1.81% Coverage]
+Reference 1 - 1.81% Coverage
+oe relaxation would anyway be justified on security
+Files\\DNV_round1\\PREM 15 1000\\IMG_6574_PREM_15_1000 - § 6 references coded [ 40.16% Coverage]
+Reference 1 - 6.36% Coverage
+g r ounds i f , as one may hope, the impr oved situation both 
+reduced the risk involved in setting free some of the internees, and increased the Availability of evidence on which others among them could be convicted.
+Reference 2 - 6.65% Coverage
+At the first signs of a real improvement the word could be allowed to get around that, while internment as such was certainly not being dispensed with immediately, the way in which it was applied was under reconsideration,
+Reference 3 - 6.36% Coverage
+As regards those already in internment, the obvious way to 
+indicate a fresh approach would be to step up, the release of those who, in the improved situation, were regarded as only marginally a threat to security.
+Reference 4 - 5.68% Coverage
+As for the hard core of internees who could not safely be released, the hope would of course be to acquire sufficient evidence, in the improved situation, to be able to prosecute most of them.
+Reference 5 - 13.54% Coverage
+As regards wanted men who are still at large, the Government 
+would certainly not wish to dispense altogether with the option of arresting ringleaders but it could be hinted fairly clearly that, since witnesses were showing greater willingness to come forward, the emphasis would thenceforth be on prosecution rather than internment and that the latter would in invoked, if at all, only for the most dangerous terrorists who were arrested in future.
+Reference 6 - 1.58% Coverage
+(The public line on this could be very similar to that
+Files\\DNV_round1\\PREM 15 1000\\IMG_6575_PREM_15_1000 - § 1 reference coded [ 9.47% Coverage]
+Reference 1 - 9.47% Coverage
+used by the Secretary of State on the future of Interrogation; that the Government could not be expected to tie its hands, but would obviously be having full regard to 
+- in this case - the improved security situation - and that the Press and public 
+must read between the lines of those remarks.
+Files\\DNV_round1\\PREM 15 1001\\IMG_6609_PREM_15_1001 - § 1 reference coded [ 23.18% Coverage]
+Reference 1 - 23.18% Coverage
+My Lords, moving on from that time to the present, I think it might be helpful if I were first to describe the current security situation - 
+since, however much we may 
+recognise that there can be no purely military solution, it remains vital to realise that the pace of progress in the political (and for that matter the economic) fields is very largely dictated by the state of security,
+Files\\DNV_round1\\PREM 15 1001\\IMG_6633_PREM_15_1001 - § 1 reference coded [ 9.78% Coverage]
+Reference 1 - 9.78% Coverage
+Of course we should prefer to see these people prosecuted and convicted if that were possible; but quite obviously it is not, so long as intimidation remains rife.
+Files\\DNV_round1\\PREM 15 1001\\IMG_6634_PREM_15_1001 - § 4 references coded [ 50.00% Coverage]
+Reference 1 - 13.38% Coverage
+And it is not much good arguing that intimidation exists only in our imagination, when only two weeks ago a bus driver who was about to give evidence for the Crown in an important case - 
+Mr. Sidney Agnew - was murdered by 
+masked gunmen in front of his family.
+Reference 2 - 9.62% Coverage
+And this was by no means an isolated example; there have been frequent reports to show what the IRA do to people who talk. What further evidence can one possibly need of intimidation?
+Reference 3 - 11.66% Coverage
+So how can one possibly bring internment to a sudden end against that background? No responsible government could take such an unjustifiable risk with the lives of soldiers and policemen and loyal citizens generally.
+Reference 4 - 15.35% Coverage
+What one can however do is to keep the policy of internment under review, so that those internees who are considered no longer to be a threat to security are released without delay, and so that - whenever witnesses are brave enough to come forward 
+- the internee in question can be prosecuted.
+Files\\DNV_round1\\PREM 15 1001\\IMG_6699_PREM_15_1001 - § 1 reference coded [ 11.89% Coverage]
+Reference 1 - 11.89% Coverage
+It will be important to record all such evidence, whether or 
+not substantiated, of IRA intimidation: since it will be crucial to the British response to the case being brought by the Irish Government before the Commission on Human Rights at Strasbourg, so far as it is concerned with internment as an alleged violation of Article Five 
+- intimidation being the basic reason why the terrorists 
+cannot be dealt with through the normal processes of the law.
+Files\\DNV_round1\\PREM 15 1001\\IMG_6704_PREM_15_1001 - § 1 reference coded [ 4.95% Coverage]
+Reference 1 - 4.95% Coverage
+Either the improvement of the security situation or a political 
+requirement to conciliate the Catholics may prompt some modification of the internment policy, starting perhaps with the release of some of the less harmful internees.
+Files\\DNV_round1\\PREM 15 1001\\IMG_6716_PREM_15_1001 - § 1 reference coded [ 8.93% Coverage]
+Reference 1 - 8.93% Coverage
+The opening of Magilligan Camp on Sunday, with the transfer of forty detainees from HMS MAIDSTONE, has given rise to a good deal of speculation about the future of internment generally and, in particular, about the number of people whom the security authorities think it will be necessary to intern in order to render the IRA ineffective.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6743_PREM_15_1002 - § 1 reference coded [ 10.89% Coverage]
+Reference 1 - 10.89% Coverage
+The Prime inister has asked that the Defence 
+Secretary should look at the attached telegrams nos. 18 and 19 of 17 February from Belfast to the Home Office about a paper put forward jointly 
+and the R.U.C. 
+assessing the security implications of the release of internees
+Files\\DNV_round1\\PREM 15 1002\\IMG_6751_PREM_15_1002 - § 1 reference coded [ 1.30% Coverage]
+Reference 1 - 1.30% Coverage
+The security implications of the release of internees was discussed.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6754_PREM_15_1002 - § 3 references coded [ 36.50% Coverage]
+Reference 1 - 25.41% Coverage
+Recognizing the political impasse, and feeling of community 
+alienation, resulting from internment, but also recogizing that the needs of justice demand that witnesses and jurors should be free from physical fear we recommend the follwing:- 
+That a Special Court should be set up to try offences under the undermentioned Acts: (i) Explosive substances Act 1893 S2,3,4, & 5. (11) Firearms Act (N.I.) 1969 S14,15,16,18 18(1), 19. (111) Explosive substances Act 1875 S4, & 5. (lv) Protection of Persons and Property Act (N.I.) 1969 S1,2,3. (v) 
+Public Order (Amendment) Act (N.I.) S7.8.(if on indictment) Any person charged under the above provisions shall be tried at the 
+Special Court. No bail shall be allowed on any of these charges unless there are special humanitarian reasons.
+Reference 2 - 4.11% Coverage
+Police should attend the Court in person, but with the right to remain anonymous. Identities to be disclosed only to the bench.
+Reference 3 - 6.98% Coverage
+CIVILIAN WITNESSES: 
+- Witnesses who are members of the Security Forces or th - Would have the right if they so wished to giv 
+evidence on affidavit only, and to be anonymous. Identities to be disclosed only to the Bench.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6755_PREM_15_1002 - § 1 reference coded [ 12.72% Coverage]
+Reference 1 - 12.72% Coverage
+There shall be no right of appeal from the Special Court, and the 
+Court, subject to the discretion of the Bench, should be closed to the Public but open to Members of the Press.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6772_PREM_15_1002 - § 3 references coded [ 9.90% Coverage]
+Reference 1 - 3.56% Coverage
+N VIEW OF SPECULATION ABOUT THE POSSIBILITY OF MODIFYING THE INTERNMENT PROCESS AS PART OF A POLITICAL REQUIREMENT, THERE IS A NEED TO SET OUT THE SECURITY IMPLICATIONS OF A RELEASE OF INTERNEES, OTHER THAN THROUGH THE EXISTING MACHINERY.
+Reference 2 - 3.98% Coverage
+TO RESTRICT ARRESTS FOR DETENTION TO LEADING IRA MEMBERS ONLY MAY BE POSSIBLE IN THOSE AREAS WHERE THE SECURITY FORCES ALREADY DOMINATE THE TWO IRA FACTIONS BUT SUCH A DECISION WOULD INHIBIT SECURITY FORCE ACTION IN AREAS WHERE THE IRA IS STILL OPERATING EFFECTIVELY.
+Reference 3 - 2.36% Coverage
+IT IS IMPORTANT TO NOTE THAT, IN SPITE OF CAREFUL EXAMINATION, IT IS NOT POSSIBLE IN PRESENT CONDITIONS (EG INTIMIDATION) TO BRING PRESENT INTERNEES TO TRIAL.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6773_PREM_15_1002 - § 3 references coded [ 7.72% Coverage]
+Reference 1 - 3.18% Coverage
+MY IMMEDIATELY FOLLOWING TELEGRAM CONTAINS THE TEXT OF A PAPER ON THE SECURITY IMPLICATIONS OF THE RELEASE OF INTERNEES TABLED AT THE JOINT SECURITY COMMITTEE MEETING THISMORNING.
+Reference 2 - 1.87% Coverage
+GENERAL TUZO SAID THAT THE PAPER SIMPLY REPRESENTED THE VIEWS OF THE ARMY AND THE RUC ON THE SECURITY ASPECT.
+Reference 3 - 2.68% Coverage
+HE WONDERED WHETHER IT WOULD BE USEFUL TO DEVISE A PROGRAMME FOR RELEASE OF INTERNEES WHICH COULD BE STARTED ONCE VIOLENCE HAD BEEN BROUGHT UNDER CONTROL.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6778_PREM_15_1002 - § 1 reference coded [ 5.58% Coverage]
+Reference 1 - 5.58% Coverage
+We quite apreciate that the political impact 
+would be greater if it could be announced that, along with accelerating the release of those already interned, there would be no further internment orders: but there are important security reasons for not doing this.
+Files\\DNV_round1\\PREM 15 1002\\IMG_6779_PREM_15_1002 - § 1 reference coded [ 4.72% Coverage]
+Reference 1 - 4.72% Coverage
+Further, the Army’s willingness to see a larger 
+number of the present internees released rests on the assumption that it will still be possible to re-arrest any who are found to be engaging in violence again.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6893_PREM_15_1003 - § 1 reference coded [ 4.80% Coverage]
+Reference 1 - 4.80% Coverage
+A gradual phasing-out of internment (which would probably stop short of the hard core internees until it was reasonably clear that the IRA campaign was at an end), possibly coupled with the institution of some form of quasi-judicial procedure in special courts.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6903_PREM_15_1003 - § 1 reference coded [ 8.73% Coverage]
+Reference 1 - 8.73% Coverage
+’"CERTAINLY MR WILSON IS RIGHT TO SUGGEST THAT RESPONSIBILITY FOR SECURITY CANNOT REMAIN WITH STORMONT AND THAT INTERNMENT WITHOUT TRIAL SHOULD BE WOUND DOWN AND REPLACED IN APROPRIATE CASES WITH ACTIVATION OF THE ORDINARY RULES OF LAW.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6915_PREM_15_1003 - § 1 reference coded [ 11.13% Coverage]
+Reference 1 - 11.13% Coverage
+t is clear that no agreement will be 
+possible unless the package includes measures for a progressive ending of internment, defined in terms of imprisonment without trial or preferred charges. Press reports indicate that this is bein considered by the Government, and that once the releases begin, their number and timing will depend upon the scaling down of violence.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6925_PREM_15_1003 - § 1 reference coded [ 7.44% Coverage]
+Reference 1 - 7.44% Coverage
+AT ALL TIMES IT HAS BEEN CUR AIM TC 
+ET ALICE ANY CCNEICERASTICNS CF PCLITICS CR PCPULAkITY, AND IT VAE EY THAT SINGLE CFITERION THAT WE CECIDED IN 
+. Het’ EyTfACRCI"AFY IT IS TAT, EVEN IN CERTAIN 
+TC PUT FIFET THE SAFETY CF THIS CCUNTRY AND ALL VHO LIVE IN IT. 
+AUGUET LAST THAT THE TERRCRST CCNSPIRACY MUST BE .ChECKED, A1D TAT 1C: UE FCR THAT PURPCEE THE ORDINARY MACHINERY OF IHE Lh- AVCULD PE TC EYPCE TCC MANY PECPLF. TO INTIMIDATlCN A`L CLAT
+Files\\DNV_round1\\PREM 15 1003\\IMG_6926_PREM_15_1003 - § 2 references coded [ 9.45% Coverage]
+Reference 1 - 1.26% Coverage
+PEOPLE THROUGHOUT THE UNITED KINGDOM ARE BEGINNING TO APPRECIATE THAT DEMOCRACY IS AT STAKE.
+Reference 2 - 8.18% Coverage
+A VICTORY FOR TERRORISM IN ANY PART OF THE UNITED KINGDOM WOULD BE A SIGNAL TO EVERY ANTI-DEMOCRATIC ELEMENT IN THE NATION THAT THE FABRIC OF DEMOCRATIC SOCIETY IS WIDE OPEN TO ATTACK. THE MAIN LINE OF BATTLE MAY, AT THE MOMENT, LIE THROUGH ULSTER, BUT IT IS TRULY A NATIONAL STRUGGLE AND THE WHOLE BRITISH PEOPLE MUST, IN A FULL REALISATION OF WHAT IS AT STAKE, BE DETERMINED TO WIN IT. AND IF THE IRA SEE THAT DETERMINATION - SEE IT MANIFEST IN PUBLIC OPINION, IN THE EXPRESSIONS OF ELECTED REPRESENTATIVES, IN THE ACTION OF THE GOVERNMENT 
+- THEN THEY WILL COME QUICKLY TO THE REALISATION 
+THAT IT IS POINTLESS TO CONTINUE.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6955_PREM_15_1003 - § 2 references coded [ 14.94% Coverage]
+Reference 1 - 6.99% Coverage
+I have received on this issue the clearest possible advice from the Army and Police, which is embodied in the attached Memorandum to the Cabinet here. My colleagus fully share my view that, even to secure some form of political or negotiating advantage, it would be quite wrong to take action which would be contrary to the clear security advice.
+Reference 2 - 7.94% Coverage
+As you know, and as paragraph 10(4) of my Memorandum points out, I am attracted to the idea of introducing at an early date a form of legislation to replace the Special Powers, which would come into effect on an appointed day after violence had ended, and would inter alia then place the power of internment in suspense, to be subsequently invoked only on the declaration of a State of Emergency.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6957_PREM_15_1003 - § 3 references coded [ 10.75% Coverage]
+Reference 1 - 2.06% Coverage
+I replied that I 
+shared the view of the Army that it was vital to get on top of the IRA before making any move in this direction
+Reference 2 - 3.33% Coverage
+It must be added that these are capable of inflicting casualties 
+on the security forces and of maintaining limited attacks on civilian targets for some time to come, especially outside Belfast.
+Reference 3 - 5.36% Coverage
+The first is the fact, already noted, that the IRA presence has been removed from certain areas and that this is continuing; though it is unfortunately true that those who have most to fear from the IRA are least articulate in pointing to the comparative freedom from intimidation which they are beginning to enjoy.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6958_PREM_15_1003 - § 1 reference coded [ 1.42% Coverage]
+Reference 1 - 1.42% Coverage
+The Joint Security Committee have noted these conclusions and have accepted
+Files\\DNV_round1\\PREM 15 1003\\IMG_6968_PREM_15_1003 - § 3 references coded [ 8.46% Coverage]
+Reference 1 - 2.22% Coverage
+that security grounds rule out any releases other than through the machinery of the Advisory Committee.
+Reference 2 - 2.12% Coverage
+It is difficult to visualize any solid advantages which might outweigh 
+these security objections.
+Reference 3 - 4.12% Coverage
+As indicated in a separate memorandum, legislation is under consideration 
+which would have the effect of putting the Special Powers Acts into suspense on termination of the present emergency.
+Files\\DNV_round1\\PREM 15 1003\\IMG_6982_PREM_15_1003 - § 1 reference coded [ 4.05% Coverage]
+Reference 1 - 4.05% Coverage
+The GOC said that, at the time of the initial pick-up 
+on 9-11 August, the army was obliged to do many things which would normally have fallen to the RUC but this had not occurred subsequently.
+Files\\DNV_round1\\PREM 15 1003\\IMG_7004_PREM_15_1003 - § 1 reference coded [ 8.38% Coverage]
+Reference 1 - 8.38% Coverage
+OUR THOUGHTFUL LETTER SHOWED THAT YOU UNDERSTAND WHY IT IS NOT POSSIBLE FOR US, IN PRESENT CIRCUMSTANCES, TO ACCEDE TO THEIR DEMAND THAT INTERNMENT SHOULD FIRST BE COMPLETELY ENDED. IT WOULD NOT HELP THE CAUSE OF PEACE, IF A LARGE NUMBER OF GUNMEN WERE RELEASED.
+Files\\DNV_round1\\PREM 15 1004\\IMG_7053_PREM_15_1004 - § 1 reference coded [ 11.41% Coverage]
+Reference 1 - 11.41% Coverage
+Specifically rejected are:(a) any place in Government for representatives of the minority community as of right; 
+(b) the transfer of "law and order" powers to Westminster; (c) any change, while the violence continues, in the policy of internment; 
+(d) the transfer to the Republic of any part of Northern Ireland.
+Files\\DNV_round1\\PREM 15 1004\\IMG_7056_PREM_15_1004 - § 1 reference coded [ 7.78% Coverage]
+Reference 1 - 7.78% Coverage
+Both the memorandum and the letter rely heavily on the joint paper which the army and the police submitted to the Northern Ireland Joint Security Committee 
+No modification to the 
+operation of the internment policy until violence has ended except for some improvements in the conditions of the internment camps.
+Files\\DNV_round1\\PREM 15 1004\\IMG_7119_PREM_15_1004 - § 1 reference coded [ 18.16% Coverage]
+Reference 1 - 18.16% Coverage
+It seems likely that among the ingredients of any 
+political initiative should be the appointment of a new Secretary of State in the British Government, to take over from the Home Secretary his present responsibility for Northern Ireland affairs, some indication that the policy of internment is being wound down (so that there is a prospect of increasing releases as and when violence dies down), and probably the transfer of responsibility for law and order from Stormont to Westminster.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7160_PREM_15_1005 - § 1 reference coded [ 3.93% Coverage]
+Reference 1 - 3.93% Coverage
+That there should be a gradual reduction in 
+internment, beginning with those internees who could be released without unacceptable risks.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7164_PREM_15_1005 - § 1 reference coded [ 10.53% Coverage]
+Reference 1 - 10.53% Coverage
+But I can say that the decision which I have just announced in relation to interment is fully endorsed by the Government’s professional military advisors.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7179_PREM_15_1005 - § 1 reference coded [ 2.55% Coverage]
+Reference 1 - 2.55% Coverage
+Second, that there should be a gradual reduction in internment beginning 
+with those internees who could be released without unacceptable risks.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7209_PREM_15_1005 - § 1 reference coded [ 1.94% Coverage]
+Reference 1 - 1.94% Coverage
+AFTER RESPONSIBILITY HAS BEEN TRANSFERRED, WE WILL RELEASE AS SOON AS POSSIBLE THOSE INTERNEES WHOSE FREEDOM IS NOT NOW CONSIDERED TO INVOLVE ANY UNREASONABLE RISK TO SECURITY.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7214_PREM_15_1005 - § 4 references coded [ 18.38% Coverage]
+Reference 1 - 4.40% Coverage
+As soon as responsibility has been transferred an immediate review 
+will be put in hand by this Government of all internment orders with a view to revoking as many of them as possible consistent with public safety.
+Reference 2 - 1.92% Coverage
+The Government have taken this decision after consultation with their military advisers.
+Reference 3 - 6.44% Coverage
+It is Her Majesty’s Government’s intention to release as soon as 
+possible those internees about whom there is a reasonable degree of doubt as to the danger to security that their release would pose. Their release will be conditional on an undertaking not to take part in or encourage violence or illegal action.
+Reference 4 - 5.62% Coverage
+If the measures which Her Majesty’s Government have taken lead, 
+as is hopedthey will, to a reduction in terrorist activity, it will be possible to consider further releases; but this must of course depend on a clearly established improvement in the security situation.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7218_PREM_15_1005 - § 1 reference coded [ 25.48% Coverage]
+Reference 1 - 25.48% Coverage
+Joint control by British and Northern Ireland Governments of internment policies and individual decisions, with veto tc each side. 
+Periodical referenda on Border. 
+Phasing out of Special Powers Act and replacement by less objectionable legislation, making use of internment dependent on declaration of emergency.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7219_PREM_15_1005 - § 1 reference coded [ 14.29% Coverage]
+Reference 1 - 14.29% Coverage
+Each would be accompanied by announcement 
+of early release of low-risk internees and of progress in further releases dependent on de-escalation of violence.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7226_PREM_15_1005 - § 2 references coded [ 22.08% Coverage]
+Reference 1 - 6.36% Coverage
+Internment. 
+It is agreed that a beginning 
+should be made with a phasing out of internment, which would continue subject to a satisfactory diminution of violence.
+Reference 2 - 15.72% Coverage
+The Special Powers Act will be replaced by fresh legislation enacted at Stormont providing that in future emergency measures, including internment, may not be instituted except after the proclamation of an Emergency which will require the approval of the United Kingdom Secretary of State. This legislation could be introduced now; but it would not take effect until the current emergency is over.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7231_PREM_15_1005 - § 1 reference coded [ 19.39% Coverage]
+Reference 1 - 19.39% Coverage
+As soon as responsibility has been trans- 
+ferred an immediate review will be put in hand by this Government of all internment orders with a view to revoking as many of them as possible consistent with public safety. 
+The Government have taken 
+this decision after consultation with their military advisors. 
+Some .... are to be immediately, 
+released and in the category of those who should in the near future be released there are some more names. 
+The pace of releases will depend on 
+the state of public security and the effect upon it e: of the release of particular internees whose cases are under review.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7236_PREM_15_1005 - § 1 reference coded [ 15.46% Coverage]
+Reference 1 - 15.46% Coverage
+out of Special Powers Act and replacement by less objectionable legislation, making use of internment dependent on declaration of emergency. 
+Periodical referenda on Border. after violence ends
+Files\\DNV_round1\\PREM 15 1005\\IMG_7237_PREM_15_1005 - § 1 reference coded [ 13.90% Coverage]
+Reference 1 - 13.90% Coverage
+Each would be accompanied by announcement 
+of early release of low-risk internees and of progress in further releases dependent on de-escalation of violence.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7239_PREM_15_1005 - § 2 references coded [ 13.54% Coverage]
+Reference 1 - 8.98% Coverage
+As soon as responsibility has been transferred an immediate 
+review will be put in hand by this Government of all internment orders with a view to revoking as many of them as possible consistent with public safety. The Government have taken this decision after consultation with their military advisors.
+Reference 2 - 4.56% Coverage
+The pace of releases will depend on the state of public security and the effect upon it of the release of particular internees whose cases are under review.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7244_PREM_15_1005 - § 1 reference coded [ 14.77% Coverage]
+Reference 1 - 14.77% Coverage
+The Cabinet must now decide whether they regard these counter proposals as:- 
+(a) 
+adequate in substancebearing in mind that internment and security would be only joint functions, with no certainty that the will of the United Kingdom Government would prevail; and that the "further constitutional changes" which the Northern Ireland Government envisage would not in fact guarantee the minority an effective share in the government and administration of the Province as of right
+Files\\DNV_round1\\PREM 15 1005\\IMG_7246_PREM_15_1005 - § 3 references coded [ 24.19% Coverage]
+Reference 1 - 6.89% Coverage
+The Advisory Committee on Internment have been reviewing internment cases and recommending release where, because of a change in attitude, there is considered to be no appreciable degree of risk.
+Reference 2 - 12.16% Coverage
+The two Governments have now agreed that, from amongst those of the internees whose release has not been recommended, but who are recognised by the security forces as constituting a lesser degree of risk [x] should forthwith be released as an earnest of the desire to reverse the entire cycle of violence and the counter-measures taken to deal with it.
+Reference 3 - 5.15% Coverage
+It will of course be the intention when violence 
+has clearly come to an end to wind down any remaining internment as rapidly as this can safely be done.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7249_PREM_15_1005 - § 3 references coded [ 31.15% Coverage]
+Reference 1 - 15.25% Coverage
+If that is agreed, it is important 
+not to lose sight of the fact that neither releases from internment nor internment orders themselves are pure acts of policy. 
+If an internment order depends on the 
+individual concerned being a danger to public security, then his release must imply that that danger is no longer present. 
+some new situation arises, ie that he himself re-engages in illegal activity or that the general situation has deteriorated.
+Reference 2 - 1.59% Coverage
+This means that he cannot be reinterned unless
+Reference 3 - 14.31% Coverage
+If in fact the 
+category C. internees are all about equal from the point of view of danger to the public safety, then the moment some of them are released the continued detention of the others in category C. is called into question. 
+This 
+seems to mean that the matter will have to be dealt with on a strictly individual basis, and it also means that only general conditions can be applied to the continued rundown of internment.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7251_PREM_15_1005 - § 2 references coded [ 11.86% Coverage]
+Reference 1 - 3.09% Coverage
+Secondly, that if in fact 
+they do so, the case for re-interning them is very much stronger.
+Reference 2 - 8.77% Coverage
+But if under the 
+existing Regulation internment were converted to a residence and reporting condition in the case of individuals it would seem to carry the advantage that the individuals would not cease to be persons judged to be a danger to public safety.
+Files\\DNV_round1\\PREM 15 1005\\IMG_7253_PREM_15_1005 - § 1 reference coded [ 12.70% Coverage]
+Reference 1 - 12.70% Coverage
+It is HMG’s intention to release as soon as possible 
+those internees about whom there is a reasonable degree of doubt as to the danger to security that their release would pose. 
+Their release will be conditional on an undertaking 
+not to take part in or encourage violence or illegal action.
+Files\\DNV_round1\\PREM 15 1006\\IMG_7290_PREM_15_1006 - § 2 references coded [ 10.97% Coverage]
+Reference 1 - 5.65% Coverage
+Without doubt a key issue is internment. Let no-one be under any illusion. The people who are behind the wire were put there because of the dangerous situation confronting this community in the recent past.
+Reference 2 - 5.32% Coverage
+Initially I have looked at those cases which the security authorities have advised might be considered for early release and last night I signed Orders authorising the release of 47 internees.
+Files\\DNV_round1\\PREM 15 1006\\IMG_7292_PREM_15_1006 - § 1 reference coded [ 8.81% Coverage]
+Reference 1 - 8.81% Coverage
+But I now believe that the great majority of those who share my wish to see internment phased-out, also share my concern that violence should cease.
+Files\\DNV_round1\\PREM 15 1007\\IMG_7407_PREM_15_1007 - § 1 reference coded [ 4.38% Coverage]
+Reference 1 - 4.38% Coverage
+He was considering the difficult problem of the "hard core" of internees and would welcome advice on how these people, some of whom had been involved in considerable violence, might best be treated.
+Files\\DNV_round1\\PREM 15 1008\\IMG_7595_PREM_15_1008 - § 1 reference coded [ 5.95% Coverage]
+Reference 1 - 5.95% Coverage
+The Secretary of State for Northern Ireland might report on progress 
+with the release of internees, with particular reference to the possibility (which he is considering) of a measure of accelerated release. There will still, however, remain the problem of the "hard core".
+Files\\DNV_round1\\PREM 15 1010\\PREM_15_1010_006 - § 2 references coded [ 11.31% Coverage]
+Reference 1 - 6.74% Coverage
+The course we have been asked to consider is one of strong but 
+impartial action, aimed at the removal of arms and explosives by means of a massive reinforcement of troops, and accompanied by searches, interrogation, and probably internment.
+Reference 2 - 4.57% Coverage
+We have borne in mind the need to define a clear political objective, and to link military operations with a political initiative directed towards that objective.
+Files\\DNV_round1\\PREM 15 1010\\PREM_15_1010_032 - § 1 reference coded [ 7.66% Coverage]
+Reference 1 - 7.66% Coverage
+But, however comprehensive the specific powers that 
+are available, it will be inherent in the nature of the operation that individual members of the security forces will be faced even more than usual with taking instant decisions on whether and how to act (eg whether to open fire) and it is thought essential, if the security forces are not to be seriously inhibited, that such decisions should be taken without the fear of their legality
+Files\\DNV_round1\\PREM 15 1010\\PREM_15_1010_036 - § 3 references coded [ 7.33% Coverage]
+Reference 1 - 4.99% Coverage
+If, as postulated, the operation provided for the arrest not only of 
+law-breakers but also of suspects on both sides, the police would be heavily involved in documenting, charging, and interrogating.
+Reference 2 - 1.00% Coverage
+however, the space would be inadequate.
+Reference 3 - 1.33% Coverage
+For any serious attempt to lock up the men of violence,
+Files\\DNV_round1\\PREM 15 1010\\PREM_15_1010_040 - § 1 reference coded [ 8.48% Coverage]
+Reference 1 - 8.48% Coverage
+A provision (not yet fully worked out) would be desirable to authorise the setting up of special or additional civilian criminal courts or to modify the procedure for the trial of offences in order to prevent undue delay in the administration of justice during the emergency period.
+Files\\DNV_round1\\PREM 15 1010\\PREM_15_1010_136 - § 1 reference coded [ 7.56% Coverage]
+Reference 1 - 7.56% Coverage
+The current complete and a collapse was inevitable. 
+We should stop social benefits and essential services in the No-Go areas and re-impose internment. 
+This is the first example of urban gourilla 
+warfare in the United Kingdom and unless it is defeated can only spread.
+Files\\DNV_round1\\PREM 15 1010\\PREM_15_1010_175 - § 1 reference coded [ 8.42% Coverage]
+Reference 1 - 8.42% Coverage
+The meeting may therefore be prepared to accept the advice of officials backed by the Attorney General; but Ministers will no doubt wish to ask the Attorney to keep under close review the number of private prosecutions and civil actions lest a situation should arise so exceptional as to call for special measures on the lines indicated by the report.
+Files\\DNV_round1\\PREM 15 1689\\PREM_15_1689_159 - § 1 reference coded [ 5.17% Coverage]
+Reference 1 - 5.17% Coverage
+The Security Forces would continue to take action against those who break the law or who engage in terrorist activities. In fact for the Army it would be "business as usual" at least until there were real signs of the intention of a ceasefire being translated into fact.
+Files\\DNV_round1\\PREM 15 1689\\PREM_15_1689_160 - § 1 reference coded [ 2.35% Coverage]
+Reference 1 - 2.35% Coverage
+Legislation is therefore being prepared and this may include those emergency powers which will still be required if the Government decides to repeal the Special Powers Act.
+Files\\DNV_round1\\PREM 15 483\\IMG_5974_PREM_15_483 - § 1 reference coded [ 14.91% Coverage]
+Reference 1 - 14.91% Coverage
+In connection with a civil action which is being brought 
+in the Northern Ireland courts against the RUC and the Ministry of Defence, as a result of the arrests made on 9th August, we consider it necessary to claim Crown Privilege for some of the documents which would otherwise have to be disclosed in the action. Since the claim would be made for reasons of security, it needs the approval not only of the Attorney General (which is being sought concurrently by the Treasury Solicitor) but also of the Prime Minister, before the Secretary of State can sign the necessary certificate.
+Files\\DNV_round1\\PREM 15 484\\IMG_6305_PREM_15_484 - § 4 references coded [ 20.20% Coverage]
+Reference 1 - 8.12% Coverage
+First, the reason for interment is simply that while a good 
+deal is known about active IRA members, the evidence, such as it is, 
+would not inimost cases stand up in court. Examples are attached of the kind of information which is known about individuals. Much of it is simply not up to the standards of evidence required in the courts.
+Reference 2 - 7.97% Coverage
+Secondly, even if the evidence did stand up, there are obvious and overriding objections to disclosing its nature to the defence or arranging for a confrontation between the security services and the person involved 
+- which is the minimum of that is required for the hearing 
+to be described as being in any way before a court.
+Reference 3 - 2.07% Coverage
+Wesshould put individuals in peril; and prejudice the sources of the information.
+Reference 4 - 2.04% Coverage
+The Attorney General cannot see how any moral accusatorial procedure could work.
+Files\\DNV_round1\\PREM 15 484\\IMG_6306_PREM_15_484 - § 1 reference coded [ 6.32% Coverage]
+Reference 1 - 6.32% Coverage
+The Attorney General and Mr Dalton only confirm our view however that the alternative of beinging the men to trial is not the answer.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7621_PREM_15_1009 - § 1 reference coded [ 3.60% Coverage]
+Reference 1 - 3.60% Coverage
+The policy to be followed oh the making of arrests was worked out and 
+agreed with the security forces on Monday.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7694_PREM_15_1009 - § 1 reference coded [ 8.76% Coverage]
+Reference 1 - 8.76% Coverage
+ensure that instructions are issued to the RUC on the importance of distinguishing between the type of questioning appropriate to a prisoner against whom charges are likely to be brought in court and the type appropriate when the object is simply to secure intelligence. 
+(The actual 
+conduct of interrogation for intelligence purposes will be discussed later in the meeting.)
+Files\\EKG_round1\\PREM 15 1009\\IMG_7697_PREM_15_1009 - § 1 reference coded [ 12.36% Coverage]
+Reference 1 - 12.36% Coverage
+As regards the Directive on Interrogation you asked that the Ministers 
+concerned should specifically consider whether they regarded it as suitable for publication if, in extreme circumstances, we felt that we had no alternative but to publish it. 
+In so far as considerations of security 
+are involved, the JIG have reaffirmed their view that there would be no ultimate objection to publication; and Ministers have been so advised individually.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7699_PREM_15_1009 - § 1 reference coded [ 6.35% Coverage]
+Reference 1 - 6.35% Coverage
+To legislate 
+to prevent those still detained from taking proceedings to challenge any invalidity in an internment order would be to return in effect to the regime of arbitrary imprisonment without trial under cover of a suspension of the Habeas Corpus Acts.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7700_PREM_15_1009 - § 1 reference coded [ 6.87% Coverage]
+Reference 1 - 6.87% Coverage
+An indemnity which 
+prevented those still detained from taking legal proceedings to challenge their detention would be a breach of Article 5 of the Convention and, unlike internment itself, could hardly be justified as a measure of derogation required by the exigencies of the emergency situation.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7701_PREM_15_1009 - § 3 references coded [ 24.08% Coverage]
+Reference 1 - 3.69% Coverage
+These considerations suggest that an Indemnity Bill should not be 
+introduced unless a pressing need arises on security or other policy grounds.
+Reference 2 - 6.17% Coverage
+or a situation night arise in which a spate of civil actions gave rise to serious problems in relation to the disclosure of the identity of those involved in security operations. 
+If such a situation arose the natter would need to be reconsidered.
+Reference 3 - 14.22% Coverage
+But no need seems to arise at present Unless we are confronted with a 
+spate of private prosecutions or civil actions giving rise to security or other possible problems, it would be best to consider whether an Indemnity Act is appropriate when order has been restored, and the work of reconstruction and reconciliation has been started; that would be the most suitable time for the enactment of any Indemnity Act. 
+In that 
+situation there is a more persuasive case for a once for all enactment which will cover appropriate cases over the whole period of the emergency.
+Files\\EKG_round1\\PREM 15 1009\\IMG_7727_PREM_15_1009 - § 1 reference coded [ 5.72% Coverage]
+Reference 1 - 5.72% Coverage
+And 
+can we be confident that the Official wing would maintain its "cease fire" if (as we surely must) we stood firm against IRA participation and any "amnesty" or termination of internment that was not warranted by the security situation?
+Files\\EKG_round1\\PREM 15 1011\\IMG_7783_PREM_15_1011 - § 2 references coded [ 18.55% Coverage]
+Reference 1 - 13.65% Coverage
+Third, there are about 80 terrorists, including most of the key ones, against whom we are not in a position to prefer charges of the normal sort partly because they do not themselves indulge over much in specific acts of terrorism, but rather organise them: partly because it is extremely difficult to get any evidence against them which will stand up in a court of law: and partly because the witnesses we might bring against them would all be in danger of their lives.
+Reference 2 - 4.90% Coverage
+n sum, we are in the position under the existing law and powers whereby we cannot deal with the key terrorists, even after we have caught them, other than by internment.
+Files\\EKG_round1\\PREM 15 1011\\IMG_7785_PREM_15_1011 - § 1 reference coded [ 17.50% Coverage]
+Reference 1 - 17.50% Coverage
+It will be possible to charge some with criminal offences under the ordinary law; but others and perhaps the most important of them are beyond the reach of the criminal law partly because witnesses cannot be expected to come forward to give oral evidence in the ordinary way, and partly because the evidence available to connect accused persons with specific offences as opposed to general complicity in terrorism is sometimes tenuous,particularly in the case of the most important provisional IRA leaders.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7842_PREM_15_1012 - § 1 reference coded [ 4.33% Coverage]
+Reference 1 - 4.33% Coverage
+he meeting discussed the current arrest and interrogation policies against 
+the background of a serious level of military casualties, which had already given rise to press enquiries.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7886_PREM_15_1012 - § 1 reference coded [ 7.15% Coverage]
+Reference 1 - 7.15% Coverage
+MR WHITELAW REITERATED THAT IT WAS HMG’S POLICY TO END INTERNMENT AS SOON AS THE SECURITY SITUATION ALTERED, AND HE EXPLAINED THE DIFFICULTIES IN THIS (APART OF COURSE FROM THAT OF THE MORALE OF PART OF THE SECURITY FORCES).
+Files\\EKG_round1\\PREM 15 1012\\IMG_7890_PREM_15_1012 - § 1 reference coded [ 1.81% Coverage]
+Reference 1 - 1.81% Coverage
+INTERNMENT AS SOON AS THE SECURITY. SITUATION ALTERED, AND HE EXPLAINED THE DIFFICULTIES IN THIS (APART OF COURSE FROM THAT OF THE MORALE OF PART OF THE SECURITY FORCES).
+Files\\EKG_round1\\PREM 15 1012\\IMG_7898_PREM_15_1012 - § 1 reference coded [ 5.43% Coverage]
+Reference 1 - 5.43% Coverage
+The Secretary of State added that it is still HMG’s policy to phase out internment as soon as the security situation permits; the only point of issue between HMG and the SDLP
+Files\\EKG_round1\\PREM 15 1012\\IMG_7899_PREM_15_1012 - § 1 reference coded [ 0.32% Coverage]
+Reference 1 - 0.32% Coverage
+is on timing.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7902_PREM_15_1012 - § 1 reference coded [ 10.08% Coverage]
+Reference 1 - 10.08% Coverage
+He thought that the SDLP could maintain their credibility if, after this meeting, they put out a statement on the lines that they had again put their case to the Secretary of State; that they had been told that HMG would keep the position under review; that they were disappointed that more internees had not been let out; and that the Secretary of State had made it clear that it remained HMG policy to phase out internment depending on the security situation.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7904_PREM_15_1012 - § 1 reference coded [ 7.89% Coverage]
+Reference 1 - 7.89% Coverage
+a the subject of internment the S3eretary of State reiterated that it 
+vas the policy of Her Mujesty’s Governent to endinaternaent as soon as the escurity situation allowed.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7929_PREM_15_1012 - § 2 references coded [ 7.48% Coverage]
+Reference 1 - 4.59% Coverage
+anyone known to be in the most senior ranks of the Provisional IRA, even though there is no evidence to justify criminal proceedings;
+Reference 2 - 2.89% Coverage
+Anyone arrested under (c) above will be questioned in this second way immediately.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7947_PREM_15_1012 - § 1 reference coded [ 6.54% Coverage]
+Reference 1 - 6.54% Coverage
+Both the Secretary of State and Mr Maudling when Home Secretary had repeatedly referred to the need to retain internment for security reasons, implying that when the security situation was satisfactory the en would no longer be held as hostages.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7950_PREM_15_1012 - § 1 reference coded [ 2.06% Coverage]
+Reference 1 - 2.06% Coverage
+Some of those still in internment were dedicated to the most extreme forms of violence.
+Files\\EKG_round1\\PREM 15 1012\\IMG_7951_PREM_15_1012 - § 1 reference coded [ 6.89% Coverage]
+Reference 1 - 6.89% Coverage
+A statement would be released to the press explaining that the action had been taken in the light of the new situation in which the security forces were dominating the areas where the IRA had operated in the past. He would consider further, in the light of the security situation, what the SDLP had said.
+Files\\EKG_round1\\PREM 15 1012\\IMG_8005_PREM_15_1012 - § 1 reference coded [ 14.31% Coverage]
+Reference 1 - 14.31% Coverage
+It envisages rather that persons against whom there is insufficient evidence to secure a conviction under the criminal law (including the Special Powers Act provisions) should nevertheless be detained if their conduct has involved them in "complicity in any degree with terrorism generally". The ordinary rules of evidence will not be applied and the normal rights of an accused person in the criminal courts will not be available to him. A decision on whether a person is "guilty" would be made by persons acting on hearsay in the exercise of their discretion.
+Files\\EKG_round1\\PREM 15 1012\\IMG_8007_PREM_15_1012 - § 1 reference coded [ 10.18% Coverage]
+Reference 1 - 10.18% Coverage
+WE HAVE RECEIVED THE MESSAGE WHICH YOUR EXCELLENCY KINDLY SENT ON JULY 30TH LAST TO INFORM US ABOUT THE EXCEPTIONAL MEASURES WHICH HAVE BEEN DECIDED ON BY THE BRITISH GOVERNMENT TO PREVENT THE REPETITION IN NORTHERN IRELAND OF THE LAMENTABLE ACTS OF TERRORISM WHICH HAVE SO SHOCKED PUBLIC OPINION AND SO SADDENED US IN THESE DAYS.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8047_PREM_15_1013 - § 1 reference coded [ 6.44% Coverage]
+Reference 1 - 6.44% Coverage
+YOU WILL BY NOW BE AWARE OF THE STATEMENT ISSUED LAST 
+NIGHT BY THE SECRETARY OF STATE FOR NORTHERN IRELAND ON SECURITY POLICY, OF WHICH I ATTACH A COPY
+Files\\EKG_round1\\PREM 15 1013\\IMG_8048_PREM_15_1013 - § 1 reference coded [ 5.72% Coverage]
+Reference 1 - 5.72% Coverage
+You will by now be aware of the statement issued last night by the Secretary of State for Northern Ireland on security policy, of which I attach a copy.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8052_PREM_15_1013 - § 2 references coded [ 27.74% Coverage]
+Reference 1 - 10.18% Coverage
+HM Government it clear, on assuming direct responsibility for the government of Northern Ireland, t hat it was their objective to bring internment under the Special Powers Act to as soon as the security situation permitted; and to 
+consider how far the powers conferred under that Act could be dispensed with.
+Reference 2 - 17.56% Coverage
+Nevertheless, certain basic problems of countering terrorism 
+by the normal processes of law still present difficulties. These include the problem of preventing the intimidation of Witnesses who may be in danger of their lives if they give evidence in court; and of bringing to trial many of those who, although responsible for organising and directing terrorism, take care to avoid so far as possible themselves engaging in terrorist operations. The system of internment cannot be ended without putting something in its place.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8053_PREM_15_1013 - § 2 references coded [ 10.90% Coverage]
+Reference 1 - 5.48% Coverage
+The Government reaffirm their determination to improve the security situation in Northern Ireland and to deal with terrorists, including those who, for the reasons indicated earlier, cannot be dealt with through the normal processes of the criminal law.
+Reference 2 - 5.43% Coverage
+These interim provisions will be employed only where the ordinary processes of the criminal law are inadequate and will be enforced with complete impartiality against whatever persons or organisations are found to be engaged in terrorism and violence.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8056_PREM_15_1013 - § 1 reference coded [ 19.02% Coverage]
+Reference 1 - 19.02% Coverage
+Nevertheless, certain basic problems of countering terrorism by the normal processes of law still present difficulties. These include the problem of preventing the intimidation of witnesses who may be in danger of their lives if they give evidence in court; the problem of arresting and bringing to trial many of those who, although responsible for organising and directing terrorism themselves take care to avoid so far as possible engaging in terrorist operations of a criminal character. Until these and other problems in this field can be solved, it is not
+Files\\EKG_round1\\PREM 15 1013\\IMG_8057_PREM_15_1013 - § 2 references coded [ 30.96% Coverage]
+Reference 1 - 3.93% Coverage
+ossible for the Government to carry through its intention of abolishing internment, or to begin the process of dismantling the Special Powers Act.
+Reference 2 - 27.03% Coverage
+Meantime, the Government reaffirms its determination to 
+improve the security situation in Northern Ireland and to deal with terrorists, including those who, for the reasons indicated earlier, cannot easily be dealt with through the normal processes of the criminal law. 
+Pending the report of the commission and of 
+the subsequent legislation on it, the Government therefore proposes at an early date to introduce interim legislation under the Special Powers Act to set up a special tribunal to deal with persons accused of terrorist activities by means of a procedure which will preserve the essentials of natural justice, but which will be matched to the special conditions which unfortunately obtain in Northern Ireland. 
+This tribunal will be asked to 
+consider cases referred to it by the Secretary of State (which will include cases of those presently in internment), to determine the nature of their involvement in terrorist activities, and either to order release or to impose a definite period of detention.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8058_PREM_15_1013 - § 1 reference coded [ 46.65% Coverage]
+Reference 1 - 46.65% Coverage
+Moreover, these Interim provisions will be 
+employed only where the ordinary processes of the criminal law are inadequate and will be enforced with complete impartiality against whatever persons or organisations are found to be engaged in terrorism and violence.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8060_PREM_15_1013 - § 1 reference coded [ 6.26% Coverage]
+Reference 1 - 6.26% Coverage
+OU WILL BY NOW BE AWARE OF THE STATEMENT ISSUED LAST 
+NIGHT BY THE SECRETARY OF STATE FOR NORTHERN IRELAND ON SECURITY POLICY, OF WHICH I ATTACH A COPY.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8062_PREM_15_1013 - § 1 reference coded [ 6.02% Coverage]
+Reference 1 - 6.02% Coverage
+Nevertheless, the Secretary of State is entitled to claim 
+(paragraph 4 of his memorandum) that he cannot go on much longer on the present basis; and the Committee may agree that the long-term political objections to Course II must yield to the immediate requirements of security.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8063_PREM_15_1013 - § 1 reference coded [ 12.60% Coverage]
+Reference 1 - 12.60% Coverage
+If this were acceptable in terms 
+of security, it would represent a more definite move in the right direction and a more constructive earnest of the Government’s intentions than the essentially negative presentation adopted by the draft statement, particularly in the sentence at the end of the third paragraph.
+Files\\EKG_round1\\PREM 15 1013\\IMG_8108_PREM_15_1013 - § 1 reference coded [ 6.79% Coverage]
+Reference 1 - 6.79% Coverage
+But it will undoubtedly be politically controversial to introduce judicial processes different from those of the normal courts (although the Secretary of State deploys the counter arguments in paragraph 5 of the Annex to GEN 79(72) 19); and the Attorney General, who may well be
+Files\\EKG_round1\\PREM 15 1013\\IMG_8109_PREM_15_1013 - § 3 references coded [ 15.75% Coverage]
+Reference 1 - 3.77% Coverage
+supported by the Lord Chancellor, is likely to emphasise the difficulty of associating judges with the kind of court described in paragraph 4 of Appendix 1 to GEN 79(72) 17.
+Reference 2 - 5.69% Coverage
+As regards the "hard core" who cannot be released, the Secretary of State proposes that, pending the creation of the special courts, the individuals concerned should continue to be detained under Regulation 11, subject to review by a "special interim body".
+Reference 3 - 6.29% Coverage
+Paragraph 8 of the Annex to GEN 79(72) 19, however, envisages retaining for the time being those parts of the Act which confer powers on the security forces. These are presumably those relating to stopping and searching, etc; but do they also include the powers of arrest without warrant?
+Files\\EKG_round1\\PREM 15 1014\\IMG_8179_PREM_15_1013 - § 1 reference coded [ 4.92% Coverage]
+Reference 1 - 4.92% Coverage
+On this occasion however security considerations are 
+not significant in the same way as they were for, e.g. the start of Operation Motorman or the introduction of internment.
+Files\\EKG_round1\\PREM 15 1014\\IMG_8245_PREM_15_1013 - § 1 reference coded [ 6.47% Coverage]
+Reference 1 - 6.47% Coverage
+The Prime Minister said he hoped that the Pope felt that 
+the British Governent was indeed trying to restore freedom. This was certainly the case. 
+gunmen we should regrettably need troops. 
+But as long as there were
+Files\\EKG_round1\\PREM 15 1016\\IMG_8589_PREM_15_1016 - § 1 reference coded [ 3.28% Coverage]
+Reference 1 - 3.28% Coverage
+If the I.R.A. mounted a campaign of violence in the UK we should 
+have to think again - although we might then want to act on the lines of the 1939 Prevention of Violence Act (but perhaps not limited to Irish affairs).
+Files\\EKG_round1\\PREM 15 1691\\IMG_8880_PREM_15_1691 - § 2 references coded [ 2.32% Coverage]
+Reference 1 - 1.42% Coverage
+would all be put on a "Westminster emergency" basis.
+Reference 2 - 0.90% Coverage
+Once this was done, these matters
+Files\\SKD_round1\\CJ 4 251\\IMG_1759_CJ_4_251 - § 1 reference coded [ 4.84% Coverage]
+Reference 1 - 4.84% Coverage
+anyone known to be in the 
+most senior ranks of the 
+Provisional IRA, even though there is no evidence to justify criminal proceedings;
+Files\\SKD_round1\\CJ 4 251\\IMG_1760_CJ_4_251 - § 1 reference coded [ 3.50% Coverage]
+Reference 1 - 3.50% Coverage
+anyone known to be in the most senior ranks of the Provisional IRA, even though there is no evidence to justify criminal proceedings;
+Files\\SKD_round1\\CJ 4 251\\IMG_1786_CJ_4_251 - § 1 reference coded [ 2.98% Coverage]
+Reference 1 - 2.98% Coverage
+Page 1 : (69,420) - (526,480)
+Files\\SKD_round1\\CJ 4 458\\IMG_1800_CJ_4_458 - § 1 reference coded [ 6.37% Coverage]
+Reference 1 - 6.37% Coverage
+What he had in mind was that if it were possible to put two or three bad men inside as a result of investigations into their being suspected of murder or other terrorist crime he might at the same time make orders on another two or three Protestant extremists on the basis of information about their activities not necessarily related to specific criminal incidents.
+Files\\SKD_round1\\CJ 4 458\\IMG_1801_CJ_4_458 - § 1 reference coded [ 5.25% Coverage]
+Reference 1 - 5.25% Coverage
+"Other terrorists who are known, on the basis of a joint intelligence assessment, to be an exceptionally serious threat to security, end for whom, in the absence of evidence which could form the basis of a criminal charge, a strong case could be made for an interim custody order."
+Files\\SKD_round1\\CJ 4 458\\IMG_1802_CJ_4_458 - § 2 references coded [ 16.15% Coverage]
+Reference 1 - 5.40% Coverage
+Provisional IRA volunteers, who, on the strength of reliable 
+intelligence, are known to be an exceptionally serious threat to security.
+Reference 2 - 10.75% Coverage
+Other terrorists who are known, on the basis of a joint intelligence 
+assessment, to be an exceptionally serious threat to security, and for whom, in the absence of evidence which could form the basis of a criminal charge, a strong case could be made for an interim custody order.
+Files\\SKD_round1\\CJ 4 458\\IMG_1803_CJ_4_458 - § 1 reference coded [ 8.02% Coverage]
+Reference 1 - 8.02% Coverage
+"Other terrorists who are known, on the basis of a joint intelligence assessment, to be an exceptionally serious threat to security, and for whom, in the absence of evidence which could form the basis of a criminal charge, a strong case could be made for an Interim Custody Order."
+Files\\SKD_round1\\CJ 4 458\\IMG_1804_CJ_4_458 - § 1 reference coded [ 8.76% Coverage]
+Reference 1 - 8.76% Coverage
+"Other terrorists who are known on the strength of reliable 
+intelligence, to be an exceptionally serious threat to security, and for whom, in the absence of evidence which could form the basis of a criminal charge, a strong case could be made for an interim custody order. The persons and categories to whom this applies will be specified from time to time."
+Files\\SKD_round1\\CJ 4 458\\IMG_1805_CJ_4_458 - § 1 reference coded [ 44.64% Coverage]
+Reference 1 - 44.64% Coverage
+I think this is fair enough and is in fact quite useful since it covers 
+the point the Secretary of State has made that he would be prepared to consider signing interim custody orders against any Protestants who were arrested on the basis of their possible implication in murder but against whom it was not possible to prefer charges.
+Files\\SKD_round1\\CJ 4 458\\IMG_1808_CJ_4_458 - § 5 references coded [ 10.78% Coverage]
+Reference 1 - 1.10% Coverage
+Page 1 : (245,480) - (606,515)
+Reference 2 - 2.41% Coverage
+Anyone known to be holding officer rank in the Provisional 
+IRA even though there is no evidence to justify criminal charges.
+Reference 3 - 1.44% Coverage
+intelligence, are known to be an exceptionally serious threat to securit
+Reference 4 - 4.62% Coverage
+Other terrorists who are known, on the strength of reliable 
+intelligence, to be an exceptionally serious threat to security, and for whom, in the absence of evidence which could form the basis of a criminal charge, 
+Interim Custody Order.
+Reference 5 - 1.21% Coverage
+Provisional IRA Volunteers, who, on the strength of reliable
+Files\\SKD_round1\\CJ 4 458\\IMG_1809_CJ_4_458 - § 1 reference coded [ 4.49% Coverage]
+Reference 1 - 4.49% Coverage
+Page 1 : (71,437) - (520,529)
+Files\\SKD_round1\\CJ 4 458\\IMG_1814_CJ_4_458 - § 3 references coded [ 13.78% Coverage]
+Reference 1 - 5.43% Coverage
+Anyone known to be holding officer rank in the 
+Provisional IRA even though there is no evidence to justify criminal charges. 
+Provisional IRA volunteers who, on the strength of 
+reliable intelligence, are known to be an exceptionally serious threat to security.
+Reference 2 - 3.89% Coverage
+From this it will be seen that arrests are linked to the prospect of bringing criminal charges, except in the case of categories c. and d. - 
+ie. Provisional officers and certain 
+volunteers.
+Reference 3 - 4.46% Coverage
+With the 
+It 
+exception of the UVF, Protestant extremist organisations are not in themselves illegal; it is not therefore possible to regard all those holding certain defined positions in Protestant organisations
+Files\\SKD_round1\\CJ 4 458\\IMG_1815_CJ_4_458 - § 2 references coded [ 8.44% Coverage]
+Reference 1 - 1.52% Coverage
+as dangerous terrorists, as we regard officers in the Provisional IRA.
+Reference 2 - 6.93% Coverage
+Other terrorists (as specified from time to time by the Secretary of State) who are known, on the strength of reliable intelligence to be an exceptionally serious threat to security, and for whom, in the absence of evidence which could form the basis of a criminal charge, a strong case could be made for an Interim Custody Order."
+Files\\SKD_round1\\CJ 4 458\\IMG_1829_CJ_4_458 - § 1 reference coded [ 3.02% Coverage]
+Reference 1 - 3.02% Coverage
+Page 1 : (91,281) - (525,345)
+Files\\SKD_round1\\CJ 4 458\\IMG_1837_CJ_4_458 - § 1 reference coded [ 2.41% Coverage]
+Reference 1 - 2.41% Coverage
+Page 1 : (111,170) - (500,227)
+Files\\SKD_round1\\CJ 4 458\\IMG_1839_CJ_4_458 - § 2 references coded [ 6.17% Coverage]
+Reference 1 - 3.77% Coverage
+Page 1 : (163,413) - (528,508)
+Reference 2 - 2.40% Coverage
+Page 1 : (154,580) - (515,641)
+Files\\SKD_round1\\CJ 4 458\\IMG_1856_CJ_4_458 - § 2 references coded [ 11.88% Coverage]
+Reference 1 - 8.42% Coverage
+You will know that it is my intention to seek the agreement of my colleagues to new procedures which in the event or internment being brought at an end will make It possible to keep in custody those members of the IRA whose continued liberty is a threat to security.
+Reference 2 - 3.45% Coverage
+I hope therefore that 
+thee will be kept to the minimum compatible with the needs of the security situation.
+Files\\SKD_round1\\CJ 4 458\\IMG_1867_CJ_4_458 - § 1 reference coded [ 15.00% Coverage]
+Reference 1 - 15.00% Coverage
+"Those holding key positions in terrorist organisations who are known to be responsible for the direction and performance of acts of violence by others, but against whom there is no evidence or intelligence of personal involvement" contains only 31 names.
+Files\\SKD_round1\\CJ 4 458\\IMG_1868_CJ_4_458 - § 2 references coded [ 10.60% Coverage]
+Reference 1 - 6.11% Coverage
+List 3, 2. -: 
+with abo;t 12( ames, is of those In respect of v cm there is reliable intelligenoe ind4ating their ivolvemt in the ecamszan of orines but indtricient eidene to support a proseeution.
+Reference 2 - 4.49% Coverage
+List C, ith about W naneu, is of graminnt terrarista aga!nt whOM there ia 11’. tleak.; lolood of preferring char-e (: - wamW for zzg, r 
+ax3sple).
+Files\\SKD_round1\\CJ 4 458\\IMG_1869_CJ_4_458 - § 1 reference coded [ 3.99% Coverage]
+Reference 1 - 3.99% Coverage
+Page 1 : (61,12) - (498,96)
+Files\\SKD_round1\\CJ 4 458\\IMG_1876_CJ_4_458 - § 1 reference coded [ 3.31% Coverage]
+Reference 1 - 3.31% Coverage
+Page 1 : (39,172) - (468,243)
+Files\\SKD_round1\\CJ 4 458\\IMG_1880_CJ_4_458 - § 1 reference coded [ 3.40% Coverage]
+Reference 1 - 3.40% Coverage
+Page 1 : (89,143) - (523,215)
+Files\\SKD_round1\\CJ 4 458\\IMG_1932_CJ_4_458 - § 1 reference coded [ 6.81% Coverage]
+Reference 1 - 6.81% Coverage
+In an ideal society, a person arrested would be taken straight to an RUC Station and treated within the strict application of the judges’ 
+rules. 
+But Northern Ireland was far from an ideal society, indeed a state of war existed here. The judges’ rules were simply not compatible with the gaining of intelligence.
+Files\\SKD_round1\\DEFE 13 919\\IMG_1938_DEFE_13_919 - § 1 reference coded [ 4.90% Coverage]
+Reference 1 - 4.90% Coverage
+Page 1 : (66,92) - (461,206)
+Files\\SKD_round1\\DEFE 13 919\\IMG_1944_DEFE_13_919 - § 1 reference coded [ 3.33% Coverage]
+Reference 1 - 3.33% Coverage
+Page 1 : (73,238) - (466,316)
+Files\\SKD_round1\\DEFE 13 919\\IMG_1963_DEFE_13_919 - § 1 reference coded [ 3.04% Coverage]
+Reference 1 - 3.04% Coverage
+Page 1 : (78,409) - (536,470)
+Files\\SKD_round1\\DEFE 13 919\\IMG_2141_DEFE_13_919 - § 1 reference coded [ 5.18% Coverage]
+Reference 1 - 5.18% Coverage
+Under conditions of emergency, or near emergency, there is likely 
+to be internal security legislation controlling the treatment of detainees and arrested persons.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2153_DEFE_24_1214 - § 2 references coded [ 18.24% Coverage]
+Reference 1 - 7.61% Coverage
+Page 1 : (51,90) - (612,275)
+Reference 2 - 10.63% Coverage
+Page 1 : (58,517) - (607,781)
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2154_DEFE_24_1214 - § 2 references coded [ 14.72% Coverage]
+Reference 1 - 8.61% Coverage
+Page 1 : (52,77) - (634,292)
+Reference 2 - 6.12% Coverage
+Page 1 : (70,297) - (626,457)
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2156_DEFE_24_1214 - § 1 reference coded [ 3.57% Coverage]
+Reference 1 - 3.57% Coverage
+Page 1 : (83,601) - (640,701)
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2162_DEFE_24_1214 - § 4 references coded [ 17.73% Coverage]
+Reference 1 - 4.78% Coverage
+But the terrorist campaign continues at an unacceptable level, and I have had to conclude that the ordinary law cannot deal comprehensively or quickly enough with such ruthless viciousness.
+Reference 2 - 7.21% Coverage
+I have therefore decided, after weighing all the relevant 
+considerations, including the views of the security authorities and after consultation with HMG in the UK last Thursday, to exercise where necessary the powers of detention and internment vested in me as Minister of Home Affairs.
+Reference 3 - 4.75% Coverage
+This will be done only after a careful scrutiny of information furnished to me by the police in respect of each ouch person, sufficient to convince me that the individual in question is a threat
+Reference 4 - 0.98% Coverage
+Any such person will then have the right
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2163_DEFE_24_1214 - § 1 reference coded [ 2.11% Coverage]
+Reference 1 - 2.11% Coverage
+9. It is with understandable reluctance that one uses these 
+exceptional powers,
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2165_DEFE_24_1214 - § 2 references coded [ 6.75% Coverage]
+Reference 1 - 4.92% Coverage
+I am sorry that this decision will inevitably interfere 
+with rights and tradition cherished by many people, but I must ask all concerned to accept it as truly necessary in the vital interests of the country.
+Reference 2 - 1.83% Coverage
+We are now acting to remove the shadow of fear which hangs over too many of you.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2166_DEFE_24_1214 - § 1 reference coded [ 20.27% Coverage]
+Reference 1 - 20.27% Coverage
+21rmaction on security lo not a substitute for cemetructive tae 
+nor 18 it a vitch of policy: It is 
+prwai1 over the rule of force.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2168_DEFE_24_1214 - § 3 references coded [ 15.58% Coverage]
+Reference 1 - 4.00% Coverage
+INTERNfE w WAs IKROUCED IN NORC HflHRN .R LA1DTCAY A’S "E 
+LATEST S’i)P IN 7iSE AUTHORITIES! CAMPA14N AGAINST TE 
+4.R A
+Reference 2 - 7.34% Coverage
+THE -INTRODUC -1-ON OF I NTE RN!A NT UNDER THE SPEC IAs PCE RS 
+ACT NEEDED OI.Y A STROKE OF THE P N REGULATIONS TO PERMIT II #ERWIENT ALREADY EXISTED AND WER USED EXTENSIVELY DURING TIE I- R.A. CAIPA IGN FROM 1956 T0 1961.
+Reference 3 - 4.25% Coverage
+E HAD CO-CLUDED THAT THE ORD IARY LAW COULD NOT DEAL COIIPREHENSIYELY OR QUICKLY ENOUjH WITh "SUCH RUTHLESS ViGCIOUJSIESS
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2172_DEFE_24_1214 - § 4 references coded [ 12.00% Coverage]
+Reference 1 - 4.03% Coverage
+It and when internment tn introduood it will be necessary to ot without delay under ReaulationA 10 11 and 12 of the Regulations sods under the Civil Anthorities (Speoinal1owro) Aot (il) 1922 (Roprint to 1969).
+Reference 2 - 0.64% Coverage
+for the purpose of intorrogation
+Reference 3 - 1.47% Coverage
+eglation 10 enables the police to arrest and detain a person for up to 48 hours
+Reference 4 - 5.85% Coverage
+suspects to be put temporarily out of the way during a particular :oyal Visit. It was not drafted as part of detention and internment procedure. 
+Furthermore, the original purpose of the Regulation ws to enable Should it, 
+therefore, be ignored and Regulation 11 used instead as authority to make arrests?
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2174_DEFE_24_1214 - § 2 references coded [ 37.65% Coverage]
+Reference 1 - 23.26% Coverage
+Regulation 10 enables an officer of the Royal Ulster 
+Constabulary to authorise the arrest without warrant and detention for a period of not more than 48 hours for the purpose of interrogation. The distinction is made throughout the Regulations between a "police constable" on the one hand and a "police officer" on the other hand and Regulation 10 is therefore wide enough - 
+and I think is intended 
+to enable a police officer to authorise either a police constable or a member of H.M. Forces to arrest without warrant for this period and for this purpose. It is a valuable regulation and it should not be ignored but it does presuppose a specific authorisation by an officer of the R.U.C.
+Reference 2 - 14.39% Coverage
+Regulation 11 enables three categories of persons to mak 
+an arrest without warrant in certain circumstances - general 
+suspicious circumstances. The three categories of persons are (l) any police constable; (2) any soldier on duty; and (3) any person authorised for the purpose by the Minister of Home Affairs. This Regulation differs from Regulation 10 in that the person arresting must suspect the person arrested of
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2175_DEFE_24_1214 - § 2 references coded [ 11.79% Coverage]
+Reference 1 - 2.95% Coverage
+acting or having acted, etc., in a manner prejudicial to the peace or where a document, etc., is found in hi possession.
+Reference 2 - 8.84% Coverage
+The person arrested may not be guilty of a crime although he may be suspected or it. It must however be remembered in this context that under Section 2(4) of the Act a person is deemed to be guilty of an offence against the Regulations if he does an act "of such a nature as to be calculated to be prejudicial to the preservation of the pace or maintenance of order".
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2176_DEFE_24_1214 - § 1 reference coded [ 11.78% Coverage]
+Reference 1 - 11.78% Coverage
+It could be argued In fact that this section applies to a person arrested without warrant under Regulation 11 of the Special Powers Act for the section says: "Where a person arrested without warrant is not within 24 hours of his arrest released from custody the member of the R.U.C. in charge of the constabulary station where such person is in custody shall bring him or have him brought before a Magistrates’ Court as soon as practicable thereafter but, in any event, not later than 48 hours after his arrest".
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2183_DEFE_24_1214 - § 2 references coded [ 21.80% Coverage]
+Reference 1 - 8.48% Coverage
+are suspected of having committed an offence against Regulation 24 A made under the Civil Authorities (Special Powers) Act (Northern Ireland) 1922. 
+to this order and their detention Those named in the Annex referred to above Under Regulation 11 made under that Act any member of Her Majesty’s 
+forces on duty when the occasion for the arrest arises may arrest without warrant any person who is suspected of having committed an offence against the Regulations.
+Reference 2 - 13.32% Coverage
+Any member of Her Majesty’s Forces on duty may also, where it is 
+necessary for the purpose of effecting an arrest in respect of any crime or any offence under the Regulations made under the Civil Authorities (Special Powers) Act Northern Ireland, 1922, exercise, by virtue of that Act, the like powers as may be exercised by a police constable in effecting arrest in a case where an arrestable offence has been committed. 
+Under 
+Section 2 (4) of the Act, a person shall be deemed to be guilty of an offence against the Regulations if he does any act of such nature as to be calculated to be prejudicial to the preservation of the peace or maintenance of order in Northern Ireland and not specifically provided for in the Regulations.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2187_DEFE_24_1214 - § 1 reference coded [ 4.47% Coverage]
+Reference 1 - 4.47% Coverage
+The security problem, both in GB and NI especially concerning the move of reinforcements and briefing of RUC
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2190_DEFE_24_1214 - § 1 reference coded [ 1.60% Coverage]
+Reference 1 - 1.60% Coverage
+Page 1 : (37,173) - (532,203)
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2191_DEFE_24_1214 - § 2 references coded [ 5.15% Coverage]
+Reference 1 - 2.62% Coverage
+Page 1 : (44,88) - (541,137)
+Reference 2 - 2.53% Coverage
+Page 1 : (34,192) - (544,238)
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2192_DEFE_24_1214 - § 1 reference coded [ 16.60% Coverage]
+Reference 1 - 16.60% Coverage
+in the light of the latest assessment of the security situation in Northern Ireland and all. other relevant factors, and after consultation with the British Government, the Northern Ireland Govern ment has decided to activate its powers of internment so as to enable the security forces to arrest and detain people suspected of responsibility for committing or abetting acts of terrorism and other breaches of the peace designed to lead to a breakdown of law and order in Northern Ireland.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2195_DEFE_24_1214 - § 1 reference coded [ 17.15% Coverage]
+Reference 1 - 17.15% Coverage
+in the light of the latest assessment of the security situation in Northern Ireland and all other relevant factors, and after consultation with the British Government, the Northern Ireland Government has decided to activate its powers of internment so as to enable the security forces to arrest and detain peoplesuspected of responsibility for committing or abetting acts of terrorism and other breaches of the peace designed to lead to a breakdown, of law and order in Northern Ireland.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2214_DEFE_24_1214 - § 1 reference coded [ 4.67% Coverage]
+Reference 1 - 4.67% Coverage
+should we decide that the security situation in Northern Ireland requires this step.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2215_DEFE_24_1214 - § 1 reference coded [ 4.16% Coverage]
+Reference 1 - 4.16% Coverage
+You will see that emphsis has been put on the 
+security arguments for the introduction of internment.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2235_DEFE_24_1214 - § 1 reference coded [ 5.82% Coverage]
+Reference 1 - 5.82% Coverage
+Page 1 : (31,206) - (473,328)
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2240_DEFE_24_1214 - § 1 reference coded [ 4.39% Coverage]
+Reference 1 - 4.39% Coverage
+, cutu e of te zicage’neQ 1n H Ireland -rmy troupe -T6 fecorasitd In u 1i ntlftvis er fiatoriae.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2255_DEFE_24_1214 - § 1 reference coded [ 1.80% Coverage]
+Reference 1 - 1.80% Coverage
+r. Faulkner has stated that he would only contemplate internment if the Security Forces advised in favour of it.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2256_DEFE_24_1214 - § 1 reference coded [ 6.19% Coverage]
+Reference 1 - 6.19% Coverage
+in the light of the continuing high force levels in Northern Ireland in the foreseeable future, and of the indifferent living conditions which some units have to endure, the Ministry of Defence have a separate though related interest in the accommodation which an internment camp, while vacant, would provide
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2263_DEFE_24_1214 - § 1 reference coded [ 4.36% Coverage]
+Reference 1 - 4.36% Coverage
+It is rolovant that both Ur Chicheator-Clarke and Ur Faulknor Javo stated that.-they would. 
+onl .contemplate internment .if the Security Foroos advised in favour of it.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2281_DEFE_24_1214 - § 1 reference coded [ 7.61% Coverage]
+Reference 1 - 7.61% Coverage
+You ITRELAND .A’- INT R1iE.NT uill know that considertion has been given to the need to 
+tighten up security arrangements in Torthern Ireland and, in piticuilar, to the possibility of introducing internment under the Spcal.Powers Act.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2294_DEFE_24_1214 - § 1 reference coded [ 2.51% Coverage]
+Reference 1 - 2.51% Coverage
+Only in Belfast, where security problems are likely to be especially difficult, is this degree of support likely to be available;
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2298_DEFE_24_1214 - § 3 references coded [ 10.68% Coverage]
+Reference 1 - 3.21% Coverage
+in the course of the I.R.A. activities of 1956-62 a notice of derogation was in 1957 lodged in Strasbourg.
+Reference 2 - 6.56% Coverage
+In response to recent demanded for internment the Prime Minister of Northern Ireland has said that if the security advisersthe G.O.C. and the Chief Constable of the R.U.C. 
+should be used he would not hesitate to act.
+Reference 3 - 0.91% Coverage
+- recommend that these powers
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2299_DEFE_24_1214 - § 1 reference coded [ 5.98% Coverage]
+Reference 1 - 5.98% Coverage
+the normal processes of investigation, detection and trial are obstructed by a wall of silence created either by intimidation or sympathy (but those Metropolitan Police C.I.D. may have more succes in getting evidence).
+Files\\SKD_round1\\PREM 15 101\\IMG_4742_PREM_15_101 - § 1 reference coded [ 5.13% Coverage]
+Reference 1 - 5.13% Coverage
+at official level our view is that it would be better to repeal the Acts altogether and start afresh with a new Act enabling Regulations to be made on a proclamation of emergency;
+Files\\SKD_round1\\PREM 15 1035\\IMG_4921_PREM_15_475 - § 2 references coded [ 39.38% Coverage]
+Reference 1 - 24.53% Coverage
+The reason for internment is that while a good deal is 
+known about internees, the evidence, such as it is, would not in most cases stand up in court according to normal legal tests; further, even if the evidence were sufficient, there would be obvious objections to disclosing its nature to the defence or allowing a confrontation between the security forces and the accused. It is, therefore, sometimes suggested that special courts should be set up with their own procedure so that in appropriate cases persons at present interned could be brought before them.
+Reference 2 - 14.85% Coverage
+If the problem were simply that juries perversely 
+refused to convict, it would be possible by legislation to dispense with the jury system in such cases and to substitute appointed judges, magistrates or assessors. This is broadly the procedure which has been adopted in the past in the Republic of Ireland. But the special courts there are
+Files\\SKD_round1\\PREM 15 1035\\IMG_4922_PREM_15_475 - § 1 reference coded [ 5.37% Coverage]
+Reference 1 - 5.37% Coverage
+required so far as possible to follow normal procedures as regards rules of evidence and standards of proof. This would not do for us.
+Files\\SKD_round1\\PREM 15 1035\\IMG_4943_PREM_15_475 - § 1 reference coded [ 4.28% Coverage]
+Reference 1 - 4.28% Coverage
+"in the interest of security, warders should ensure that detained persons hands were visible and that a degree of discipline be maintained".
+Files\\SKD_round1\\PREM 15 1035\\IMG_4972_PREM_15_475 - § 1 reference coded [ 9.82% Coverage]
+Reference 1 - 9.82% Coverage
+Imprisonment without trial was described as being "unjust" and 
+"immoral". I am to observe that although article 5 of the Convention for the protection of Human Right and Fundamental Freedoms declares the principle that no one shall be deprived of his liberty unless convicted by a court of law, or for certain other limited reasons, article 15 recognises that this principle may have to be abrogated "in time of war or other public emergency threatening the life of the nation".
+Files\\SKD_round1\\PREM 15 1035\\IMG_4973_PREM_15_475 - § 1 reference coded [ 7.64% Coverage]
+Reference 1 - 7.64% Coverage
+Security policies will inevitably be resented in those sections of the community in which are found those deemed to be working against the security of the whole community. There may well result a real belief on the part of some that the working of such policies is an attack on the rights of a minority. It is sadly true, however, that this belief, although mistaken, is actively fostered by others.
+Files\\SKD_round1\\PREM 15 1035\\IMG_4974_PREM_15_475 - § 1 reference coded [ 10.16% Coverage]
+Reference 1 - 10.16% Coverage
+Merely to advise the immediate ending of internment is to misunderstand the realities of the present situation and the need to protect the community generally; but any serious proposals for the ending of internment consonant with the general public interest will be most carefully considered by the Government.
+Files\\SKD_round1\\PREM 15 1035\\IMG_4988_PREM_15_475 - § 2 references coded [ 30.22% Coverage]
+Reference 1 - 13.12% Coverage
+there might well be situations when, in an emergency, the Government had to take action which was against the law and then pass an Act of Indemnity subsequently, but such occasions would necessarily be rare. 
+This was the line which the Northern 
+Ireland Government were proposing to take about what had happened.
+Reference 2 - 17.10% Coverage
+The Prime Minister asked Lord Parker about the 
+suggestion that was often made that special courts should be set up to try internees. Lord Parker said that he found it difficult to conceive of a criminal court in which the identity of a prosecution witness was kept secret from the accused and his legal representatives. There had been nothing like this in English legal history since we Seventeenth Century.
+Files\\SKD_round1\\PREM 15 1035\\IMG_5013_PREM_15_475 - § 1 reference coded [ 15.13% Coverage]
+Reference 1 - 15.13% Coverage
+In Northern Ireland in normal times the powers of the police and prison officers in relation to those in custody are substantially the same except for an immaterial difference in their Judges’ Rules. 
+Of 
+the Regulations scheduled to the Civil Authorities (Special Powers) Act (Northern Ireland) 1922, Regulation 10 provides that ’Any officer of The Royal Ulster Constabulary, for the preservation of the peace and maintenance of order, may authorise the arrest without warrant and detention for a period of not more then 48 hours of any person for the purpose of interrogation’.
+Files\\SKD_round1\\PREM 15 1035\\IMG_5027_PREM_15_475 - § 1 reference coded [ 12.44% Coverage]
+Reference 1 - 12.44% Coverage
+Under conditions of emergency, or near emergency, there is likely 
+to be internal security legislation controlling the treatment of detainees and arrested persons. 
+reflect prevailing conditions. 
+Legislation will vary from country to country and Military personnel are to acquaint themselves 
+with the laws of the country concerned, and will not act unlawfully under any circumstances whatever.
+Files\\SKD_round1\\PREM 15 1035\\IMG_5050_PREM_15_475 - § 1 reference coded [ 7.02% Coverage]
+Reference 1 - 7.02% Coverage
+We feel sure that you do not intend us to cover police 
+interrogation under ordinary conditions but only interrogation under emergency conditions short of war such as prevail in Northern Ireland, e.g. where persons can be lawfully detained without trial.
+Files\\SKD_round1\\PREM 15 475\\IMG_4846_PREM_15_475 - § 1 reference coded [ 14.11% Coverage]
+Reference 1 - 14.11% Coverage
+Major Chichester-Clark said that there were three 
+possible sets of circumstances in which the Northern Ireland Government might be faced with the inevitability of a decision to introduce internment:(i) if the Government of the Republic started to intern; 
+(ii) if the IRA proceeded to a campaign of political assassination;
+Files\\SKD_round1\\PREM 15 475\\IMG_4854_PREM_15_475 - § 1 reference coded [ 2.49% Coverage]
+Reference 1 - 2.49% Coverage
+Page 1 : (138,164) - (582,229)
+Files\\SKD_round1\\PREM 15 475\\IMG_4855_PREM_15_475 - § 1 reference coded [ 3.30% Coverage]
+Reference 1 - 3.30% Coverage
+All that said, it is possible to envisage a campaign of assassination and perhaps kidnapping in which the two governments would find a popular demand for internment too great to resist.
+Files\\SKD_round1\\PREM 15 476\\IMG_5453_PREM_15_476 - § 2 references coded [ 7.19% Coverage]
+Reference 1 - 5.06% Coverage
+We have been told that Major Chichester-Clark is not pressing 
+for these powers and would not do so unless the Security Forces advised him to do so.
+Reference 2 - 2.13% Coverage
+But what if political pressure causes him to change his mind?
+Files\\SKD_round1\\PREM 15 476\\IMG_5460_PREM_15_476 - § 1 reference coded [ 6.88% Coverage]
+Reference 1 - 6.88% Coverage
+It might be best to confine discussion to the purely military aspects 
+and to discuss such matters as legal problems (Items 3 and 4 of the Annex) under the Civil Contingency Planning item on the agenda.
+Files\\SKD_round1\\PREM 15 477\\IMG_5578_PREM_15_477 - § 1 reference coded [ 4.64% Coverage]
+Reference 1 - 4.64% Coverage
+MR. FAULKNER said that he would not agree to any proposal for the use of the internment powers in the Civil Authorities (Special Powers) Acts, unless he was advised by the Army and the police that internment would bring IRA terrorism decisively to an end.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_050 - § 2 references coded [ 12.02% Coverage]
+Reference 1 - 4.79% Coverage
+But the terrorist campaign continues at an unacceptable level, and I have had to conclude that the ordinary law cannot deal comprehensively or quickly enough with such ruthless viciousness.
+Reference 2 - 7.23% Coverage
+I have therefore decided, after weighing all the relevant 
+considerations, including the views of the security authorities and after consultation with HMG in the UK last Thursday, to exercise where necessary the powers of detention and internment vested in me as minister of Home Affairs.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_051 - § 2 references coded [ 12.37% Coverage]
+Reference 1 - 2.86% Coverage
+I have taken this serious step solely for the protection 
+of life and security of property in Northern Ireland.
+Reference 2 - 9.51% Coverage
+It is with understandable reluctance that one uses these 
+exceptional powers, but the organisations concerned are those which have murdered in cold blood, created situations which have led to death or injury to people quite uninvolved in disorder, maimed numerous people including young children and put at risk the jobs and the whole future of ntire communities.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_053 - § 2 references coded [ 12.13% Coverage]
+Reference 1 - 4.93% Coverage
+I am sorry that this decision will inevitably interfere 
+with rights and traditions cherished by many people, but I mut ask all concerned to accept it as truly necessary in the vital interests of th e country.
+Reference 2 - 7.20% Coverage
+Over the last couple of years we have taken many steps to make it clear that we want (following word underlined) all the people of Northern Ireland to play a part in administerin and developing the country. 
+in administrative structures can unit his community until we ut neither changes in law nor chang
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_054 - § 2 references coded [ 50.00% Coverage]
+Reference 1 - 9.01% Coverage
+defeat - anduiiitc to defoa -those v io.ent non 1;ho scek 
+to divide uo.
+Reference 2 - 40.99% Coverage
+l’irm action on security io not a subutitutc for constructive change nor is it a sitch of policy: It is 3i..:hly\htjZ .:’2(cded toallo; the dera’IatCic kroccos to 
+prevail over the rule of force. For force stands in the gray of all progress and thc men of force, whatever their 
+protestations, are- the enemies of us all.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_145 - § 1 reference coded [ 4.24% Coverage]
+Reference 1 - 4.24% Coverage
+The Home Secretary replied that if it were not for the IRA 
+campaign these people would still be in their own homes. It should be clearly 
+understood that they were the victims of the IRA.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_165 - § 1 reference coded [ 8.93% Coverage]
+Reference 1 - 8.93% Coverage
+MR FAULKNER, THE PRIME MINISTER OF NORTHERN IRELAND, ANNOUNCED THIS MORNING, 9 AUGUST, THAT AFTER WEIGHING ALL THE RELEVANT CONSIDERATIONS, INCLUDING THE VIEWS OF THE SECURITY AUTHORITIES, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND COVERNENT HAD DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_167 - § 1 reference coded [ 6.50% Coverage]
+Reference 1 - 6.50% Coverage
+IF ASKED WHY THE NORMAL PROCESSES OF LAW DO NOT SUFFICE, YOU SHOULD POINT TO THE EVIDENCE OF INTIMIDATION, BEATINGS, TARRING AND FEATHERINGS, AND UNEXPLAINED DEATHS WHICH HAVE OCCURRED IN AREAS WHERE THE IRA IS KNOWN TO BE STRONG.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_175 - § 1 reference coded [ 12.55% Coverage]
+Reference 1 - 12.55% Coverage
+I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS,, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_179 - § 1 reference coded [ 11.18% Coverage]
+Reference 1 - 11.18% Coverage
+I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_180 - § 1 reference coded [ 4.39% Coverage]
+Reference 1 - 4.39% Coverage
+THERE IS ALSO THE FACT THAT THE INTIMIDATION OF THE POPULATION BY THE TERRORISTS HAS BEEN INCREASINGLY HAMPERING THE PROCESS OF GATHERING. INTELLIGENCE, AND HAS IMPEDED THE COURSE OF JUSTICE.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_185 - § 1 reference coded [ 12.96% Coverage]
+Reference 1 - 12.96% Coverage
+I am sending you this message to let you know 
+that the Prime Minister of Northern Ireland will very shortly be announcing that, in the light of the latest assessment of the security situation in Northern Ireland and all other relevant factors, and after consultation with the British Government, the Northern Ireland Government has decided to activate its powers of internment.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_189 - § 1 reference coded [ 14.16% Coverage]
+Reference 1 - 14.16% Coverage
+I am sending you this message to let you know 
+that the Prime Minister of Northern Ireland will very shortly be announcing that, in the light of the latest assessment of the security situation in Northern Ireland and all other relevant factors, and after consultation with the British Government, the Northern Ireland Government has decided to activate its powers of internment.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_195 - § 1 reference coded [ 3.82% Coverage]
+Reference 1 - 3.82% Coverage
+I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME 
+MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_198 - § 1 reference coded [ 13.30% Coverage]
+Reference 1 - 13.30% Coverage
+I am sending you this message to let you know 
+that the Prime Minister of Northern Ireland will very shortly be announcing that, in the light of the latest assessment of the security situation in Northern Ireland and all other relevant factors, and after consultation with the British Government, the Northern Ireland Government has decided to activate its powers of internment.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_204 - § 1 reference coded [ 13.18% Coverage]
+Reference 1 - 13.18% Coverage
+I am sending you this message to let you know 
+that the Prime Minister of Northern Ireland will very shortly be announcing that, in the light of the latest assessment of the security situation in Northern Ireland and all other relevant factors, and after consultation with the British Government, the Northern Ireland Government has decided to activate its powers of internment.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_213 - § 1 reference coded [ 5.93% Coverage]
+Reference 1 - 5.93% Coverage
+The recent intensification of bomb outrages and the risk that these incidents would be multiplied still further on the eve of the 12th August march were perhaps sufficient grounds in themselves; but it would be preferable, from the point of view of the Government of Northern Ireland, to place the emphasis on the former consideration rather than the latter.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_220 - § 2 references coded [ 7.77% Coverage]
+Reference 1 - 2.85% Coverage
+You had yourself often said, and I have supported this view, that you would be guided by the recommendations of the security authorities.
+Reference 2 - 4.91% Coverage
+I have stated in public that we would raise no objection to internment if we were satisfied on the advice of the security authorities and after consultation with you on the wider aspects that this would help in the campaign against the IRA.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_231 - § 1 reference coded [ 5.10% Coverage]
+Reference 1 - 5.10% Coverage
+WITH REGARD TO YOUR PARA. 4 (V) THERE IS NO OBJECTION TO YOUR REFERRING TO PRESSURES, BUT YOU SHOULD STRESS THAT DECISION WOULD BE BASED ON SECURITY ASSESSMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_255 - § 1 reference coded [ 3.11% Coverage]
+Reference 1 - 3.11% Coverage
+It would be primarily a political decision whether to 
+bring in internment, but it would depend very much on military advice.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_256 - § 1 reference coded [ 4.64% Coverage]
+Reference 1 - 4.64% Coverage
+The GOCtherefore plans to make a start with the harassment tactics before the end of this month (which will of course be presented as a response to the recent outbreaks of violence)and he will shortly be reporting the details of these plans.
+Files\\SKD_round1\\PREM 15 479\\IMG_5783_PREM_15_479 - § 1 reference coded [ 9.49% Coverage]
+Reference 1 - 9.49% Coverage
+Political progress in Northern Ireland is bound to be impeded so long as 
+violence and intimidation continue; and the purpose of internment, and of the Army’s measures which are directed impartially at violence from whatever quarter, is to restore to Northern Ireland the necessary degree of stability for further political advance.
+Files\\SKD_round1\\PREM 15 479\\IMG_5828_PREM_15_479 - § 1 reference coded [ 11.16% Coverage]
+Reference 1 - 11.16% Coverage
+The other/complication for us is that we do not allow political 
+him in as an immigrant on the grounds that he is a danger to national security to which they will say if he is a danger to national security why on earth can’t you deal with him.
+Files\\SKD_round1\\PREM 15 479\\IMG_5847_PREM_15_479 - § 1 reference coded [ 11.71% Coverage]
+Reference 1 - 11.71% Coverage
+A LIST OF DETAINEES IS LIKELY TO BE PUBLISHED VERY SHORTLY, BUT SECURITY CONSIDERATIONS FORBID THE PUBLICATION OF MUCH SUPPORTING DETAIL, FOR SOURCE PROTECTION REASONS.
+Files\\SKD_round1\\PREM 15 479\\IMG_5852_PREM_15_479 - § 1 reference coded [ 4.81% Coverage]
+Reference 1 - 4.81% Coverage
+FU^THE".ORE, THE PROLE VAS THEN O DE O:ISTRABLY ONE OF DOMESTIC AFFAIR, (ARTICLE 2(7) OF THE CHARTER) THAT MOST OF THE MORE LEGAL! IC .ElGERS WERE READY TO BE COiV I CED BY OUR ARGUMEIITS.
+Files\\SKD_round1\\PREM 15 479\\IMG_5858_PREM_15_479 - § 1 reference coded [ 9.47% Coverage]
+Reference 1 - 9.47% Coverage
+Political progress in Northern Ireland is bound to be impeded so long as violence and intimidation continue; and the purpose of internment, and of the Army’s measures which are directed impartially at violence from whatever quarter, is to restore to Northern Ireland the necessary degree of stability for further political advance.
+Files\\SKD_round1\\PREM 15 479\\IMG_5893_PREM_15_479 - § 1 reference coded [ 9.90% Coverage]
+Reference 1 - 9.90% Coverage
+Political Progress can only be impeded so long as violence and 
+intimidation continue; and the purpose of internment, and of the Army’s measures which are directed impartially at violence from whatever quarter, is to restore to Northern Ireland the necessary degree of stability for further political advance.
+Files\\SKD_round1\\PREM 15 479\\IMG_5894_PREM_15_479 - § 1 reference coded [ 8.49% Coverage]
+Reference 1 - 8.49% Coverage
+Political progress can only be impeded so long as 
+violence and intimidation continue: and the purpose of internment, and of the army’s measures which are directed impartially at violence from whatever quarter, is to restore to Northern Ireland the necessary degree of stability for further political advance.
+Files\\SKD_round1\\PREM 15 479\\IMG_5902_PREM_15_479 - § 1 reference coded [ 4.19% Coverage]
+Reference 1 - 4.19% Coverage
+We must bring violence to an end, and internment has been introduced only as a means of achieving this.
+Files\\SKD_round1\\PREM 15 480\\IMG_5588_PREM_15_480 - § 1 reference coded [ 5.45% Coverage]
+Reference 1 - 5.45% Coverage
+The leaders of this campaign are using every technique available to 
+bypass the ordinary processes of democracy and to over-ride the wishes of the great majority of law-abiding citizens.
+Files\\SKD_round1\\PREM 15 480\\IMG_5589_PREM_15_480 - § 1 reference coded [ 6.28% Coverage]
+Reference 1 - 6.28% Coverage
+A government as the 
+same duty to protect its citizens from an internal enemy as it has to protect them from an external enemy in time of war and those who oppose the rights of the individual should also consider the rights of society as a whole.
+Files\\SKD_round1\\PREM 15 480\\IMG_5590_PREM_15_480 - § 4 references coded [ 27.32% Coverage]
+Reference 1 - 6.67% Coverage
+Internment is not appropriate in the case of those people who 
+may have been guilty of indiscriminate or malicious violence, and I am satisfied that the ordinary processes of law are sufficient to deal with the great majority of them.
+Reference 2 - 9.04% Coverage
+Why then should the same processes of law not have their way with 
+members of the I.R.A.? In many cases, of course, the law has caught up 
+with them and about 40 members of the organisation are at present serving prison sentences, but they represent only a small proportion of membership and further steps had to be taken.
+Reference 3 - 7.04% Coverage
+When I.R.A. groups emerge 
+from concealment for an attack the security forces are always in a position to engage or capture and if open confrontation occurs there is always, as we know, an appalling risk of innocent people being injured or killed.
+Reference 4 - 4.57% Coverage
+It is directed against 
+an unlawful and ruthless association, whose clear aim it is to overthrow by force of arms the constitution and laws of Northern Ireland.
+Files\\SKD_round1\\PREM 15 480\\IMG_5591_PREM_15_480 - § 1 reference coded [ 18.42% Coverage]
+Reference 1 - 18.42% Coverage
+There are criminals in both communities who may have 
+committed serious offences during the disturbances of recent years. They are subject to the same rigours of the law as any other criminal and many so-called extreme Protestants are at present serving heavy sentences. Others who may have taken part in recent disturbances will be brought to justice when they have been identified and the facts investigated. 
+I 
+repeat that internment is being confined to members of unlawful associations committed to violence against whom the ordinary law has, in present circumstances, proved ineffective.
+Files\\SKD_round1\\PREM 15 480\\IMG_5601_PREM_15_480 - § 1 reference coded [ 10.07% Coverage]
+Reference 1 - 10.07% Coverage
+TM NORTHERN IRELAND LEADER Q19 THEY WERE "ENGAGOD 
+:N A DEADLY STRUGGLE AGAINST AN ARMED CONSPIRACY WHOSE ItriEDTE e-URPOSE kT TS TO DESTROY THE PEAJET STABILITY AND SECURI’1Y uF TH4-S PART OF THE UrKp ’ITS ULTMATE A:M VAS TO OERTHROW THE DEMOCRATIMALLY 
+ACCFPT VWISHES OF THE AJ(RITY C? PFPLE IN ULSTE RI - ’:ITIER 
+THE ;IReAr NOR INDEE MY OTHER OCRANUISATtIN 
+WI:LL E. ALLOWED TO ACHIEVE ThS BY FORCE OF ARMSy’* }i DECIAREDQ
+Files\\SKD_round1\\PREM 15 480\\IMG_5604_PREM_15_480 - § 1 reference coded [ 4.00% Coverage]
+Reference 1 - 4.00% Coverage
+The United Kingdom Government 
+would prefer to use the normal processes of law for this purpose, but the situation in Northern Ireland made this impracticable.
+Files\\SKD_round1\\PREM 15 480\\IMG_5631_PREM_15_480 - § 1 reference coded [ 4.93% Coverage]
+Reference 1 - 4.93% Coverage
+Newspapers reported that it was decided that no criminal charges could be brought against him and he was returned on the grounds that his presence was not in the interests of national security.
+Files\\SKD_round1\\PREM 15 481\\IMG_5687_PREM_15_481 - § 1 reference coded [ 10.85% Coverage]
+Reference 1 - 10.85% Coverage
+CHARGE OF MURDER. LIST OF THOSE WANTED FOR INTER KENT. 
+A WARRANT HAS BEEN ’ISSUE FOR GALLAGHER’S ARREST ON A HE IS A NATIVE OF STRABANE AND WAS ON THE THIS IS A CASE IN WHICH 
+THE EVIDENCE COULD CERTAINLY B EXPECTED TO STAND UP IN AN IMPARTIAL COURT OF LAW.
+Files\\SKD_round1\\PREM 15 481\\IMG_5696_PREM_15_481 - § 1 reference coded [ 5.22% Coverage]
+Reference 1 - 5.22% Coverage
+We are at one in condemning any form of violence as an instrument 
+of political pressure; and it is our common purpose to seek to bring violence, and internment and all other emergency measures to an end without delay.
+Files\\SKD_round1\\PREM 15 481\\IMG_5697_PREM_15_481 - § 1 reference coded [ 13.73% Coverage]
+Reference 1 - 13.73% Coverage
+We are at one in condemning any form of 
+violence as an instrument of political pressure; and it is our common purpose to seek to bring violence and internment and all other emergency measures to an end without delay.
+Files\\SKD_round1\\PREM 15 481\\IMG_5705_PREM_15_481 - § 1 reference coded [ 5.22% Coverage]
+Reference 1 - 5.22% Coverage
+The problem of security and public order. 
+C. Internment. (This is put separately, and last, partly because it is in a sense the most difficult issue and partly because it bridges A and B, which are therefore beat discussed first).
+Files\\SKD_round1\\PREM 15 481\\IMG_5707_PREM_15_481 - § 2 references coded [ 10.93% Coverage]
+Reference 1 - 4.57% Coverage
+Begin by trying to get agreement that no democratic government can 
+afford to give way to violence and that, if violence escalates to a certain pitch, there may be no alternative to some kind of internment policy.
+Reference 2 - 6.36% Coverage
+The least unprofitable outcome of this part of the discussion would be 
+an undertaking by Mr. Faulkner - ? which might be publicly quoted that internment will he Definitely brought to an end as soon as political stability is restored (unless criminal charges can be preferred in the normal way).
+Files\\SKD_round1\\PREM 15 481\\IMG_5729_PREM_15_481 - § 1 reference coded [ 7.23% Coverage]
+Reference 1 - 7.23% Coverage
+The introduction of internment in the Six 
+Counties has been necessary only because no Government can acquiesce in illegal attempts to overthrow lawfully constituted authority or allow itself to be coerced by intimidation and bloodshed.
+Files\\SKD_round1\\PREM 15 482\\IMG_6133_PREM_15_482 - § 1 reference coded [ 2.02% Coverage]
+Reference 1 - 2.02% Coverage
+TO BEGIN WITH A TRIAL IN OPEN COURT AND A CROSS EXAMINATION OF WITNESSES BY LAWYERS WAS IN MY OPINION QUITE OUT OF THE QUESTION.
+Files\\SKD_round1\\PREM 15 482\\IMG_6174_PREM_15_482 - § 1 reference coded [ 8.20% Coverage]
+Reference 1 - 8.20% Coverage
+Lastly, while the processes in connection with internment should be seen to be working speedily and justly, an effort should be made to shorten the interval between the arrest and trial of persons charged with criminal offences in connection with public security. If the public could see that malefactors arrested by the security forces were brought swiftly to justice
+Files\\SKD_round1\\PREM 15 482\\IMG_6175_PREM_15_482 - § 2 references coded [ 8.75% Coverage]
+Reference 1 - 4.83% Coverage
+it would do much to increase public confidence, and the morale of the security forces themselves; their achievements in this regard had been considerable, but they were dimmed by the absence of a swift and manifest outcome of their efforts.
+Reference 2 - 3.92% Coverage
+The test for an internee’s fitness for release was not so much his innocence of any association with terrorist organisations, but whether he could be set at large without danger to the community.
+Files\\SKD_round1\\PREM 15 482\\IMG_6194_PREM_15_482 - § 1 reference coded [ 4.46% Coverage]
+Reference 1 - 4.46% Coverage
+HQNI ARE SEEKING THIS APPROVAL FROM THE MINISTRY OF DEFENCE, AND IN VIEW OF THE OBVIOUS POLITICAL SIGNIFICANCE OF AN EXTENSION, I AM WITH THEIR KNOWLEDGE FOREWARNING YOU OF THIS.
+Files\\SKD_round1\\PREM 15 482\\IMG_6195_PREM_15_482 - § 2 references coded [ 10.39% Coverage]
+Reference 1 - 3.78% Coverage
+HQNI ARE SEEKING THIS APPROVAL FROM THE MINISTRY OF DEFENCE AND IN VIEW OF THE O(VIBUS POLITICAL SIGNIFICANCE OF AN EXTENSON, I AM WITH THEIR KNOWLEDGE FREWARNNQ YOU OF 6HS.
+Reference 2 - 6.61% Coverage
+IT MAY BE THAT MINISTERS WILL WISH TO SEE SOME LIMIT PLACED ON THE NUMBER OF INTERNMENT ORDERS FOR POLITICALREASONS (INTELLIGENCE AND MILITARY REASONS ARGUE IN THE DIRECTION OF NO LIMIT) BUT UNLESS SUCH A LIMIT IS AS LOW AS 450 ON LY 150 MORE THAN ARE NOW HELD) THE PROBLEM OF EXTRA ACCO1400DAT ION REMAINS.
+Files\\SKD_round1\\PREM 15 482\\IMG_6205_PREM_15_482 - § 1 reference coded [ 7.43% Coverage]
+Reference 1 - 7.43% Coverage
+A REFERENCE TO INTERNMENT SHOULD INCLUDE THE POINTS IN PARAGRAPH 2 OF MY TELEGRAM NO 71 
+. THERE SHOULD BE A PASSAGE ON REFORM, 
+AND IN THAT CONNECTION I SHOULD LIKE TO REMIND YOU OF THE IDEA IN PARA 6 OF MY TELEGRAM NO 52 ABOUT A STANDING COMMISSION. WHAT I RECOMMEND IS A MAJOR MINISTERIAL STATEMENT, SHOWING EQUAL DETERMINATION IN THE MILITARY AND THE POLITICAL FIELDS, AND ASSERTING THE AUTHORITY OF HMG IN THE UK IN BOTH.
+Files\\SKD_round1\\PREM 15 485\\IMG_5162_PREM_15_485 - § 2 references coded [ 12.88% Coverage]
+Reference 1 - 4.78% Coverage
+But the terrorist 
+campaign continues at an unacceptable level, and I have had to conclude that the ordinary law cannot deal comprehensively or quickly enough with such ruthless viciousness.
+Reference 2 - 8.10% Coverage
+I have therefore decided, after weighing all the relevant considerations, including the views of the security authorities and after consultation with Her Majesty’s Government in the United Kingdom last Thursday, to exercise where necessary the powers of detention and internment vested in me as Minister of Home Affairs"
+Files\\SKD_round1\\PREM 15 485\\IMG_5164_PREM_15_485 - § 1 reference coded [ 7.53% Coverage]
+Reference 1 - 7.53% Coverage
+In the present circumstances of Northern Ireland, as described in 
+paragraphs 3-5 of this note, it is imperative to obtain all available intelligence in order to save the lives of civilians and members of the security forces; and it is therefore essential to interrogate suspects who are believed to have essential information.
+Files\\SKD_round1\\PREM 15 485\\IMG_5169_PREM_15_485 - § 1 reference coded [ 12.96% Coverage]
+Reference 1 - 12.96% Coverage
+In the present circumstances of Northern 
+Treland, as described in paragraphs 3-5 of this note, it is imperative to obtain all available intelligence in order to save the lives of civilians and members of the security forces; and it is therefore essential to interrogate suspects who are believed to have essential information.
+Files\\SKD_round1\\PREM 15 485\\IMG_5176_PREM_15_485 - § 1 reference coded [ 4.34% Coverage]
+Reference 1 - 4.34% Coverage
+Persons arrested or detained during Internal Security 
+operations or in near emergency situations are likely to be valuable sources of intelligence.
+Files\\SKD_round1\\PREM 15 485\\IMG_5185_PREM_15_485 - § 1 reference coded [ 8.92% Coverage]
+Reference 1 - 8.92% Coverage
+We understand that the authorities accepted that in consequence of this security requirement, the operation would be carried out with a considerable element of local improvisation and might be attended by some administrative confusion, but that they considered this to be the lesser evil in relation to the paramount need to maintain security and achieve surprise.
+Files\\SKD_round1\\PREM 15 485\\IMG_5191_PREM_15_485 - § 1 reference coded [ 10.92% Coverage]
+Reference 1 - 10.92% Coverage
+Intelligence is the key to successful operations against terrorists; and the key to intelligence is information regarding their operations, their dispositions, and their plans. When combating 
+a terrorist campaign time is of the essence; information must be sought while it is still fresh so that it may be used as quickly as possible to effect the capture of persons, arms and explosives and thereby save the lives of members of the security forces and of the civil population.
+Files\\SKD_round1\\PREM 15 485\\IMG_5231_PREM_15_485 - § 1 reference coded [ 1.22% Coverage]
+Reference 1 - 1.22% Coverage
+But it is necessary to bear constantly in mind the overriding need
+Files\\SKD_round1\\PREM 15 485\\IMG_5232_PREM_15_485 - § 1 reference coded [ 22.34% Coverage]
+Reference 1 - 22.34% Coverage
+to sustain law and order in Northern Ireland and to protect both British troops and innocent civilians against ruthless and unscrupulous terrorism.
+Files\\SKD_round1\\PREM 15 485\\IMG_5239_PREM_15_485 - § 1 reference coded [ 15.16% Coverage]
+Reference 1 - 15.16% Coverage
+I will never be swayed in an way by political pressure 
+whether from my own Party or elsewhere on security matters, I’ve made this clear all alone, whether it relates to internment or to arming of the police or whatever, but I will be guided absolutely by the Chief Constable of the Loyal Ulster Constabulary on this matter, I will always seek his advice, and there certainly will be no qualms on my part about agreement from the Northern Ireland Government that the RUC should carry arms as and when it’s regarded that they should do se by the Chief Constable and I don’t think I’m stretching it at all to say that the United Kingdom Government would hold similar views to mine on that.
+Files\\SKD_round1\\PREM 15 486\\IMG_6385_PREM_15_486 - § 1 reference coded [ 9.29% Coverage]
+Reference 1 - 9.29% Coverage
+THIS WOULD IN ANY CASE BE POLITICALLY UNACCEPTABLE BUT EVEN IF IT WERE NOT IT WOULD BE OPEN TO ALL THE DIFFICULTIES ABOUT THE INTIMIDATION OF WITNESSES AND REPRISALS ETC. WHICH OBLIGED STORMONT TO RESORT TO INTERNMENT RATHER THAN TRIALS.
+Files\\SKD_round1\\PREM 15 486\\IMG_6389_PREM_15_486 - § 1 reference coded [ 10.77% Coverage]
+Reference 1 - 10.77% Coverage
+This would in any case be politically unacceptable but even if it were not it would be open to all the difficulties about the intimidation of witnesses and reprisals etc. which obliged Stormont to resort to internment rather than trials.

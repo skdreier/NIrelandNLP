@@ -21,8 +21,8 @@ train_path = os.path.join(folder_root) + '/'
 repo_root = os.path.split(folder_root)[0]
 repo_path = os.path.join(repo_root)
 
-df_just = pd.read_csv(os.path.join(train_path, "justifications_long_training.csv"))
-df_just.shape
+df_just = pd.read_csv(os.path.join(train_path, "justifications_complete.csv"))
+df_just.head
 
 # Sample text to test function
 #df_test = df_just.iloc[0:10, 2:3]

@@ -14,7 +14,7 @@ import numpy as np
 this_file_path = os.path.abspath(__file__)
 folder_root = os.path.split(this_file_path)[0]
 repo_root = os.path.split(folder_root)[0]
-j_path = os.path.join(repo_root, 'orig_text_data/just_0106') + '/'
+j_path = os.path.join(repo_root, 'orig_text_data/just_0404') + '/'
 
 sys.path # make sure the repo is in the path 
 
@@ -111,7 +111,7 @@ long_df.shape
 # clean up "Refernce and weird characters here"
 long_df['text'] = long_df['text'].replace({"(Reference.\d)(.*)(Coverage\\n)": ""}, regex=True)
 long_df.head(20)
-
+long_df
 # save the data 
 long_df.to_csv(os.path.join(folder_root, 'justifications_long_training.csv'))
 long_df.columns
@@ -121,10 +121,14 @@ long_df.columns
 # df_long["coded_refs"] = df_long["just_text_all_ref"].str.split(r'.*(?=Reference)',expand = False) 
 
 ## Extracts docs that have page capture codes (rather than text codes) and outputs it to a different doc
+
 df_pg_ref = long_df[long_df['text'].str.contains(r"(Page.\d.:)")]
 df_pg_ref.shape
 df_pg_ref.columns
 df_pg_ref.head
+
+#len(df_pg_ref['level_4'])
+#df_pg_ref.level_4.unique()
 
 df_pg_ref = df_pg_ref[['image_id', 'file_id', 'img_file_orig', 'justification', 'level_4']]
 df_pg_ref.to_csv(os.path.join(folder_root, 'page_ref.csv'))

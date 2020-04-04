@@ -1,7 +1,7 @@
-docs,file1,file2,file3,coder_r1,start_yr,start_mo,end_year,end_mo,description,blk1,completed,notes
+docs,file1,file2,file3,coder_r1,file_start_year,file_start_month,file_end_year,file_end_month,description,blk1,completed,notes
 8,PREM,15,100,Sarah,1970,6,1970,7,Internal situation in Norther Ireland,YES,Done 11/19 ,Nothing relevant
 8,PREM,15,101,Sarah,1970,7,1970,8,"Internal situation in Norther Ireland, part 2",YES,Done 11/19,
-13,PREM,15,474,Sarah,1970,8,1971,1,"Internal situation in Norther Ireland, part 3",,NOT DONE,ACCIDENTALLY SKIPPED -- RETURN TO LATER
+13,PREM,15,474,Sarah,1970,8,1971,1,"Internal situation in Norther Ireland, part 3",,Done Apr 2020,ACCIDENTALLY SKIPPED -- RETURN TO LATER
 72,PREM,15,475,Sarah,1971,2,1971,3,"Internal situation in Norther Ireland, part 4",,Done 12/1,"First 11 from 2/3-1972; after that, all from Nov 1971-1972"
 13,PREM,15,476,Sarah,1971,3,1971,4,"Internal situation in Norther Ireland, part 5",,Done 12/1,Contains draft of NI (Emergency Provisions) act; VERY eluminating justification docs
 10,PREM,15,477,Sarah,1971,4,1971,7,"Internal situation in Norther Ireland, part 6",,Done 12/1,
@@ -38,7 +38,7 @@ docs,file1,file2,file3,coder_r1,start_yr,start_mo,end_year,end_mo,description,bl
 54,DEFE,13,1358,Dani,1972,1,1972,12,Northern Ireland: situation reports,,Done 12/29,Finished after PREM 15s
 21,PREM,15,1016,Emily,1972,11,1972,12,"Situation in Northern Ireland, part 30",,Done 12/27,
 45,DEFE,13,919,Sarah,1972,,1972,,Northern Ireland: interrogation,,Done 01/06,Finished after PREM 15s
-90,CJ,4,458,Sarah,1972,5,1973,1,Terrorist suspects: policy and procedures for arrest and interrogation_,,NOT DONE,SKIP -- RETURN TO LATER
+90,CJ,4,458,Sarah,1972,5,1973,1,Terrorist suspects: policy and procedures for arrest and interrogation_,,Done Apr 2020,SKIP -- RETURN TO LATER
 16,PREM,15,1689,Dani,1973,1,1973,2,"Situation in Northern Ireland, part 31",,Done 12/28,
 4,PREM,15,1690,Emily,1973,2,1973,3,"Situation in Northern Ireland, part 32",,Done 12/28,
 6,PREM,15,1691,Emily,1973,3,1973,3,"Situation in Northern Ireland, part 33",,Done 12/28,
