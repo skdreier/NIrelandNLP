@@ -21,7 +21,7 @@ train_path = os.path.join(folder_root) + '/'
 repo_root = os.path.split(folder_root)[0]
 repo_path = os.path.join(repo_root)
 
-df_just = pd.read_csv(os.path.join(train_path, "justifications_complete.csv"))
+df_just = pd.read_csv(os.path.join(train_path, "justifications_long_training.csv"))
 df_just.head
 
 # Sample text to test function
@@ -52,5 +52,9 @@ df_just_ohe = pd.get_dummies(df_just, columns=cat_columns)
 # Add justification column back in (for looping purposes later)
 df_just_ohe['justification_cat'] = df_just['justification']
 
+df_just_ohe.clean_text[20:40]
+
 # Save it as a csv
 df_just_ohe.to_csv(os.path.join(repo_root, 'justifications_clean_text_ohe.csv'))
+
+## Notes: Page ref turned to NA; included in the same text corpus as transcribed text, so NAs can be dropped with no concern.
