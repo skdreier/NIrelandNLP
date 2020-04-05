@@ -46,7 +46,7 @@ ___
 
 ___
 
-### Cleaning, Preliminary Scripts, and Miscellaneous Tasks (file-management branch)
+### Cleaning, Preliminary Scripts, and Miscellaneous Tasks
 
 - [cleaning](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning): Uploads, appends, cleans Nvivo data ([orig_text_data](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/)).
 
