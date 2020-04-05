@@ -64,9 +64,9 @@ ___
 
 - [orig_text_data](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/):
 
-  + [dates_0123](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/dates_0123): Contains Nvivo output text for each specific "date" code in Nviov (codes as of Jan 2020). **Used by:** [date_compile.py](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/date_compile.py).
+  + [dates_0123](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/dates_0123): Contains Nvivo output text for each specific "date" code in Nviov (Jan 2020). **Used by:** [date_compile.py](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/date_compile.py).
   
-  + [just_0404](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/just_0404): Contains Nvivo output text for each specific "justification" code in Nvivo (codes as of April 2020). **Used by:** [justifications_compile.py](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/justifications_compile.py).
+  + [just_0404](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/just_0404): Contains Nvivo output text for each specific "justification" code in Nvivo (April 2020). **Used by:** [justifications_compile.py](https://github.com/skdreier/NIreland_NLP/tree/master/cleaning/justifications_compile.py).
  
   + [sample_data](https://github.com/skdreier/NIreland_NLP/tree/master/orig_text_data/sample_data): Contains 7 sample .txt files from the original document PDFs. 
   
