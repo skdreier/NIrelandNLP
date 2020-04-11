@@ -54,7 +54,7 @@ plt.xticks(rotation=60)
 plt.subplot(2,1,2)
 (df.groupby('prem_15').text.count() / sum(df.groupby('prem_15').text.count())).plot.bar(ylim=0)
 plt.xlabel('File ID (proxy for date)')
-plt.ylabel('Proportion')
+plt.ylabel('Proportion of overall justifications')
 plt.xticks(rotation=60)
 
 plt.savefig(folder_path + 'freq_plots/J_All_time.png')
@@ -68,7 +68,7 @@ df_count.reset_index(inplace=True)
 df_count['total_just_per_file'] = df_count['text']
 df_count = df_count[['prem_15', 'total_just_per_file']]
 
-# Loop to plot each category
+# Loop to plot each category: count and proportion of justifications in that file
 for cat in df['justification_cat'].unique():
 
     df_cat = df[df['justification_cat']==cat]
@@ -83,7 +83,6 @@ for cat in df['justification_cat'].unique():
     plt.bar(df_cat_merge['prem_15'], df_cat_merge['cat_just_per_file'])
     plt.ylabel('Count')
     plt.title(cat)
-    plt.xticks(rotation=90)
     plt.xlabel('File (Proxy for date)')
     plt.xticks(rotation=60)
     
@@ -94,7 +93,28 @@ for cat in df['justification_cat'].unique():
     plt.xticks(rotation=60)
     plt.xlabel('File (Proxy for date)')
 
-    plt.savefig(folder_path + 'freq_plots/' + cat + '_time.png')
+    plt.savefig(folder_path + 'freq_plots/count_prop' + cat + '_time.png')
+    plt.close()
+
+
+# Loop to plot each category: raw count only
+
+for cat in df['justification_cat'].unique():
+
+    df_cat = df[df['justification_cat']==cat]
+    df_cat_count = df_cat.groupby('prem_15').clean_text.count()
+    df_cat_merge = pd.DataFrame.merge(df_count, df_cat_count, 'left', on='prem_15')
+    df_cat_merge.columns = ['prem_15', 'total_just_per_file', 'cat_just_per_file']
+    df_cat_merge = df_cat_merge.fillna(0)
+    
+    plt.figure(figsize=(10,5))
+    plt.bar(df_cat_merge['prem_15'], df_cat_merge['cat_just_per_file'])
+    plt.ylabel('Count')
+    plt.title(cat)
+    #plt.xlabel('File (Proxy for date)')
+    plt.xticks("")
+    
+    plt.savefig(folder_path + 'freq_plots/raw_count' + cat + '_time.png')
     plt.close()
 
 ##########################################################################################

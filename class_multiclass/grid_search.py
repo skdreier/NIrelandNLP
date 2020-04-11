@@ -112,7 +112,7 @@ df.head()
 
 fig = plt.figure(figsize=(8,6))
 df.groupby('just_categories').clean_text.count().plot.bar(ylim=0)
-plt.savefig(repo_path + '/histograms/just_6' + '.png')
+plt.savefig(repo_path + '/histograms/just_12' + '.png')
 plt.show()
 
 ######################################
@@ -332,7 +332,7 @@ for predicted in category_id_df.category_id:
 model = LogisticRegression()
 model.fit(features, labels)
 
-N = 5
+N = 10
 for just, category_id in sorted(category_to_id.items()):
   indices = np.argsort(model.coef_[category_id])
   feature_names = np.array(tfidf.get_feature_names())[indices]
@@ -345,6 +345,23 @@ for just, category_id in sorted(category_to_id.items()):
 from sklearn import metrics
 print(metrics.classification_report(y_test, y_pred, target_names=df['just_categories'].unique()))
 
+# Attempt at populating lists that could be more easily visualized -- didn't quite work
+
+x = {}
+y = []
+z = []
+
+N = 10
+for just, category_id in sorted(category_to_id.items()):
+  indices = np.argsort(model.coef_[category_id])
+  x[just] = feature_names = np.array(tfidf.get_feature_names())[indices]
+  y.append = unigrams = [v for v in reversed(feature_names) if len(v.split(' ')) == 1][:N]
+  z.append = bigrams = [v for v in reversed(feature_names) if len(v.split(' ')) == 2][:N]
+  print(just, unigrams, bigrams)
+
+x
+len(y)
+len(z)
 
 # THIS WEEKEND:
 # UPDATE categories based on today's outputs Especially since Legal Procedure captures all of them
