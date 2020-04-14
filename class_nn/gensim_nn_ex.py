@@ -81,7 +81,12 @@ model.wv.most_similar('terrorism')
 # save model
 model_name = 'test_embedding_w2v.txt'
 model.wv.save_word2vec_format(model_name, binary=False)
+# 
 
+#######################################
+# ADD YOUR TXT MODEL HERE REPLACE : "test_embedding_w2v.txt"
+#######################################
+# NOW WE CAN USE THE MODEL (LOAD .bin)
 # use model
 embeddings_index = {}
 f = open(os.path.join(project_root, "class_nn/test_embedding_w2v.txt"), encoding='utf-8')
@@ -91,6 +96,12 @@ for line in f:
     coefs = np.asarray(values[1:])
     embeddings_index[word] = coefs
 f.close() 
+embeddings_index #sample data
+
+
+# load .bin 
+from gensim.models import KeyedVectors
+word_vectors = KeyedVectors.load_word2vec_format(os.path.join(project_root, "class_nn/archive_corpus_w2v_model.bin"), binary=True)
 
 # Model will take in a group of sentences per class 
 # convert  into tokenized vector
@@ -99,8 +110,8 @@ f.close()
 sentences = df['clean_text'] # include stopwords, unstemmed
 y = df['just_categories']
 df['just_categories'].values
-from keras.preprocessing.text import Tokenizer
 
+from keras.preprocessing.text import Tokenizer
 tokenizer = Tokenizer()
 tokenizer.fit_on_texts(sentences)
 sequences = tokenizer.texts_to_sequences(sentences)
@@ -175,11 +186,40 @@ nonzero_elements / max_words
 embedding_matrix[9]
 embedding_matrix[15]
 
+# ADD FULL W2V MODEL fix to work .bin or change to .txt
+# num_words = max_words + 1 # vocabulary_size
+# embedding_dim = 100
+# embedding_matrix = np.zeros((num_words, embedding_dim))
+
+# for word, i in word_index.items():
+# 	embedding_vector = embeddings_index.get(word)
+# 	if embedding_vector is not None:
+# 		embedding_matrix[i] = embedding_vector
+
+# len(embedding_matrix)
+# embedding_matrix.shape
+
+########CHECK THIS .bin 
+# for word, i in word_index.items():
+#    if i>max_words:
+#        continue
+#    try:
+#        embedding_vector = word_vectors[word]
+#        embedding_matrix[i] = embedding_vector
+#    except KeyError:
+#        embedding_matrix[i]=np.random.normal(0,np.sqrt(0.25),embedding_dim)
+#########
+
+# check how many zero entries...
+# nonzero_elements = np.count_nonzero(np.count_nonzero(embedding_matrix, axis=1))
+# nonzero_elements / max_words
+
 ### Modeling part 
 # split training data into test, validation
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(text_vector_pad, labels, test_size=0.2, random_state = 42)
 
+# CNN Paper 
 # Setting parameters for the NN
 nb_filters = 128
 filter_size_a = 3
@@ -206,11 +246,15 @@ x = Conv1D(filters = nb_filters, kernel_size = filter_size_a,
 
 x = MaxPooling1D(pool_size=5)(x)
 
+# You can add many more of these Conv + Max_pooling 
+
 x = Flatten()(x)
+#### ENDS CONVOLUTIONS 
 
 x = Dense(128, activation='relu')(x)
 
 prob = Dense(6, activation = 'softmax',)(x)
+
 model = Model(my_input, prob)
     
 model.compile(loss='categorical_crossentropy', optimizer = my_optimizer,
@@ -234,3 +278,15 @@ test_data = pad_sequences(test_sequences, maxlen=max_seq_len+1)
 test_data
 predictions = model.predict(test_data)
 predictions
+
+###
+label_dict = y.factorize()
+label_names = list(label_dict[1])
+
+label_values = list(range(0,6))
+
+labels_index = dict(zip(label_names, label_values))
+
+score_dict = {label_index: predictions[0][idx] for idx, label_index in enumerate(labels_index)}
+
+score_dict
