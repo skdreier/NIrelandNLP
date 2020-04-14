@@ -23,6 +23,8 @@ df['just_category_6'] = df['just_category_6'].replace(['J_Political-Strategic'],
 df['just_category_6'] = df['just_category_6'].replace(['J_Denial', 'J_Intl-Domestic_Precedent'], 'J_DenyHRVio') #
 df['just_category_6'] = df['just_category_6'].replace(['J_Development-Unity'], 'J_Misc')
 df['just_categories'] = df['just_category_6']
+#df['just_categories'] = df['justification_cat'] # try it with original 12 categories
+
 
 # Create a unique number id for each justification category
 col = ['just_categories', 'clean_text'] 
@@ -89,19 +91,21 @@ model.wv.save_word2vec_format(model_name, binary=False)
 # NOW WE CAN USE THE MODEL (LOAD .bin)
 # use model
 embeddings_index = {}
-f = open(os.path.join(project_root, "class_nn/test_embedding_w2v.txt"), encoding='utf-8')
+f = open(os.path.join(project_root, "class_nn/archive_corpus_embedding_w2v_big.txt"), encoding='utf-8') # Embeddings from full corpus (raw/complete)
+#f = open(os.path.join(project_root, "class_nn/archive_corpus_embedding_w2v.txt"), encoding='utf-8') # Embeddings from full corpus (cleaned/reduced)
+#f = open(os.path.join(project_root, "class_nn/test_embedding_w2v.txt"), encoding='utf-8') # Embeddings from sample corpus
 for line in f:
     values = line.split()
     word = values[0]
     coefs = np.asarray(values[1:])
     embeddings_index[word] = coefs
 f.close() 
-embeddings_index #sample data
-
+embeddings_index #corpus data
+len(embeddings_index) #15,523 words
 
 # load .bin 
-from gensim.models import KeyedVectors
-word_vectors = KeyedVectors.load_word2vec_format(os.path.join(project_root, "class_nn/archive_corpus_w2v_model.bin"), binary=True)
+#from gensim.models import KeyedVectors
+#word_vectors = KeyedVectors.load_word2vec_format(os.path.join(project_root, "class_nn/archive_corpus_w2v_model.bin"), binary=True)
 
 # Model will take in a group of sentences per class 
 # convert  into tokenized vector
@@ -254,6 +258,7 @@ x = Flatten()(x)
 x = Dense(128, activation='relu')(x)
 
 prob = Dense(6, activation = 'softmax',)(x)
+#prob = Dense(12, activation = 'softmax',)(x)
 
 model = Model(my_input, prob)
     
@@ -284,6 +289,7 @@ label_dict = y.factorize()
 label_names = list(label_dict[1])
 
 label_values = list(range(0,6))
+#label_values = list(range(0,12))
 
 labels_index = dict(zip(label_names, label_values))
 

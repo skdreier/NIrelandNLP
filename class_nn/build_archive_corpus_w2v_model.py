@@ -63,6 +63,13 @@ tokenized_docs = [word_tokenize(i) for i in corpus_text]
 for i in tokenized_docs:
     print(i)
 
+# save model w/out any cleaning
+model= Word2Vec(tokenized_docs, min_count=1) 
+len(list(model.wv.vocab))
+model_name = 'archive_corpus_embedding_w2v_big.txt'
+model.wv.save_word2vec_format(model_name, binary=False)
+# 
+
 ### Cleaning step 1: Remove words from the model that appear only once or twice in the corpus (Original yield: 15567 words)
 model= Word2Vec(tokenized_docs, min_count=3) 
 len(list(model.wv.vocab))
@@ -118,6 +125,18 @@ model.wv.save_word2vec_format('archive_corpus_w2v_model.bin')
 # Then to use later:
 # model = Word2Vec.load('archive_corpus_w2v_model.bin')
 print(model)
+words = list(model.wv.vocab)
+print(sorted(words))
+len(words)
+
+print(model['terrorism']) # will show embeddings 
+model.wv.most_similar('terrorism')
+
+# save model
+model_name = 'archive_corpus_embedding_w2v.txt'
+model.wv.save_word2vec_format(model_name, binary=False)
+# 
+
 
 most_sim('faulkner', 5)
 most_sim('interrogation', 5)
