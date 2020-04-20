@@ -320,4 +320,6 @@ for title, normalize, short_title in titles_options:
 
     #plt.savefig('multiclass_NB/confusion_matrix12_' + short_title + '.png')
     plt.savefig('multiclass_NB/confusion_matrix7_' + short_title + '.png')
+
     plt.close()
+
