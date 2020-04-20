@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import numpy as np
 from gensim.models import Word2Vec
+from sklearn.metrics import classification_report, confusion_matrix
 
 this_file_path = os.path.abspath(__file__)
 project_root = os.path.split(os.path.split(this_file_path)[0])[0]
@@ -150,7 +151,7 @@ from keras.preprocessing.sequence import pad_sequences
 text_vector_pad = pad_sequences(sequences, maxlen=max_seq_len+1)
 
 #
-# We can look at both input and output shapes
+# We can loon at both input and output shapes
 # ourput needs processing from categorical string
 from keras.utils import to_categorical
 from sklearn.preprocessing import LabelEncoder
@@ -229,7 +230,6 @@ nb_filters = 128
 filter_size_a = 3
 drop_rate = 0.5
 my_optimizer = 'adam'
-drop_rate = .30
 
 from keras.layers import Input, Embedding, Dropout, Conv1D, GlobalMaxPooling1D, Dense, Concatenate, MaxPooling1D, Flatten
 from keras.models import Model, load_model
@@ -244,13 +244,12 @@ embedding = Embedding(num_words, # vocab size, including the 0-th word used for 
                         input_length=max_seq_len + 1,
                         trainable=False
                         )(my_input)
-# explore dropoout on embeddings 
-embedding_dropped = Dropout(0.2)(embedding)
+
 # Kernel size is how big your window is. Putting x number of words into the NN together at a time from each sentence.
 x = Conv1D(filters = nb_filters, kernel_size = filter_size_a,
-    activation = 'relu',)(embedding_dropped)
+    activation = 'relu',)(embedding)
 
-x = MaxPooling1D()(x)
+x = MaxPooling1D(pool_size=5)(x)
 
 # You can add many more of these Conv + Max_pooling 
 
@@ -259,9 +258,7 @@ x = Flatten()(x)
 
 x = Dense(128, activation='relu')(x)
 
-dense_drop = Dropout(0.2)(x)
-
-prob = Dense(6, activation = 'softmax',)(dense_drop)
+prob = Dense(6, activation = 'softmax',)(x)
 #prob = Dense(12, activation = 'softmax',)(x)
 
 model = Model(my_input, prob)
@@ -300,3 +297,27 @@ labels_index = dict(zip(label_names, label_values))
 score_dict = {label_index: predictions[0][idx] for idx, label_index in enumerate(labels_index)}
 
 score_dict
+
+###
+# this part is from github...link?
+#matrix = confusion_matrix(y_test.argmax(axis=1), y_pred.argmax(axis=1))
+
+#this is existing code for confusious matric in the multiclass.py 
+titles_options = [("Confusion matrix, without normalization", None, "not_normalized"),
+                  ("Normalized confusion matrix", 'true', "normalized")]
+for title, normalize, short_title in titles_options:
+    disp = plot_confusion_matrix(THIS_IS_YOU_MODEL_THAT_PREDICTS_NEW_INPUTS, sentences_test, y_test,
+                                 #display_labels=id_to_category,
+                                 display_labels=category_to_id,
+                                 cmap=plt.cm.Blues,
+                                 normalize=normalize)
+    disp.ax_.set_title(title)
+
+    plt.xticks(np.arange(0, len(category_to_id)), category_to_id, rotation=60, ha='right')
+
+    print(title)
+    print(disp.confusion_matrix)
+
+    #plt.savefig('multiclass_NB/confusion_matrix12_' + short_title + '.png')
+    plt.savefig('multiclass_NB/confusion_matrix7_' + short_title + '.png')
+    plt.close()
