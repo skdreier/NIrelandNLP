@@ -158,6 +158,11 @@ model.fit(x_train, y_train, # Target vector
 # Prepare embedding matrix
 word_vectors = KeyedVectors.load_word2vec_format(PATH_TO_GV + 'GoogleNews-vectors-negative300.bin', binary=True)
 
+embeddings_index_2 = dict()
+for word in word_vectors.wv.vocab:
+    embeddings_index_2[word] = word_vectors.word_vec(word)
+embeddings_index_2
+
 word_vector_dim=300
 vocabulary_size= max_words + 1
 embedding_matrix = np.zeros((vocabulary_size, word_vector_dim))
