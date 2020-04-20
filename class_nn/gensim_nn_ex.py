@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import numpy as np
 from gensim.models import Word2Vec
+from sklearn.metrics import classification_report, confusion_matrix
 
 this_file_path = os.path.abspath(__file__)
 project_root = os.path.split(os.path.split(this_file_path)[0])[0]
@@ -296,3 +297,27 @@ labels_index = dict(zip(label_names, label_values))
 score_dict = {label_index: predictions[0][idx] for idx, label_index in enumerate(labels_index)}
 
 score_dict
+
+###
+# this part is from github...link?
+#matrix = confusion_matrix(y_test.argmax(axis=1), y_pred.argmax(axis=1))
+
+#this is existing code for confusious matric in the multiclass.py 
+titles_options = [("Confusion matrix, without normalization", None, "not_normalized"),
+                  ("Normalized confusion matrix", 'true', "normalized")]
+for title, normalize, short_title in titles_options:
+    disp = plot_confusion_matrix(THIS_IS_YOU_MODEL_THAT_PREDICTS_NEW_INPUTS, sentences_test, y_test,
+                                 #display_labels=id_to_category,
+                                 display_labels=category_to_id,
+                                 cmap=plt.cm.Blues,
+                                 normalize=normalize)
+    disp.ax_.set_title(title)
+
+    plt.xticks(np.arange(0, len(category_to_id)), category_to_id, rotation=60, ha='right')
+
+    print(title)
+    print(disp.confusion_matrix)
+
+    #plt.savefig('multiclass_NB/confusion_matrix12_' + short_title + '.png')
+    plt.savefig('multiclass_NB/confusion_matrix7_' + short_title + '.png')
+    plt.close()
