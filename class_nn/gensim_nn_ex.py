@@ -150,7 +150,7 @@ from keras.preprocessing.sequence import pad_sequences
 text_vector_pad = pad_sequences(sequences, maxlen=max_seq_len+1)
 
 #
-# We can loon at both input and output shapes
+# We can look at both input and output shapes
 # ourput needs processing from categorical string
 from keras.utils import to_categorical
 from sklearn.preprocessing import LabelEncoder
@@ -229,6 +229,7 @@ nb_filters = 128
 filter_size_a = 3
 drop_rate = 0.5
 my_optimizer = 'adam'
+drop_rate = .30
 
 from keras.layers import Input, Embedding, Dropout, Conv1D, GlobalMaxPooling1D, Dense, Concatenate, MaxPooling1D, Flatten
 from keras.models import Model, load_model
@@ -243,12 +244,13 @@ embedding = Embedding(num_words, # vocab size, including the 0-th word used for 
                         input_length=max_seq_len + 1,
                         trainable=False
                         )(my_input)
-
+# explore dropoout on embeddings 
+embedding_dropped = Dropout(0.2)(embedding)
 # Kernel size is how big your window is. Putting x number of words into the NN together at a time from each sentence.
 x = Conv1D(filters = nb_filters, kernel_size = filter_size_a,
-    activation = 'relu',)(embedding)
+    activation = 'relu',)(embedding_dropped)
 
-x = MaxPooling1D(pool_size=5)(x)
+x = MaxPooling1D()(x)
 
 # You can add many more of these Conv + Max_pooling 
 
@@ -257,7 +259,9 @@ x = Flatten()(x)
 
 x = Dense(128, activation='relu')(x)
 
-prob = Dense(6, activation = 'softmax',)(x)
+dense_drop = Dropout(0.2)(x)
+
+prob = Dense(6, activation = 'softmax',)(dense_drop)
 #prob = Dense(12, activation = 'softmax',)(x)
 
 model = Model(my_input, prob)
