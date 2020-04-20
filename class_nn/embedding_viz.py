@@ -9,10 +9,10 @@ from gensim.models import KeyedVectors
 
 w_vec_model = KeyedVectors.load_word2vec_format(os.path.join(project_root, "class_nn/archive_corpus_embedding_w2v_big.txt"), binary=False)
 
+w_vec_model.vocab
 
 
-
-keys = ['terrorism', 'denial', 'justice', 'legal', 'peace', 'release', 'war']
+keys = ['terrorism', 'faulkner', 'internment', 'spa', 'peace', 'release', 'ira']
 
 embedding_clusters = []
 word_clusters = []
@@ -27,6 +27,7 @@ for word in keys:
 
 embedding_clusters = np.array(embedding_clusters)
 n, m, k = embedding_clusters.shape
+
 tsne_model_en_2d = TSNE(perplexity=15, n_components=2, init='pca', n_iter=3500, random_state=32)
 embeddings_en_2d = np.array(tsne_model_en_2d.fit_transform(embedding_clusters.reshape(n * m, k))).reshape(n, m, 2)
 
