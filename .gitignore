@@ -11,3 +11,4 @@ NIreland_NLP.Rproj
 __pycache__/
 wordvec/
 NI_docs
+test_embedding_w2v.txt

@@ -92,8 +92,8 @@ model.wv.save_word2vec_format(model_name, binary=False)
 # NOW WE CAN USE THE MODEL (LOAD .bin)
 # use model
 embeddings_index = {}
-f = open(os.path.join(project_root, "class_nn/archive_corpus_embedding_w2v_big.txt"), encoding='utf-8') # Embeddings from full corpus (raw/complete)
-#f = open(os.path.join(project_root, "class_nn/archive_corpus_embedding_w2v.txt"), encoding='utf-8') # Embeddings from full corpus (cleaned/reduced)
+#f = open(os.path.join(project_root, "class_nn/archive_corpus_embedding_w2v_big.txt"), encoding='utf-8') # Embeddings from full corpus (raw/complete)
+f = open(os.path.join(project_root, "class_nn/archive_corpus_embedding_w2v.txt"), encoding='utf-8') # Embeddings from full corpus (cleaned/reduced)
 #f = open(os.path.join(project_root, "class_nn/test_embedding_w2v.txt"), encoding='utf-8') # Embeddings from sample corpus
 for line in f:
     values = line.split()
@@ -272,6 +272,24 @@ x = model.fit(x_train, y_train, # Target vector
     batch_size=100, # Number of observations per batch
     validation_data=(x_test, y_test))
 
+print(x.history)
+
+_, train_acc = model.evaluate(x_train, y_train, verbose=1)
+_, test_acc = model.evaluate(x_test, y_test, verbose=1)
+print('Train: %.3f, Test: %.3f' % (train_acc, test_acc))
+
+import matplotlib.pyplot as plt
+
+plt.plot(x.history['accuracy'], label='Training data')
+plt.plot(x.history['val_accuracy'], label='Testing data')
+plt.title("Predicting Justifications: Archive Corpus Word Embeddings")
+plt.xlabel("No. epoch")
+plt.ylabel("Accuracy (percent)")
+plt.legend()
+plt.savefig("accuracy_predicting_archive_corpus.png")
+plt.show()
+
+
 ### Making predictions
 
 Xnew = ['internment of individuals will continue to mitigate security risks']
@@ -298,6 +316,7 @@ score_dict = {label_index: predictions[0][idx] for idx, label_index in enumerate
 
 score_dict
 
+
 ###
 # this part is from github...link?
 #matrix = confusion_matrix(y_test.argmax(axis=1), y_pred.argmax(axis=1))
@@ -306,10 +325,10 @@ score_dict
 titles_options = [("Confusion matrix, without normalization", None, "not_normalized"),
                   ("Normalized confusion matrix", 'true', "normalized")]
 for title, normalize, short_title in titles_options:
-    disp = plot_confusion_matrix(THIS_IS_YOU_MODEL_THAT_PREDICTS_NEW_INPUTS, sentences_test, y_test,
-                                 #display_labels=id_to_category,
-                                 display_labels=category_to_id,
-                                 cmap=plt.cm.Blues,
+    disp = confusion_matrix(model.predict, x_test, y_test,
+                                 # display_labels=id_to_category,
+                             #    display_labels=category_to_id,
+                             #    cmap=plt.cm.Blues,
                                  normalize=normalize)
     disp.ax_.set_title(title)
 
@@ -318,8 +337,46 @@ for title, normalize, short_title in titles_options:
     print(title)
     print(disp.confusion_matrix)
 
+
+
     #plt.savefig('multiclass_NB/confusion_matrix12_' + short_title + '.png')
     plt.savefig('multiclass_NB/confusion_matrix7_' + short_title + '.png')
 
     plt.close()
+
+
+
+
+
+
+
+
+### plot mean squared error
+model.compile(loss='categorical_crossentropy', optimizer = my_optimizer,
+    metrics=['mean_squared_error']) 
+
+x = model.fit(x_train, y_train, # Target vector
+    epochs=20, # Three epochs
+    verbose=1, # No output
+    batch_size=100, # Number of observations per batch
+    validation_data=(x_test, y_test))
+
+plt.plot(x.history['mean_squared_error'], label='MSE (testing data)')
+plt.plot(x.history['val_mean_squared_error'], label='MSE (validation data)')
+plt.title('MSE for Chennai Reservoir Levels')
+plt.ylabel('MSE value')
+plt.xlabel('No. epoch')
+plt.legend(loc="upper left")
+plt.show()
+
+
+plt.plot(x.history['loss'], label='MAE (testing data)')
+plt.plot(x.history['val_loss'], label='MAE (validation data)')
+plt.title('MAE for Predicting Justifications: Archive Corpus Word Embeddings')
+plt.ylabel('MAE value')
+plt.xlabel('No. epoch')
+plt.legend(loc="middle left")
+plt.savefig('MAE_predicting_archive_corpus.png')
+plt.show()
+
 

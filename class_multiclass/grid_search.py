@@ -70,7 +70,7 @@ df['just_category_6'] = df['justification_cat']
 df['just_category_6'] = df['just_category_6'].replace(['J_Emergency-Policy', 'J_Intelligence', 'J_Last-resort', 'J_Utilitarian-Deterrence', 'J_Law-and-order'], 'J_Security')
 df['just_category_6'] = df['just_category_6'].replace(['J_Legal_Procedure'], 'J_Legal')
 df['just_category_6'] = df['just_category_6'].replace(['J_Political-Strategic'], 'J_Political')
-df['just_category_6'] = df['just_category_6'].replace(['J_Denial', 'J_Intl-Domestic_Precedent'], 'J_HR_not_violated')
+df['just_category_6'] = df['just_category_6'].replace(['J_Denial', 'J_Intl-Domestic_Precedent'], 'J_HR_protected')
 df['just_category_6'] = df['just_category_6'].replace(['J_Development-Unity'], 'J_Misc')
 # Keep terrorism and Misc as-is
 df['just_category_6'].unique()
@@ -293,8 +293,8 @@ for param_name in sorted(parameters.keys()):
 #####################################################################################
 
 multinom_best = Pipeline([
-                ('vect2', TfidfVectorizer(sublinear_tf=True, norm='l2', encoding='latin-1', min_df=3, ngram_range=(1,2), stop_words='english', use_idf=False)),
-                ('multiclass', LogisticRegression(random_state=0, multi_class='ovr')) 
+                ('vect2', TfidfVectorizer(sublinear_tf=True, norm='l2', encoding='latin-1', min_df=10, ngram_range=(1,1), stop_words='english', use_idf=False)),
+                ('multiclass', LogisticRegression(random_state=0, multi_class='multinomial')) 
                ])
 
 multinom_best.fit(sentences_train, y_train)
@@ -304,13 +304,26 @@ print('accuracy %s' % accuracy_score(y_pred, y_test))
 print(classification_report(y_test, y_pred))
 print(confusion_matrix(y_test, y_pred))
 
+
 conf_mat = confusion_matrix(y_test, y_pred)
-fig, ax = plt.subplots(figsize=(4,4))
+fig, ax = plt.subplots(figsize=(8,5))
 sns.heatmap(conf_mat, annot=True, fmt='d',
-            xticklabels=category_id_df.just_categories, yticklabels=category_id_df.just_categories)
-plt.ylabel('Actual')
-plt.xlabel('Predicted')
+            xticklabels=category_id_df.just_categories, yticklabels=category_id_df.just_categories, cmap=plt.cm.Blues)
+plt.ylabel('ACTUAL')
+plt.xlabel('PREDICTED')
+plt.title('Confusion Matrix (6 Justification Categories)')#
+
+#plt.xticks(np.arange(0, len(category_to_id)), category_to_id, rotation=60, ha='left')
+
+#plt.xlim(-0.5, len(np.unique(y))-0.5)
+plt.ylim(len(np.unique(y))+.1, -.5)
+
+plt.savefig('confusion_pres.png')
 plt.show()
+
+
+
+
 
 ###### This code should pull the sentences that are getting most misclasified; not working #######
 ###### One issue may be that it works w NB and not LogReg but this isn't the only issue. #########
