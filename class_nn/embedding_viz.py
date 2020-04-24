@@ -34,7 +34,6 @@ n, m, k = embedding_clusters.shape
 tsne_model_en_2d = TSNE(perplexity=15, n_components=2, init='pca', n_iter=3500, random_state=32)
 embeddings_en_2d = np.array(tsne_model_en_2d.fit_transform(embedding_clusters.reshape(n * m, k))).reshape(n, m, 2)
 
-
 def tsne_plot_similar_words(title, labels, embedding_clusters, word_clusters, a, filename):
     plt.figure(figsize=(16, 9))
     colors = cm.Dark2(np.linspace(0, 1, len(labels)))

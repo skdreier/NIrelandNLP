@@ -278,6 +278,9 @@ _, train_acc = model.evaluate(x_train, y_train, verbose=1)
 _, test_acc = model.evaluate(x_test, y_test, verbose=1)
 print('Train: %.3f, Test: %.3f' % (train_acc, test_acc))
 
+## Visualize CNN 
+# Code from: https://machinelearningmastery.com/how-to-accelerate-learning-of-deep-neural-networks-with-batch-normalization/
+
 import matplotlib.pyplot as plt
 
 plt.plot(x.history['accuracy'], label='Training data')
@@ -316,6 +319,16 @@ score_dict = {label_index: predictions[0][idx] for idx, label_index in enumerate
 
 score_dict
 
+############################################
+### NEXT STEPS #############################
+############################################
+
+# Build a confusion matrix for CNN: https://gist.github.com/RyanAkilos/3808c17f79e77c4117de35aa68447045
+
+
+
+
+
 
 ###
 # this part is from github...link?
@@ -352,6 +365,9 @@ for title, normalize, short_title in titles_options:
 
 
 ### plot mean squared error
+
+# From here: https://www.machinecurve.com/index.php/2019/10/08/how-to-visualize-the-training-process-in-keras/
+
 model.compile(loss='categorical_crossentropy', optimizer = my_optimizer,
     metrics=['mean_squared_error']) 
 
