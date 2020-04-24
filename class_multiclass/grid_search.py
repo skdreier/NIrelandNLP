@@ -245,6 +245,8 @@ grid_output.best_score_
 for param_name in sorted(parameters.keys()):
     print("%s: %r" % (param_name, grid_output.best_params_[param_name]))
 
+# Accuracy for J=6: 0.449
+
 ##### Best NB score and parameters for stemmed words:
 # score: 0.41923
 # alpha: 0.5
@@ -304,10 +306,9 @@ print('accuracy %s' % accuracy_score(y_pred, y_test))
 print(classification_report(y_test, y_pred))
 print(confusion_matrix(y_test, y_pred))
 
-
-conf_mat = confusion_matrix(y_test, y_pred)
-fig, ax = plt.subplots(figsize=(8,5))
-sns.heatmap(conf_mat, annot=True, fmt='d',
+conf_mat = confusion_matrix(y_test, y_pred, normalize='true')
+fig, ax = plt.subplots(figsize=(12,7.5))
+sns.heatmap(conf_mat, annot=True,# fmt='d',
             xticklabels=category_id_df.just_categories, yticklabels=category_id_df.just_categories, cmap=plt.cm.Blues)
 plt.ylabel('ACTUAL')
 plt.xlabel('PREDICTED')
