@@ -36,11 +36,13 @@ ___
 
 - [class_nn](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/): Neural Network classification analysis
 
-  + [baseline_neural_network.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/baseline_neural_network.py): Builds a shallow, one-layer neural network. This uses the justification training data; takes sentences as inputs and tries to train a model. Uses stemmed vocabulary (tokenized) but no word-to-vector embeddings (just a few hidden nodes trying to train a classifier).
+  + [baseline_neural_network.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/baseline_neural_network.py): Builds a shallow, one-layer neural network (with just a few hidden nodes). Takes justification sentences as inputs to train a classifier. Uses stemmed vocabulary (tokenized) but no word embeddings.
   
-  + [embeddings_google.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/embeddings_google.py): Builds NN using google embeddings and parameters. This has two NN models: 1) One with an embedded layer but trained based on our own vocabulary (uses an embedded layer as a layer); 2) One which uses google word2vec embeddings as an added layer in the NN model (uses an embedded layer populated by the google word2vec model). 
+  + [embeddings_google.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/embeddings_google.py): Builds a NN that uses an embedded layer populated by the Google word2vec embeddings). 
 
-  + [build_archive_corpus_w2v_model.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/build_archive_corpus_w2v_model.py): Builds Word vector model based on our archive data ([archive_corpus_w2v_model.bin](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/archive_corpus_w2v_model.bin)). **Action:** Save visualized output to GitHub, address/improve/jettison model cleaning tactics, ***add as an embedded layer to NN.***
+  + [build_archive_corpus_w2v_model.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/build_archive_corpus_w2v_model.py): Builds a word vector model based on our archive data. [archive_corpus_embedding_w2v.txt](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/wordvec/archive_corpus_embedding_w2v.txt) is trained based on cleaned corpus (15.5k stemmed words); [archive_corpus_embedding_w2v_big.txt](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/wordvec/archive_corpus_embedding_w2v_big.txt) is trained based on uncleaned complete corpus (67.9k stemmed words). Also explores scatter-plot visualization of word embeddings.
+  
+  . ([archive_corpus_w2v_model.bin](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/archive_corpus_w2v_model.bin)). **Action:** Save visualized output to GitHub, address/improve/jettison model cleaning tactics, ***add as an embedded layer to NN.***
   
   + [pretrained_models_init.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/pretrained_models_init.py): Uploads pretrained word vector models (e.g., Stanford GloVe model, Google Word2Vec model). 
 
