@@ -38,7 +38,7 @@ ___
 
   + [baseline_neural_network.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/baseline_neural_network.py): Builds a shallow, one-layer neural network (with just a few hidden nodes). Takes justification sentences as inputs to train a classifier. Uses stemmed vocabulary (tokenized) but no word embeddings.
   
-  + [embeddings_google.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/embeddings_google.py): Builds a NN that uses an embedded layer populated by the Google word2vec embeddings). 
+  + [embeddings_google.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/embeddings_google.py): Builds a NN that uses an embedded layer populated by the Google word2vec embeddings. 
 
   + [build_archive_corpus_w2v_model.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/build_archive_corpus_w2v_model.py): Builds a word vector model based on our archive data. [archive_corpus_embedding_w2v.txt](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/archive_embeddings/archive_corpus_embedding_w2v.txt) is trained based on cleaned corpus (15.5k stemmed words); [archive_corpus_embedding_w2v_big.txt](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/archive_embeddings/archive_corpus_embedding_w2v_big.txt) is trained based on uncleaned complete corpus (67.9k stemmed words). Script also: 1) compiles all text in corpus, and 2) explores scatter-plot visualization of word embeddings. **Action:** Address/improve/jettison model cleaning tactics.
   
