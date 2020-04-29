@@ -66,7 +66,7 @@ for i in tokenized_docs:
 # save model w/out any cleaning
 model= Word2Vec(tokenized_docs, min_count=1) 
 len(list(model.wv.vocab))
-model_name = 'archive_corpus_embedding_w2v_big.txt'
+model_name = 'wordvec/archive_corpus_embedding_w2v_big.txt'
 model.wv.save_word2vec_format(model_name, binary=False)
 # 
 
@@ -120,10 +120,10 @@ print(sorted(words))
 len(words) #15522
 
 # Save archive word2vec model:
-model.wv.save_word2vec_format('archive_corpus_w2v_model.bin')
-#model.wv.save_word2vec_format('archive_corpus_w2v_model.txt', binary=false) # Saved as ASCII format to view contents
-# Then to use later:
-# model = Word2Vec.load('archive_corpus_w2v_model.bin')
+#model.wv.save_word2vec_format('wordvec/archive_corpus_w2v_model.bin')
+
+# To use later:
+#model = Word2Vec.load('wordvec/archive_corpus_w2v_model.bin')
 print(model)
 words = list(model.wv.vocab)
 print(sorted(words))
@@ -133,12 +133,12 @@ print(model['terrorism']) # will show embeddings
 model.wv.most_similar('terrorism')
 
 # save model
-model_name = 'archive_corpus_embedding_w2v.txt'
+model_name = 'wordvec/archive_corpus_embedding_w2v.txt'
 model.wv.save_word2vec_format(model_name, binary=False)
 # 
 
-
-most_sim('faulkner', 5)
+# Look at "most similar" words to given words in corpus
+most_sim('faulkner', 5) 
 most_sim('interrogation', 5)
 most_sim('internment', 5)
 most_sim('terrorism', 5)
@@ -150,7 +150,7 @@ print(model['terrorism'])
 # "words" to keep: sf, eec, jsc
 
 ##################################################
-### Visualize word embeddings
+### Visualize word embeddings: Exploratory
 ##################################################
 
 from sklearn.decomposition import PCA
