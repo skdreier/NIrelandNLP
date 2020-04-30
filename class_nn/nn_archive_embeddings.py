@@ -1,3 +1,11 @@
+#############################################################
+### Code builds a CNN with archive corpus word embeddings ###
+### Plots accuracy for training and testing data          ###
+### (model currently over-fitted to training data)        ###
+### Code also builds sample embeddings (from sample_data) ###
+### Apr 2020                                              ###
+#############################################################
+
 ## Gensim how-to and test with subset 
 import pandas as pd
 import os
@@ -82,19 +90,19 @@ print(model['terrorism']) # will show embeddings
 model.wv.most_similar('terrorism')
 
 # save model
-model_name = 'test_embedding_w2v.txt'
+model_name = 'archive_embeddings/test_embedding_w2v.txt'
 model.wv.save_word2vec_format(model_name, binary=False)
 # 
 
 #######################################
-# ADD YOUR TXT MODEL HERE REPLACE : "test_embedding_w2v.txt"
-#######################################
-# NOW WE CAN USE THE MODEL (LOAD .bin)
+# NOW WE CAN USE THE MODEL (LOAD .txt)
 # use model
+#######################################
+
 embeddings_index = {}
-#f = open(os.path.join(project_root, "class_nn/archive_corpus_embedding_w2v_big.txt"), encoding='utf-8') # Embeddings from full corpus (raw/complete)
-f = open(os.path.join(project_root, "class_nn/archive_corpus_embedding_w2v.txt"), encoding='utf-8') # Embeddings from full corpus (cleaned/reduced)
-#f = open(os.path.join(project_root, "class_nn/test_embedding_w2v.txt"), encoding='utf-8') # Embeddings from sample corpus
+#f = open(os.path.join(project_root, "class_nn/archive_embeddings/archive_corpus_embedding_w2v_big.txt"), encoding='utf-8') # Embeddings from full corpus (raw/complete)
+f = open(os.path.join(project_root, "class_nn/archive_embeddings/archive_corpus_embedding_w2v.txt"), encoding='utf-8') # Embeddings from full corpus (cleaned/reduced)
+#f = open(os.path.join(project_root, "class_nn/archive_embeddings/test_embedding_w2v.txt"), encoding='utf-8') # Embeddings from sample corpus
 for line in f:
     values = line.split()
     word = values[0]
@@ -106,7 +114,7 @@ len(embeddings_index) #15,523 words
 
 # load .bin 
 #from gensim.models import KeyedVectors
-#word_vectors = KeyedVectors.load_word2vec_format(os.path.join(project_root, "class_nn/archive_corpus_w2v_model.bin"), binary=True)
+#word_vectors = KeyedVectors.load_word2vec_format(os.path.join(project_root, "class_nn/archive_embeddings/archive_corpus_w2v_model.bin"), binary=True)
 
 # Model will take in a group of sentences per class 
 # convert  into tokenized vector
@@ -183,7 +191,7 @@ for word, i in word_index.items():
 len(embedding_matrix)
 embedding_matrix.shape
 
-# check how many zero entries...
+# check how many zero entries... (ie, how many words in justifications are not in word embedding corpus)
 nonzero_elements = np.count_nonzero(np.count_nonzero(embedding_matrix, axis=1))
 nonzero_elements / max_words
 
@@ -289,7 +297,7 @@ plt.title("Predicting Justifications: Archive Corpus Word Embeddings")
 plt.xlabel("No. epoch")
 plt.ylabel("Accuracy (percent)")
 plt.legend()
-plt.savefig("accuracy_predicting_archive_corpus.png")
+plt.savefig("figures/accuracy_predicting_archive_corpus.png")
 plt.show()
 
 
@@ -334,7 +342,7 @@ score_dict
 # this part is from github...link?
 #matrix = confusion_matrix(y_test.argmax(axis=1), y_pred.argmax(axis=1))
 
-#this is existing code for confusious matric in the multiclass.py 
+#this is existing code for confusion matric in the multiclass.py 
 titles_options = [("Confusion matrix, without normalization", None, "not_normalized"),
                   ("Normalized confusion matrix", 'true', "normalized")]
 for title, normalize, short_title in titles_options:
