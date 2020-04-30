@@ -38,12 +38,13 @@ ___
 
   + [baseline_neural_network.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/baseline_neural_network.py): Builds a shallow, one-layer neural network (with just a few hidden nodes). Takes justification sentences as inputs to train a classifier. Uses stemmed vocabulary (tokenized) but no word embeddings.
   
+  + [pretrained_models_init.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/pretrained_models_init.py): Uploads pretrained word vector models (e.g., Stanford GloVe model, Google Word2Vec model). 
+
   + [embeddings_google.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/embeddings_google.py): Builds a NN that uses an embedded layer populated by the Google word2vec embeddings. 
 
   + [build_archive_corpus_w2v_model.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/build_archive_corpus_w2v_model.py): Builds a word vector model (word embeddings) based on our archive data. [archive_corpus_embedding_w2v.txt](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/archive_embeddings/archive_corpus_embedding_w2v.txt) is trained based on cleaned corpus (15.5k stemmed words); [archive_corpus_embedding_w2v_big.txt](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/archive_embeddings/archive_corpus_embedding_w2v_big.txt) is trained based on uncleaned complete corpus (67.9k stemmed words). Script also: 1) compiles all text in corpus, and 2) explores scatter-plot visualization of word embeddings. **Action:** Address/improve/jettison model cleaning tactics.
-  
-  + [pretrained_models_init.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/pretrained_models_init.py): Uploads pretrained word vector models (e.g., Stanford GloVe model, Google Word2Vec model). 
 
+  + [embedding_viz.py](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/embedding_viz.py): Code visualizes archive corpus word embeddings. Plots words most similar to key words by calculating 2 Principal Components for each word list. Produces scatter plots for [presentation](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/figures/similar_words.png) and as an [online example](https://github.com/skdreier/NIreland_NLP/tree/master/class_nn/figures/similar_words_for_online.png).
 ___
 
 ### Cleaning, Preliminary Scripts, and Miscellaneous Tasks
