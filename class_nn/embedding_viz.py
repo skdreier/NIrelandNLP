@@ -1,5 +1,7 @@
 ######################################################
 ### Code visualizes Archive corpus word embeddings ###
+### Plots top words "most similar" to key words    ###
+### PCA calculated per word list subset            ###
 ### Apr 2020                                       ###
 ######################################################
 
@@ -15,7 +17,7 @@ from gensim.models import KeyedVectors
 this_file_path = os.path.abspath(__file__)
 project_root = os.path.split(os.path.split(this_file_path)[0])[0]
 
-w_vec_model = KeyedVectors.load_word2vec_format(os.path.join(project_root, "class_nn/archive_corpus_embedding_w2v.txt"), binary=False)
+w_vec_model = KeyedVectors.load_word2vec_format(os.path.join(project_root, "class_nn/archive_embeddings/archive_corpus_embedding_w2v.txt"), binary=False)
 
 w_vec_model.vocab
 len(w_vec_model.vocab)
@@ -63,7 +65,7 @@ def tsne_plot_similar_words(title, labels, embedding_clusters, word_clusters, a,
 
 
 tsne_plot_similar_words('Archive Corpus Word Embeddings', keys, embeddings_en_2d, word_clusters, 0.7,
-                        'similar_words.png')
+                        'figures/similar_words.png')
 
 
 ### Visualization for eScience online:
@@ -107,4 +109,4 @@ def tsne_plot_similar_words(title, labels, embedding_clusters, word_clusters, a,
 
 
 tsne_plot_similar_words('Archive Corpus Word Embeddings', keys, embeddings_en_2d, word_clusters, 0.7,
-                        'similar_words_for_online.png')
+                        'figures/similar_words_for_online.png')
