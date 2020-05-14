@@ -1,6 +1,8 @@
 ######################################################
-##### Retrieves Text Corpora for Sophia          #####
-##### Uses: NI_docs, preprocessing.py            #####
+##### Builds Text Corpora for BERT analysis      #####
+##### corpus_full.csv: contains all archive text #####
+##### corpus_just.csv: contains all sentences coded as justification #####
+##### corpus_subset_pages_w_just.csv: contains all text in pages that contain a justification #####
 ######################################################
 
 import os, sys
@@ -96,3 +98,9 @@ just_imgs = np.ndarray.tolist(df['img_file_orig'].unique())
 ocr_corpus_subset = ocr_corpus.loc[ocr_corpus['img_file'].isin(just_imgs)]
 
 ocr_corpus_subset.to_csv('corpus_subset_pages_w_just.csv')
+
+# Load all three corpora
+full_corpus_df = pd.read_csv('corpus_full.csv')
+just_corpus_df = pd.read_csv('corpus_just.csv')
+subset_corpus_df = pd.read_csv('corpus_subset_pages_w_just.csv')
+
