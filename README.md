@@ -23,9 +23,8 @@ ___
   
   + [corpus_subset_pages_w_just.csv](https://github.com/skdreier/NIreland_NLP/tree/bert_analysis/BERT/corpus_subset_pages_w_just.csv): Corpus of all OCR-ed text from archive pages that contain a justification for internment (655 pages). Each line is a single page; contains document number, raw text, and cleaned text (see [prep_corpora.py](https://github.com/skdreier/NIreland_NLP/tree/bert_analysis/BERT/prep_corpora.py) for cleaning approach). ***ANALYSIS GOAL: Identify justification (of any category) in text. NOTE: It would also be possible to look at ALL pages relevant to internment (not just those that contain a justification for internment, ~1400 pages).***
   
-  + [corpus_just.csv](https://github.com/skdreier/NIreland_NLP/tree/bert_analysis/BERT/corpus_just.csv): Corpus of all hand-coded justifications found in original archive pages. Each line is a single justification; contains document number, raw text, cleaned text, justification category, one-hot-encoding for each justification category, and an indication of whether the text was hand-transcribed ("transcription_data"=1). **We probably want to remove hand-transcribed text from analysis, as it is more "perfect" than the full corpus.**
-
-
+  + [corpus_just.csv](https://github.com/skdreier/NIreland_NLP/tree/bert_analysis/BERT/corpus_just.csv): Corpus of all hand-coded justifications found in original archive pages. Each line is a single justification; contains document number, raw text, cleaned text, justification category, one-hot-encoding for each justification category, and an indication of whether the text was hand-transcribed ("transcription_data"=1). **We probably want to remove hand-transcribed text from analysis, as it is more "perfect" than the full corpus.** ***ANALYSIS GOAL: Classify justifications into appropriate category.***
+ 
 
 ### Analysis
 
