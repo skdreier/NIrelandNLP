@@ -160,9 +160,11 @@ df_just.columns
 
 df_just['occurances'] = df_just['level_4']
 df_trans['text'] = df_trans['transcribed_text']
+df_just['transcription_data'] = 0
+df_trans['transcription_data'] = 1
 
-df_just_merge = df_just[['image_id', 'file_id', 'img_file_orig', 'justification', 'occurances', 'text']]
-df_trans_merge = df_trans[['image_id', 'file_id', 'img_file_orig', 'justification', 'occurances', 'text']]
+df_just_merge = df_just[['image_id', 'file_id', 'img_file_orig', 'justification', 'occurances', 'text', 'transcription_data']]
+df_trans_merge = df_trans[['image_id', 'file_id', 'img_file_orig', 'justification', 'occurances', 'text', 'transcription_data']]
 
 all_just = pd.concat([df_just_merge, df_trans_merge])
 
@@ -228,7 +230,7 @@ df_merge_final = pd.DataFrame.merge(df_merge, df_dates, 'left', on="img_file_ori
 
 df_just_dates = df_merge_final[['image_id', 'file_id', 'img_file_orig',
       'file_start_year', 'file_start_month', 'file_end_year', 'file_end_month', 'date_coded', 
-      'justification', 'occurances', 'text',]]
+      'justification', 'occurances', 'text', 'transcription_data']]
 
 # output csv
 df_just_dates.to_csv(os.path.join(folder_root, 'justifications_long_training.csv'))
