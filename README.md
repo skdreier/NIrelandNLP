@@ -17,7 +17,7 @@ ___
 
 - [BERT](https://github.com/skdreier/NIreland_NLP/tree/bert_analysis/BERT)
 
-  + [prep_corpora.py](https://github.com/skdreier/NIreland_NLP/tree/bert_analysis/BERT/prep_corpora.py): Concatenates data from original and hand-coded text files into corpora for BERT analysis. Retains original text ("raw_text") and cleans text ("clean_text").
+  + [prep_corpora.py](https://github.com/skdreier/NIreland_NLP/tree/bert_analysis/BERT/prep_corpora.py): Concatenates text into corpora for BERT analysis. Retains original text ("raw_text") and cleans text ("clean_text").
   
   + [corpus_full.csv](https://github.com/skdreier/NIreland_NLP/tree/bert_analysis/BERT/corpus_full.csv): Corpus of all OCR-ed text from original archive pages (6946 pages). Each line is a single page; contains document number, raw text, and cleaned text (see [prep_corpora.py](https://github.com/skdreier/NIreland_NLP/tree/bert_analysis/BERT/prep_corpora.py) for cleaning approach). ***ANALYSIS GOAL: Identify justification (of any category) in text. NOTE: it would also be possible to look just pages relevant to internment (~1400 pages).*** 
   
