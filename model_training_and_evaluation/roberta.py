@@ -28,7 +28,8 @@ class ClassificationModelWithSavingAndLoading(ClassificationModel):
 
 def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int, learning_rate: float,
                        label_weights: List[float]=None, string_prefix='',
-                       lowercase_all_text=True, cuda_device=-1, f1_avg='weighted', test_set=None):
+                       lowercase_all_text=True, cuda_device=-1, f1_avg='weighted', test_set=None,
+                       print_results=True):
     if cuda_device < 0:
         use_cuda = False
     else:
@@ -56,9 +57,10 @@ def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int
             model.eval_model(dev_df, acc=accuracy_score,
                              f1=(lambda labels, preds: f1_score(labels, preds, average=f1_avg)))
 
-    print(string_prefix + 'With batch size ' + str(batch_size) + ' and learning rate ' + str(learning_rate) +
-          ', RoBERTa result: accuracy is ' + str(result['acc']) + ' and ' + f1_avg + ' f1 is ' +
-          str(result['f1']))
+    if print_results:
+        print(string_prefix + 'With batch size ' + str(batch_size) + ' and learning rate ' + str(learning_rate) +
+              ', RoBERTa result: accuracy is ' + str(result['acc']) + ' and ' + f1_avg + ' f1 is ' +
+              str(result['f1']))
     return result['f1'], result['acc'], list(model_outputs)
 
 

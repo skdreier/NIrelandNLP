@@ -8,6 +8,8 @@ from logreg_baseline import run_classification as run_logreg_classification
 from roberta import run_classification as run_roberta_classification
 from roberta import run_best_model_on
 import numpy as np
+from detailed_performance_breakdown import get_recall_precision_curve_points, \
+    plot_two_precision_recalls_against_each_other, make_multilabel_csv
 
 
 def get_simplified_filename_string(filename_tag_string):
@@ -752,6 +754,8 @@ def main():
     binary_negative_sentences_spot_checking_fname = 'data/binary_extracted_negative_sentences.txt'
     problem_report_filename = 'data/problem_matches.txt'  # or None if you just want to report to the command line
     success_report_filename = 'data/successful_matches.txt'  # or None if you don't want these reported
+    dev_precreccurve_plot_filename = 'output_analysis/binarytask_dev_precisionrecallcurve.png'
+    test_precreccurve_plot_filename = 'output_analysis/binarytask_test_precisionrecallcurve.png'
     if problem_report_filename and os.path.isfile(problem_report_filename):
         os.remove(problem_report_filename)
     if success_report_filename and os.path.isfile(success_report_filename):
@@ -763,6 +767,10 @@ def main():
     multiway_label_key_filename = 'data/multiway_classes.txt'
     output_multiway_model_dir = '../f1-saved_multiway_model/'
     multiway_output_report_filename_stub = 'output_analysis/f1-multiwaybest'
+    csv_filename_logreg_on_dev = 'output_analysis/multiwaytask_dev_logregresults.csv'
+    csv_filename_roberta_on_dev = 'output_analysis/multiwaytask_dev_robertaresults.csv'
+    csv_filename_logreg_on_test = 'output_analysis/multiwaytask_test_logregresults.csv'
+    csv_filename_roberta_on_test = 'output_analysis/multiwaytask_test_robertaresults.csv'
 
     if output_binary_model_dir.endswith('/'):
         output_binary_model_dir = output_binary_model_dir[:-1]
@@ -835,10 +843,18 @@ def main():
             best_param = regularization_weight
     print('For binary case, best baseline logreg model had regularization weight ' + str(best_param) +
           ', and achieved the following performance on the held-out test set:')
-    f1, acc, list_of_all_test_labels, list_of_all_predicted_lr_test_labels = \
+    f1, acc, list_of_all_dev_labels, list_of_all_predicted_lr_dev_labels, dev_lr_logits = \
+        run_logreg_classification(train_df, dev_df, regularization_weight=best_param,
+                                  label_weights=label_weights, string_prefix='(Dev set)  ', f1_avg='binary',
+                                  also_output_logits=True)
+    f1, acc, list_of_all_test_labels, list_of_all_predicted_lr_test_labels, test_lr_logits = \
         run_logreg_classification(train_df, test_df, regularization_weight=best_param,
-                                  label_weights=label_weights, string_prefix='', f1_avg='binary')
-
+                                  label_weights=label_weights, string_prefix='(Test set) ', f1_avg='binary',
+                                  also_output_logits=True)
+    dev_lr_precrec_curve_points = get_recall_precision_curve_points(dev_lr_logits, list_of_all_dev_labels,
+                                                                    string_prefix='(Dev for LogReg)  ')
+    test_lr_precrec_curve_points = get_recall_precision_curve_points(test_lr_logits, list_of_all_test_labels,
+                                                                     string_prefix='(Test for LogReg) ')
 
     learning_rates_to_try = [1e-5, 2e-5, 3e-5]  # from RoBERTa paper
     batch_sizes_to_try = [32, 16]  # from RoBERTa and BERT papers
@@ -859,14 +875,30 @@ def main():
     print('For binary case, best RoBERTa model had lr ' + str(learning_rate) + ' and batch size ' + str(batch_size) +
           '. Performance:')
     output_dir = output_binary_model_dir + '_' + str(learning_rate) + '_' + str(batch_size) + '/'
-    run_best_model_on(output_dir, dev_df, num_labels, label_weights, lowercase_all_text=True,
-                      cuda_device=-1, string_prefix='Dev ', f1_avg='binary')
-    f1, acc, list_of_all_predicted_roberta_test_labels = \
+    dev_f1, dev_acc, list_of_all_predicted_roberta_dev_logits = \
+        run_best_model_on(output_dir, dev_df, num_labels, label_weights, lowercase_all_text=True,
+                          cuda_device=-1, string_prefix='Dev ', f1_avg='binary')
+    f1, acc, list_of_all_predicted_roberta_test_logits = \
         run_best_model_on(output_dir, test_df, num_labels, label_weights, lowercase_all_text=True,
                           cuda_device=-1, string_prefix='Test ', f1_avg='binary')
     list_of_all_predicted_roberta_test_labels = \
-        clean_roberta_prediction_output(list_of_all_predicted_roberta_test_labels)
+        clean_roberta_prediction_output(list_of_all_predicted_roberta_test_logits)
 
+    dev_roberta_precrec_curve_points = get_recall_precision_curve_points(list_of_all_predicted_roberta_dev_logits,
+                                                                         list_of_all_dev_labels,
+                                                                         string_prefix='(Dev for RoBERTa)  ')
+    test_roberta_precrec_curve_points = get_recall_precision_curve_points(list_of_all_predicted_roberta_test_logits,
+                                                                          list_of_all_test_labels,
+                                                                          string_prefix='(Test for RoBERTa) ')
+
+    plot_two_precision_recalls_against_each_other(dev_lr_precrec_curve_points, 'LogReg baseline',
+                                                  dev_roberta_precrec_curve_points, 'Finetuned RoBERTa',
+                                                  dev_precreccurve_plot_filename,
+                                                  plot_title='Precision-recall curve on dev set')
+    plot_two_precision_recalls_against_each_other(test_lr_precrec_curve_points, 'LogReg baseline',
+                                                  test_roberta_precrec_curve_points, 'Finetuned RoBERTa',
+                                                  test_precreccurve_plot_filename,
+                                                  plot_title='Precision-recall curve on test set')
     report_mismatches_to_files(binary_output_report_filename_stub, list_of_all_test_labels,
                                list_of_all_predicted_lr_test_labels, list_of_all_predicted_roberta_test_labels,
                                test_df, model_name='RoBERTa')
@@ -883,6 +915,7 @@ def main():
 
     best_f1 = -1
     best_param = None
+    dev_predictions_of_best_lr_model = None
     regularization_weights_to_try = [.0001, .001, .01, .1, 1, 10, 100, 1000]
     for regularization_weight in regularization_weights_to_try:
         f1, acc, list_of_all_dev_labels, list_of_all_predicted_dev_labels = \
@@ -891,11 +924,18 @@ def main():
         if f1 > best_f1:
             best_f1 = f1
             best_param = regularization_weight
+            dev_predictions_of_best_lr_model = list_of_all_predicted_dev_labels
     print('For multiway case, best baseline logreg model had regularization weight ' + str(best_param) +
           ', and achieved the following performance on the held-out test set:')
     f1, acc, list_of_all_test_labels, list_of_all_predicted_lr_test_labels = \
         run_logreg_classification(train_df, test_df, regularization_weight=best_param,
                                   label_weights=label_weights, string_prefix='')
+    make_multilabel_csv(dev_predictions_of_best_lr_model, list_of_all_dev_labels,
+                        multiway_label_key_filename, csv_filename_logreg_on_dev,
+                        datasplit_label='dev')
+    make_multilabel_csv(list_of_all_predicted_lr_test_labels, list_of_all_test_labels,
+                        multiway_label_key_filename, csv_filename_logreg_on_test,
+                        datasplit_label='test')
 
     learning_rates_to_try = [1e-5, 2e-5, 3e-5]  # from RoBERTa paper
     batch_sizes_to_try = [32, 16]  # from RoBERTa and BERT papers
@@ -916,13 +956,23 @@ def main():
     print('For multiway case, best RoBERTa model had lr ' + str(learning_rate) + ' and batch size ' + str(batch_size) +
           '. Performance:')
     output_dir = output_multiway_model_dir + '_' + str(learning_rate) + '_' + str(batch_size) + '/'
-    run_best_model_on(output_dir, dev_df, num_labels, label_weights, lowercase_all_text=True,
-                      cuda_device=-1, string_prefix='Dev ', f1_avg='weighted')
+    f1, acc, list_of_all_predicted_roberta_dev_labels = \
+        run_best_model_on(output_dir, dev_df, num_labels, label_weights, lowercase_all_text=True,
+                          cuda_device=-1, string_prefix='Dev ', f1_avg='weighted')
+    list_of_all_predicted_roberta_dev_labels = \
+        clean_roberta_prediction_output(list_of_all_predicted_roberta_dev_labels)
     f1, acc, list_of_all_predicted_roberta_test_labels = \
         run_best_model_on(output_dir, test_df, num_labels, label_weights, lowercase_all_text=True,
                           cuda_device=-1, string_prefix='Test ', f1_avg='weighted')
     list_of_all_predicted_roberta_test_labels = \
         clean_roberta_prediction_output(list_of_all_predicted_roberta_test_labels)
+
+    make_multilabel_csv(list_of_all_predicted_roberta_dev_labels, list_of_all_dev_labels,
+                        multiway_label_key_filename, csv_filename_roberta_on_dev,
+                        datasplit_label='dev')
+    make_multilabel_csv(list_of_all_predicted_roberta_test_labels, list_of_all_test_labels,
+                        multiway_label_key_filename, csv_filename_roberta_on_test,
+                        datasplit_label='test')
     report_mismatches_to_files(multiway_output_report_filename_stub, list_of_all_test_labels,
                                list_of_all_predicted_lr_test_labels, list_of_all_predicted_roberta_test_labels,
                                test_df, model_name='RoBERTa')

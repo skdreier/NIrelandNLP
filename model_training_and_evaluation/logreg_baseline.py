@@ -5,7 +5,8 @@ from sklearn.metrics import accuracy_score, f1_score
 
 
 def run_classification(train_df, dev_df, regularization_weight, label_weights: List[float]=None,
-                       lowercase_all_text=True, string_prefix='', print_results=True, f1_avg: str='weighted'):
+                       lowercase_all_text=True, string_prefix='', print_results=True, f1_avg: str='weighted',
+                       also_output_logits=False):
     list_of_all_training_text = []
     list_of_all_training_labels = []
     if label_weights is not None:
@@ -41,7 +42,13 @@ def run_classification(train_df, dev_df, regularization_weight, label_weights: L
     predicted_labels = lr_model.predict(dev_docs)
     accuracy = float(accuracy_score(list_of_all_dev_labels, predicted_labels))
     f1 = float(f1_score(list_of_all_dev_labels, predicted_labels, average=f1_avg))
-    print(string_prefix + 'With regularization weight ' + str(regularization_weight) +
-          ', logistic regression result: accuracy is ' + str(accuracy) + ' and multiclass ' + f1_avg + ' f1 is ' +
-          str(f1))
-    return f1, accuracy, list_of_all_dev_labels, list(predicted_labels)
+    if print_results:
+        print(string_prefix + 'With regularization weight ' + str(regularization_weight) +
+              ', logistic regression result: accuracy is ' + str(accuracy) + ' and multiclass ' + f1_avg + ' f1 is ' +
+              str(f1))
+    if not also_output_logits:
+        return f1, accuracy, list_of_all_dev_labels, list(predicted_labels)
+    else:
+        # get logits
+        output_logits = lr_model.predict_log_proba(dev_docs)
+        return f1, accuracy, list_of_all_dev_labels, list(predicted_labels), output_logits
