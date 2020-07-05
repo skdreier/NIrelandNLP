@@ -843,14 +843,14 @@ def main():
             best_param = regularization_weight
     print('For binary case, best baseline logreg model had regularization weight ' + str(best_param) +
           ', and achieved the following performance on the held-out test set:')
-    f1, acc, list_of_all_dev_labels, list_of_all_predicted_lr_dev_labels, dev_lr_logits = \
+    f1, acc, list_of_all_dev_labels, list_of_all_predicted_lr_dev_labels, dev_lr_logits, prec, rec = \
         run_logreg_classification(train_df, dev_df, regularization_weight=best_param,
                                   label_weights=label_weights, string_prefix='(Dev set)  ', f1_avg='binary',
-                                  also_output_logits=True)
-    f1, acc, list_of_all_test_labels, list_of_all_predicted_lr_test_labels, test_lr_logits = \
+                                  also_output_logits=True, also_report_binary_precrec=True)
+    f1, acc, list_of_all_test_labels, list_of_all_predicted_lr_test_labels, test_lr_logits, prec, rec = \
         run_logreg_classification(train_df, test_df, regularization_weight=best_param,
                                   label_weights=label_weights, string_prefix='(Test set) ', f1_avg='binary',
-                                  also_output_logits=True)
+                                  also_output_logits=True, also_report_binary_precrec=True)
     dev_lr_precrec_curve_points = get_recall_precision_curve_points(dev_lr_logits, list_of_all_dev_labels,
                                                                     string_prefix='(Dev for LogReg)  ')
     test_lr_precrec_curve_points = get_recall_precision_curve_points(test_lr_logits, list_of_all_test_labels,
@@ -875,12 +875,12 @@ def main():
     print('For binary case, best RoBERTa model had lr ' + str(learning_rate) + ' and batch size ' + str(batch_size) +
           '. Performance:')
     output_dir = output_binary_model_dir + '_' + str(learning_rate) + '_' + str(batch_size) + '/'
-    dev_f1, dev_acc, list_of_all_predicted_roberta_dev_logits = \
+    dev_f1, dev_acc, list_of_all_predicted_roberta_dev_logits, prec, rec = \
         run_best_model_on(output_dir, dev_df, num_labels, label_weights, lowercase_all_text=True,
-                          cuda_device=-1, string_prefix='Dev ', f1_avg='binary')
-    f1, acc, list_of_all_predicted_roberta_test_logits = \
+                          cuda_device=-1, string_prefix='Dev ', f1_avg='binary', also_report_binary_precrec=True)
+    f1, acc, list_of_all_predicted_roberta_test_logits, prec, rec = \
         run_best_model_on(output_dir, test_df, num_labels, label_weights, lowercase_all_text=True,
-                          cuda_device=-1, string_prefix='Test ', f1_avg='binary')
+                          cuda_device=-1, string_prefix='Test ', f1_avg='binary', also_report_binary_precrec=True)
     list_of_all_predicted_roberta_test_labels = \
         clean_roberta_prediction_output(list_of_all_predicted_roberta_test_logits)
 

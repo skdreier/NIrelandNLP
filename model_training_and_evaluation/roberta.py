@@ -1,6 +1,6 @@
 from typing import List
 from simpletransformers.classification import ClassificationModel
-from sklearn.metrics import accuracy_score, f1_score
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 import torch
 import os
 
@@ -29,7 +29,7 @@ class ClassificationModelWithSavingAndLoading(ClassificationModel):
 def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int, learning_rate: float,
                        label_weights: List[float]=None, string_prefix='',
                        lowercase_all_text=True, cuda_device=-1, f1_avg='weighted', test_set=None,
-                       print_results=True):
+                       print_results=True, also_report_binary_precrec=False):
     if cuda_device < 0:
         use_cuda = False
     else:
@@ -40,14 +40,26 @@ def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int
                                                     weight=label_weights, use_cuda=use_cuda, cuda_device=cuda_device,
                                                     args={'reprocess_input_data': True,
                                                           'do_lower_case': lowercase_all_text})
-    model.train_model(train_df, output_dir=output_dir,
-                      f1=(lambda labels, preds: f1_score(labels, preds, average=f1_avg)),
-                      eval_df=dev_df, args={'evaluate_during_training': True, 'num_train_epochs': 10,
-                                            'use_early_stopping': True,
-                                            'train_batch_size': batch_size,
-                                            'learning_rate': learning_rate,
-                                            'early_stopping_metric': 'f1',
-                                            'early_stopping_delta': 0.0})
+    if also_report_binary_precrec:
+        model.train_model(train_df, output_dir=output_dir,
+                          prec=(lambda labels, preds: precision_score(labels, preds, average='binary', pos_label=1)),
+                          rec=(lambda labels, preds: recall_score(labels, preds, average='binary', pos_label=1)),
+                          f1=(lambda labels, preds: f1_score(labels, preds, average=f1_avg)),
+                          eval_df=dev_df, args={'evaluate_during_training': True, 'num_train_epochs': 10,
+                                                'use_early_stopping': True,
+                                                'train_batch_size': batch_size,
+                                                'learning_rate': learning_rate,
+                                                'early_stopping_metric': 'f1',
+                                                'early_stopping_delta': 0.0})
+    else:
+        model.train_model(train_df, output_dir=output_dir,
+                          f1=(lambda labels, preds: f1_score(labels, preds, average=f1_avg)),
+                          eval_df=dev_df, args={'evaluate_during_training': True, 'num_train_epochs': 10,
+                                                'use_early_stopping': True,
+                                                'train_batch_size': batch_size,
+                                                'learning_rate': learning_rate,
+                                                'early_stopping_metric': 'f1',
+                                                'early_stopping_delta': 0.0})
     if test_set is not None:
         result, model_outputs, wrong_predictions = \
             model.eval_model(test_set, acc=accuracy_score,
@@ -58,10 +70,19 @@ def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int
                              f1=(lambda labels, preds: f1_score(labels, preds, average=f1_avg)))
 
     if print_results:
-        print(string_prefix + 'With batch size ' + str(batch_size) + ' and learning rate ' + str(learning_rate) +
-              ', RoBERTa result: accuracy is ' + str(result['acc']) + ' and ' + f1_avg + ' f1 is ' +
-              str(result['f1']))
-    return result['f1'], result['acc'], list(model_outputs)
+        if also_report_binary_precrec:
+            print(string_prefix + 'With batch size ' + str(batch_size) + ' and learning rate ' + str(learning_rate) +
+                  ', RoBERTa result: accuracy is ' + str(result['acc']) + ' and ' + f1_avg + ' f1 is ' +
+                  str(result['f1']) + ' (precision is ' + str(result['prec']) + ' and recall is ' +
+                  str(result['rec']) + ')')
+        else:
+            print(string_prefix + 'With batch size ' + str(batch_size) + ' and learning rate ' + str(learning_rate) +
+                  ', RoBERTa result: accuracy is ' + str(result['acc']) + ' and ' + f1_avg + ' f1 is ' +
+                  str(result['f1']))
+    if also_report_binary_precrec:
+        return result['f1'], result['acc'], list(model_outputs), result['prec'], result['rec']
+    else:
+        return result['f1'], result['acc'], list(model_outputs)
 
 
 # from https://stackoverflow.com/questions/800197/how-to-get-all-of-the-immediate-subdirectories-in-python
@@ -71,7 +92,8 @@ def get_immediate_subdirectories(a_dir):
 
 
 def run_best_model_on(output_dir, test_df, num_labels, label_weights, lowercase_all_text,
-                      cuda_device=-1, string_prefix='', f1_avg: str='weighted'):
+                      cuda_device=-1, string_prefix='', f1_avg: str='weighted', print_results=True,
+                      also_report_binary_precrec=False):
     if not output_dir.endswith('/'):
         output_dir += '/'
 
@@ -104,9 +126,25 @@ def run_best_model_on(output_dir, test_df, num_labels, label_weights, lowercase_
         output_dir += '/'
 
     model = load_in_pickled_model(output_dir, cuda_device, num_labels, label_weights, lowercase_all_text)
-    result, model_outputs, wrong_predictions = \
-        model.eval_model(test_df, acc=accuracy_score,
-                         f1=(lambda labels, preds: f1_score(labels, preds, average=f1_avg)))
-    print(string_prefix + 'RoBERTa result: accuracy is ' + str(result['acc']) +
-          ' and ' + f1_avg + ' f1 is ' + str(result['f1']))
-    return result['f1'], result['acc'], list(model_outputs)
+    if also_report_binary_precrec:
+        result, model_outputs, wrong_predictions = \
+            model.eval_model(test_df, acc=accuracy_score,
+                             f1=(lambda labels, preds: f1_score(labels, preds, average=f1_avg)),
+                             prec=(lambda labels, preds: precision_score(labels, preds, average='binary', pos_label=1)),
+                             rec=(lambda labels, preds: recall_score(labels, preds, average='binary', pos_label=1)))
+    else:
+        result, model_outputs, wrong_predictions = \
+            model.eval_model(test_df, acc=accuracy_score,
+                             f1=(lambda labels, preds: f1_score(labels, preds, average=f1_avg)))
+    if print_results:
+        if also_report_binary_precrec:
+            print(string_prefix + 'RoBERTa result: accuracy is ' + str(result['acc']) + ' and ' + f1_avg + ' f1 is ' +
+                  str(result['f1']) + ' (precision is ' + str(result['prec']) + ' and recall is ' +
+                  str(result['rec']) + ')')
+        else:
+            print(string_prefix + 'RoBERTa result: accuracy is ' + str(result['acc']) + ' and ' + f1_avg + ' f1 is ' +
+                  str(result['f1']))
+    if also_report_binary_precrec:
+        return result['f1'], result['acc'], list(model_outputs), result['prec'], result['rec']
+    else:
+        return result['f1'], result['acc'], list(model_outputs)
