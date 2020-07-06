@@ -1,0 +1,120 @@
+true_label	incorrect_baseline_label	incorrect_model_label	text
+J_Misc	J_Intelligence	J_Intelligence	anyone caught in the company of someone caught in the act of committing, or having just committed, a criminal offence, if there is reason to think he may be able to give information about the offence or important information about the IRA generally
+
+J_Misc	J_Legal_Procedure	J_Legal_Procedure	Anyone arrested under
+J_Misc	J_Emergency-Policy	J_Emergency-Policy	(c) 
+above will be questioned in this second way immediately.
+
+J_Denial	J_Legal_Procedure	J_Legal_Procedure	It will be open to any internee, and all have been informed of their 
+rights, to put his case to the Committee, verbally or in writing, or by both means. 
+If he wishes to have legal advice in submitting a written case 
+he may do so and the Government has arranged that financial arrangements similar to those available under the legal aid scheme will be applicable.
+J_Denial	J_Legal_Procedure	J_Legal_Procedure	The Special Powers Regulations provide for the setting up of an 
+Advisory Committee to consider representations from internees. His Honour 
+Judge Brown has agreed to act as Chairman of this Committee.
+
+J_Emergency-Policy	J_Terrorism	J_Terrorism	There are criminals in both communities who may have 
+committed serious offences during the disturbances of recent years. They are subject to the same rigours of the law as any other criminal and many so-called extreme Protestants are at present serving heavy sentences. Others who may have taken part in recent disturbances will be brought to justice when they have been identified and the facts investigated. 
+I 
+repeat that internment is being confined to members of unlawful associations committed to violence against whom the ordinary law has, in present circumstances, proved ineffective.
+J_Misc	J_Terrorism	J_Denial	I regret no less than you that these new measures have
+
+J_Legal_Procedure	J_Misc	J_Emergency-Policy	MR FAULKNER, THE PRIME MINISTER OF NORTHERN IRELAND, ANNOUNCED THIS MORNING, 9 AUGUST, THAT AFTER WEIGHING ALL THE RELEVANT CONSIDERATIONS, INCLUDING THE VIEWS OF THE SECURITY AUTHORITIES, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND COVERNENT HAD DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+J_Development-Unity	J_Misc	J_Terrorism	ADDITIONALLY, THERE HAS BEEN A MARKED INCREASE IN THE WEIGHT AND QUANTITY OF EXPLOSIVES BEING USED, AND A CROWING NUMBER OF ATTACKS ON COMMERCIAL PREMISES IN BELFAST.
+
+J_Emergency-Policy	J_Intelligence	J_Intelligence	In the present circumstances of Northern 
+Treland, as described in paragraphs 3-5 of this note, it is imperative to obtain all available intelligence in order to save the lives of civilians and members of the security forces; and it is therefore essential to interrogate suspects who are believed to have essential information.
+J_Last-resort	J_Misc	J_Misc	THERE WAS SOME DISCUSSION OF THE CIRCUMSTANCES IN WHICH THE 
+NORTHERN IRELAND GOVT. MIGHT BE FORCED TO RESORT TO INTERNMENT AND THE PRIME MINISTER OF NORTHERN IRELAND SAID AGAIN THAT THERE WOULD BE, IN ANY EVENT, PRIOR CONSULTATION WITH US
+J_Denial	J_Development-Unity	J_Development-Unity	Political progress in Northern Ireland is bound to be impeded so long as violence and intimidation continue; and the purpose of internment, and of the Army’s measures which are directed impartially at violence from whatever quarter, is to restore to Northern Ireland the necessary degree of stability for further political advance.
+J_Emergency-Policy	J_Development-Unity	J_Development-Unity	Political progress in Northern Ireland is bound to be impeded so long as violence and intimidation continue; and the purpose of internment, and of the Army’s measures which are directed impartially at violence from whatever quarter, is to restore to Northern Ireland the necessary degree of stability for further political advance.
+J_Misc	J_Legal_Procedure	J_Denial	even this draconian procedure would not meet all our difficulties.
+J_Intelligence	J_Terrorism	J_Misc	Continue the policy of selective arrests and
+J_Emergency-Policy	J_Terrorism	J_Misc	is on timing.
+J_Terrorism	J_Legal_Procedure	J_Legal_Procedure	In addition, they intend at an early date to introduce provisions under the Special Powers Act to set up a tribunal to deal with persons suspected of participation in terrorist activities by means of a procedure which will provide maximum safeguards for the protection of the individual and will eliminate the objectionable features of internment, notably judgment by executive decision alone, but which will be matched to the special conditions which unfortunately obtain in Northern Ireland.
+
+J_Terrorism	J_Emergency-Policy	J_Denial	These interim provisions will be employed only where the ordinary processes of the criminal law are inadequate and will be enforced with complete impartiality against whatever persons or organisations are found to be engaged in terrorism and violence.
+J_Terrorism	J_Law-and-order	J_Law-and-order	But the Government wish to make clear at once that these measures will not in any way be directed against the holding of opinions, but against the use, or encouragement, of violence and terror to force those opinions on law abiding citizens.
+
+J_Legal_Procedure	J_Terrorism	J_Terrorism	This tribunal will be asked to consider cases referred to it (which will include cases of those presently in internment or detention) to determine the nature of their involvement in terrorist activities with a view to their release or committal to a period of detention.
+J_Misc	J_Denial	J_Denial	This procedure is very different from internment.
+J_Denial	J_Legal_Procedure	J_Legal_Procedure	In addition, they intend at an early date to introduce provisions under the Special Powers Act to set up a tribunal to deal with persons suspected of participation in terrorist activities by means of a procedure which will provide maximum safeguards for the protection of the individual and will eliminate the objectionable features of internment, notably judgment by executive decision alone, but which will be matched to the special conditions which unfortunately obtain in Northern Ireland.
+
+J_Denial	J_Law-and-order	J_Law-and-order	But the Government wish to make clear at once that these measures will not in any way be directed against the holding of opinions, but against the use, or encouragement, of violence and terror to force those opinions on law abiding citizens.
+
+J_Legal_Procedure	J_Denial	J_Denial	We also understand that the Northern Ireland Government have under consideration a number of proposals for improving the internment procedure, e. g. by using a Tribunal not only to review the cases of persons already interned but to make recommendations on whether internment orders should be served on persons detained.
+J_Political-Strategic	J_Denial	J_Denial	We also understand that the Northern Ireland Government have under consideration a number of proposals for improving the internment procedure, e. g. by using a Tribunal not only to review the cases of persons already interned but to make recommendations on whether internment orders should be served on persons detained.
+J_Emergency-Policy	J_Misc	J_Misc	The Secretary of State for Northern Ireland might report on progress 
+with the release of internees, with particular reference to the possibility (which he is considering) of a measure of accelerated release. There will still, however, remain the problem of the "hard core".
+J_Legal_Procedure	J_Denial	J_Emergency-Policy	Under conditions of emergency, or near emergency, there is likely 
+to be internal security legislation controlling the treatment of detainees and arrested persons. 
+reflect prevailing conditions. 
+Legislation will vary from country to country and Military personnel are to acquaint themselves 
+with the laws of the country concerned, and will not act unlawfully under any circumstances whatever.
+J_Misc	J_Emergency-Policy	J_Denial	Fr Faul’s image is that of an ordinary country cleric (with perhaps liberal tendencies) helping the oppressed. In face he is extremely shrewd, and is by no means a liberal. He is a "hardliner" in regard to Catholic education, and an article in the Sunday Press on December 12 1971 showed he was not in favour of changes in the Eire constitution in order to meet Protestant objections.
+
+J_Terrorism	J_Legal_Procedure	J_Legal_Procedure	The Army, who are now under heavy fire from the IRA, recommend that in present circumstances those on List B and C should where possible be arrested under the Special Powers Act and, where no other charges can be preferred, should either be charged with being members of an illegal organization or detained.
+J_Emergency-Policy	J_Legal_Procedure	J_Terrorism	List C, ith about W naneu, is of graminnt terrarista aga!nt whOM there ia 11’. tleak.; lolood of preferring char-e (: - wamW for zzg, r 
+ax3sple).
+J_Emergency-Policy	J_Legal_Procedure	J_Legal_Procedure	As regards the "hard core" who cannot be released, the Secretary of State proposes that, pending the creation of the special courts, the individuals concerned should continue to be detained under Regulation 11, subject to review by a "special interim body".
+
+J_Emergency-Policy	J_Legal_Procedure	J_Denial	supported by the Lord Chancellor, is likely to emphasise the difficulty of associating judges with the kind of court described in paragraph 4 of Appendix 1 to GEN 79(72) 17.
+
+J_Legal_Procedure	J_Political-Strategic	J_Misc	But, if so, it will be necessary to find room for the necessary legislation; and some other item in the legislative programme may have to be sacrificed.
+
+J_Development-Unity	J_Misc	J_Misc	I have however sent a message to Lynch, asking him to react with understanding, even if with regret, to maintain the pressures he has [] been exerting on the IRA south of the border, and emphasising that we hope that these measures can be strictly temporary, and will not [prejudicate] continuing progress in the task of making progress with building more harmonious inter-community relations in Northern Ireland.
+J_Terrorism	J_Misc	J_Misc	Wanted list will be supplemented from time to time.
+J_Emergency-Policy	J_Terrorism	J_Terrorism	Provisional IRA Volunteers, who, on the strength of reliable
+J_Denial	J_Misc	J_Misc	If the answers given do not raise a sufficient suspicion to justify arrest he must be allowed to go on his way immediately.
+J_Terrorism	J_Intelligence	J_Emergency-Policy	intelligence, are known to be an exceptionally serious threat to securit
+
+J_Emergency-Policy	J_Misc	J_Misc	Wanted list will be supplemented from time to time.
+J_Emergency-Policy	J_Terrorism	J_Terrorism	Anyone known to be holding officer rank in the Provisional 
+IRA even though there is no evidence to justify criminal charges.
+
+J_Legal_Procedure	J_Emergency-Policy	J_Law-and-order	Regulation 11. This is chiefly used when a person is suspected of 
+having committed an offence in the field of law and order but there is a brook in time between the alleged commission of the offence and the apprehension of the suspect.
+
+J_Denial	J_Political-Strategic	J_Emergency-Policy	that there should not at present be any question of a statutory indemnity for members of the security forces.
+J_Utilitarian-Deterrence	J_Terrorism	J_Development-Unity	serious acts of terrorism by the I.R.A. and their recent declarations of their intention to continue and even escalate their campaign have made it essential to take this action, however abhorrent, [] in order to prevent the undermining of economic and social stability in Northern Ireland.
+J_Legal_Procedure	J_Misc	J_Denial	The Home Secretary told Mr. Faulkner that he proposed that Sir Edmund Compton 
+be asked to carry on dealing with complaints from persons arrested with a view to internment. This, together with the arrangements which were being made for a Board of Visitors to hear complaints of people once they were received into prison, should fill the gap which had been criticised.
+J_Legal_Procedure	J_Law-and-order	J_Law-and-order	common law a person may use such force as is reasonable in the circumstances in effecting or assisting in the lawful arrest of offenders or suspected offenders or persons unlawfully at large.
+
+J_Legal_Procedure	J_Misc	J_Misc	it would do much to increase public confidence, and the morale of the security forces themselves; their achievements in this regard had been considerable, but they were dimmed by the absence of a swift and manifest outcome of their efforts.
+
+J_Utilitarian-Deterrence	J_Legal_Procedure	J_Terrorism	Internment should properly be regarded not so much as an alternative to trial as an alternative to being shot in an act of terrorism.
+J_Denial	J_Legal_Procedure	J_Legal_Procedure	Internees were all given notice of their rights and were allowed legal advice in the preparation of their cases; but legal representation was not allowed at their appearance before the Committee, which was conducted in strict confidence with only the members of the Committee present, each of whom was provided with the relevant documents.
+J_Emergency-Policy	J_Misc	J_Misc	it would do much to increase public confidence, and the morale of the security forces themselves; their achievements in this regard had been considerable, but they were dimmed by the absence of a swift and manifest outcome of their efforts.
+
+J_Emergency-Policy	J_Terrorism	J_Terrorism	The test for an internee’s fitness for release was not so much his innocence of any association with terrorist organisations, but whether he could be set at large without danger to the community.
+J_Emergency-Policy	J_Law-and-order	J_Law-and-order	I have taken this serious step solely for the protection 
+of life and security of property in Northern Ireland.
+
+J_Denial	J_Terrorism	J_Terrorism	The main target of the present operation is the Irish 
+Republican Army.which has been responsible for recent acts of terrorism, and whose victims have included Protestant and Roman Catholic alike
+J_Terrorism	J_Emergency-Policy	J_Utilitarian-Deterrence	It is with understandable reluctance that one uses these 
+exceptional powers, but the organisations concerned are those which have murdered in cold blood, created situations which have led to death or injury to people quite uninvolved in disorder, maimed numerous people including young children and put at risk the jobs and the whole future of ntire communities.
+
+J_Law-and-order	J_Emergency-Policy	J_Utilitarian-Deterrence	It is with understandable reluctance that one uses these 
+exceptional powers, but the organisations concerned are those which have murdered in cold blood, created situations which have led to death or injury to people quite uninvolved in disorder, maimed numerous people including young children and put at risk the jobs and the whole future of ntire communities.
+J_Law-and-order	J_Denial	J_Denial	This is not action taken against any responsible and las- 
+abiding section of the community.
+
+J_Misc	J_Denial	J_Denial	At all times I have consistently emphasized that it was not a step towards which I would be moved by any political clamour. Equally, I cannot now allow the prospect of any misrepresentation to deflect me from my duty to act.
+J_Development-Unity	J_Emergency-Policy	J_Utilitarian-Deterrence	It is with understandable reluctance that one uses these 
+exceptional powers, but the organisations concerned are those which have murdered in cold blood, created situations which have led to death or injury to people quite uninvolved in disorder, maimed numerous people including young children and put at risk the jobs and the whole future of ntire communities.
+J_Misc	J_Terrorism	J_Utilitarian-Deterrence	If the measures which HMG have taken lead, as is hoped 
+they will, to a reduction in terrorist activity, it will be possible to consider further releases; but this must of course depend on a clearly established improvement in the security situation.
+J_Emergency-Policy	J_Misc	J_Misc	a the subject of internment the S3eretary of State reiterated that it 
+vas the policy of Her Mujesty’s Governent to endinaternaent as soon as the escurity situation allowed.
+J_Emergency-Policy	J_Legal_Procedure	J_Misc	The policy to be followed oh the making of arrests was worked out and 
+agreed with the security forces on Monday.
+J_Misc	J_Emergency-Policy	J_Emergency-Policy	I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+
+J_Terrorism	J_Law-and-order	J_Law-and-order	THE SECURITY FORCES ARE ACCORDINGLY ARRESTING AND DETAINING PEOPLE SUSPECTED OF RESPONSIBILITY FOR COMMITTING OR ABETTING ACTS OF TERRORISM AND OTHER BREACHES OF THE PEACE DESIGNED TO LEAD TO A BREAKDOWN OF LAW AND ORDER IN NORTHERN IRELAND.
+
+J_Legal_Procedure	J_Emergency-Policy	J_Emergency-Policy	I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+J_Development-Unity	J_Terrorism	J_Terrorism	THE LATEST SERIES OF ACTS OF TERRORISM BY THE IRA AND THEIR RECENT DECLARATIONS OF THEIR INTENTION TO CONTINUE AND EVEN ESCALATE THAT CAMPAIGN HAVE MADE IT ESSENTIAL TO TAKE THIS ACTION HOWEVER ABHORRENT, IN ORDER TO PREVENT
+J_Utilitarian-Deterrence	J_Misc	J_Misc	A warrant has been issued for Gallagher's arrest on a charge of murder. He is a native of Strabane and was on the list of those wanted for internment. 
+J_Emergency-Policy	J_Terrorism	J_Terrorism	We are now acting to remove the shadow of fear which hangs over too many of you.

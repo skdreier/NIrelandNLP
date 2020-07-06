@@ -1,0 +1,40 @@
+true_label	incorrect_model_label	text
+Security	Terrorism	anyone known to be in the most senior ranks of the Provisional IRA, even though there is no evidence to justify criminal proceedings;
+Misc	Security	anyone who is reliably known to be in possession of information which he is likely to divulge under questioning about persons holding the most senior ranks in the IRA or the whereabouts of stores of arms and ammunition. 
+The Secretary of State would 2. Anyone arrested, except under (c) 
+expect the number of arrests of such persons to be small.]
+
+Misc	Security	been found necessary.
+
+Terrorism	Misc	ALL THE EVIDENCE INDICATES A DELIBERATE IRA POLICY TO DISTURB SOCIETY IN THE NORTH, DESTROY ECONOMIC LIFE AND DISCREDIT THE STORMONT GOVERNMENT,
+Misc	Terrorism	ADDITIONALLY, THERE HAS BEEN A MARKED INCREASE IN THE WEIGHT AND QUANTITY OF EXPLOSIVES BEING USED, AND A CROWING NUMBER OF ATTACKS ON COMMERCIAL PREMISES IN BELFAST.
+
+Legal	Terrorism	Then we have to bear in mind the Diplock enquiry. As I understand 
+it, this body is considering what arrangements for the administration of justice in Northern Ireland could be made in order to deal more effectively with terrorist organisations by bringing to book, otherwise
+Security	Terrorism	If the I.R.A. mounted a campaign of violence in the UK we should 
+have to think again - although we might then want to act on the lines of the 1939 Prevention of Violence Act (but perhaps not limited to Irish affairs).
+Security	Misc	Political progress in Northern Ireland is bound to be impeded so long as violence and intimidation continue; and the purpose of internment, and of the Army’s measures which are directed impartially at violence from whatever quarter, is to restore to Northern Ireland the necessary degree of stability for further political advance.
+Misc	Political	The Secretary of State said that he must reserve his position on this since further releases would depend on events and he could not commit himself or his Cabinet colleagues in advance.
+
+Security	Terrorism	The Government reaffirm their determination to improve the security situation in Northern Ireland and to deal with terrorists, including those who, for the reasons indicated earlier, cannot be dealt with through the normal processes of the criminal law.
+
+Legal	Terrorism	This tribunal will be asked to consider cases referred to it (which will include cases of those presently in internment or detention) to determine the nature of their involvement in terrorist activities with a view to their release or committal to a period of detention.
+Misc	Security	- iota ; and - are selective and vould no inolv the voleeSl axWrst an dotntie aof spcts a in th:o;east; but we ould nevrtheless have to face the probla of OW long it will be powriblo to old thse a"ain t whos detention Md re have been aie Wit out making inte -aent ordarr.
+Security	Legal	Paragraph 8 of the Annex to GEN 79(72) 19, however, envisages retaining for the time being those parts of the Act which confer powers on the security forces. These are presumably those relating to stopping and searching, etc; but do they also include the powers of arrest without warrant?
+Legal	Terrorism	Given an intention to dispense with internment, there seems no alternative to the detention under Regulation 11 of persons arrested as terrorists until special courts or tribunals are introduced.
+Terrorism	Security	intelligence, are known to be an exceptionally serious threat to securit
+
+Misc	Legal	The Commissioners have to date released a total of 99 the Tribunal 3 end 
+the Secretary of State 3.
+Misc	Rights_not_violated	from our Ambassador’s report of his recent talk with you But I judged
+Misc	Rights_not_violated	The Home Secretary told Mr. Faulkner that he proposed that Sir Edmund Compton 
+be asked to carry on dealing with complaints from persons arrested with a view to internment. This, together with the arrangements which were being made for a Board of Visitors to hear complaints of people once they were received into prison, should fill the gap which had been criticised.
+Legal	Security	As to the trial of those accused of criminal offences, he agreed that speedy justice was important. Delays arose not so much over offences tried summarily before the magistrates as over cases returned for trial by jury. He thought it would be advantageous if the establishment of special commissions of assize could be considered to deal speedily with offences involving security.
+
+Security	Rights_not_violated	I ask those who will quite sincerely consider the use of internment powers as evil to answer honestly this question:Is it more of an evil than to allow the perpetrators of these outrages to remain at liberty?
+Security	Misc	a the subject of internment the S3eretary of State reiterated that it 
+vas the policy of Her Mujesty’s Governent to endinaternaent as soon as the escurity situation allowed.
+Terrorism	Security	You will know that it is my intention to seek the agreement of my colleagues to new procedures which in the event or internment being brought at an end will make It possible to keep in custody those members of the IRA whose continued liberty is a threat to security.
+Rights_not_violated	Misc	the Ministry of Defence have a separate though related 
+interest in the accommodation which an intrnent camp vould provide, as a means of oupplomonting, and to the extent of ono major unite worth, replacing, temporary and sub-standard accommodation.
+

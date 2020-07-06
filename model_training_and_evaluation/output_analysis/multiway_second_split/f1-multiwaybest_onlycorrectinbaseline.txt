@@ -1,0 +1,50 @@
+true_label	incorrect_model_label	text
+J_Emergency-Policy	J_Terrorism	anyone known to be in the most senior ranks of the Provisional IRA, even though there is no evidence to justify criminal proceedings;
+J_Misc	J_Emergency-Policy	anyone who is reliably known to be in possession of information which he is likely to divulge under questioning about persons holding the most senior ranks in the IRA or the whereabouts of stores of arms and ammunition. 
+The Secretary of State would 2. Anyone arrested, except under (c) 
+expect the number of arrests of such persons to be small.]
+
+J_Utilitarian-Deterrence	J_Misc	The Committee’s main function will be to assess whether or when the internee’s release can be safely permitted, and much will depend on whether or not they can accept any undertaking on his part that he will not engage in violence on his release.
+J_Misc	J_Legal_Procedure	been found necessary.
+
+J_Misc	J_Development-Unity	Our hope is that these measures can be strictly temporary, will serve to re-establish a situation in which the many social and other reforms that have been introduced and are still to come are recognised at their true value,
+J_Terrorism	J_Development-Unity	ALL THE EVIDENCE INDICATES A DELIBERATE IRA POLICY TO DISTURB SOCIETY IN THE NORTH, DESTROY ECONOMIC LIFE AND DISCREDIT THE STORMONT GOVERNMENT,
+J_Legal_Procedure	J_Terrorism	Then we have to bear in mind the Diplock enquiry. As I understand 
+it, this body is considering what arrangements for the administration of justice in Northern Ireland could be made in order to deal more effectively with terrorist organisations by bringing to book, otherwise
+J_Emergency-Policy	J_Terrorism	If the I.R.A. mounted a campaign of violence in the UK we should 
+have to think again - although we might then want to act on the lines of the 1939 Prevention of Violence Act (but perhaps not limited to Irish affairs).
+J_Emergency-Policy	J_Terrorism	The Government reaffirm their determination to improve the security situation in Northern Ireland and to deal with terrorists, including those who, for the reasons indicated earlier, cannot be dealt with through the normal processes of the criminal law.
+
+J_Emergency-Policy	J_Denial	These interim provisions will be employed only where the ordinary processes of the criminal law are inadequate and will be enforced with complete impartiality against whatever persons or organisations are found to be engaged in terrorism and violence.
+J_Political-Strategic	J_Emergency-Policy	Either the improvement of the security situation or a political 
+requirement to conciliate the Catholics may prompt some modification of the internment policy, starting perhaps with the release of some of the less harmful internees.
+
+J_Misc	J_Utilitarian-Deterrence	- iota ; and - are selective and vould no inolv the voleeSl axWrst an dotntie aof spcts a in th:o;east; but we ould nevrtheless have to face the probla of OW long it will be powriblo to old thse a"ain t whos detention Md re have been aie Wit out making inte -aent ordarr.
+J_Emergency-Policy	J_Legal_Procedure	Paragraph 8 of the Annex to GEN 79(72) 19, however, envisages retaining for the time being those parts of the Act which confer powers on the security forces. These are presumably those relating to stopping and searching, etc; but do they also include the powers of arrest without warrant?
+J_Legal_Procedure	J_Terrorism	Given an intention to dispense with internment, there seems no alternative to the detention under Regulation 11 of persons arrested as terrorists until special courts or tribunals are introduced.
+J_Legal_Procedure	J_Law-and-order	If an answer is given which causes the soldier to suspect the person of falling into one of the categories in paragraph 7 above, he should arrest him under Regulation 11 of the SPA, remembering to use the appropriate formula from paragraph 6 of the Blue Card. If the answers given do not raise a sufficient suspicion to justify arrest he must be allowed to go on his way immediately. If however the passer-by refuses to stop or to answer the questions he is committing an offence against the SPA Regulations and the soldier can arrest him under Regulation 11 of the SPA on that ground.
+J_Terrorism	J_Emergency-Policy	Other terrorists who are known, on the strength of reliable 
+intelligence, to be an exceptionally serious threat to security, and for whom, in the absence of evidence which could form the basis of a criminal charge, 
+Interim Custody Order.
+
+J_Misc	J_Legal_Procedure	The Commissioners have to date released a total of 99 the Tribunal 3 end 
+the Secretary of State 3.
+J_Misc	J_Denial	from our Ambassador’s report of his recent talk with you But I judged
+J_Terrorism	J_Development-Unity	serious acts of terrorism by the I.R.A. and their recent declarations of their intention to continue and even escalate their campaign have made it essential to take this action, however abhorrent, [] in order to prevent the undermining of economic and social stability in Northern Ireland.
+J_Misc	J_Denial	The Home Secretary told Mr. Faulkner that he proposed that Sir Edmund Compton 
+be asked to carry on dealing with complaints from persons arrested with a view to internment. This, together with the arrangements which were being made for a Board of Visitors to hear complaints of people once they were received into prison, should fill the gap which had been criticised.
+J_Utilitarian-Deterrence	J_Misc	I ask those who will quite sincerely consider the use of internment powers as evil to answer honestly this question:Is it more of an evil than to allow the perpetrators of these outrages to remain at liberty?
+J_Terrorism	J_Utilitarian-Deterrence	They are the present threat: but we will not hesitate to take strong action against any other individuals or organisations who may present such a threat in the future.
+
+J_Emergency-Policy	J_Utilitarian-Deterrence	It is with understandable reluctance that one uses these 
+exceptional powers, but the organisations concerned are those which have murdered in cold blood, created situations which have led to death or injury to people quite uninvolved in disorder, maimed numerous people including young children and put at risk the jobs and the whole future of ntire communities.
+J_Terrorism	J_Utilitarian-Deterrence	If the measures which HMG have taken lead, as is hoped 
+they will, to a reduction in terrorist activity, it will be possible to consider further releases; but this must of course depend on a clearly established improvement in the security situation.
+
+J_Terrorism	J_Emergency-Policy	You will know that it is my intention to seek the agreement of my colleagues to new procedures which in the event or internment being brought at an end will make It possible to keep in custody those members of the IRA whose continued liberty is a threat to security.
+J_Emergency-Policy	J_Legal_Procedure	CHARGE OF MURDER. LIST OF THOSE WANTED FOR INTER KENT. 
+A WARRANT HAS BEEN ’ISSUE FOR GALLAGHER’S ARREST ON A HE IS A NATIVE OF STRABANE AND WAS ON THE THIS IS A CASE IN WHICH 
+THE EVIDENCE COULD CERTAINLY B EXPECTED TO STAND UP IN AN IMPARTIAL COURT OF LAW.
+J_Denial	J_Emergency-Policy	because it is temporary accommodation, and not deigned to troop requirements’or standard, and because’there is no security of ’tenure (le troops would have to vaoato it if i -ere required for its primary role),
+J_Denial	J_Misc	As an indication of Long Koh’so valuo, thore is no doubt that co long as it vaa not required for internoos, it would be used to houco’ troops inodiatoly on ito completion.
+

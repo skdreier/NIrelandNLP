@@ -1,0 +1,120 @@
+true_label	incorrect_baseline_label	incorrect_model_label	text
+Misc	Legal	Legal	Anyone arrested under
+Misc	Security	Security	(c) 
+above will be questioned in this second way immediately.
+
+Terrorism	Security	Security	There are criminals in both communities who may have 
+committed serious offences during the disturbances of recent years. They are subject to the same rigours of the law as any other criminal and many so-called extreme Protestants are at present serving heavy sentences. Others who may have taken part in recent disturbances will be brought to justice when they have been identified and the facts investigated. 
+I 
+repeat that internment is being confined to members of unlawful associations committed to violence against whom the ordinary law has, in present circumstances, proved ineffective.
+Rights_not_violated	Legal	Legal	It will be open to any internee, and all have been informed of their 
+rights, to put his case to the Committee, verbally or in writing, or by both means. 
+If he wishes to have legal advice in submitting a written case 
+he may do so and the Government has arranged that financial arrangements similar to those available under the legal aid scheme will be applicable.
+Rights_not_violated	Legal	Legal	The Special Powers Regulations provide for the setting up of an 
+Advisory Committee to consider representations from internees. His Honour 
+Judge Brown has agreed to act as Chairman of this Committee.
+
+Security	Legal	Legal	MR FAULKNER, THE PRIME MINISTER OF NORTHERN IRELAND, ANNOUNCED THIS MORNING, 9 AUGUST, THAT AFTER WEIGHING ALL THE RELEVANT CONSIDERATIONS, INCLUDING THE VIEWS OF THE SECURITY AUTHORITIES, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND COVERNENT HAD DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Misc	Security	Terrorism	The information on which recommendations for internment 
+are made by the RUC Special Branch is naturally held by the Special Branch themselves. 
+But a senior Army intelligence 
+officer has always had complete access to these records; and he is satisfied that, subject to two reservations, virtually all the internees are IRA members. 
+The first is that three 
+of the internees cannot be assigned to specific appointments in the IRA’s order of battle, though the dossiers concerned show that the Special Branch regard two of them as members of the IRA and the third as having strong links with the IRA. The other reservation is that one cannot entirely rule out the possibility that in a few cases the information provided to the Special Branch might have been prompted by personal spite, 
+or something similar, on the part of the informants.
+Security	Misc	Misc	THERE WAS SOME DISCUSSION OF THE CIRCUMSTANCES IN WHICH THE 
+NORTHERN IRELAND GOVT. MIGHT BE FORCED TO RESORT TO INTERNMENT AND THE PRIME MINISTER OF NORTHERN IRELAND SAID AGAIN THAT THERE WOULD BE, IN ANY EVENT, PRIOR CONSULTATION WITH US
+Rights_not_violated	Security	Misc	Political progress in Northern Ireland is bound to be impeded so long as violence and intimidation continue; and the purpose of internment, and of the Army’s measures which are directed impartially at violence from whatever quarter, is to restore to Northern Ireland the necessary degree of stability for further political advance.
+Misc	Legal	Rights_not_violated	even this draconian procedure would not meet all our difficulties.
+Security	Misc	Misc	searches on goad intelligence.
+
+Security	Legal	Misc	Continue the policy of selective arrests and
+Security	Terrorism	Misc	is on timing.
+Legal	Security	Terrorism	In addition, they intend at an early date to introduce provisions under the Special Powers Act to set up a tribunal to deal with persons suspected of participation in terrorist activities by means of a procedure which will provide maximum safeguards for the protection of the individual and will eliminate the objectionable features of internment, notably judgment by executive decision alone, but which will be matched to the special conditions which unfortunately obtain in Northern Ireland.
+
+Terrorism	Rights_not_violated	Rights_not_violated	These interim provisions will be employed only where the ordinary processes of the criminal law are inadequate and will be enforced with complete impartiality against whatever persons or organisations are found to be engaged in terrorism and violence.
+Terrorism	Security	Security	But the Government wish to make clear at once that these measures will not in any way be directed against the holding of opinions, but against the use, or encouragement, of violence and terror to force those opinions on law abiding citizens.
+
+Misc	Legal	Rights_not_violated	This procedure is very different from internment.
+Rights_not_violated	Security	Terrorism	In addition, they intend at an early date to introduce provisions under the Special Powers Act to set up a tribunal to deal with persons suspected of participation in terrorist activities by means of a procedure which will provide maximum safeguards for the protection of the individual and will eliminate the objectionable features of internment, notably judgment by executive decision alone, but which will be matched to the special conditions which unfortunately obtain in Northern Ireland.
+
+Security	Rights_not_violated	Rights_not_violated	These interim provisions will be employed only where the ordinary processes of the criminal law are inadequate and will be enforced with complete impartiality against whatever persons or organisations are found to be engaged in terrorism and violence.
+Rights_not_violated	Security	Security	But the Government wish to make clear at once that these measures will not in any way be directed against the holding of opinions, but against the use, or encouragement, of violence and terror to force those opinions on law abiding citizens.
+
+Security	Political	Political	Either the improvement of the security situation or a political 
+requirement to conciliate the Catholics may prompt some modification of the internment policy, starting perhaps with the release of some of the less harmful internees.
+Political	Rights_not_violated	Legal	We also understand that the Northern Ireland Government have under consideration a number of proposals for improving the internment procedure, e. g. by using a Tribunal not only to review the cases of persons already interned but to make recommendations on whether internment orders should be served on persons detained.
+Security	Misc	Misc	The Secretary of State for Northern Ireland might report on progress 
+with the release of internees, with particular reference to the possibility (which he is considering) of a measure of accelerated release. There will still, however, remain the problem of the "hard core".
+Rights_not_violated	Terrorism	Security	(ii) outrages upon personal dignity, in particular, humiliating and degrading treatment.
+
+Legal	Rights_not_violated	Security	Under conditions of emergency, or near emergency, there is likely 
+to be internal security legislation controlling the treatment of detainees and arrested persons. 
+reflect prevailing conditions. 
+Legislation will vary from country to country and Military personnel are to acquaint themselves 
+with the laws of the country concerned, and will not act unlawfully under any circumstances whatever.
+Legal	Rights_not_violated	Rights_not_violated	There are I think some improvements which might be made to the interrment 
+appeal procedure for example, by allowing legal representation of internees at the hearing - but this would be little more than window dressing and would be regarded as tinkering.
+Legal	Rights_not_violated	Misc	was the setting up of some form of Commission which would review the reasons for internment and the procedure which has so far been adopted.
+
+Misc	Rights_not_violated	Rights_not_violated	idan Corrigan, also of St Patrick’s Academy, Dungannon, is associated with Fr Faul and also with the ALJ and the CSJ. Corrigan was responsible for various publications on behalf of Fianna Fail which had false imprints.
+Misc	Security	Political	Fr Faul’s image is that of an ordinary country cleric (with perhaps liberal tendencies) helping the oppressed. In face he is extremely shrewd, and is by no means a liberal. He is a "hardliner" in regard to Catholic education, and an article in the Sunday Press on December 12 1971 showed he was not in favour of changes in the Eire constitution in order to meet Protestant objections.
+
+Terrorism	Legal	Legal	The Army, who are now under heavy fire from the IRA, recommend that in present circumstances those on List B and C should where possible be arrested under the Special Powers Act and, where no other charges can be preferred, should either be charged with being members of an illegal organization or detained.
+Security	Terrorism	Misc	List 3, 2. -: 
+with abo;t 12( ames, is of those In respect of v cm there is reliable intelligenoe ind4ating their ivolvemt in the ecamszan of orines but indtricient eidene to support a proseeution.
+
+Security	Legal	Terrorism	List C, ith about W naneu, is of graminnt terrarista aga!nt whOM there ia 11’. tleak.; lolood of preferring char-e (: - wamW for zzg, r 
+ax3sple).
+Security	Legal	Legal	As regards the "hard core" who cannot be released, the Secretary of State proposes that, pending the creation of the special courts, the individuals concerned should continue to be detained under Regulation 11, subject to review by a "special interim body".
+
+Security	Legal	Legal	supported by the Lord Chancellor, is likely to emphasise the difficulty of associating judges with the kind of court described in paragraph 4 of Appendix 1 to GEN 79(72) 17.
+
+Terrorism	Misc	Rights_not_violated	Wanted list will be supplemented from time to time.
+Security	Terrorism	Terrorism	Provisional IRA Volunteers, who, on the strength of reliable
+Security	Terrorism	Terrorism	Other terrorists who are known, on the strength of reliable 
+intelligence, to be an exceptionally serious threat to security, and for whom, in the absence of evidence which could form the basis of a criminal charge, 
+Interim Custody Order.
+
+Rights_not_violated	Misc	Misc	If the answers given do not raise a sufficient suspicion to justify arrest he must be allowed to go on his way immediately.
+Security	Misc	Rights_not_violated	Wanted list will be supplemented from time to time.
+Security	Terrorism	Terrorism	Anyone known to be holding officer rank in the Provisional 
+IRA even though there is no evidence to justify criminal charges.
+
+Legal	Security	Security	Regulation 11. This is chiefly used when a person is suspected of 
+having committed an offence in the field of law and order but there is a brook in time between the alleged commission of the offence and the apprehension of the suspect.
+
+Rights_not_violated	Terrorism	Security	that there should not at present be any question of a statutory indemnity for members of the security forces.
+Security	Terrorism	Terrorism	serious acts of terrorism by the I.R.A. and their recent declarations of their intention to continue and even escalate their campaign have made it essential to take this action, however abhorrent, [] in order to prevent the undermining of economic and social stability in Northern Ireland.
+Misc	Terrorism	Terrorism	serious acts of terrorism by the I.R.A. and their recent declarations of their intention to continue and even escalate their campaign have made it essential to take this action, however abhorrent, [] in order to prevent the undermining of economic and social stability in Northern Ireland.
+Legal	Misc	Rights_not_violated	The Home Secretary told Mr. Faulkner that he proposed that Sir Edmund Compton 
+be asked to carry on dealing with complaints from persons arrested with a view to internment. This, together with the arrangements which were being made for a Board of Visitors to hear complaints of people once they were received into prison, should fill the gap which had been criticised.
+Legal	Terrorism	Security	common law a person may use such force as is reasonable in the circumstances in effecting or assisting in the lawful arrest of offenders or suspected offenders or persons unlawfully at large.
+
+Legal	Misc	Misc	it would do much to increase public confidence, and the morale of the security forces themselves; their achievements in this regard had been considerable, but they were dimmed by the absence of a swift and manifest outcome of their efforts.
+
+Security	Legal	Terrorism	Internment should properly be regarded not so much as an alternative to trial as an alternative to being shot in an act of terrorism.
+Rights_not_violated	Legal	Legal	Internees were all given notice of their rights and were allowed legal advice in the preparation of their cases; but legal representation was not allowed at their appearance before the Committee, which was conducted in strict confidence with only the members of the Committee present, each of whom was provided with the relevant documents.
+Security	Misc	Misc	it would do much to increase public confidence, and the morale of the security forces themselves; their achievements in this regard had been considerable, but they were dimmed by the absence of a swift and manifest outcome of their efforts.
+
+Security	Terrorism	Terrorism	The test for an internee’s fitness for release was not so much his innocence of any association with terrorist organisations, but whether he could be set at large without danger to the community.
+Rights_not_violated	Terrorism	Terrorism	The main target of the present operation is the Irish 
+Republican Army.which has been responsible for recent acts of terrorism, and whose victims have included Protestant and Roman Catholic alike
+Terrorism	Security	Security	It is with understandable reluctance that one uses these 
+exceptional powers, but the organisations concerned are those which have murdered in cold blood, created situations which have led to death or injury to people quite uninvolved in disorder, maimed numerous people including young children and put at risk the jobs and the whole future of ntire communities.
+
+Security	Rights_not_violated	Rights_not_violated	This is not action taken against any responsible and las- 
+abiding section of the community.
+
+Misc	Rights_not_violated	Political	At all times I have consistently emphasized that it was not a step towards which I would be moved by any political clamour. Equally, I cannot now allow the prospect of any misrepresentation to deflect me from my duty to act.
+Misc	Security	Security	It is with understandable reluctance that one uses these 
+exceptional powers, but the organisations concerned are those which have murdered in cold blood, created situations which have led to death or injury to people quite uninvolved in disorder, maimed numerous people including young children and put at risk the jobs and the whole future of ntire communities.
+Misc	Terrorism	Terrorism	If the measures which HMG have taken lead, as is hoped 
+they will, to a reduction in terrorist activity, it will be possible to consider further releases; but this must of course depend on a clearly established improvement in the security situation.
+Misc	Legal	Legal	I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+
+Security	Legal	Legal	I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Security	Terrorism	Terrorism	THE SECURITY FORCES ARE ACCORDINGLY ARRESTING AND DETAINING PEOPLE SUSPECTED OF RESPONSIBILITY FOR COMMITTING OR ABETTING ACTS OF TERRORISM AND OTHER BREACHES OF THE PEACE DESIGNED TO LEAD TO A BREAKDOWN OF LAW AND ORDER IN NORTHERN IRELAND.
+Misc	Terrorism	Terrorism	THE LATEST SERIES OF ACTS OF TERRORISM BY THE IRA AND THEIR RECENT DECLARATIONS OF THEIR INTENTION TO CONTINUE AND EVEN ESCALATE THAT CAMPAIGN HAVE MADE IT ESSENTIAL TO TAKE THIS ACTION HOWEVER ABHORRENT, IN ORDER TO PREVENT
+Security	Terrorism	Terrorism	We are now acting to remove the shadow of fear which hangs over too many of you.

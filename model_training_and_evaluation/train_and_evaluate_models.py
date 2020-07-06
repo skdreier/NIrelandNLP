@@ -8,7 +8,7 @@ from util import make_directories_as_necessary
 from prep_data import main as prep_data_and_return_necessary_parts
 from prep_data import read_in_presplit_data, make_binary_data_split, make_multiway_data_split
 from detailed_performance_breakdown import get_recall_precision_curve_points, \
-    plot_two_precision_recalls_against_each_other, make_multilabel_csv
+    plot_two_precision_recalls_against_each_other, make_multilabel_csv, make_csv_used_to_compute_mcnemar_bowker
 from config import full_document_filename, binary_train_filename, binary_dev_filename, \
     binary_test_filename, binary_label_key_filename, multiway_train_filename, multiway_dev_filename, \
     multiway_test_filename, multiway_label_key_filename, positive_sentence_filename, problem_report_filename, \
@@ -16,7 +16,7 @@ from config import full_document_filename, binary_train_filename, binary_dev_fil
     binary_negative_sentences_spot_checking_fname, output_binary_model_dir, output_multiway_model_dir, \
     csv_filename_logreg_on_test, csv_filename_logreg_on_dev, csv_filename_roberta_on_dev, \
     csv_filename_roberta_on_test, multiway_output_report_filename_stub, binary_output_report_filename_stub, \
-    dev_precreccurve_plot_filename, test_precreccurve_plot_filename
+    dev_precreccurve_plot_filename, test_precreccurve_plot_filename, csv_filename_logregtest_vs_robertatest
 
 
 def get_binary_classification_data(train_filename, dev_filename, test_filename, label_key_filename):
@@ -41,17 +41,30 @@ def get_multi_way_classification_data(train_filename, dev_filename, test_filenam
     return train_df, dev_df, test_df, num_labels
 
 
-def report_mismatches_to_files(file_stub, true_labels, baseline_labels, model_labels, test_df, model_name: str=None):
+def report_mismatches_to_files(file_stub, true_labels, baseline_labels, model_labels, test_df,
+                               label_key_filename, model_name: str=None):
     make_directories_as_necessary(file_stub)
+
+    counter = 0
+    inds_to_labels = {}
+    with open(label_key_filename, 'r') as f:
+        for line in f:
+            line = line.strip()
+            if line != '':
+                inds_to_labels[counter] = line
+                counter += 1
 
     correct_in_both = 0
     correct_in_both_f = open(file_stub + '_bothcorrect.txt', 'w')
     correct_only_in_model = 0
     correct_only_in_model_f = open(file_stub + '_onlycorrectinmodel.txt', 'w')
+    correct_only_in_model_f.write('true_label\tincorrect_baseline_label\ttext\n')
     correct_only_in_baseline = 0
     correct_only_in_baseline_f = open(file_stub + '_onlycorrectinbaseline.txt', 'w')
+    correct_only_in_baseline_f.write('true_label\tincorrect_model_label\ttext\n')
     neither_correct = 0
     neither_correct_f = open(file_stub + '_neithercorrect.txt', 'w')
+    neither_correct_f.write('true_label\tincorrect_baseline_label\tincorrect_model_label\ttext\n')
     for i, row in test_df.iterrows():
         sent = str(row['text'])
         label = str(row['strlabel'])
@@ -60,14 +73,17 @@ def report_mismatches_to_files(file_stub, true_labels, baseline_labels, model_la
                 correct_in_both_f.write(str(label) + '\t' + str(sent) + '\n')
                 correct_in_both += 1
             else:
-                correct_only_in_model_f.write(str(label) + '\t' + str(sent) + '\n')
+                correct_only_in_model_f.write(str(label) + '\t' + inds_to_labels[baseline_labels[i]] + '\t' +
+                                              str(sent) + '\n')
                 correct_only_in_model += 1
         else:
             if true_labels[i] == baseline_labels[i]:
-                correct_only_in_baseline_f.write(str(label) + '\t' + str(sent) + '\n')
+                correct_only_in_baseline_f.write(str(label) + '\t' + inds_to_labels[model_labels[i]] + '\t' +
+                                                 str(sent) + '\n')
                 correct_only_in_baseline += 1
             else:
-                neither_correct_f.write(str(label) + '\t' + str(sent) + '\n')
+                neither_correct_f.write(str(label) + '\t' + inds_to_labels[baseline_labels[i]] + '\t' +
+                                        inds_to_labels[model_labels[i]] + '\t' + str(sent) + '\n')
                 neither_correct += 1
     correct_in_both_f.close()
     correct_only_in_model_f.close()
@@ -225,7 +241,7 @@ def main():
     make_directories_as_necessary(binary_output_report_filename_stub)
     report_mismatches_to_files(binary_output_report_filename_stub, list_of_all_test_labels,
                                list_of_all_predicted_lr_test_labels, list_of_all_predicted_roberta_test_labels,
-                               test_df, model_name='RoBERTa')
+                               test_df, binary_label_key_filename, model_name='RoBERTa')
 
     print('\n\n')
 
@@ -301,7 +317,10 @@ def main():
                         datasplit_label='test')
     report_mismatches_to_files(multiway_output_report_filename_stub, list_of_all_test_labels,
                                list_of_all_predicted_lr_test_labels, list_of_all_predicted_roberta_test_labels,
-                               test_df, model_name='RoBERTa')
+                               test_df, multiway_label_key_filename, model_name='RoBERTa')
+    make_csv_used_to_compute_mcnemar_bowker(list_of_all_predicted_roberta_test_labels, 'RoBERTa',
+                                            list_of_all_predicted_lr_test_labels, 'LogReg',
+                                            csv_filename_logregtest_vs_robertatest)
 
 
 if __name__ == '__main__':

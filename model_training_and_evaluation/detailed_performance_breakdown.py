@@ -8,6 +8,43 @@ import seaborn as sns
 sns.set()
 
 
+def make_csv_used_to_compute_mcnemar_bowker(predicted_labels_1, model_name_1, predicted_labels_2, model_name_2,
+                                            filename):
+    highest_val_to_go_up_to = max(max(predicted_labels_1), max(predicted_labels_2))
+    total_num_categories = highest_val_to_go_up_to + 1
+    model1label_to_allcorrmodel2labels = {}
+    assert len(predicted_labels_2) == len(predicted_labels_1)
+    for i in range(len(predicted_labels_2)):
+        label_1 = predicted_labels_1[i]
+        label_2 = predicted_labels_2[i]
+        if label_1 not in model1label_to_allcorrmodel2labels:
+            model1label_to_allcorrmodel2labels[label_1] = []
+        model1label_to_allcorrmodel2labels[label_1].append(label_2)
+    model1label_to_model2label_to_count = {}
+    for i in range(total_num_categories):
+        model1label_to_model2label_to_count[i] = {}
+        for j in range(total_num_categories):
+            model1label_to_model2label_to_count[i][j] = model1label_to_allcorrmodel2labels[i].count(j)
+    empty_cells_before_name = 2 + (total_num_categories // 2)
+    num_fields_per_line = total_num_categories + 2
+    str_to_write = ','.join(([''] * empty_cells_before_name) + [model_name_2] +
+                            ([''] * (num_fields_per_line - empty_cells_before_name - 1))) + '\n'
+    str_to_write += ','.join(['', ''] + [str(i) for i in range(total_num_categories)]) + '\n'
+    for i in range(total_num_categories):
+        if i + 2 == empty_cells_before_name:
+            initial_field = model_name_1
+        else:
+            initial_field = ''
+        line_fields = [initial_field, str(i)]
+        for j in range(total_num_categories):
+            line_fields.append(str(model1label_to_model2label_to_count[i][j]))
+        str_to_write += ','.join(line_fields) + '\n'
+
+    make_directories_as_necessary(filename)
+    with open(filename, 'w') as f:
+        f.write(str_to_write)
+
+
 def plot_two_precision_recalls_against_each_other(recall_precision_points_one, label_one, recall_precision_points_two,
                                                   label_two, plot_filename, plot_title=None):
     make_directories_as_necessary(plot_filename)

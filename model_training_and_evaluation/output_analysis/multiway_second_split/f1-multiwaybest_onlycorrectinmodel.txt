@@ -1,0 +1,83 @@
+true_label	incorrect_baseline_label	text
+J_Development-Unity	J_Misc	Our hope is that these measures can be strictly temporary, will serve to re-establish a situation in which the many social and other reforms that have been introduced and are still to come are recognised at their true value,
+J_Terrorism	J_Misc	ADDITIONALLY, THERE HAS BEEN A MARKED INCREASE IN THE WEIGHT AND QUANTITY OF EXPLOSIVES BEING USED, AND A CROWING NUMBER OF ATTACKS ON COMMERCIAL PREMISES IN BELFAST.
+
+J_Terrorism	J_Emergency-Policy	THIS DECISION HAS BEEN MADE IN THE LIGHT OF IRA ACTIVITY WHICH HAS INCREASED BOTH IN VOLUME AND IN THE VICIOUSNESS OF THE ATTACKS ON THE SECURITY FORCES AND SOCIETY IN NORTHERN IRELAND. IN ADDITION TO THOSE KILLED BY GUNMEN, EXPLOSIVES HAVE BEEN USED AGAINST POLICE STATIONS, AND ALSO BARS, AND OTHER PUBLIC PLACES WHERE CASUALTIES AMONGST ORDINARY CITIZENS WERE INEVITABLE.
+
+J_Emergency-Policy	J_Misc	MR FAULKNER, THE PRIME MINISTER OF NORTHERN IRELAND, ANNOUNCED THIS MORNING, 9 AUGUST, THAT AFTER WEIGHING ALL THE RELEVANT CONSIDERATIONS, INCLUDING THE VIEWS OF THE SECURITY AUTHORITIES, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND COVERNENT HAD DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+J_Misc	J_Terrorism	THESE HAVE INCLUDED FOR THE FIRST TIME WELL-PLANNED OPERATIONS BY GANGS OF UP TO A DOZEN MEN, WHICH SHOWS THE GROWING CONFIDENCE -WITH WHICH THE IRA IS NOW OPERATING.
+J_Development-Unity	J_Terrorism	ALL THE EVIDENCE INDICATES A DELIBERATE IRA POLICY TO DISTURB SOCIETY IN THE NORTH, DESTROY ECONOMIC LIFE AND DISCREDIT THE STORMONT GOVERNMENT,
+J_Misc	J_Emergency-Policy	The information on which recommendations for internment 
+are made by the RUC Special Branch is naturally held by the Special Branch themselves. 
+But a senior Army intelligence 
+officer has always had complete access to these records; and he is satisfied that, subject to two reservations, virtually all the internees are IRA members. 
+The first is that three 
+of the internees cannot be assigned to specific appointments in the IRA’s order of battle, though the dossiers concerned show that the Special Branch regard two of them as members of the IRA and the third as having strong links with the IRA. The other reservation is that one cannot entirely rule out the possibility that in a few cases the information provided to the Special Branch might have been prompted by personal spite, 
+or something similar, on the part of the informants.
+J_Terrorism	J_Legal_Procedure	Then we have to bear in mind the Diplock enquiry. As I understand 
+it, this body is considering what arrangements for the administration of justice in Northern Ireland could be made in order to deal more effectively with terrorist organisations by bringing to book, otherwise
+J_Terrorism	J_Emergency-Policy	It has been suggested that this gap should be closed by proscribing 
+the I.R.A. in this country, a coursewhich has been pressed on me on general grounds from a variety of quarters. There has been similar pressure to take powers to proscribe Arab terrorist organisations.
+
+J_Terrorism	J_Emergency-Policy	If the I.R.A. mounted a campaign of violence in the UK we should 
+have to think again - although we might then want to act on the lines of the 1939 Prevention of Violence Act (but perhaps not limited to Irish affairs).
+
+J_Intelligence	J_Misc	searches on goad intelligence.
+
+J_Misc	J_Political-Strategic	The Secretary of State said he fully appreciated their position but he again had to make it clear that only himself and his Cabinet colleagues could be the judges on timing.
+J_Terrorism	J_Emergency-Policy	The Government reaffirm their determination to improve the security situation in Northern Ireland and to deal with terrorists, including those who, for the reasons indicated earlier, cannot be dealt with through the normal processes of the criminal law.
+
+J_Denial	J_Emergency-Policy	These interim provisions will be employed only where the ordinary processes of the criminal law are inadequate and will be enforced with complete impartiality against whatever persons or organisations are found to be engaged in terrorism and violence.
+J_Emergency-Policy	J_Political-Strategic	Either the improvement of the security situation or a political 
+requirement to conciliate the Catholics may prompt some modification of the internment policy, starting perhaps with the release of some of the less harmful internees.
+J_Denial	J_Terrorism	(ii) outrages upon personal dignity, in particular, humiliating and degrading treatment.
+
+J_Emergency-Policy	J_Denial	Under conditions of emergency, or near emergency, there is likely 
+to be internal security legislation controlling the treatment of detainees and arrested persons. 
+reflect prevailing conditions. 
+Legislation will vary from country to country and Military personnel are to acquaint themselves 
+with the laws of the country concerned, and will not act unlawfully under any circumstances whatever.
+J_Legal_Procedure	J_Denial	There are I think some improvements which might be made to the interrment 
+appeal procedure for example, by allowing legal representation of internees at the hearing - but this would be little more than window dressing and would be regarded as tinkering.
+J_Legal_Procedure	J_Misc	was the setting up of some form of Commission which would review the reasons for internment and the procedure which has so far been adopted.
+
+J_Emergency-Policy	J_Denial	The Attorney General and Mr Dalton only confirm our view however that the alternative of beinging the men to trial is not the answer.
+J_Misc	J_Denial	But I simply don’t see how we can abandon internment at this stage.
+J_Misc	J_Denial	idan Corrigan, also of St Patrick’s Academy, Dungannon, is associated with Fr Faul and also with the ALJ and the CSJ. Corrigan was responsible for various publications on behalf of Fianna Fail which had false imprints.
+J_Terrorism	J_Legal_Procedure	List C, ith about W naneu, is of graminnt terrarista aga!nt whOM there ia 11’. tleak.; lolood of preferring char-e (: - wamW for zzg, r 
+ax3sple).
+J_Emergency-Policy	J_Terrorism	List 3, 2. -: 
+with abo;t 12( ames, is of those In respect of v cm there is reliable intelligenoe ind4ating their ivolvemt in the ecamszan of orines but indtricient eidene to support a proseeution.
+
+J_Misc	J_Political-Strategic	unless detention ordr a ei made following arrest undor the wpeci.1 P oewrs ct, thouearreoted can beheld for only 43 hourz. 7i 
+a is not long eunmia to 
+affect the situation an the grotad and it bosts the noul aof the terorists if theyeen 
+ks capital opt of the inability of the ecurity :roes to hold thee.
+
+J_Terrorism	J_Legal_Procedure	Given an intention to dispense with internment, there seems no alternative to the detention under Regulation 11 of persons arrested as terrorists until special courts or tribunals are introduced.
+J_Law-and-order	J_Emergency-Policy	Regulation 11. This is chiefly used when a person is suspected of 
+having committed an offence in the field of law and order but there is a brook in time between the alleged commission of the offence and the apprehension of the suspect.
+J_Emergency-Policy	J_Intelligence	intelligence, are known to be an exceptionally serious threat to securit
+
+J_Emergency-Policy	J_Terrorism	Other terrorists who are known, on the strength of reliable 
+intelligence, to be an exceptionally serious threat to security, and for whom, in the absence of evidence which could form the basis of a criminal charge, 
+Interim Custody Order.
+
+J_Legal_Procedure	J_Denial	7. There have been 18 appeals to the Tribunal 9 of which have been heard. The Tribunal confirmed the detention of 6 and discharged 3.
+J_Political-Strategic	J_Terrorism	To-morrow’s meeting will provide a convenient opportunity to check whether they endorse this view in political terms.
+J_Legal_Procedure	J_Emergency-Policy	If so, the new Directive should be issued without further delay; and in the case of Northern Ireland it should be accompanied, as the Attorney General has suggested, by a specific reminder about the domestic law on the subject in the Six Counties.
+J_Development-Unity	J_Terrorism	serious acts of terrorism by the I.R.A. and their recent declarations of their intention to continue and even escalate their campaign have made it essential to take this action, however abhorrent, [] in order to prevent the undermining of economic and social stability in Northern Ireland.
+J_Misc	J_Denial	Internment was producing information so rapidly that accommodation was becoming crowded.
+
+J_Denial	J_Terrorism	on the general principle that personnel must never use more force then the minimum necessary to enable them to carry out their duties.
+J_Legal_Procedure	J_Misc	The courts had in fact dealt firmly with a large number of cases and he would supply details of these to assist public presentation in Great Britain.
+J_Denial	J_Terrorism	Nor is it in any way punitive or indiscriminate.
+
+J_Misc	J_Legal_Procedure	The Secretary of tate said thatthia queetion of timing was eonstantly under review 
+d was a matter for HM to deide.
+J_Terrorism	J_Legal_Procedure	As at present it will help me in considering each application 
+if it is accompanied by a factual statement of the 
+reasons why a detention order is considered necessary, indicating inter alia the extent to which the individual concerned is currently actively engaged in terrorist activity and the possibility of criminal charges being preferred.
+
+J_Emergency-Policy	J_Terrorism	You will know that it is my intention to seek the agreement of my colleagues to new procedures which in the event or internment being brought at an end will make It possible to keep in custody those members of the IRA whose continued liberty is a threat to security.
+
