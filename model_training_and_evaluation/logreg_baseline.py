@@ -43,8 +43,8 @@ def run_classification(train_df, dev_df, regularization_weight, label_weights: L
     accuracy = float(accuracy_score(list_of_all_dev_labels, predicted_labels))
     f1 = float(f1_score(list_of_all_dev_labels, predicted_labels, average=f1_avg))
     if also_report_binary_precrec:
-        prec = float(precision_score(list_of_all_dev_labels, predicted_labels, pos_label=1, average=f1_avg))
-        rec = float(recall_score(list_of_all_dev_labels, predicted_labels, pos_label=1, average=f1_avg))
+        prec = float(precision_score(list_of_all_dev_labels, predicted_labels, average=f1_avg))
+        rec = float(recall_score(list_of_all_dev_labels, predicted_labels, average=f1_avg))
     if print_results:
         if also_report_binary_precrec:
             print(string_prefix + 'With regularization weight ' + str(regularization_weight) +
