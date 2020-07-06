@@ -1,6 +1,6 @@
 from typing import List
-from scipy.misc import logsumexp
 import numpy as np
+from util import make_directories_as_necessary
 import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')
@@ -10,6 +10,7 @@ sns.set()
 
 def plot_two_precision_recalls_against_each_other(recall_precision_points_one, label_one, recall_precision_points_two,
                                                   label_two, plot_filename, plot_title=None):
+    make_directories_as_necessary(plot_filename)
     fig = plt.figure()
 
     recalls_one = []
@@ -68,7 +69,8 @@ def get_recall_precision_curve_points(list_of_logits, actual_labels_as_list_of_i
            len(actual_labels_as_list_of_ints)
     list_of_probs = []
     for i, logit_pair in enumerate(list_of_logits):
-        list_of_probs.append((np.exp(logit_pair - logsumexp(logit_pair)), actual_labels_as_list_of_ints[i]))
+        denom = np.log(np.sum(np.exp(logit_pair)))
+        list_of_probs.append((np.exp(logit_pair - denom), actual_labels_as_list_of_ints[i]))
     if len(list_of_logits[0].shape) == 2:
         sorted_by_prob = sorted(list_of_probs, key=lambda x: x[0][0][1], reverse=True)
     else:
@@ -132,8 +134,10 @@ def get_recall_precision_curve_points(list_of_logits, actual_labels_as_list_of_i
 
 def make_multilabel_csv(list_of_predicted_labels, actual_labels_as_list_of_ints, class_key_filename, csv_filename,
                         datasplit_label='test'):
-    precision_recall_f1_numtrulyinlabel = get_classwise_prec_rec_f1_numtrulyinlabel(list_of_predicted_labels,
-                                                                                    actual_labels_as_list_of_ints)
+    make_directories_as_necessary(csv_filename)
+    precision_recall_f1_numtrulyinlabel_numguessedaslabel = \
+        get_classwise_prec_rec_f1_numtrulyinlabel_numguessedaslabel(list_of_predicted_labels,
+                                                                    actual_labels_as_list_of_ints)
     class_names = []
     with open(class_key_filename, 'r') as f:
         for line in f:
@@ -142,28 +146,31 @@ def make_multilabel_csv(list_of_predicted_labels, actual_labels_as_list_of_ints,
                 if ',' in line:
                     line = '"' + line + '"'
                 class_names.append(line)
-    assert len(class_names) == len(precision_recall_f1_numtrulyinlabel)
+    assert len(class_names) == len(precision_recall_f1_numtrulyinlabel_numguessedaslabel)
 
     with open(csv_filename, 'w') as f:
         f.write(','.join(['label_ind', 'str_label', 'num_of_each_class_in_' + datasplit_label, 'precision',
-                          'recall', 'f1']) + '\n')
+                          'recall', 'f1', 'num_guessed_as_class']) + '\n')
         for i in range(len(class_names)):
             fields_to_write = [str(i)]
             fields_to_write.append(class_names[i])
-            fields_to_write.append(str(precision_recall_f1_numtrulyinlabel[i][3]))
-            fields_to_write.append(str(precision_recall_f1_numtrulyinlabel[i][0]))
-            fields_to_write.append(str(precision_recall_f1_numtrulyinlabel[i][1]))
-            fields_to_write.append(str(precision_recall_f1_numtrulyinlabel[i][2]))
+            fields_to_write.append(str(precision_recall_f1_numtrulyinlabel_numguessedaslabel[i][3]))
+            fields_to_write.append(str(precision_recall_f1_numtrulyinlabel_numguessedaslabel[i][0]))
+            fields_to_write.append(str(precision_recall_f1_numtrulyinlabel_numguessedaslabel[i][1]))
+            fields_to_write.append(str(precision_recall_f1_numtrulyinlabel_numguessedaslabel[i][2]))
+            fields_to_write.append(str(precision_recall_f1_numtrulyinlabel_numguessedaslabel[i][4]))
             f.write(','.join(fields_to_write) + '\n')
     print('Wrote ' + csv_filename)
 
 
-def get_classwise_prec_rec_f1_numtrulyinlabel(list_of_predicted_labels, actual_labels_as_list_of_ints: List[int]):
+def get_classwise_prec_rec_f1_numtrulyinlabel_numguessedaslabel(list_of_predicted_labels,
+                                                                actual_labels_as_list_of_ints: List[int]):
     assert len(list_of_predicted_labels) == len(actual_labels_as_list_of_ints)
-    precision_recall_f1_numtrulyinlabel = []
+    precision_recall_f1_numtrulyinlabel_numguessedaslabel = []
     highest_label = max(max(list_of_predicted_labels), max(actual_labels_as_list_of_ints))
     for label in range(highest_label + 1):
         num_truly_in_label = actual_labels_as_list_of_ints.count(label)
+        num_guessed_as_label = list_of_predicted_labels.count(label)
         true_guessed_positive = 0
         false_guessed_positive = 0
         for i in range(len(list_of_predicted_labels)):
@@ -185,5 +192,6 @@ def get_classwise_prec_rec_f1_numtrulyinlabel(list_of_predicted_labels, actual_l
             f1 = 'NaN'
         else:
             f1 = 2 * precision * recall / (precision + recall)
-        precision_recall_f1_numtrulyinlabel.append((precision, recall, f1, num_truly_in_label))
-    return precision_recall_f1_numtrulyinlabel
+        precision_recall_f1_numtrulyinlabel_numguessedaslabel.append((precision, recall, f1, num_truly_in_label,
+                                                                      num_guessed_as_label))
+    return precision_recall_f1_numtrulyinlabel_numguessedaslabel

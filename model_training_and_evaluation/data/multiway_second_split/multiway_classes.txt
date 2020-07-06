@@ -1,0 +1,12 @@
+J_Political-Strategic
+J_Emergency-Policy
+J_Denial
+J_Misc
+J_Utilitarian-Deterrence
+J_Terrorism
+J_Legal_Procedure
+J_Law-and-order
+J_Last-resort
+J_Development-Unity
+J_Intelligence
+J_Intl-Domestic_Precedent

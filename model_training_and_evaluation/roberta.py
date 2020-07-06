@@ -42,8 +42,8 @@ def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int
                                                           'do_lower_case': lowercase_all_text})
     if also_report_binary_precrec:
         model.train_model(train_df, output_dir=output_dir,
-                          prec=(lambda labels, preds: precision_score(labels, preds, average='binary', pos_label=1)),
-                          rec=(lambda labels, preds: recall_score(labels, preds, average='binary', pos_label=1)),
+                          prec=(lambda labels, preds: precision_score(labels, preds, average=f1_avg, pos_label=1)),
+                          rec=(lambda labels, preds: recall_score(labels, preds, average=f1_avg, pos_label=1)),
                           f1=(lambda labels, preds: f1_score(labels, preds, average=f1_avg)),
                           eval_df=dev_df, args={'evaluate_during_training': True, 'num_train_epochs': 10,
                                                 'use_early_stopping': True,
@@ -130,8 +130,8 @@ def run_best_model_on(output_dir, test_df, num_labels, label_weights, lowercase_
         result, model_outputs, wrong_predictions = \
             model.eval_model(test_df, acc=accuracy_score,
                              f1=(lambda labels, preds: f1_score(labels, preds, average=f1_avg)),
-                             prec=(lambda labels, preds: precision_score(labels, preds, average='binary', pos_label=1)),
-                             rec=(lambda labels, preds: recall_score(labels, preds, average='binary', pos_label=1)))
+                             prec=(lambda labels, preds: precision_score(labels, preds, average=f1_avg, pos_label=1)),
+                             rec=(lambda labels, preds: recall_score(labels, preds, average=f1_avg, pos_label=1)))
     else:
         result, model_outputs, wrong_predictions = \
             model.eval_model(test_df, acc=accuracy_score,
