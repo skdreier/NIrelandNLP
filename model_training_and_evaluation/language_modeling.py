@@ -5,8 +5,10 @@ import os
 import shutil
 import torch
 from prep_data import read_in_presplit_data
-from config import binary_train_filename, binary_dev_filename, \
-    binary_test_filename, binary_label_key_filename
+from config import binary_train_filename as train_filename
+from config import binary_dev_filename as dev_filename
+from config import binary_test_filename as test_filename
+from config import binary_label_key_filename as label_key_filename
 from tqdm import tqdm
 
 
@@ -27,6 +29,7 @@ def get_gpt2_perplexity_for_every_sentence(data_as_pd_dataframe, output_file, cu
     else:
         was_originally_dir = True
 
+    perplexities_to_return = []
     with open(output_file, 'w') as f:
         f.write('perplexity\tsentence\n')
         for i, row in tqdm(data_as_pd_dataframe.iterrows(), total=data_as_pd_dataframe.shape[0]):
@@ -35,6 +38,7 @@ def get_gpt2_perplexity_for_every_sentence(data_as_pd_dataframe, output_file, cu
             results = model.evaluate(single_example_dataset, disposable_output_dir, multi_label=False, verbose=False,
                                      silent=True)
             instance_perplexity = float(results['perplexity'])
+            perplexities_to_return.append(instance_perplexity)
             text = row['text']
             if '\n' in text or '\t' in text:
                 if '"' in text:
@@ -46,6 +50,7 @@ def get_gpt2_perplexity_for_every_sentence(data_as_pd_dataframe, output_file, cu
 
     if not was_originally_dir:
         shutil.rmtree(disposable_output_dir)
+    return perplexities_to_return
 
 
 class SingleItemDataset(Dataset):
@@ -66,6 +71,25 @@ if __name__ == '__main__':
     else:
         cuda_device = -1
     train_df, dev_df, test_df, num_labels = \
-        read_in_presplit_data(binary_train_filename, binary_dev_filename, binary_test_filename,
-                              binary_label_key_filename)
-    get_gpt2_perplexity_for_every_sentence(train_df, 'training_sentence_perplexities.tsv', cuda_device=cuda_device)
+        read_in_presplit_data(train_filename, dev_filename, test_filename,
+                              label_key_filename)
+    dev_perplexities = \
+        get_gpt2_perplexity_for_every_sentence(dev_df, 'dev_sentence_perplexities.tsv', cuda_device=cuda_device)
+    dev_df['perplexity'] = dev_perplexities
+    new_dev_filename = dev_filename[:dev_filename.rfind('.')] + '-withperplexities' + \
+                       dev_filename[dev_filename.rfind('.'):]
+    dev_df.to_csv(new_dev_filename, index=False)
+
+    test_perplexities = \
+        get_gpt2_perplexity_for_every_sentence(test_df, 'test_sentence_perplexities.tsv', cuda_device=cuda_device)
+    test_df['perplexity'] = test_perplexities
+    new_test_filename = test_filename[:test_filename.rfind('.')] + '-withperplexities' + \
+                        test_filename[test_filename.rfind('.'):]
+    test_df.to_csv(new_test_filename, index=False)
+
+    training_perplexities = \
+        get_gpt2_perplexity_for_every_sentence(train_df, 'training_sentence_perplexities.tsv', cuda_device=cuda_device)
+    train_df['perplexity'] = training_perplexities
+    new_train_filename = train_filename[:train_filename.rfind('.')] + '-withperplexities' + \
+                         train_filename[train_filename.rfind('.'):]
+    train_df.to_csv(new_train_filename, index=False)

@@ -14,3 +14,4 @@ NI_docs
 test_embedding_w2v.txt
 .idea/
 model_training_and_evaluation/*.tsv
+model_training_and_evaluation/*.xlsx

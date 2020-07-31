@@ -496,6 +496,8 @@ def fix_df_format(df):
     df['text'] = df['text'].astype(str)
     df['strlabel'] = df['strlabel'].astype(str)
     df['labels'] = df['labels'].astype(int)
+    if 'perplexity' in df.columns:
+        df['perplexity'] = df['perplexity'].astype(float)
     return df
 
 
