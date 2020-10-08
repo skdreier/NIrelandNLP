@@ -1,5 +1,18 @@
 from Bio import pairwise2
 from string import whitespace, punctuation
+from math import inf
+
+
+place_a_gap_with_me_char = chr(983041)
+open_gap_penalty = -2.0
+extend_gap_penalty = -.5
+
+
+default_block_length = 596
+NEITHER_HAS_IT_PREPENDED = 0
+BOTH_HAVE_IT_PREPENDED = 1
+GOLD_ONLY_HAS_IT_PREPENDED = 2
+GUESSED_ONLY_HAS_IT_PREPENDED = 3
 
 
 def replace_filler_chars_with_none(string_as_string, string_as_list):
@@ -11,7 +24,7 @@ def replace_filler_chars_with_none(string_as_string, string_as_list):
         elif string_as_list[i] == string_as_string[cur_stringasstring_index]:
             cur_stringasstring_index += 1
         else:
-            assert string_as_list[i] == '-', str(string_as_string) + '\n' + str(string_as_list)
+            assert string_as_list[i] == '', str(string_as_string) + '\n' + str(string_as_list)
             string_as_list[i] = None
     return string_as_list
 
@@ -67,18 +80,22 @@ def next_to_a_matching_punctuation_mark(list1, list2, index, punctuation_set):
     return False
 
 
-def match_scorer(char1, char2, whitespace_set):
+def match_scorer(char1, char2, whitespace_set, penalize_for_case_errors_in_match):
     if char1 == char2:
+        return 1
+    elif char1 == place_a_gap_with_me_char or char2 == place_a_gap_with_me_char:
+        return min(open_gap_penalty, extend_gap_penalty) - 2
+    elif (not penalize_for_case_errors_in_match) and char1.lower() == char2.lower():
         return 1
     elif char1 in whitespace_set and char2 in whitespace_set:
         return 1
     elif char1 not in whitespace_set and char2 not in whitespace_set:
         return -1
     else:
-        return -2
+        return -2  # don't confuse characters for whitespace, it's not something that tends to happen much
 
 
-def score_string_against_gold(guessed_string, gold_string,
+def score_string_against_gold(guessed_string, gold_string, penalize_for_case_errors_in_match=True,
                               fraction_of_token_correct_to_count_as_attempt_at_right_word=0.2,
                               whitespace_set=None, punctuation_set=None, debugging=False):
     if whitespace_set is None:
@@ -97,14 +114,20 @@ def score_string_against_gold(guessed_string, gold_string,
     gold_string = standardize_whitespace_around_punctuation_in_string(gold_string,
                                                                       already_set_whitespace_to_spaces=True)
 
-    alignments = \
-        pairwise2.align.globalcs(gold_string, guessed_string, match_fn=lambda x, y: match_scorer(x, y, whitespace_set),
-                                 open=-1.0, extend=-.5)
-    alignments = alignments[0]  # any optimal alignments will do
-    gold_aligned = [char for char in alignments.seqA]
-    guessed_aligned = [char for char in alignments.seqB]
-    guessed_aligned = replace_filler_chars_with_none(guessed_string, guessed_aligned)
-    gold_aligned = replace_filler_chars_with_none(gold_string, gold_aligned)
+    if max(len(gold_string), len(guessed_string)) <= default_block_length:
+        alignments = \
+            pairwise2.align.globalcs(list(gold_string), list(guessed_string),
+                                     match_fn=lambda x, y: match_scorer(x, y, whitespace_set,
+                                                                        penalize_for_case_errors_in_match),
+                                     open=open_gap_penalty, extend=extend_gap_penalty, gap_char=[''])
+        alignments = alignments[0]
+        gold_aligned = [char for char in alignments.seqA]
+        guessed_aligned = [char for char in alignments.seqB]
+        guessed_aligned = replace_filler_chars_with_none(guessed_string, guessed_aligned)
+        gold_aligned = replace_filler_chars_with_none(gold_string, gold_aligned)
+    else:
+        gold_aligned, guessed_aligned = align_long_sequences_by_frankensteining_shorter_alignments(gold_string,
+                                                                                                   guessed_string)
 
     eligible_for_points = [True] * len(guessed_aligned)
     last_gold_whitespace_location = -1
@@ -188,6 +211,204 @@ def score_string_against_gold(guessed_string, gold_string,
         return case_sensitive_score, case_insensitive_score, cur_denom
 
 
+def get_index_of_nth_nonnull_char_in_list(list_of_chars, n):
+    total_num_nonnull_chars_passed = 0
+    for i, char in enumerate(list_of_chars):
+        if total_num_nonnull_chars_passed == n:
+            return i - 1
+        if char is not None:
+            total_num_nonnull_chars_passed += 1
+    if total_num_nonnull_chars_passed == n:
+        return len(list_of_chars) - 1
+    return None
+
+
+def get_num_nonnull_chars_before_char_index(list_of_chars, i):
+    num_nonnull_chars = 0
+    for j in range(i):
+        if list_of_chars[j] is not None:
+            num_nonnull_chars += 1
+    return num_nonnull_chars
+
+
+def align_long_sequences_by_frankensteining_shorter_alignments(full_gold_string, full_guessed_string,
+                                                               whitespace_set=None,
+                                                               penalize_for_case_errors_in_match=True,
+                                                               block_length=default_block_length):
+    # assumes roughly equal segment lengths
+    assert block_length % 4 == 0
+    quarter_block_length = block_length // 4
+
+    if whitespace_set is None:
+        whitespace_set = set([char for char in whitespace])
+
+    # do it in overlapping blocks of [block_length] characters
+    start_of_next_gold_block = 0
+    start_of_next_guessed_block = 0
+    frankensteined_gold = []
+    frankensteined_guessed = []
+    finalized_gold_so_far_ended_with_gap = None
+    finalized_guessed_so_far_ended_with_gap = None
+    while True:
+        cur_block_gold_string = full_gold_string[start_of_next_gold_block: start_of_next_gold_block + block_length]
+        cur_block_guessed_string = full_guessed_string[start_of_next_guessed_block:
+                                                       start_of_next_guessed_block + block_length]
+
+        gold_has_more_chars_left = (len(full_gold_string) - start_of_next_gold_block) >= \
+                                   (len(full_guessed_string) - start_of_next_guessed_block)
+
+        if finalized_gold_so_far_ended_with_gap is not None and finalized_guessed_so_far_ended_with_gap is not None:
+            assert not (finalized_gold_so_far_ended_with_gap and finalized_guessed_so_far_ended_with_gap)
+            if not (finalized_gold_so_far_ended_with_gap or finalized_guessed_so_far_ended_with_gap):
+                # then prepend a character to both that HAS to be paired together (penalty for not pairing is high)
+                cur_block_guessed_string = place_a_gap_with_me_char + cur_block_guessed_string
+                cur_block_gold_string = place_a_gap_with_me_char + cur_block_gold_string
+                prepended_chars = BOTH_HAVE_IT_PREPENDED
+            elif finalized_gold_so_far_ended_with_gap:
+                # then prepend a character to guessed that HAS to be paired with a gap
+                cur_block_guessed_string = place_a_gap_with_me_char + cur_block_guessed_string
+                prepended_chars = GUESSED_ONLY_HAS_IT_PREPENDED
+            elif finalized_guessed_so_far_ended_with_gap:
+                cur_block_gold_string = place_a_gap_with_me_char + cur_block_gold_string
+                prepended_chars = GOLD_ONLY_HAS_IT_PREPENDED
+        else:
+            prepended_chars = NEITHER_HAS_IT_PREPENDED
+
+        alignments = \
+            pairwise2.align.globalcs(list(cur_block_gold_string), list(cur_block_guessed_string),
+                                     match_fn=lambda x, y: match_scorer(x, y, whitespace_set,
+                                                                        penalize_for_case_errors_in_match),
+                                     open=open_gap_penalty, extend=extend_gap_penalty, gap_char=[''])
+        alignments = alignments[0]  # todo: maybe look through the different alignments to find the least splitty?
+        gold_aligned = [char for char in alignments.seqA]
+        guessed_aligned = [char for char in alignments.seqB]
+        guessed_aligned = replace_filler_chars_with_none(cur_block_guessed_string, guessed_aligned)
+        gold_aligned = replace_filler_chars_with_none(cur_block_gold_string, gold_aligned)
+        if prepended_chars != NEITHER_HAS_IT_PREPENDED:
+            handled_removal_in_special_case = False
+            if prepended_chars == BOTH_HAVE_IT_PREPENDED:
+                assert gold_aligned[0] == place_a_gap_with_me_char and guessed_aligned[0] == place_a_gap_with_me_char, \
+                    str(guessed_aligned[:5]) + '\n' + str(gold_aligned[:5])
+            elif prepended_chars == GOLD_ONLY_HAS_IT_PREPENDED:
+                if not (gold_aligned[0] == place_a_gap_with_me_char and guessed_aligned[0] is None):
+                    for j in range(len(gold_aligned)):
+                        if gold_aligned[j] is not None:
+                            index_of_char_with_gap = j
+                            break
+                    assert guessed_aligned[index_of_char_with_gap] is None and \
+                           gold_aligned[index_of_char_with_gap] == place_a_gap_with_me_char, \
+                        str(guessed_aligned[:5 + index_of_char_with_gap]) + '\n' + \
+                        str(gold_aligned[:5 + index_of_char_with_gap])
+                    del guessed_aligned[index_of_char_with_gap]
+                    del gold_aligned[index_of_char_with_gap]
+                    handled_removal_in_special_case = True
+            elif prepended_chars == GUESSED_ONLY_HAS_IT_PREPENDED:
+                if not (guessed_aligned[0] == place_a_gap_with_me_char and gold_aligned[0] is None):
+                    for j in range(len(guessed_aligned)):
+                        if guessed_aligned[j] is not None:
+                            index_of_char_with_gap = j
+                            break
+                    assert gold_aligned[index_of_char_with_gap] is None and \
+                           guessed_aligned[index_of_char_with_gap] == place_a_gap_with_me_char, \
+                        str(guessed_aligned[:6 + index_of_char_with_gap]) + '\n' + \
+                        str(gold_aligned[:6 + index_of_char_with_gap])
+                    del guessed_aligned[index_of_char_with_gap]
+                    del gold_aligned[index_of_char_with_gap]
+                    handled_removal_in_special_case = True
+            if not handled_removal_in_special_case:
+                gold_aligned = gold_aligned[1:]
+                guessed_aligned = guessed_aligned[1:]
+
+        # we have one point of interest:
+        #    right after first 3 * quarter_block_length current-longer-seq characters
+        if gold_has_more_chars_left:
+            third_quarter = get_index_of_nth_nonnull_char_in_list(gold_aligned, 3 * quarter_block_length + 1)
+        else:
+            third_quarter = get_index_of_nth_nonnull_char_in_list(guessed_aligned, 3 * quarter_block_length + 1)
+        if third_quarter is None:
+            third_quarter = max(len(gold_aligned), len(guessed_aligned))
+
+        frankensteined_gold += gold_aligned[:third_quarter]
+        frankensteined_guessed += guessed_aligned[:third_quarter]
+        if frankensteined_gold[-1] is None:
+            finalized_gold_so_far_ended_with_gap = True
+        else:
+            finalized_gold_so_far_ended_with_gap = False
+        if frankensteined_guessed[-1] is None:
+            finalized_guessed_so_far_ended_with_gap = True
+        else:
+            finalized_guessed_so_far_ended_with_gap = False
+
+        # adjust next block start and calculate number of characters not added into frankensteined totals yet
+        if gold_has_more_chars_left:
+            start_of_next_gold_block += (3 * quarter_block_length)
+            num_nonnull_guessed_chars_by_3rdq = get_num_nonnull_chars_before_char_index(guessed_aligned,
+                                                                                        third_quarter)
+            start_of_next_guessed_block += num_nonnull_guessed_chars_by_3rdq
+        else:
+            start_of_next_guessed_block += (3 * quarter_block_length)
+            num_nonnull_gold_chars_by_3rdq = get_num_nonnull_chars_before_char_index(gold_aligned,
+                                                                                     third_quarter)
+            start_of_next_gold_block += num_nonnull_gold_chars_by_3rdq
+
+        # check whether we're actually done (i.e., we've run out of characters to process in >=1 of our sequences)
+        if start_of_next_guessed_block >= len(full_guessed_string):
+            # collect the remaining gold chars
+            list_to_append = list(full_gold_string[start_of_next_gold_block:])
+            frankensteined_gold += list_to_append
+            frankensteined_guessed += ['' for i in range(len(list_to_append))]
+            break
+        elif start_of_next_gold_block >= len(full_gold_string):
+            # collect the remaining guessed chars
+            list_to_append = list(full_guessed_string[start_of_next_guessed_block:])
+            frankensteined_gold += list_to_append
+            frankensteined_guessed += ['' for i in range(len(list_to_append))]
+            break
+
+    return frankensteined_gold, frankensteined_guessed
+
+
+def show_problem_area(alignment_list, original_doc, i, cur_list_ind, halfwindow=5):
+    shortened_original_doc = original_doc[max(0, i - halfwindow): i + halfwindow].replace('\n', '\\n')
+    ind_of_char_i_in_list = get_index_of_nth_nonnull_char_in_list(alignment_list, i + 1)
+    str_list = ['' if val is None else ('\\n' if val == '\n' else val) for val in alignment_list]
+    assert cur_list_ind == ind_of_char_i_in_list, str(cur_list_ind) + ', ' + str(ind_of_char_i_in_list) + ', "' + \
+                                                  alignment_list[ind_of_char_i_in_list] + '", ' + \
+                                                  ''.join(str_list[ind_of_char_i_in_list - halfwindow:
+                                                                   ind_of_char_i_in_list + halfwindow]) + ', ' + \
+                                                  shortened_original_doc
+    if i - halfwindow < 0:
+        list_start_ind = 0
+    else:
+        list_start_ind = get_index_of_nth_nonnull_char_in_list(alignment_list, i - halfwindow + 1)
+    list_end_ind = get_index_of_nth_nonnull_char_in_list(alignment_list, i + halfwindow + 1)
+    if list_end_ind is None:
+        shortened_alignment_list = str_list[list_start_ind:]
+    else:
+        shortened_alignment_list = str_list[list_start_ind: list_end_ind]
+    str_to_return = '\n'
+    str_to_return += 'Fraction through doc before this occurs: ' + "{:.2f}".format(i / len(original_doc)) + '\n'
+    str_to_return += 'Problem char (in doc):      "' + original_doc[i] + '"\n'
+    str_to_return += 'Problem char (in list doc): "' + alignment_list[cur_list_ind] + '"\n'
+    str_to_return += '/'.join(list(shortened_original_doc)) + '\n'
+    str_to_return += '/'.join(shortened_alignment_list)
+    return str_to_return
+
+
+def check_alignment_list_has_same_sequence_of_characters_as_original_doc(alignment_list, original_doc, halfwindow=5):
+    cur_alignment_list_ind = 0
+    for i, char in enumerate(original_doc):
+        while cur_alignment_list_ind < len(alignment_list) and alignment_list[cur_alignment_list_ind] is None:
+            cur_alignment_list_ind += 1
+        assert cur_alignment_list_ind < len(alignment_list), show_problem_area(alignment_list, original_doc, i,
+                                                                               cur_alignment_list_ind,
+                                                                               halfwindow=halfwindow)
+        assert char == alignment_list[cur_alignment_list_ind], show_problem_area(alignment_list, original_doc, i,
+                                                                                 cur_alignment_list_ind,
+                                                                                 halfwindow=halfwindow)
+        cur_alignment_list_ind += 1
+
+
 def print_alignments(list1, list2, eligible=None, max_line_length=140):
     # if eligible is provided, then will also print '.' to indicate that an aligned character pair was eligible
     # to score points for the guessed sequence, or ' ' to indicate that it wasn't (due to not being a convincing
@@ -201,12 +422,18 @@ def print_alignments(list1, list2, eligible=None, max_line_length=140):
 
     def single_line_join(first_list, second_list, eligible_piece=None):
         if not print_eligible:
-            two_lines_to_print = '\n'.join(['  '.join([char if char is not None else '-' for char in line])
-                                           for line in [first_list, second_list]])
+            two_lines_to_print = ['  '.join([char if char is not None else '-' for char in line])
+                                  for line in [first_list, second_list]]
+            for i in range(len(two_lines_to_print)):
+                two_lines_to_print[i] = two_lines_to_print[i].replace('\n', '\\')
+            two_lines_to_print = '\n'.join(two_lines_to_print)
         else:
             corrected_eligible = ['.' if val else ' ' for val in eligible_piece]
-            two_lines_to_print = '\n'.join(['  '.join([char if char is not None else '-' for char in line])
-                                            for line in [first_list, second_list, corrected_eligible]])
+            two_lines_to_print = ['  '.join([char if char is not None else '-' for char in line])
+                                  for line in [first_list, second_list, corrected_eligible]]
+            for i in range(len(two_lines_to_print)):
+                two_lines_to_print[i] = two_lines_to_print[i].replace('\n', '\\')
+            two_lines_to_print = '\n'.join(two_lines_to_print)
         return two_lines_to_print
 
     num_batches_to_run = len(list1) / max_num_chars_per_line

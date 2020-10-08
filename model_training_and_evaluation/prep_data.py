@@ -3,6 +3,21 @@ from math import inf
 from random import shuffle
 from string import whitespace, punctuation
 from util import make_directories_as_necessary
+from spacy.tokens import Token
+import spacy
+
+
+use_spacy = True
+
+
+def set_custom_boundaries(doc):
+    # can modify doc's tokens' is_sent_start attribute here, but not their is_sent_end attribute
+    return doc
+
+
+if use_spacy:
+    spacy_tools = spacy.load("en_core_web_sm")
+    spacy_tools.add_pipe(set_custom_boundaries, before="parser")
 
 
 def get_simplified_filename_string(filename_tag_string):
@@ -216,6 +231,18 @@ def report_matches(message, report_to_file, dont_print_at_all=False):
             f.write(message + '\n')
 
 
+def get_sentence_split_inds_spacy(text):
+    assert use_spacy  # otherwise we won't have set up spacy_tools yet
+    def get_text_ready_for_spacy(some_text):
+        return some_text
+    text = get_text_ready_for_spacy(text)
+    doc = spacy_tools(text)
+    sentences = doc.sents
+    all_sentence_starts = [doc[sent.start].idx for sent in sentences]
+    all_sentence_starts.append(len(text))
+    return all_sentence_starts[1:]
+
+
 def get_sentence_split_inds(text):
     text = text.rstrip()
     locations_of_punctuation_marks_to_split_on = []
@@ -341,7 +368,10 @@ def get_sentence_split_inds(text):
 
 
 def get_lists_of_positive_negative_sentences_from_doc(document, list_of_positive_sentence_inds_in_doc):
-    sentence_split_inds = get_sentence_split_inds(document)
+    if use_spacy:
+        sentence_split_inds = get_sentence_split_inds_spacy(document)
+    else:
+        sentence_split_inds = get_sentence_split_inds(document)
     list_of_positive_sentence_inds_in_doc = sorted(list_of_positive_sentence_inds_in_doc, key=lambda x: x[0])
 
     negative_spans = []
