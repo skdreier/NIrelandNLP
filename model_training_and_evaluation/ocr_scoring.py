@@ -95,6 +95,126 @@ def match_scorer(char1, char2, whitespace_set, penalize_for_case_errors_in_match
         return -2  # don't confuse characters for whitespace, it's not something that tends to happen much
 
 
+def get_token_correct_was_token(guessed_aligned_string, gold_aligned_string, start_ind, end_ind,
+                                punctuation_set, whitespace_set):
+    # returns three things: token_fully_correct, token_correct_case_insensitive, add_to_denom
+    # there is guaranteed not to be any whitespace inside these indices of the gold aligned string list
+    token_fully_correct = True
+    token_correct_case_insensitive = True
+
+    has_gotten_case_sensitive_char_wrong_in_cur_token = False
+    has_gotten_case_insensitive_char_wrong_in_cur_token = False
+    # find non-punctuation, non-whitespace "start index" of actual token
+    start_ind_of_contents = None
+    for i in range(start_ind, end_ind):
+        if gold_aligned_string[i] is None:
+            continue
+        elif gold_aligned_string[i] not in punctuation_set:
+            start_ind_of_contents = i
+            break
+    if start_ind_of_contents is not None:
+        theres_a_token_here = True
+        # find non-punctuation, non-whitespace "end index" of actual token
+        end_ind_of_contents_inclusive = None
+        for i in range(end_ind - 1, start_ind - 1, -1):
+            if gold_aligned_string[i] is None:
+                continue
+            elif gold_aligned_string[i] not in punctuation_set:
+                end_ind_of_contents_inclusive = i
+                break
+        assert end_ind_of_contents_inclusive is not None
+
+        # now check whether there's whitespace or punctuation on either side of the token contents in the GUESSED string
+        closest_guessed_char_before_token_contents = None
+        for i in range(start_ind_of_contents - 1, -1, -1):
+            if guessed_aligned_string[i] is None:
+                continue
+            else:
+                closest_guessed_char_before_token_contents = guessed_aligned_string[i]
+                break
+        closest_guessed_char_after_token_contents = None
+        for i in range(end_ind_of_contents_inclusive + 1, len(guessed_aligned_string)):
+            if guessed_aligned_string[i] is None:
+                continue
+            else:
+                closest_guessed_char_after_token_contents = guessed_aligned_string[i]
+                break
+        if not ((closest_guessed_char_before_token_contents is None or  # this happens at the ends of the string
+                 closest_guessed_char_before_token_contents in whitespace_set or
+                 closest_guessed_char_before_token_contents in punctuation_set)
+                and
+                (closest_guessed_char_after_token_contents is None or  # this happens at the ends of the string
+                 closest_guessed_char_after_token_contents in whitespace_set or
+                 closest_guessed_char_after_token_contents in punctuation_set)):
+            token_fully_correct = False
+            token_correct_case_insensitive = False
+        else:
+
+            # now check whether there are mistakes inside the gold token contents
+            for i in range(start_ind_of_contents, end_ind_of_contents_inclusive + 1):
+                gold_char = gold_aligned_string[i]
+                guessed_char = guessed_aligned_string[i]
+                if gold_char is None and guessed_char is None:
+                    continue
+                elif gold_char is None and guessed_char is not None:
+                    token_fully_correct = False
+                    token_correct_case_insensitive = False
+                    break
+                elif gold_char is not None and guessed_char is None:
+                    token_fully_correct = False
+                    token_correct_case_insensitive = False
+                    break
+
+                if gold_char != guessed_char:
+                    token_fully_correct = False
+                if gold_char.lower() != guessed_char.lower():
+                    token_correct_case_insensitive = False
+                    break
+    else:
+        theres_a_token_here = False
+
+    return int(token_fully_correct and theres_a_token_here), \
+           int(token_correct_case_insensitive and theres_a_token_here), \
+           int(theres_a_token_here)
+
+
+def get_word_level_accuracy_from_aligned_strings(guessed_aligned_string, gold_aligned_string, whitespace_set,
+                                                 punctuation_set):
+    cur_denom = 0
+    case_sensitive_words_right = 0
+    case_insensitive_words_right = 0
+    most_recent_whitespace_index = -1
+    for i in range(len(gold_aligned_string)):
+        # we count a word as correct if all non-punctuation, non-whitespace tokens inside it are
+        # correct, and it's bordered with either punctuation or whitespace on either side
+        # steps:
+        # - identify the closest whitespace to either side
+        # - "strip off" (i.e. don't count mistakes in) punctuation on outsides of whitespace-delimited token
+        # - check whether there are mistakes in what's left
+        if gold_aligned_string[i] is None:
+            continue
+        elif gold_aligned_string[i] in whitespace_set:
+            # we've found the end of a token
+            fully_correct, case_insensitive_correct, add_to_denom = \
+                get_token_correct_was_token(guessed_aligned_string, gold_aligned_string,
+                                            most_recent_whitespace_index + 1, i, punctuation_set, whitespace_set)
+            most_recent_whitespace_index = i
+            cur_denom += add_to_denom
+            case_sensitive_words_right += fully_correct
+            case_insensitive_words_right += case_insensitive_correct
+    fully_correct, case_insensitive_correct, add_to_denom = \
+        get_token_correct_was_token(guessed_aligned_string, gold_aligned_string,
+                                    most_recent_whitespace_index + 1, len(gold_aligned_string), punctuation_set,
+                                    whitespace_set)
+    cur_denom += add_to_denom
+    case_sensitive_words_right += fully_correct
+    case_insensitive_words_right += case_insensitive_correct
+
+    case_sensitive_score = 0 if cur_denom == 0 else case_sensitive_words_right / cur_denom
+    case_insensitive_score = 0 if cur_denom == 0 else case_insensitive_words_right / cur_denom
+    return case_sensitive_score, case_insensitive_score, cur_denom
+
+
 def score_string_against_gold(guessed_string, gold_string, penalize_for_case_errors_in_match=True,
                               fraction_of_token_correct_to_count_as_attempt_at_right_word=0.2,
                               whitespace_set=None, punctuation_set=None, debugging=False):
@@ -204,11 +324,17 @@ def score_string_against_gold(guessed_string, gold_string, penalize_for_case_err
     case_sensitive_score = cur_correct_including_case / cur_denom
     case_insensitive_score = cur_correct_case_insensitive / cur_denom
 
+    wordlevel_case_sensitive_score, wordlevel_case_insensitive_score, wordlevel_denom = \
+        get_word_level_accuracy_from_aligned_strings(guessed_aligned, gold_aligned, whitespace_set,
+                                                     punctuation_set)
+
     if debugging:
         return case_sensitive_score, case_insensitive_score, cur_denom, \
+               wordlevel_case_sensitive_score, wordlevel_case_insensitive_score, wordlevel_denom, \
                guessed_aligned, gold_aligned, eligible_for_points
     else:
-        return case_sensitive_score, case_insensitive_score, cur_denom
+        return case_sensitive_score, case_insensitive_score, cur_denom, \
+               wordlevel_case_sensitive_score, wordlevel_case_insensitive_score, wordlevel_denom
 
 
 def get_index_of_nth_nonnull_char_in_list(list_of_chars, n):
@@ -320,11 +446,18 @@ def align_long_sequences_by_frankensteining_shorter_alignments(full_gold_string,
                 guessed_aligned = guessed_aligned[1:]
 
         # we have one point of interest:
-        #    right after first 3 * quarter_block_length current-longer-seq characters
-        if gold_has_more_chars_left:
-            third_quarter = get_index_of_nth_nonnull_char_in_list(gold_aligned, 3 * quarter_block_length + 1)
+        #    right after first 3 * quarter_block_length characters in whichever sequence that happens first
+        gold_third_quarter = get_index_of_nth_nonnull_char_in_list(gold_aligned, 3 * quarter_block_length + 1)
+        guessed_third_quarter = get_index_of_nth_nonnull_char_in_list(guessed_aligned, 3 * quarter_block_length + 1)
+        if gold_third_quarter is not None and guessed_third_quarter is not None:
+            third_quarter = min(gold_third_quarter, guessed_third_quarter)
+            came_from_gold = third_quarter == gold_third_quarter
+        elif gold_third_quarter is not None:
+            third_quarter = gold_third_quarter
+            came_from_gold = True
         else:
-            third_quarter = get_index_of_nth_nonnull_char_in_list(guessed_aligned, 3 * quarter_block_length + 1)
+            third_quarter = guessed_third_quarter
+            came_from_gold = False
         if third_quarter is None:
             third_quarter = max(len(gold_aligned), len(guessed_aligned))
 
@@ -340,7 +473,7 @@ def align_long_sequences_by_frankensteining_shorter_alignments(full_gold_string,
             finalized_guessed_so_far_ended_with_gap = False
 
         # adjust next block start and calculate number of characters not added into frankensteined totals yet
-        if gold_has_more_chars_left:
+        if came_from_gold:
             start_of_next_gold_block += (3 * quarter_block_length)
             num_nonnull_guessed_chars_by_3rdq = get_num_nonnull_chars_before_char_index(guessed_aligned,
                                                                                         third_quarter)
@@ -457,14 +590,16 @@ def print_alignments(list1, list2, eligible=None, max_line_length=140):
     print(('\n' + ('=' * max_line_length) + '\n').join(line_pairs))
 
 
-if __name__ == '__main__':
+def main():
     whitespace_set = set([char for char in whitespace])
     punctuation_set = set([char for char in punctuation])
     gold = 'Just a "test sentence" to see how many inconsistencies we can find!'
     guessed = 'justa " test sentence " to find how many \t problems we can see. '
 
     print(gold + '\n' + guessed)
-    case_score, uncase_score, denom, guessed_aligned, gold_aligned, eligible = \
+    case_score, uncase_score, denom, \
+    wordlevel_case_sensitive_score, wordlevel_case_insensitive_score, wordlevel_denom, \
+    guessed_aligned, gold_aligned, eligible = \
         score_string_against_gold(guessed, gold, whitespace_set=whitespace_set, punctuation_set=punctuation_set,
                                   debugging=True)
     print_alignments(gold_aligned, guessed_aligned, eligible=eligible)
@@ -472,3 +607,11 @@ if __name__ == '__main__':
           str(case_score) + ')')
     print('Case-insensitive score: ' + str(round(uncase_score * denom)) + ' / ' + str(denom) + ' (' +
           str(uncase_score) + ')')
+    print('Word-level case-sensitive score:   ' + str(round(wordlevel_case_sensitive_score * wordlevel_denom)) +
+          ' / ' + str(wordlevel_denom) + ' (' + str(wordlevel_case_sensitive_score) + ')')
+    print('Word-level case-insensitive score: ' + str(round(wordlevel_case_insensitive_score * wordlevel_denom)) +
+          ' / ' + str(wordlevel_denom) + ' (' + str(wordlevel_case_insensitive_score) + ')')
+
+
+if __name__ == '__main__':
+    main()

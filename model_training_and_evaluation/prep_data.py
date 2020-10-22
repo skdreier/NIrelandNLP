@@ -3,11 +3,10 @@ from math import inf
 from random import shuffle
 from string import whitespace, punctuation
 from util import make_directories_as_necessary
-from spacy.tokens import Token
 import spacy
 
 
-use_spacy = True
+use_spacy = False
 
 
 def set_custom_boundaries(doc):
@@ -410,6 +409,7 @@ def get_lists_of_positive_negative_sentences_from_doc(document, list_of_positive
         else:
             negative_spans.append((span_start, split_ind))
         span_start = split_ind
+    assert cur_positive_sentence_ind == len(list_of_positive_sentence_inds_in_doc)
     positive_sentences = list(zip([document[span[0]: span[1]].strip() for span in positive_spans],
                                   corresponding_source_positive_sentences))
     negative_sentences = [document[span[0]: span[1]].strip() for span in negative_spans]
@@ -601,15 +601,24 @@ def clean_positive_sentences(positivesentences_tags, corresponding_indices_in_do
 
 
 def get_corresponding_indices_in_document(positivesentences_tags, tags_to_documents, problem_report_filename,
-                                          success_report_filename):
+                                          success_report_filename, skip_positive_sents_we_have_no_doc_for=False):
     corresponding_indices_in_document = []
     sentences_with_no_match = 0
     for positive_sentence, tag, is_problem_filler, label in positivesentences_tags:
-        index_span = get_indices_of_sentencematch_in_document(tags_to_documents[tag], positive_sentence, tag,
-                                                              problem_report_filename, success_report_filename,
-                                                              is_problem_filler)
-        if index_span is None:
-            sentences_with_no_match += 1
+        if not skip_positive_sents_we_have_no_doc_for:
+            index_span = get_indices_of_sentencematch_in_document(tags_to_documents[tag], positive_sentence, tag,
+                                                                  problem_report_filename, success_report_filename,
+                                                                  is_problem_filler)
+            if index_span is None:
+                sentences_with_no_match += 1
+        else:
+            try:
+                corr_document = tags_to_documents[tag]
+                index_span = get_indices_of_sentencematch_in_document(corr_document, positive_sentence, tag,
+                                                                      problem_report_filename, success_report_filename,
+                                                                      is_problem_filler)
+            except KeyError:
+                continue
         corresponding_indices_in_document.append(index_span)
     print('There were ' + str(sentences_with_no_match) + ' out of ' + str(len(positivesentences_tags)) +
           ' positive sentences for which we could not find a match in their corresponding document.')
