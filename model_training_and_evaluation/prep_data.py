@@ -3,6 +3,20 @@ from math import inf
 from random import shuffle
 from string import whitespace, punctuation
 from util import make_directories_as_necessary
+import spacy
+
+
+use_spacy = False
+
+
+def set_custom_boundaries(doc):
+    # can modify doc's tokens' is_sent_start attribute here, but not their is_sent_end attribute
+    return doc
+
+
+if use_spacy:
+    spacy_tools = spacy.load("en_core_web_sm")
+    spacy_tools.add_pipe(set_custom_boundaries, before="parser")
 
 
 def get_simplified_filename_string(filename_tag_string):
@@ -216,6 +230,18 @@ def report_matches(message, report_to_file, dont_print_at_all=False):
             f.write(message + '\n')
 
 
+def get_sentence_split_inds_spacy(text):
+    assert use_spacy  # otherwise we won't have set up spacy_tools yet
+    def get_text_ready_for_spacy(some_text):
+        return some_text
+    text = get_text_ready_for_spacy(text)
+    doc = spacy_tools(text)
+    sentences = doc.sents
+    all_sentence_starts = [doc[sent.start].idx for sent in sentences]
+    all_sentence_starts.append(len(text))
+    return all_sentence_starts[1:]
+
+
 def get_sentence_split_inds(text):
     text = text.rstrip()
     locations_of_punctuation_marks_to_split_on = []
@@ -341,7 +367,10 @@ def get_sentence_split_inds(text):
 
 
 def get_lists_of_positive_negative_sentences_from_doc(document, list_of_positive_sentence_inds_in_doc):
-    sentence_split_inds = get_sentence_split_inds(document)
+    if use_spacy:
+        sentence_split_inds = get_sentence_split_inds_spacy(document)
+    else:
+        sentence_split_inds = get_sentence_split_inds(document)
     list_of_positive_sentence_inds_in_doc = sorted(list_of_positive_sentence_inds_in_doc, key=lambda x: x[0])
 
     negative_spans = []
@@ -380,6 +409,7 @@ def get_lists_of_positive_negative_sentences_from_doc(document, list_of_positive
         else:
             negative_spans.append((span_start, split_ind))
         span_start = split_ind
+    assert cur_positive_sentence_ind == len(list_of_positive_sentence_inds_in_doc)
     positive_sentences = list(zip([document[span[0]: span[1]].strip() for span in positive_spans],
                                   corresponding_source_positive_sentences))
     negative_sentences = [document[span[0]: span[1]].strip() for span in negative_spans]
@@ -571,15 +601,24 @@ def clean_positive_sentences(positivesentences_tags, corresponding_indices_in_do
 
 
 def get_corresponding_indices_in_document(positivesentences_tags, tags_to_documents, problem_report_filename,
-                                          success_report_filename):
+                                          success_report_filename, skip_positive_sents_we_have_no_doc_for=False):
     corresponding_indices_in_document = []
     sentences_with_no_match = 0
     for positive_sentence, tag, is_problem_filler, label in positivesentences_tags:
-        index_span = get_indices_of_sentencematch_in_document(tags_to_documents[tag], positive_sentence, tag,
-                                                              problem_report_filename, success_report_filename,
-                                                              is_problem_filler)
-        if index_span is None:
-            sentences_with_no_match += 1
+        if not skip_positive_sents_we_have_no_doc_for:
+            index_span = get_indices_of_sentencematch_in_document(tags_to_documents[tag], positive_sentence, tag,
+                                                                  problem_report_filename, success_report_filename,
+                                                                  is_problem_filler)
+            if index_span is None:
+                sentences_with_no_match += 1
+        else:
+            try:
+                corr_document = tags_to_documents[tag]
+                index_span = get_indices_of_sentencematch_in_document(corr_document, positive_sentence, tag,
+                                                                      problem_report_filename, success_report_filename,
+                                                                      is_problem_filler)
+            except KeyError:
+                continue
         corresponding_indices_in_document.append(index_span)
     print('There were ' + str(sentences_with_no_match) + ' out of ' + str(len(positivesentences_tags)) +
           ' positive sentences for which we could not find a match in their corresponding document.')
