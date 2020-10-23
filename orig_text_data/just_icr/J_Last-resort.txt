@@ -1,0 +1,6 @@
+﻿Files\\SKD_round1\\PREM 15 478\\PREM_15_478_175 - § 1 reference coded [ 4.85% Coverage]
+Reference 1 - 4.85% Coverage
+WHEN FAULKNER CAME TO LONDON LAST WEEK, HE TOLD US THAT HE HAD COME TO THE CONCLUSION THAT INTERNMENT WAS NOW THE RIGHT AID INDEED INEVITABLE COURSE.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_255 - § 1 reference coded [ 5.78% Coverage]
+Reference 1 - 5.78% Coverage
+The view of the GOC, with which the Defence Secretary entirely agrees, is that the arguments against resorting to internment remain very strong and that other possibilities for disrupting the IRA should certainly be tried first.

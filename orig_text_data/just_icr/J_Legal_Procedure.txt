@@ -1,0 +1,34 @@
+﻿Files\\DNV_round1\\PREM 15 1000\\IMG_6497_PREM_15_1000 - § 1 reference coded [ 9.17% Coverage]
+Reference 1 - 9.17% Coverage
+Page 1 : (50,87) - (554,289)
+Files\\DNV_round1\\PREM 15 1001\\IMG_6681_PREM_15_1001 - § 1 reference coded [ 16.08% Coverage]
+Reference 1 - 16.08% Coverage
+Page 1 : (70,115) - (522,442)
+Files\\DNV_round1\\PREM 15 1002\\IMG_6779_PREM_15_1002 - § 1 reference coded [ 3.68% Coverage]
+Reference 1 - 3.68% Coverage
+The Army hope that those internees who are released 
+can be made subject to some form of licence or probation we understand that the legal means may exist to do this.
+Files\\SKD_round1\\DEFE 13 917\\IMG_2305_DEFE_13_917 - § 1 reference coded [ 8.26% Coverage]
+Reference 1 - 8.26% Coverage
+Subjects are to be treated humanely but with strict discipline. 
+(These rules follow the broad principles for the treatment of persons under arrest or detention during civil disturbances as laid down in Article 3 of the Geneva Convention relative to the Treatment of Prisoners of War (1949).)
+Files\\SKD_round1\\DEFE 13 919\\IMG_2105_DEFE_13_919 - § 1 reference coded [ 3.98% Coverage]
+Reference 1 - 3.98% Coverage
+SIR EDMUND COMPTON IS AVAILABLE TO INVESTIGATE COMPLAINTS OF ILLTREATMENT IN CONNECTION WITH ARRESTS MADE UNDER THE SPECIAL POWERS ACT.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2262_DEFE_24_1214 - § 1 reference coded [ 5.16% Coverage]
+Reference 1 - 5.16% Coverage
+The "Como ’Of’fice’ thomsolves havoc no authority to finanoo any 
+priSaon accommodation outoido Great" Britian; and tho D of .E could not Fact an agents for them, or for ayothe boywtotteebi
+Files\\SKD_round1\\PREM 15 475\\IMG_4975_PREM_15_475 - § 1 reference coded [ 6.11% Coverage]
+Reference 1 - 6.11% Coverage
+At your suggestion, I telephoned Lord Parker this 
+Lord Parker said that he still believed 
+afternoon and asked him whether he had had any further thoughts about the feasibility of special courts to replace the present internment procedures.
+Files\\SKD_round1\\PREM 15 475\\IMG_5050_PREM_15_475 - § 2 references coded [ 19.41% Coverage]
+Reference 1 - 8.95% Coverage
+"To consider whether, and if so in what respects - under conditions in which persons suspected of terrorism can be lawfully detained without trial in the traditional Courts - the procedures currently authorised for the interrogation of such persons and for their custody while subject to interrogation require amendment."
+Reference 2 - 10.46% Coverage
+If however any difficulty might be thought to attach to an amendment, 
+we would be quite prepared to act on the original terms, stating in our Report what our understanding of them is 
+coincides with your understanding. The Lord President has kindly agreed that we may use his office as 
+an accommodation address and has provided notepaper. - always of course on the assumption that this

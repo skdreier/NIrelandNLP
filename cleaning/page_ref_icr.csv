@@ -1,0 +1,16 @@
+,file_id,image_id,justification_cat,text
+5,PREM_15_484,IMG_6300,J_Denial,"Page 1 : (64,44) - (546,135)"
+45,PREM_15_478,IMG_0199,J_Development-Unity,"Page 1 : (61,72) - (440,164)"
+70,PREM_15_478,IMG_0206,J_Intl-Domestic_Precedent,"Page 1 : (50,544) - (422,647)
+"
+115,PREM_15_478,IMG_0199,J_Law-and-order,"Page 1 : (61,72) - (440,164)"
+120,PREM_15_1000,IMG_6497,J_Legal_Procedure,"Page 1 : (50,87) - (554,289)"
+125,PREM_15_1001,IMG_6681,J_Legal_Procedure,"Page 1 : (70,115) - (522,442)"
+215,PREM_15_478,IMG_0206,J_Misc,"Page 1 : (50,544) - (422,647)"
+220,PREM_15_1002,IMG_6779,J_Political-Strategic,"Page 1 : (139,153) - (524,197)
+"
+250,PREM_15_478,IMG_0200,J_Political-Strategic,"Page 1 : (94,78) - (459,163)"
+315,PREM_15_478,IMG_0199,J_Terrorism,"Page 1 : (61,72) - (440,164)"
+320,PREM_15_478,IMG_0200,J_Terrorism,"Page 1 : (94,78) - (459,163)"
+350,PREM_15_478,IMG_0199,J_Utilitarian-Deterrence,"Page 1 : (84,137) - (448,312)"
+355,PREM_15_478,IMG_0200,J_Utilitarian-Deterrence,"Page 1 : (94,78) - (459,163)"
