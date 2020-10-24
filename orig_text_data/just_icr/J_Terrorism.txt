@@ -1,0 +1,48 @@
+﻿Files\\DNV_round1\\DEFE 24 877\\IMG_1507_DEFE_24_877 - § 1 reference coded [ 10.89% Coverage]
+Reference 1 - 10.89% Coverage
+It wt obe pr6eat, the, ofore, i View of the serious Prism taffing Prblex which egotso4y t -exaine, inthelighta the peciaciircustaceo of i1neant ’rotestant terrorig, the possibility of% 
+a. b, Trnferring prisners to a prisO II Rinforeing, still further, the Northern Ireladpri son staff from GB,
+Files\\DNV_round1\\PREM 15 1002\\IMG_6779_PREM_15_1002 - § 1 reference coded [ 5.27% Coverage]
+Reference 1 - 5.27% Coverage
+But the Army consider it vital that the option should remain of detaining and interning terrorists who are captured in the rural areas, where the intelligence picture is less complete and the IRA may well build up their activities.
+Files\\SKD_round1\\CJ 4 458\\IMG_1803_CJ_4_458 - § 1 reference coded [ 7.95% Coverage]
+Reference 1 - 7.95% Coverage
+Other terrorists who are known, on the basis of a joint intelligence assessment, to be an exceptionally serious threat to security, and for whom, in the absence of evidence which could form the basis of a criminal charge, a strong case could be made for an Interim Custody Order.
+Files\\SKD_round1\\PREM 15 475\\IMG_5050_PREM_15_475 - § 1 reference coded [ 8.95% Coverage]
+Reference 1 - 8.95% Coverage
+"To consider whether, and if so in what respects - under conditions in which persons suspected of terrorism can be lawfully detained without trial in the traditional Courts - the procedures currently authorised for the interrogation of such persons and for their custody while subject to interrogation require amendment."
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_050 - § 1 reference coded [ 4.79% Coverage]
+Reference 1 - 4.79% Coverage
+But the terrorist campaign continues at an unacceptable level, and I have had to conclude that the ordinary law cannot deal comprehensively or quickly enough with such ruthless viciousness.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_144 - § 2 references coded [ 6.84% Coverage]
+Reference 1 - 3.41% Coverage
+He 
+emphasised that the bombing, the murder and the withdrawal of the Opposition from Stormont had all taken place before internment had been introduced.
+Reference 2 - 3.44% Coverage
+The Home Secretary 
+replied that all those arrested under the internment operation were people who the security forces believed to be active in terrorism.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_145 - § 1 reference coded [ 3.27% Coverage]
+Reference 1 - 3.27% Coverage
+If Protestants engaged in terrorism they too would 
+be dealt with; so far there was no infomation to confirm that Protestants had been snipin
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_165 - § 1 reference coded [ 2.72% Coverage]
+Reference 1 - 2.72% Coverage
+THE SECURITY FORCES ARE ACCORDINGLY DETAINING PEOPLE SUSPECTED OF RESPONSIBILITY FOR TERRORISM,
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_175 - § 2 references coded [ 9.31% Coverage]
+Reference 1 - 8.05% Coverage
+THE SECURITY FORCES ARE ACCORDINGLY ARRESTING AND DETAINING PEOPLE SUSPECTED OF RESPONSIBILITY FOR COMMITTING OR ABETTING ACTS OF TERRORISM AND OTHER BREACHES OF THE PEACE DESIGNED TO LEAD TO A BREAKDOWN OF LAW AND ORDER iN NORTHERN IRELAND.
+Reference 2 - 1.26% Coverage
+THE LATEST SERIES OF ACTS OF TERRORISM
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_176 - § 1 reference coded [ 5.26% Coverage]
+Reference 1 - 5.26% Coverage
+BY THE IRA AND THEIR RECENT DECLARATIONS OF THEIR INTENTION TO CONTINUE AND EVEN ESCALATE THAT CAMPAIGN HAVE MADE IT ESSENTIAL TO TAKE THIS ACTION HOWEVER ABHORRENT, IN ORDER TO PREVENT THE UNDERMINING OF ECONOMIC AND SOCIAL STABILITY IN NORTHERN IRELAND.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_199 - § 1 reference coded [ 5.22% Coverage]
+Reference 1 - 5.22% Coverage
+Page 1 : (61,72) - (440,164)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_200 - § 1 reference coded [ 4.70% Coverage]
+Reference 1 - 4.70% Coverage
+Page 1 : (94,78) - (459,163)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_255 - § 1 reference coded [ 10.87% Coverage]
+Reference 1 - 10.87% Coverage
+As you know, although the main Protestant parades of July 
+passed off without giving rise to any serious incidents, there has been a significant worsening in recent weeks in the amount and nature of terrorist activity in Northern Ireland, with frequent bomb attacks on an increasing scale and also the outbreaks of extremely vicious street fighting in Londonderry where there had previously been very little trouble for many months.

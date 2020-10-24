@@ -1,0 +1,15 @@
+﻿Files\\SKD_round1\\PREM 15 478\\PREM_15_478_176 - § 1 reference coded [ 3.26% Coverage]
+Reference 1 - 3.26% Coverage
+CLEARLY THE EFFECTIVENESS OF INTERNMENT IN NORTHERN IRELAND COULD HAVE BEEN INCREASED IF YOU HAD FELT ABLE TO TAKE SIMILAR MEASURES ON YOUR SIDE OF THE BORDER.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_199 - § 1 reference coded [ 6.71% Coverage]
+Reference 1 - 6.71% Coverage
+Clearly the effectiveness of interment in Northern Ireland could have been increased if you had felt able to take similar measures on your side of the border.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_200 - § 1 reference coded [ 5.39% Coverage]
+Reference 1 - 5.39% Coverage
+Clearly the effectiveness of internment in Northern Ireland could have been increased if you had felt able to take similar measures on your side of the border.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_206 - § 2 references coded [ 17.33% Coverage]
+Reference 1 - 6.16% Coverage
+Page 1 : (50,544) - (422,647)
+Reference 2 - 11.17% Coverage
+The effectiveness of internment north of the border 
+would be greater if the Irish Government were prepared to introduce internment south of the border at the same time; but all that we know of the Irish Government’s policies suggeststhat there is no possibility of parallel action south of the border.

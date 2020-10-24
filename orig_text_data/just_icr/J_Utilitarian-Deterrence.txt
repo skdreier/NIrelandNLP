@@ -1,0 +1,30 @@
+﻿Files\\DNV_round1\\PREM 15 1002\\IMG_6779_PREM_15_1002 - § 3 references coded [ 13.37% Coverage]
+Reference 1 - 5.27% Coverage
+But the Army consider it vital that the option should remain of detaining and interning terrorists who are captured in the rural areas, where the intelligence picture is less complete and the IRA may well build up their activities.
+Reference 2 - 4.72% Coverage
+Further, the Army’s willingness to see a larger 
+number of the present internees released rests on the assumption that it will still be possible to re-arrest any who are found to be engaging in violence again.
+Reference 3 - 3.38% Coverage
+If that power no longer exists, the situation even in Belfast could quickly deteriorate again as those who are released come back into circulation.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_148 - § 1 reference coded [ 5.90% Coverage]
+Reference 1 - 5.90% Coverage
+Because the violence had reached a level threatening the life of the community, the United Kingdom Government had been reluctantly convinced that internment was necessary.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_165 - § 1 reference coded [ 4.95% Coverage]
+Reference 1 - 4.95% Coverage
+THIS DECISION HAS BEEN MADE IN THE LIGHT OF IRA ACTIVITY WHICH HAS INCREASED BOTH IN VOLUME AND IN THE VICIOUSNESS OF THE ATTACKS ON THE SECURITY FORCES AND SOCIETY IN NORTHERN IRELAND.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_176 - § 1 reference coded [ 5.71% Coverage]
+Reference 1 - 5.71% Coverage
+IN PURELY MILITARY TERMS, SEEKING TO CONTAIN THIS DETERIORATING SITUATION BY THE MEANS EMPLOYED HITHERTO WOULD HAVE MEANT AT BESTA LONG HAUL. FAULKNER’S JUDGEMENT WAS THAT THE CONSEQUENCES OF THAT FOR THE COMMUNITY WOULD BE WORSE THAN THE CONSEQUENCES OF WHAT IS NOW PROPOSED.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_199 - § 1 reference coded [ 9.54% Coverage]
+Reference 1 - 9.54% Coverage
+Page 1 : (84,137) - (448,312)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_200 - § 1 reference coded [ 4.70% Coverage]
+Reference 1 - 4.70% Coverage
+Page 1 : (94,78) - (459,163)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_255 - § 1 reference coded [ 10.87% Coverage]
+Reference 1 - 10.87% Coverage
+As you know, although the main Protestant parades of July 
+passed off without giving rise to any serious incidents, there has been a significant worsening in recent weeks in the amount and nature of terrorist activity in Northern Ireland, with frequent bomb attacks on an increasing scale and also the outbreaks of extremely vicious street fighting in Londonderry where there had previously been very little trouble for many months.
+Files\\SKD_round1\\PREM 15 486\\IMG_6385_PREM_15_486 - § 1 reference coded [ 9.29% Coverage]
+Reference 1 - 9.29% Coverage
+THIS WOULD IN ANY CASE BE POLITICALLY UNACCEPTABLE BUT EVEN IF IT WERE NOT IT WOULD BE OPEN TO ALL THE DIFFICULTIES ABOUT THE INTIMIDATION OF WITNESSES AND REPRISALS ETC. WHICH OBLIGED STORMONT TO RESORT TO INTERNMENT RATHER THAN TRIALS.

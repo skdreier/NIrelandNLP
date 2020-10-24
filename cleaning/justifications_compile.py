@@ -21,6 +21,7 @@ folder_root = os.path.split(this_file_path)[0]
 folder_path = os.path.join(folder_root) + '/'
 repo_root = os.path.split(folder_root)[0]
 j_path = os.path.join(repo_root, 'orig_text_data/just_0404') + '/'
+#j_path = os.path.join(repo_root, 'orig_text_data/just_icr') + '/' #For ICR task
 
 sys.path # make sure the repo is in the path 
 
@@ -126,8 +127,11 @@ long_df
 # save the data 
 #long_df.to_csv(os.path.join(folder_root, 'justifications_long_training.csv'))
 
-long_df.columns
-long_df.shape
+# For ICR files:
+#long_df['justification_cat'] = long_df['justification']
+#long_df_icr = long_df[['file_id', 'image_id', 'justification_cat', 'text']]
+#long_df_icr.head
+#long_df_icr.to_csv(os.path.join(folder_root, 'justifications_icr.csv'))
 
 # Pull text that needs to be transcribed by hand
 # Creating a List within a column (proved to be a headache due to the non characters)
@@ -147,6 +151,7 @@ df_pg_ref.head
 df_pg_ref = df_pg_ref[['image_id', 'file_id', 'img_file_orig', 'justification', 'level_4']]
 df_pg_ref.to_csv(os.path.join(folder_root, 'page_ref.csv'))
 
+long_df_icr.head
 
 ########################################################################################
 ##### 2) MERGE TEXT JUSTIFICATIONS WITH HAND-TRANSCRIBED SCREENSHOT JUSTIFICATIONS #####

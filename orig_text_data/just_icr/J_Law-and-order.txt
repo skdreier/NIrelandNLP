@@ -1,0 +1,29 @@
+﻿Files\\DNV_round1\\PREM 15 1002\\IMG_6779_PREM_15_1002 - § 1 reference coded [ 5.51% Coverage]
+Reference 1 - 5.51% Coverage
+There should be no relaxation of the present requirement that before an internee can be released he must first sign an undertaking not to engage in unlawful activity (though the form of the present oath or affirmation may need to be modified).
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_050 - § 2 references coded [ 10.62% Coverage]
+Reference 1 - 7.23% Coverage
+I have therefore decided, after weighing all the relevant 
+considerations, including the views of the security authorities and after consultation with HMG in the UK last Thursday, to exercise where necessary the powers of detention and internment vested in me as minister of Home Affairs.
+Reference 2 - 3.39% Coverage
+I will be making internment orders in respect of such of these men as constitute a serious and continuing that to public order and safety.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_145 - § 1 reference coded [ 2.62% Coverage]
+Reference 1 - 2.62% Coverage
+The Home Secretary replied that if it were not for the IRA 
+campaign these people would still be in their own homes.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_165 - § 1 reference coded [ 8.93% Coverage]
+Reference 1 - 8.93% Coverage
+MR FAULKNER, THE PRIME MINISTER OF NORTHERN IRELAND, ANNOUNCED THIS MORNING, 9 AUGUST, THAT AFTER WEIGHING ALL THE RELEVANT CONSIDERATIONS, INCLUDING THE VIEWS OF THE SECURITY AUTHORITIES, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND COVERNENT HAD DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_175 - § 2 references coded [ 20.60% Coverage]
+Reference 1 - 12.55% Coverage
+I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS,, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Reference 2 - 8.05% Coverage
+THE SECURITY FORCES ARE ACCORDINGLY ARRESTING AND DETAINING PEOPLE SUSPECTED OF RESPONSIBILITY FOR COMMITTING OR ABETTING ACTS OF TERRORISM AND OTHER BREACHES OF THE PEACE DESIGNED TO LEAD TO A BREAKDOWN OF LAW AND ORDER iN NORTHERN IRELAND.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_176 - § 2 references coded [ 10.48% Coverage]
+Reference 1 - 5.26% Coverage
+BY THE IRA AND THEIR RECENT DECLARATIONS OF THEIR INTENTION TO CONTINUE AND EVEN ESCALATE THAT CAMPAIGN HAVE MADE IT ESSENTIAL TO TAKE THIS ACTION HOWEVER ABHORRENT, IN ORDER TO PREVENT THE UNDERMINING OF ECONOMIC AND SOCIAL STABILITY IN NORTHERN IRELAND.
+Reference 2 - 5.22% Coverage
+THERE WILL BE MANY WHO WILL CALL FOR VIOLENT ACTION IN RESPONSE TO THESE MEASURES: A REMINDER FROM YOU THAT VIOLENCE SERVES NO PURPOSE, AND THAT INTERNMENT IS AIMED AGAINST PARTICULAR INDIVIDUALS WHO ARE AVOWEDLY WORKING FOR A BREAKDOWN OF LAW AND /ORDER,
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_199 - § 1 reference coded [ 5.22% Coverage]
+Reference 1 - 5.22% Coverage
+Page 1 : (61,72) - (440,164)

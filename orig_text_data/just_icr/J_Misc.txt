@@ -1,0 +1,65 @@
+﻿Files\\DNV_round1\\PREM 15 1002\\IMG_6779_PREM_15_1002 - § 1 reference coded [ 3.82% Coverage]
+Reference 1 - 3.82% Coverage
+ut whether or not that practice is adopted, we consider it essential 
+- at least for the first few months - to 
+have the sanction of re-arrest and re-internment available.
+Files\\DNV_round1\\PREM 15 1008\\IMG_7595_PREM_15_1008 - § 1 reference coded [ 5.95% Coverage]
+Reference 1 - 5.95% Coverage
+The Secretary of State for Northern Ireland might report on progress 
+with the release of internees, with particular reference to the possibility (which he is considering) of a measure of accelerated release. There will still, however, remain the problem of the "hard core".
+Files\\SKD_round1\\DEFE 13 917\\IMG_2305_DEFE_13_917 - § 1 reference coded [ 8.70% Coverage]
+Reference 1 - 8.70% Coverage
+he general rules governing the custody of detainees and the processes of 
+interrogation have been reviewed from time to time by the Government Departments and agencies concerned in the light of experience gained in the various internal security operations in which HMG have been involved since the last war.
+Files\\SKD_round1\\DEFE 13 919\\IMG_2105_DEFE_13_919 - § 3 references coded [ 12.71% Coverage]
+Reference 1 - 5.11% Coverage
+HEY WERE AWARE OF THE IMPORTANCE OF OBTAINING OPERATIONAL INTELLIGENCE AND THEY KNEW THAT THE DETAINEES WERE LIABLE TO BE SUBJECTED TO A MEASURE OF FATIGUE, ISOLATION AND NOISE.
+Reference 2 - 2.06% Coverage
+THEY WERE NOT ACQUAINTED WITH THE DETAILED METHODS THAT WERE EMPLOYED.
+Reference 3 - 5.55% Coverage
+MINISTERS ACCEPT RESPONSIBILITY FOR WHAT WAS DONE 
+- JUST AS RIGHT HONOURABLE 
+ENTLEMEN OPPOSITE MUST ACCEPT RESPONSIBILITY FOR WHAT WAS DONE AT RIOUS TIMES IN THE INTERROGATION CENTRE IN ADEN.
+Files\\SKD_round1\\DEFE 24 1214\\IMG_2262_DEFE_24_1214 - § 5 references coded [ 29.12% Coverage]
+Reference 1 - 5.69% Coverage
+At a mooting tco d’isEcus N"orthcrn Ireland affaira under the 
+primo Miinister’sa Chairmanohip on April 27th it was agrood that it;’ w,-ould to wisc to prepare cuitablo accommodation for an internment camp.
+Reference 2 - 6.31% Coverage
+It wtas notod that the Northern Iroland Government agreed with H.MG.in Wesztminster that a . ito at Long Koch was tho boot choice 
+for Chia purpose; and that it w-as docirable for an alternative uco -or Ohe accommodation to to, found.
+Reference 3 - 5.20% Coverage
+Tho mooting invited, the Homo Socrctary, in consultation with the S of S_ for Defence 
+, to Cock 
+urso;ntly, moans of providing funds }or the construction’ of such acc ommodation at Long Ke"c 2.
+Reference 4 - 5.36% Coverage
+Givon that. the reyal purpoco of tho accommodation munt not be divulgod in public,’ the Northorn Ireland Govornment have confirmod that they can see no viay in overcoming two major difficultico.
+Reference 5 - 6.57% Coverage
+At tho~t. ame time, the Northern Ireland. Govornmont reognize our difficulties:.. thoy have given assurancos that if internment were introduced, they mould see what financial aid could bto given and in any case would pay rent for the camp;
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_050 - § 1 reference coded [ 7.23% Coverage]
+Reference 1 - 7.23% Coverage
+I have therefore decided, after weighing all the relevant 
+considerations, including the views of the security authorities and after consultation with HMG in the UK last Thursday, to exercise where necessary the powers of detention and internment vested in me as minister of Home Affairs.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_165 - § 1 reference coded [ 8.93% Coverage]
+Reference 1 - 8.93% Coverage
+MR FAULKNER, THE PRIME MINISTER OF NORTHERN IRELAND, ANNOUNCED THIS MORNING, 9 AUGUST, THAT AFTER WEIGHING ALL THE RELEVANT CONSIDERATIONS, INCLUDING THE VIEWS OF THE SECURITY AUTHORITIES, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND COVERNENT HAD DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_175 - § 1 reference coded [ 12.55% Coverage]
+Reference 1 - 12.55% Coverage
+I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS,, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_176 - § 2 references coded [ 12.17% Coverage]
+Reference 1 - 8.28% Coverage
+FOR OUR PART, WE MADE IT CLEAR THAT THERE COULD BE NO QUESTION OF OUR ACCEPTING INTERNMENT, AND INSTRUCTING OUR FORCES TO HELP TO IMPLEMENT IT, IF IT WAS NOT ACCOMPANIED BY A COMPLETE BAN ON MARCHES AND PARADES OF ALL KINDS: AND WE HAVE MADE CLEAR OUR PRESENT VIEW THAT THAT BAN WILL NEED TO REMAIN IN FORCE FOR LONGER THAN SIX MONTHS, THOUGH THE EXTENSION BEYOND SIX MONTHS REMAINS FORMALLY OPEN FOR DISCUSSION.
+Reference 2 - 3.89% Coverage
+WE HAVE HOWEVER MADE CLEAR OUR VIEW THAT THE MEASURES TAKEN SHOULD NOT DISCRIMINATE AS BETWEEN THE DIFFERENT SECTIONS OF THE COMMUNITY, EXCEPT AS THE FACTS OF THE SITUATION MAKE INEVITABLE.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_199 - § 1 reference coded [ 15.70% Coverage]
+Reference 1 - 15.70% Coverage
+For our part, we made it clear that there could be no question of our accepting internment, and instructing our forces to help to implement it, if it was not accompanied by a complete ban on marches and parades of all kinds; and we have made clear our present view that that ban will need to remain in force though the extension 
+six months remains 
+formally open for discussion.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_200 - § 1 reference coded [ 12.77% Coverage]
+Reference 1 - 12.77% Coverage
+For our part, we made it clear that there could be no question of our accepting internment, and instructing our forces to help to implement it, if it was not accompanied by a complete ban on marches and parades of all kinds; and we have made clear our present view that that ban will need to remain in force lasts, though the extension 
+six months remains 
+formally open for discussion.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_206 - § 1 reference coded [ 6.16% Coverage]
+Reference 1 - 6.16% Coverage
+Page 1 : (50,544) - (422,647)

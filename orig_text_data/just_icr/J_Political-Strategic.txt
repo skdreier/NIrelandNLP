@@ -1,0 +1,37 @@
+﻿Files\\DNV_round1\\PREM 15 1002\\IMG_6779_PREM_15_1002 - § 2 references coded [ 5.99% Coverage]
+Reference 1 - 1.84% Coverage
+Page 1 : (139,153) - (524,197)
+Reference 2 - 4.15% Coverage
+hat said, however, it is difficult to see how any policy less forthcoming than the one I have outlined above could make much of a contribution towards a successful political package.
+Files\\SKD_round1\\PREM 15 475\\IMG_5050_PREM_15_475 - § 1 reference coded [ 10.46% Coverage]
+Reference 1 - 10.46% Coverage
+If however any difficulty might be thought to attach to an amendment, 
+we would be quite prepared to act on the original terms, stating in our Report what our understanding of them is 
+coincides with your understanding. The Lord President has kindly agreed that we may use his office as 
+an accommodation address and has provided notepaper. - always of course on the assumption that this
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_050 - § 1 reference coded [ 7.23% Coverage]
+Reference 1 - 7.23% Coverage
+I have therefore decided, after weighing all the relevant 
+considerations, including the views of the security authorities and after consultation with HMG in the UK last Thursday, to exercise where necessary the powers of detention and internment vested in me as minister of Home Affairs.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_144 - § 1 reference coded [ 3.41% Coverage]
+Reference 1 - 3.41% Coverage
+He 
+emphasised that the bombing, the murder and the withdrawal of the Opposition from Stormont had all taken place before internment had been introduced.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_165 - § 1 reference coded [ 8.93% Coverage]
+Reference 1 - 8.93% Coverage
+MR FAULKNER, THE PRIME MINISTER OF NORTHERN IRELAND, ANNOUNCED THIS MORNING, 9 AUGUST, THAT AFTER WEIGHING ALL THE RELEVANT CONSIDERATIONS, INCLUDING THE VIEWS OF THE SECURITY AUTHORITIES, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND COVERNENT HAD DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_175 - § 1 reference coded [ 12.55% Coverage]
+Reference 1 - 12.55% Coverage
+I AM SENDING YOU THIS MESSAGE TO LET YOU KNOW THAT THE PRIME MINISTER OF NORTHERN IRELAND WILL VERY SHORTLY BE ANNOUNCING THAT, IN THE LIGHT OF THE LATEST ASSESSMENT OF THE SECURITY SITUATION IN NORTHERN IRELAND AND ALL OTHER RELEVANT FACTORS,, AND AFTER CONSULTATION WITH THE BRITISH GOVERNMENT, THE NORTHERN IRELAND GOVERNMENT HAS DECIDED TO ACTIVATE ITS POWERS OF INTERNMENT.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_200 - § 1 reference coded [ 4.70% Coverage]
+Reference 1 - 4.70% Coverage
+Page 1 : (94,78) - (459,163)
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_206 - § 1 reference coded [ 10.95% Coverage]
+Reference 1 - 10.95% Coverage
+forces to help to implement it, if it was not accompanied by a complete ban on marches and parades of all kinds; and we have made clear our present view that that ban will need to remain in force for longer than six months, although the extension after six months remains formally open for discussion.
+Files\\SKD_round1\\PREM 15 478\\PREM_15_478_255 - § 2 references coded [ 11.47% Coverage]
+Reference 1 - 8.35% Coverage
+Earlier this week the GOC reported to the Defence Secretary, and also to the Home Secretary, that renewed pressure was building up within Mr. Faulkner’s Government for firm action against the IRA; and Mr. Faulkner has himself been in touch with the Home Secretary to suggest that the time may have come to think again about internment.
+Reference 2 - 3.11% Coverage
+It would be primarily a political decision whether to 
+bring in internment, but it would depend very much on military advice.
