@@ -8,7 +8,8 @@ import json
 
 use_spacy_to_split_sents = False
 tags_to_pull_fname = '../ICR_format_pages.txt'
-csv_filename = 'sampledoc_sentences_to_labels' + ('_spacy' if use_spacy_to_split_sents else '') + '.tsv'
+csv_filename = 'sampledoc_sentences_to_labels' + ('_fromicrfile' if '_icr' in positive_sentence_filename else '') + \
+               ('_spacy' if use_spacy_to_split_sents else '') + '.tsv'
 
 
 def get_list_of_tags_we_want():
@@ -87,11 +88,22 @@ def load_in_positive_sentences_with_multilabels(csv_filename):
 
     positivesentences_tags_isproblemfiller = []
     problemtags = {}
+    using_icr_file = False
     for index, row in dataframe.iterrows():
-        tag = str(row['img_file_orig'])
+        try:
+            tag = str(row['img_file_orig'])
+        except:
+            using_icr_file = True
+            print('Using file_id and image_id columns because we couldn\'t find img_file_orig column.')
+            tag_piece_1 = str(row['file_id'])
+            tag_piece_2 = str(row['image_id'])
+            if tag_piece_1 == 'PREM_15_1010' or tag_piece_1 == 'PREM_15_1689' or tag_piece_1 == 'PREM_15_478':
+                tag = tag_piece_1 + '_' + tag_piece_2[tag_piece_2.rfind('_') + 1:]
+            else:
+                tag = tag_piece_2 + '_' + tag_piece_1
         label = str(row['justification_cat'])
         sentence = str(row['text'])
-        if is_problem_sentence(sentence):
+        if (not using_icr_file) and is_problem_sentence(sentence):
             problemtags[tag] = 0
             continue
         elif tag in problemtags:
@@ -100,9 +112,11 @@ def load_in_positive_sentences_with_multilabels(csv_filename):
         else:
             positivesentences_tags_isproblemfiller.append((sentence, tag, False, label))
 
-    for tag, count in problemtags.items():
-        assert count > 0, "Couldn't find transcribed sentences for the following problem tag: " + \
-                          str(tag)
+    if not using_icr_file:
+        # the following bits don't apply to the ICR
+        for tag, count in problemtags.items():
+            assert count > 0, "Couldn't find transcribed sentences for the following problem tag: " + \
+                              str(tag)
 
     sentencetag_to_alllabelsisproblemtag = {}
     repeat_sents = 0
