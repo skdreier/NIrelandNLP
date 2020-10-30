@@ -3,7 +3,7 @@ from prep_data import get_sentence_split_inds_spacy, get_sentence_split_inds, \
     extract_and_tag_next_document, get_corresponding_indices_in_document
 from config import full_document_filename, positive_sentence_filename
 import pandas as pd
-import json
+import xlwt
 
 
 use_spacy_to_split_sents = False
@@ -251,6 +251,74 @@ def make_csv_file(filename, tags_to_sentslabels):
     file_writing.close()
 
 
+def make_excel_file(filename, tags_to_sentslabels):
+    headings = ['Obs_number',  # I think this refers to the sentence index in the document?
+                'File_Img',
+                'Sentence',
+                'justification_any',
+                'J_Emergency-Policy',
+                'J_Legal_Procedure',
+                'J_Terrorism',
+                'J_Misc',
+                'J_Law-and-order',
+                'J_Utilitarian-Deterrence',
+                'J_Intelligence',
+                'J_Intl-Domestic_Precedent',
+                'J_Development-Unity',
+                'J_Political-Strategic',
+                'J_Last-resort',
+                'J_Denial']
+
+    al = xlwt.Alignment()
+    al.wrap = xlwt.Alignment.WRAP_AT_RIGHT
+    wrap_style = xlwt.XFStyle()
+    wrap_style.alignment = al
+
+    book = xlwt.Workbook()
+    sh = book.add_sheet('sentences_with_labels')
+    sh.set_panes_frozen(True)
+    sh.set_horz_split_pos(1)
+    sh.set_vert_split_pos(0)
+    tag_col = sh.col(headings.index('File_Img'))
+    tag_col.width = 256 * 25
+    text_col = sh.col(headings.index('Sentence'))
+    text_col.width = 256 * 100
+
+    for c, heading in enumerate(headings):
+        sh.write(0, c, heading, style=wrap_style)
+    cur_row_ind = 1
+    with open(tags_to_pull_fname, 'r') as f:
+        for tag in f:
+            tag = tag.strip()
+            if tag == '':
+                continue
+            sents_to_alllabels = tags_to_sentslabels[tag]
+            for i in range(len(sents_to_alllabels)):
+                line_fields = [i + 1]
+                line_fields.append(tag)
+                sent = sents_to_alllabels[i][0]
+                all_labels = sents_to_alllabels[i][1]
+
+                line_fields.append(sent)
+
+                line_fields.append(None if len(all_labels) == 0 else 1)
+                while len(line_fields) < len(headings):
+                    line_fields.append(None)
+
+                for label in all_labels:
+                    label_ind = headings.index(label)
+                    line_fields[label_ind] = 1
+
+                for c, line_field in enumerate(line_fields):
+                    if c == headings.index('Sentence'):
+                        sh.write(cur_row_ind, c, line_field, style=wrap_style)
+                    elif line_field is not None:
+                        sh.write(cur_row_ind, c, line_field)
+                cur_row_ind += 1
+
+    book.save(filename)
+
+
 def main():
     # get tags to list of all distinct sentence inds
     tags_we_want = get_list_of_tags_we_want()
@@ -362,6 +430,7 @@ def main():
 
     # now assemble CSV file
     make_csv_file(csv_filename, tags_to_sentslabels)
+    make_excel_file(csv_filename[:csv_filename.rfind('.')] + '.xls', tags_to_sentslabels)
 
 
 if __name__ == '__main__':
