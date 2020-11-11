@@ -57,3 +57,15 @@ int_docs2.shape
 random = pd.DataFrame(np.random.choice(int_docs2, 20, replace=False))
 
 random.to_csv(os.path.join(repo_root, 'misc_tasks/random_sample_justification_ICR_among_all_internment_docs.csv'))
+
+# pull two more docs that aren't in DEFE 24 1214
+random = pd.DataFrame(np.random.choice(int_docs2, 2, replace=False))
+print(random)
+
+# New docs:
+# 0   IMG_6303_PREM_15_484
+# 1  IMG_7165_PREM_15_1005
+
+random.to_csv(os.path.join(repo_root, 'misc_tasks/random_sample_justification_ICR_among_all_internment_docs_2.csv'))
+
+
