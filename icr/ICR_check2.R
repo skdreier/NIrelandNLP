@@ -91,12 +91,15 @@ k2_denial <- kappa2(cbind(skd_dnv$skd.J_Denial, skd_dnv$c2.J_Denial))
 denial <- cbind("denial", kf_denial$value, k2_denial$value)
 
 res <- data.frame(rbind(any, em, legal, ter, misc, order, util, prec, dev, pol, denial))
-names(res)[1] <- "var"
+names(res)[1] <- "justification"
 names(res)[2] <- "kappa_fleiss"
 names(res)[3] <- "kappa2"
 res
 
-xtable(res)
+res$kappa_fleiss <- as.numeric(res$kappa_fleiss)
+res$kappa2 <- as.numeric(res$kappa2)
+
+xtable(res, caption = "ICR Main Results", digits = 2)
 write.csv(res, "kappas_icr_Dec2020.csv")
 
 mean(as.numeric(res$kappa_fleiss), na.rm = TRUE)
@@ -174,14 +177,16 @@ k2_denial <- kappa2(cbind(skd_dnv$skd.J_Denial, skd_dnv$c2.J_Denial))
 denial <- cbind("denial", kf_denial$value, k2_denial$value)
 
 res <- data.frame(rbind(any, em, legal, ter, misc, order, util, prec, dev, pol, denial))
-names(res)[1] <- "var"
+names(res)[1] <- "justification"
 names(res)[2] <- "kappa_fleiss"
 names(res)[3] <- "kappa2"
 res
 
-xtable(res)
-write.csv(res, "kappas_icr_Dec2020_no7508.csv")
+res$kappa_fleiss <- as.numeric(res$kappa_fleiss)
+res$kappa2 <- as.numeric(res$kappa2)
 
+xtable(res, caption = "ICR Main Results (ommiting PREM 15 1008: 7508)", digits = 2)
+write.csv(res, "kappas_icr_Dec2020_no7508.csv")
 
 #### ICR ANALYSIS: Practice documents documents (5, docs containing a justification, 
 #### selected for their extensive justifications among 10 randomly selected documents) ####
@@ -245,10 +250,13 @@ k2_denial <- kappa2(cbind(skd_dnv$skd.J_Denial, skd_dnv$c2.J_Denial))
 denial <- cbind("denial", kf_denial$value, k2_denial$value)
 
 res <- data.frame(rbind(any, em, legal, ter, misc, order, util, prec, dev, pol, denial))
-names(res)[1] <- "var"
+names(res)[1] <- "justification"
 names(res)[2] <- "kappa_fleiss"
 names(res)[3] <- "kappa2"
 res
 
-xtable(res)
+res$kappa_fleiss <- as.numeric(res$kappa_fleiss)
+res$kappa2 <- as.numeric(res$kappa2)
+
+xtable(res, caption = "ICR Practice Results", digits = 2)
 write.csv(res, "kappas_dnv_practice_Nov2020.csv")
