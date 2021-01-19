@@ -1,9 +1,11 @@
 import pandas as pd
 from math import inf
-from random import shuffle
+import random as random_for_seed_setting
+from random import shuffle, random
 from string import whitespace, punctuation
 from util import make_directories_as_necessary
 import spacy
+from analyze_doc_similarity import get_list_of_filenames_to_cluster_together
 
 
 use_spacy = False
@@ -211,6 +213,7 @@ def get_indices_of_sentencematch_in_document(document, sentence, tag, report_to_
             report_matches('Is hand-transcribed filler for OCR problem match: ' + str(is_problem_filler),
                            report_successes_to_file, dont_print_at_all=dont_print_at_all)
             report_matches('\n', report_successes_to_file, dont_print_at_all=dont_print_at_all)
+        assert sentence == document[stuff_to_return[0]: stuff_to_return[1]]
         return stuff_to_return
     except:
         report_matches('Problem document: ' + str(tag), report_to_file, dont_print_at_all=dont_print_at_all)
@@ -363,6 +366,18 @@ def get_sentence_split_inds(text):
                 '\nAND\n' + \
                 text[(0 if i == 0 else locations_of_punctuation_marks_to_split_on[i - 1]):
                      locations_of_punctuation_marks_to_split_on[i] + 10]
+    if len(text.rstrip()) not in locations_of_punctuation_marks_to_split_on:
+        something_in_here = True
+        # check that there's something between this location and the last punctuation mark logged
+        if len(locations_of_punctuation_marks_to_split_on) > 0:
+            text_to_check = text[locations_of_punctuation_marks_to_split_on[-1] + 1: len(text.rstrip())]
+            something_in_here = False
+            for char in text_to_check:
+                if char not in punctuation and char not in whitespace:
+                    something_in_here = True
+                    break
+        if something_in_here:
+            locations_of_punctuation_marks_to_split_on.append(len(text.rstrip()))
     return locations_of_punctuation_marks_to_split_on
 
 
@@ -382,25 +397,34 @@ def get_lists_of_positive_negative_sentences_from_doc(document, list_of_positive
         overlaps_with_positive_sentence = False
         positive_sentence_overlap_start_ind = None
         while cur_positive_sentence_ind < len(list_of_positive_sentence_inds_in_doc) and \
-                ((span_start <= list_of_positive_sentence_inds_in_doc[cur_positive_sentence_ind][0] < split_ind) or
-                 (span_start < list_of_positive_sentence_inds_in_doc[cur_positive_sentence_ind][1] <= split_ind)):
+                ((list_of_positive_sentence_inds_in_doc[cur_positive_sentence_ind][0] < split_ind)):
             # this auto-split "sentence" overlaps with a positive one, so it's positive.
             # this is a while loop because it might overlap with multiple positive sentences.
             overlaps_with_positive_sentence = True
             if positive_sentence_overlap_start_ind is None:
                 positive_sentence_overlap_start_ind = cur_positive_sentence_ind
-            if span_start < list_of_positive_sentence_inds_in_doc[cur_positive_sentence_ind][1] <= split_ind:
+            if list_of_positive_sentence_inds_in_doc[cur_positive_sentence_ind][1] <= split_ind:
+                # only increment if this positive sentence ends here
                 cur_positive_sentence_ind += 1
+                # IF THE NEW POSITIVE SENTENCE STARTS BEFORE THE START OF THE CURRENT SENT
+                # (this can happen if there's a really long sentence logged :P ), we need to keep incrementing
+                # cur_positive_sentence_ind until the start of the cur positive sentence falls at, or after, the
+                # start of this sentence
+                while cur_positive_sentence_ind < len(list_of_positive_sentence_inds_in_doc) and \
+                        (list_of_positive_sentence_inds_in_doc[cur_positive_sentence_ind][0] < span_start):
+                    cur_positive_sentence_ind += 1
+                if cur_positive_sentence_ind == len(list_of_positive_sentence_inds_in_doc):
+                    break
             else:
                 break
+
         if overlaps_with_positive_sentence:
             positive_spans.append((span_start, split_ind))
             source_positive_sentences_to_log = list(range(positive_sentence_overlap_start_ind,
                                                           cur_positive_sentence_ind))
             # now decide whether to add cur_positive_sentence_ind to that list as an overlapping sentence
             if cur_positive_sentence_ind < len(list_of_positive_sentence_inds_in_doc) and \
-                    ((span_start <= list_of_positive_sentence_inds_in_doc[cur_positive_sentence_ind][0] < split_ind) or
-                     (span_start < list_of_positive_sentence_inds_in_doc[cur_positive_sentence_ind][1] <= split_ind)):
+                    ((list_of_positive_sentence_inds_in_doc[cur_positive_sentence_ind][0] < split_ind)):
                 source_positive_sentences_to_log.append(cur_positive_sentence_ind)
             corresponding_source_positive_sentences.append(document[list_of_positive_sentence_inds_in_doc[
                                                                         source_positive_sentences_to_log[0]][0]:
@@ -409,7 +433,18 @@ def get_lists_of_positive_negative_sentences_from_doc(document, list_of_positive
         else:
             negative_spans.append((span_start, split_ind))
         span_start = split_ind
-    assert cur_positive_sentence_ind == len(list_of_positive_sentence_inds_in_doc)
+    if len(sentence_split_inds) == 0:
+        # the whole document is considered one big sentence
+        if len(list_of_positive_sentence_inds_in_doc) > 0:
+            positive_spans.append((0, len(document)))
+            corresponding_source_positive_sentences.append(document[list_of_positive_sentence_inds_in_doc[0][0]:
+                                                                    list_of_positive_sentence_inds_in_doc[-1][1]])
+            cur_positive_sentence_ind = len(list_of_positive_sentence_inds_in_doc)
+        else:
+            negative_spans.append((0, len(document)))
+    assert cur_positive_sentence_ind == len(list_of_positive_sentence_inds_in_doc), \
+        str(cur_positive_sentence_ind) + ', ' + str(len(list_of_positive_sentence_inds_in_doc)) + '\n' + \
+        str(list_of_positive_sentence_inds_in_doc) + '\n' + str(sentence_split_inds) + '\n' + document
     positive_sentences = list(zip([document[span[0]: span[1]].strip() for span in positive_spans],
                                   corresponding_source_positive_sentences))
     negative_sentences = [document[span[0]: span[1]].strip() for span in negative_spans]
@@ -424,7 +459,7 @@ def get_lists_of_positive_negative_sentences_from_doc(document, list_of_positive
 
 
 def make_classification_split(list_of_positive_sentences):
-    shuffle(list_of_positive_sentences)
+    #shuffle(list_of_positive_sentences)
     doctag_to_sentencelabellist = {}
     num_positive_sentences = len(list_of_positive_sentences)
     for positive_sentence, tag, is_problem_filler, label in list_of_positive_sentences:
@@ -434,10 +469,127 @@ def make_classification_split(list_of_positive_sentences):
     test_positive_sentences = []
     dev_positive_sentences = []
     train_positive_sentences = []
+
+    num_assigned_so_far_in_test = 0
+    num_assigned_so_far_in_dev = 0
+    num_assigned_so_far_in_train = 0
+
     ideal_cutoff_for_test = int(.1 * num_positive_sentences)
-    ideal_cutoff_for_dev = 2 * ideal_cutoff_for_test
+    ideal_cutoff_for_dev = int(.1 * num_positive_sentences)
+    ideal_cutoff_for_train = num_positive_sentences - ideal_cutoff_for_test - ideal_cutoff_for_dev
+
+    list_of_taglists = get_list_of_filenames_to_cluster_together()
+    # convert tags in list into same format as other tags-- right now these are like DEFE_13_1358/IMG_9776
+    # needs to be (file name, image name) tuple
+    new_list_of_taglists = []
+    for taglist in list_of_taglists:
+        list_to_add = []
+        for tag in taglist:
+            parts_of_tag = tag.split('/')
+            list_to_add.append((parts_of_tag[0], parts_of_tag[1]))
+        new_list_of_taglists.append(list_to_add)
+    list_of_taglists = new_list_of_taglists
+    shuffle(list_of_taglists)
+
+    for list_of_tags_that_need_to_go_together in list_of_taglists:
+        # randomly choose where to put this tag cluster
+        where_to_put = random()
+        if num_assigned_so_far_in_test > ideal_cutoff_for_test and num_assigned_so_far_in_dev > ideal_cutoff_for_dev:
+            # put this in train
+            for doctag in list_of_tags_that_need_to_go_together:
+                sentence_label_list = doctag_to_sentencelabellist[doctag]
+                train_positive_sentences += sentence_label_list
+                num_assigned_so_far_in_train += len(sentence_label_list)
+        elif num_assigned_so_far_in_test > ideal_cutoff_for_test and \
+                num_assigned_so_far_in_train > ideal_cutoff_for_train:
+            # put this in dev
+            for doctag in list_of_tags_that_need_to_go_together:
+                sentence_label_list = doctag_to_sentencelabellist[doctag]
+                dev_positive_sentences += sentence_label_list
+                num_assigned_so_far_in_dev += len(sentence_label_list)
+        elif num_assigned_so_far_in_dev > ideal_cutoff_for_dev and \
+                num_assigned_so_far_in_train > ideal_cutoff_for_train:
+            # put this in test
+            for doctag in list_of_tags_that_need_to_go_together:
+                sentence_label_list = doctag_to_sentencelabellist[doctag]
+                test_positive_sentences += sentence_label_list
+                num_assigned_so_far_in_test += len(sentence_label_list)
+        elif num_assigned_so_far_in_test > ideal_cutoff_for_test:
+            # choose between putting this in dev and train
+            num_to_go_for_dev = ideal_cutoff_for_dev - num_assigned_so_far_in_dev
+            num_to_go_for_train = ideal_cutoff_for_train - num_assigned_so_far_in_train
+            if where_to_put <= (num_to_go_for_dev / (num_to_go_for_dev + num_to_go_for_train)):
+                for doctag in list_of_tags_that_need_to_go_together:
+                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    dev_positive_sentences += sentence_label_list
+                    num_assigned_so_far_in_dev += len(sentence_label_list)
+            else:
+                for doctag in list_of_tags_that_need_to_go_together:
+                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    train_positive_sentences += sentence_label_list
+                    num_assigned_so_far_in_train += len(sentence_label_list)
+        elif num_assigned_so_far_in_dev > ideal_cutoff_for_dev:
+            # choose between putting this in test and train
+            num_to_go_for_test = ideal_cutoff_for_test - num_assigned_so_far_in_test
+            num_to_go_for_train = ideal_cutoff_for_train - num_assigned_so_far_in_train
+            if where_to_put <= (num_to_go_for_test / (num_to_go_for_test + num_to_go_for_train)):
+                for doctag in list_of_tags_that_need_to_go_together:
+                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    test_positive_sentences += sentence_label_list
+                    num_assigned_so_far_in_test += len(sentence_label_list)
+            else:
+                for doctag in list_of_tags_that_need_to_go_together:
+                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    train_positive_sentences += sentence_label_list
+                    num_assigned_so_far_in_train += len(sentence_label_list)
+        elif num_assigned_so_far_in_train > ideal_cutoff_for_train:
+            # choose between putting this in dev and test
+            num_to_go_for_dev = ideal_cutoff_for_dev - num_assigned_so_far_in_dev
+            num_to_go_for_test = ideal_cutoff_for_test - num_assigned_so_far_in_test
+            if where_to_put <= (num_to_go_for_dev / (num_to_go_for_dev + num_to_go_for_test)):
+                for doctag in list_of_tags_that_need_to_go_together:
+                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    dev_positive_sentences += sentence_label_list
+                    num_assigned_so_far_in_dev += len(sentence_label_list)
+            else:
+                for doctag in list_of_tags_that_need_to_go_together:
+                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    test_positive_sentences += sentence_label_list
+                    num_assigned_so_far_in_test += len(sentence_label_list)
+        else:
+            # choose between putting it in all three
+            num_to_go_for_dev = ideal_cutoff_for_dev - num_assigned_so_far_in_dev
+            num_to_go_for_test = ideal_cutoff_for_test - num_assigned_so_far_in_test
+            num_to_go_for_train = ideal_cutoff_for_train - num_assigned_so_far_in_train
+            if where_to_put <= (num_to_go_for_test / (num_to_go_for_train + num_to_go_for_test + num_to_go_for_dev)):
+                for doctag in list_of_tags_that_need_to_go_together:
+                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    test_positive_sentences += sentence_label_list
+                    num_assigned_so_far_in_test += len(sentence_label_list)
+            elif where_to_put <= ((num_to_go_for_test + num_to_go_for_dev) /
+                                  (num_to_go_for_train + num_to_go_for_test + num_to_go_for_dev)):
+                for doctag in list_of_tags_that_need_to_go_together:
+                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    dev_positive_sentences += sentence_label_list
+                    num_assigned_so_far_in_dev += len(sentence_label_list)
+            else:
+                for doctag in list_of_tags_that_need_to_go_together:
+                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    train_positive_sentences += sentence_label_list
+                    num_assigned_so_far_in_train += len(sentence_label_list)
+
+        for tag in list_of_tags_that_need_to_go_together:
+            del doctag_to_sentencelabellist[tag]
+
+    doctag_to_sentencelabellist = list(doctag_to_sentencelabellist.items())
+    shuffle(doctag_to_sentencelabellist)
+
+    ideal_cutoff_for_test -= num_assigned_so_far_in_test
+    ideal_cutoff_for_dev = ideal_cutoff_for_test + ideal_cutoff_for_dev
+    ideal_cutoff_for_dev -= num_assigned_so_far_in_dev
     num_assigned_so_far = 0
-    for doctag, sentence_label_list in doctag_to_sentencelabellist.items():
+
+    for doctag, sentence_label_list in doctag_to_sentencelabellist:
         if num_assigned_so_far < ideal_cutoff_for_test:
             test_positive_sentences += sentence_label_list
             num_assigned_so_far += len(sentence_label_list)
@@ -510,22 +662,35 @@ def save_splits_as_csv(train, dev, test, train_filename, dev_filename, test_file
     return train_df, dev_df, test_df, len(strlabels_to_intlabels)
 
 
-def read_in_presplit_data(train_filename, dev_filename, test_filename, label_key_filename):
+def read_in_presplit_data(train_filename, dev_filename, test_filename, label_key_filename, shuffle_data=True):
     train_df = fix_df_format(pd.read_csv(train_filename))
+    if shuffle_data:
+        train_df = train_df.sample(frac=1).reset_index(drop=True)
     dev_df = fix_df_format(pd.read_csv(dev_filename))
+    if shuffle_data:
+        dev_df = dev_df.sample(frac=1).reset_index(drop=True)
     test_df = fix_df_format(pd.read_csv(test_filename))
+    if shuffle_data:
+        test_df = test_df.sample(frac=1).reset_index(drop=True)
     num_labels = 0
-    with open(label_key_filename, 'r') as f:
-        for line in f:
-            if line.strip() != '':
-                num_labels += 1
-    return train_df, dev_df, test_df, num_labels
+    if label_key_filename is not None:
+        with open(label_key_filename, 'r') as f:
+            for line in f:
+                if line.strip() != '':
+                    num_labels += 1
+    return train_df, dev_df, test_df, (num_labels if label_key_filename is not None else None)
 
 
 def fix_df_format(df):
     df['text'] = df['text'].astype(str)
     df['strlabel'] = df['strlabel'].astype(str)
     df['labels'] = df['labels'].astype(int)
+    if 'source_handcoded_sent' in df.columns:
+        df['source_handcoded_sent'] = df['source_handcoded_sent'].astype(str)
+    if 'contextbefore' in df.columns:
+        df['contextbefore'] = df['contextbefore'].astype(str)
+    if 'filename' in df.columns:
+        df['filename'] = df['filename'].astype(str)
     if 'perplexity' in df.columns:
         df['perplexity'] = df['perplexity'].astype(float)
     return df
@@ -660,6 +825,9 @@ def make_multiway_data_split(multiway_train_filename, multiway_dev_filename,
         assert positive_sentences_filename is not None
         positivesentences_tags = load_in_positive_sentences(positive_sentences_filename)
 
+    #set_of_positive_sents =
+    #for positive_sentence, tag, is_problem_filler, label in list_of_positive_sentences:
+
     train, dev, test = make_classification_split(positivesentences_tags)
     print('Made new multi-way classification data split.')
     train_df, dev_df, test_df, num_labels = \
@@ -751,9 +919,9 @@ def main(full_document_filename, binary_train_filename, binary_dev_filename, bin
     positivesentences_tags, tags_to_documents = get_positive_sentences_and_tagdocs(full_document_filename,
                                                                                    positive_sentence_filename)
 
-    multiway_train_df, multiway_dev_df, multiway_test_df, multiway_num_labels = \
+    """multiway_train_df, multiway_dev_df, multiway_test_df, multiway_num_labels = \
         make_multiway_data_split(multiway_train_filename, multiway_dev_filename, multiway_test_filename,
-                                 multiway_label_key_filename, positivesentences_tags=positivesentences_tags)
+                                 multiway_label_key_filename, positivesentences_tags=positivesentences_tags)"""
 
     positivesentences_tags, corresponding_indices_in_document = \
         get_corresponding_indices_in_document(positivesentences_tags, tags_to_documents, problem_report_filename,
@@ -766,11 +934,12 @@ def main(full_document_filename, binary_train_filename, binary_dev_filename, bin
                                positivesentences_tags=positivesentences_tags, tags_to_documents=tags_to_documents,
                                corresponding_indices_in_document=corresponding_indices_in_document)
 
-    return multiway_train_df, multiway_dev_df, multiway_test_df, multiway_num_labels, \
-           binary_train_df, binary_dev_df, binary_test_df, binary_num_labels
+    """return multiway_train_df, multiway_dev_df, multiway_test_df, multiway_num_labels, \
+           binary_train_df, binary_dev_df, binary_test_df, binary_num_labels"""
 
 
 if __name__ == '__main__':
+    random_for_seed_setting.seed(5)
     from config import full_document_filename, binary_train_filename, binary_dev_filename, \
         binary_test_filename, binary_label_key_filename, multiway_train_filename, multiway_dev_filename, \
         multiway_test_filename, multiway_label_key_filename, positive_sentence_filename, problem_report_filename, \
