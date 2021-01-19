@@ -1,0 +1,12 @@
+"","justification","kappa_fleiss","kappa2"
+"1","any",0.873040889589353,0.873052004902819
+"2","emergency",0.919466814773674,0.919489172681843
+"3","legal_procedure",0.758400444321022,0.759002770083102
+"4","terrorism",1,1
+"5","misc",0.478417266187051,0.480906921241051
+"6","law_order",1,1
+"7","utilitarian_deterrence",NA,NA
+"8","intl_dom_precedent",0.663182346109175,0.663573085846866
+"9","development_social_unity",NA,NA
+"10","political",1,1
+"11","denial",0.663182346109175,0.663573085846866
