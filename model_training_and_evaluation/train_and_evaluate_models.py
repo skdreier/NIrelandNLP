@@ -211,7 +211,7 @@ def main():
     train_df, dev_df, test_df, num_labels = \
         get_multi_way_classification_data(multiway_train_filename, multiway_dev_filename,
                                           multiway_test_filename, multiway_label_key_filename)
-    use_ten_labels_instead = False
+    use_ten_labels_instead = True
     if use_ten_labels_instead:
         print('Switching to ten-label setup instead.')
         num_labels = 10
@@ -274,7 +274,7 @@ def main():
             if f1 > best_f1:
                 best_f1 = f1
                 best_param = (batch_size, learning_rate)
-    #best_param = (16, 1e-5)
+    #best_param = (32, 2e-5)
     learning_rate = best_param[1]
     batch_size = best_param[0]
     print('For multiway case, best RoBERTa model had lr ' + str(learning_rate) + ' and batch size ' + str(
@@ -293,9 +293,11 @@ def main():
         clean_roberta_prediction_output(list_of_all_predicted_roberta_test_labels)
 
     bootstrap_f1(list_of_all_predicted_roberta_dev_labels, dev_predictions_of_best_lr_model,
-                 list_of_all_dev_labels, 500, 'multiwayDEV_withcontext_bootstrappedf1s.csv')
+                 list_of_all_dev_labels, 500, 'multiwayDEV_withcontext_' + str(use_ten_labels_instead) +
+                 '_bootstrappedf1s.csv', num_labels)
     bootstrap_f1(list_of_all_predicted_roberta_test_labels, list_of_all_predicted_lr_test_labels,
-                 list_of_all_test_labels, 500, 'multiwayTEST_withcontext_bootstrappedf1s.csv')
+                 list_of_all_test_labels, 500, 'multiwayTEST_withcontext_' + str(use_ten_labels_instead) +
+                 '_bootstrappedf1s.csv', num_labels)
 
     make_multilabel_csv(list_of_all_predicted_roberta_dev_labels, list_of_all_dev_labels,
                         multiway_label_key_filename, csv_filename_roberta_on_dev,
@@ -370,7 +372,7 @@ def main():
                 best_f1 = f1
                 best_param = (batch_size, learning_rate)
 
-    #best_param = (32, 1e-5)
+    best_param = (32, 1e-5)
     learning_rate = best_param[1]
     batch_size = best_param[0]
     print('For binary case, best RoBERTa model had lr ' + str(learning_rate) + ' and batch size ' + str(batch_size) +
@@ -388,9 +390,9 @@ def main():
         clean_roberta_prediction_output(list_of_all_predicted_roberta_test_logits)
 
     bootstrap_f1(list_of_all_predicted_roberta_dev_labels, list_of_all_predicted_lr_dev_labels,
-                 list_of_all_dev_labels, 500, 'binaryDEV_withcontext_bootstrappedf1s.csv')
+                 list_of_all_dev_labels, 500, 'binaryDEV_withcontext_bootstrappedf1s.csv', num_labels)
     bootstrap_f1(list_of_all_predicted_roberta_test_labels, list_of_all_predicted_lr_test_labels,
-                 list_of_all_test_labels, 500, 'binaryTEST_withcontext_bootstrappedf1s.csv')
+                 list_of_all_test_labels, 500, 'binaryTEST_withcontext_bootstrappedf1s.csv', num_labels)
 
     dev_roberta_precrec_curve_points = get_recall_precision_curve_points(list_of_all_predicted_roberta_dev_logits,
                                                                          list_of_all_dev_labels,

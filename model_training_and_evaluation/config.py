@@ -1,7 +1,7 @@
 import os
 
 
-multiway_dir_extension = '_withcontext_12class'  # '_condensed'  # set to '_condensed' for 6-way multiway, or '' for full 12-way
+multiway_dir_extension = '_withcontext_10class'  # '_condensed'  # set to '_condensed' for 6-way multiway, or '' for full 12-way
 
 
 full_document_filename = '../orig_text_data/internment.txt'

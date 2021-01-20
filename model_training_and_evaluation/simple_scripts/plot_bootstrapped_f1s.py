@@ -5,9 +5,10 @@ import matplotlib
 matplotlib.use('Agg')
 
 
-test_f1s_filename = '/Users/sofiaserrano/Downloads/paperResults/multiwayTEST_withcontext_bootstrappedf1s.csv'
-dev_f1s_filename = '/Users/sofiaserrano/Downloads/paperResults/multiwayDEV_withcontext_bootstrappedf1s.csv'
-tag = 'multiway'
+# True indicates it's for 10-class multiway version
+test_f1s_filename = '/Users/sofiaserrano/Downloads/paperResults/binaryTEST_withcontext_bootstrappedf1s.csv'
+dev_f1s_filename = '/Users/sofiaserrano/Downloads/paperResults/binaryDEV_withcontext_bootstrappedf1s.csv'
+tag = 'binary'
 
 
 sns.set()

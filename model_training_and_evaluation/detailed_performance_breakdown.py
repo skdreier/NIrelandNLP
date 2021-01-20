@@ -174,7 +174,7 @@ def get_recall_precision_curve_points(list_of_logits, actual_labels_as_list_of_i
 
 
 def bootstrap_f1(list_of_predicted_labels_roberta, list_of_predicted_labels_baseline, list_of_correct_labels,
-                 num_times_to_bootstrap, filename_to_write_data_to):
+                 num_times_to_bootstrap, filename_to_write_data_to, num_labels):
     tups_to_draw_from = \
         list(zip(list_of_predicted_labels_roberta, list_of_predicted_labels_baseline, list_of_correct_labels))
     length_of_list = len(list_of_predicted_labels_baseline)
@@ -189,10 +189,14 @@ def bootstrap_f1(list_of_predicted_labels_roberta, list_of_predicted_labels_base
 
         true_labels = [tup[2] for tup in bootstrapped_data]
 
+        if num_labels == 2:
+            average = 'binary'
+        else:
+            average = 'weighted'
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
-            f1_baseline = f1_score(true_labels, [tup[1] for tup in bootstrapped_data], average='weighted')
-            f1_roberta = f1_score(true_labels, [tup[0] for tup in bootstrapped_data], average='weighted')
+            f1_baseline = f1_score(true_labels, [tup[1] for tup in bootstrapped_data], average=average)
+            f1_roberta = f1_score(true_labels, [tup[0] for tup in bootstrapped_data], average=average)
         warnings.filterwarnings('default')
 
         return f1_roberta, f1_baseline
