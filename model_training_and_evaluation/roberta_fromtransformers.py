@@ -23,6 +23,7 @@ import logging
 import os
 import random
 from math import ceil
+import warnings
 
 import numpy as np
 import torch
@@ -60,26 +61,28 @@ logger = logging.getLogger(__name__)
 
 
 def load_in_pickled_model(filename, cuda_device, num_labels, label_weights, lowercase_all_text):
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        config = AutoConfig.from_pretrained(
+            'roberta-base',
+            num_labels=num_labels,
+            finetuning_task="classification",
+            cache_dir=None,
+        )
+        setattr(config, "num_labels", num_labels)
 
-    config = AutoConfig.from_pretrained(
-        'roberta-base',
-        num_labels=num_labels,
-        finetuning_task="classification",
-        cache_dir=None,
-    )
-    setattr(config, "num_labels", num_labels)
-
-    tokenizer = AutoTokenizer.from_pretrained(
-        'roberta-base',
-        do_lower_case=lowercase_all_text,
-        cache_dir=None,
-    )
-    model = AutoModelForSequenceClassification.from_pretrained(
-        filename,
-        from_tf=False,
-        config=config,
-        cache_dir=None,
-    )
+        tokenizer = AutoTokenizer.from_pretrained(
+            'roberta-base',
+            do_lower_case=lowercase_all_text,
+            cache_dir=None,
+        )
+        model = AutoModelForSequenceClassification.from_pretrained(
+            filename,
+            from_tf=False,
+            config=config,
+            cache_dir=None,
+        )
+    warnings.filterwarnings('default')
 
     if cuda_device != -1 and torch.cuda.is_available():
         if cuda_device == -1:
@@ -119,6 +122,7 @@ def get_subdir_with_model_to_load(output_dir):
     # since we used early stopping during training, we need to find the name of the directory that represents
     # the last saved model
     checkpoints = get_immediate_subdirectories(output_dir)
+    assert len(checkpoints) > 0, 'FOUND NO IMMEDIATE SUBDIRECTORIES OF ' + output_dir
     last_epoch_found = -1
     inds_of_last_epoch = []
     single_hyphen_only = False
@@ -205,7 +209,7 @@ def train(train_dataset, model, tokenizer, calc_binary_precrec_too, f1_avg_type,
           learning_rate, adam_epsilon, warmup_steps, model_name_or_path, fp16, fp16_opt_level, device,
           model_type, max_grad_norm, logging_steps, evaluate_during_training, save_steps, per_gpu_eval_batch_size,
           task_name, output_mode, output_dir, dev_df, evaluate_at_end_of_epoch, save_at_end_of_epoch,
-          metric_to_improve_on, higher_metric_is_better, class_weights, num_classes):
+          metric_to_improve_on, higher_metric_is_better, class_weights, num_classes, dict_of_info_for_debugging):
     """ Train the model """
     if local_rank in [-1, 0]:
         tb_writer = SummaryWriter()
@@ -378,29 +382,30 @@ def train(train_dataset, model, tokenizer, calc_binary_precrec_too, f1_avg_type,
                 tb_writer.add_scalar("lr", scheduler.get_lr()[0], global_step)
                 tb_writer.add_scalar("loss", (tr_loss - logging_loss) / logging_steps, global_step)
                 logging_loss = tr_loss
-                print('Just logged metrics and just_reached_best_val_so_far: ' + str(just_reached_best_val_so_far) +
-                      ', value is ' + str(best_metric_val_seen))
+                """print('Just logged metrics and just_reached_best_val_so_far: ' + str(just_reached_best_val_so_far) +
+                      ', value is ' + str(best_metric_val_seen))"""
 
             if just_reached_best_val_so_far:
-                print('SAVING MODEL\n\n\n')
                 """((local_rank in [-1, 0] and save_steps > 0 and global_step % save_steps == 0) or
                     (save_at_end_of_epoch and step == len(train_dataloader) - 1) or just_reached_best_val_so_far):"""
                 # Save model checkpoint
                 just_reached_best_val_so_far = False
-                output_dir = os.path.join(output_dir, "checkpoint-{}".format(global_step))
-                if not os.path.exists(output_dir):
-                    os.makedirs(output_dir)
+                cur_output_dir = os.path.join(output_dir, "checkpoint-{}".format(global_step))
+                if not os.path.exists(cur_output_dir):
+                    os.makedirs(cur_output_dir)
                 """model_to_save = (
                     model.module if hasattr(model, "module") else model
                 )  # Take care of distributed/parallel training"""
-                model.save_pretrained(output_dir)
-                tokenizer.save_pretrained(output_dir)
+                model.save_pretrained(cur_output_dir)
+                tokenizer.save_pretrained(cur_output_dir)
 
-                logger.info("Saving model checkpoint to %s", output_dir)
+                logger.info("Saving model checkpoint to %s", cur_output_dir)
 
-                torch.save(optimizer.state_dict(), os.path.join(output_dir, "optimizer.pt"))
-                torch.save(scheduler.state_dict(), os.path.join(output_dir, "scheduler.pt"))
-                logger.info("Saving optimizer and scheduler states to %s", output_dir)
+                torch.save(optimizer.state_dict(), os.path.join(cur_output_dir, "optimizer.pt"))
+                torch.save(scheduler.state_dict(), os.path.join(cur_output_dir, "scheduler.pt"))
+                logger.info("Saving optimizer and scheduler states to %s", cur_output_dir)
+
+            just_reached_best_val_so_far = False
 
             if max_steps > 0 and global_step > max_steps:
                 epoch_iterator.close()
@@ -488,6 +493,7 @@ def evaluate(model, tokenizer, calc_binary_precrec_too, task_name, output_dir, l
                 out_label_ids = np.append(out_label_ids, inputs["labels"].detach().cpu().numpy(), axis=0)
 
         eval_loss = eval_loss / nb_eval_steps
+        raw_model_logits = preds
         if output_mode == "classification":
             preds = np.argmax(preds, axis=1)
         else:
@@ -507,7 +513,7 @@ def evaluate(model, tokenizer, calc_binary_precrec_too, task_name, output_dir, l
                 writer.write("%s = %s\n" % (key, str(result[key])))
 
     if return_model_outputs_too:
-        return results, list(preds)
+        return results, list(raw_model_logits)
     else:
         return results
 
@@ -574,10 +580,10 @@ def load_and_cache_examples(data_df, tokenizer, includes_context_column=False):
         num_in_context_before = []
         max_length = 0
         for i, row in data_df.iterrows():
-            contextbefore_tokens = tokenizer.encode(str(row['contextbefore']), add_special_tokens=True)
+            contextbefore_tokens = tokenizer.encode(str(row['contextbefore']).strip(), add_special_tokens=True)
             num_in_context_before.append(len(contextbefore_tokens))
             fully_encoded_text = contextbefore_tokens + \
-                                 (tokenizer.encode(str(row['text']), add_special_tokens=True)[1:])
+                                 (tokenizer.encode(str(row['text']).strip(), add_special_tokens=True)[1:])
             if len(fully_encoded_text) > 512:
                 fully_encoded_text = [fully_encoded_text[0]] + fully_encoded_text[-511:]
             if len(fully_encoded_text) > max_length:
@@ -588,7 +594,7 @@ def load_and_cache_examples(data_df, tokenizer, includes_context_column=False):
         # columns: text, [strlabel,] labels
         input_ids_for_text = []
         for i, row in data_df.iterrows():
-            fully_encoded_text = tokenizer.encode(str(row['text']), add_special_tokens=True)
+            fully_encoded_text = tokenizer.encode(str(row['text']).strip(), add_special_tokens=True)
             if len(fully_encoded_text) > 512:
                 fully_encoded_text = [fully_encoded_text[0]] + fully_encoded_text[-511:]
             input_ids_for_text.append(fully_encoded_text)
@@ -602,9 +608,6 @@ def load_and_cache_examples(data_df, tokenizer, includes_context_column=False):
         one_where_context = get_mask_from_sequence_lengths(torch.tensor(num_in_context_before), max_length).long()
         all_token_type_ids = all_token_type_ids - one_where_context
     all_labels = torch.tensor([row['labels'] for i, row in data_df.iterrows()], dtype=torch.long)
-    for i in range(all_labels.size(0)):
-        if all_labels[i] != 0 and all_labels[i] != 1:
-            print("THERE'S AN OUT-OF-RANGE LABEL: " + str(all_labels[i]) + '\n' + str(row))
     if 'filename' in data_df.columns:
         fname_vars = torch.tensor([convert_fname_to_continuous_variable(fname_to_var_key, row['filename'])
                                    for i, row in data_df.iterrows()], dtype=torch.float)
@@ -645,8 +648,6 @@ def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int
                        label_weights: List[float]=None, string_prefix='',
                        lowercase_all_text=True, cuda_device=-1, f1_avg='weighted', test_set=None,
                        print_results=True, also_report_binary_precrec=False):
-    assert num_labels == 2
-
     print('torch.cuda.is_available: ' + str(torch.cuda.is_available()))
     print('cuda device: ' + str(cuda_device))
     # label_weights aren't accommodated in huggingface's RobertaForSequenceClassification
@@ -765,6 +766,8 @@ def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int
 
     # Training
     if do_train:
+        dict_of_info_for_debugging = {'cuda_device': cuda_device, 'num_labels': num_labels,
+                                      'label_weights': label_weights, 'lowercase_all_tokens': lowercase_all_text}
         train_dataset = load_and_cache_examples(train_df, tokenizer,
                                                 includes_context_column='contextbefore' in train_df.columns)
         global_step, tr_loss = train(train_dataset, model, tokenizer, also_report_binary_precrec, f1_avg,
@@ -774,7 +777,8 @@ def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int
                                      fp16_opt_level, device, model_type, max_grad_norm, logging_steps,
                                      evaluate_during_training, save_steps, per_gpu_eval_batch_size, task_name,
                                      output_mode, output_dir, dev_df, evaluate_at_end_of_epoch, save_at_end_of_epoch,
-                                     metric_to_perform_better_on, higher_is_better, label_weights, num_labels)
+                                     metric_to_perform_better_on, higher_is_better, label_weights, num_labels,
+                                     dict_of_info_for_debugging)
         logger.info(" global_step = %s, average loss = %s", global_step, tr_loss)
 
     # Saving best-practices: if you use defaults names for the model, you can reload it using from_pretrained()

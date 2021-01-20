@@ -226,8 +226,9 @@ def get_indices_of_sentencematch_in_document(document, sentence, tag, report_to_
 
 
 def report_matches(message, report_to_file, dont_print_at_all=False):
-    if not report_to_file and not dont_print_at_all:
-        print(message)
+    if not report_to_file:
+        if not dont_print_at_all:
+            print(message)
     else:
         with open(report_to_file, 'a') as f:
             f.write(message + '\n')
@@ -458,14 +459,18 @@ def get_lists_of_positive_negative_sentences_from_doc(document, list_of_positive
            [positive_sentence[1] for positive_sentence in positive_sentences]
 
 
-def make_classification_split(list_of_positive_sentences):
+def make_classification_split(list_of_positive_sentences, include_filename_as_field=False,
+                              allowed_to_not_have_matches_for_all_docs=False):
     #shuffle(list_of_positive_sentences)
     doctag_to_sentencelabellist = {}
     num_positive_sentences = len(list_of_positive_sentences)
     for positive_sentence, tag, is_problem_filler, label in list_of_positive_sentences:
         if tag not in doctag_to_sentencelabellist:
             doctag_to_sentencelabellist[tag] = []
-        doctag_to_sentencelabellist[tag].append((positive_sentence, label))
+        if not include_filename_as_field:
+            doctag_to_sentencelabellist[tag].append((positive_sentence, label))
+        else:
+            doctag_to_sentencelabellist[tag].append((positive_sentence, label, tag[0] + '/' + tag[1]))
     test_positive_sentences = []
     dev_positive_sentences = []
     train_positive_sentences = []
@@ -497,21 +502,33 @@ def make_classification_split(list_of_positive_sentences):
         if num_assigned_so_far_in_test > ideal_cutoff_for_test and num_assigned_so_far_in_dev > ideal_cutoff_for_dev:
             # put this in train
             for doctag in list_of_tags_that_need_to_go_together:
-                sentence_label_list = doctag_to_sentencelabellist[doctag]
+                try:
+                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                except KeyError:
+                    assert allowed_to_not_have_matches_for_all_docs
+                    sentence_label_list = []
                 train_positive_sentences += sentence_label_list
                 num_assigned_so_far_in_train += len(sentence_label_list)
         elif num_assigned_so_far_in_test > ideal_cutoff_for_test and \
                 num_assigned_so_far_in_train > ideal_cutoff_for_train:
             # put this in dev
             for doctag in list_of_tags_that_need_to_go_together:
-                sentence_label_list = doctag_to_sentencelabellist[doctag]
+                try:
+                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                except KeyError:
+                    assert allowed_to_not_have_matches_for_all_docs
+                    sentence_label_list = []
                 dev_positive_sentences += sentence_label_list
                 num_assigned_so_far_in_dev += len(sentence_label_list)
         elif num_assigned_so_far_in_dev > ideal_cutoff_for_dev and \
                 num_assigned_so_far_in_train > ideal_cutoff_for_train:
             # put this in test
             for doctag in list_of_tags_that_need_to_go_together:
-                sentence_label_list = doctag_to_sentencelabellist[doctag]
+                try:
+                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                except KeyError:
+                    assert allowed_to_not_have_matches_for_all_docs
+                    sentence_label_list = []
                 test_positive_sentences += sentence_label_list
                 num_assigned_so_far_in_test += len(sentence_label_list)
         elif num_assigned_so_far_in_test > ideal_cutoff_for_test:
@@ -520,12 +537,20 @@ def make_classification_split(list_of_positive_sentences):
             num_to_go_for_train = ideal_cutoff_for_train - num_assigned_so_far_in_train
             if where_to_put <= (num_to_go_for_dev / (num_to_go_for_dev + num_to_go_for_train)):
                 for doctag in list_of_tags_that_need_to_go_together:
-                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    try:
+                        sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    except KeyError:
+                        assert allowed_to_not_have_matches_for_all_docs
+                        sentence_label_list = []
                     dev_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_dev += len(sentence_label_list)
             else:
                 for doctag in list_of_tags_that_need_to_go_together:
-                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    try:
+                        sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    except KeyError:
+                        assert allowed_to_not_have_matches_for_all_docs
+                        sentence_label_list = []
                     train_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_train += len(sentence_label_list)
         elif num_assigned_so_far_in_dev > ideal_cutoff_for_dev:
@@ -534,12 +559,20 @@ def make_classification_split(list_of_positive_sentences):
             num_to_go_for_train = ideal_cutoff_for_train - num_assigned_so_far_in_train
             if where_to_put <= (num_to_go_for_test / (num_to_go_for_test + num_to_go_for_train)):
                 for doctag in list_of_tags_that_need_to_go_together:
-                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    try:
+                        sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    except KeyError:
+                        assert allowed_to_not_have_matches_for_all_docs
+                        sentence_label_list = []
                     test_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_test += len(sentence_label_list)
             else:
                 for doctag in list_of_tags_that_need_to_go_together:
-                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    try:
+                        sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    except KeyError:
+                        assert allowed_to_not_have_matches_for_all_docs
+                        sentence_label_list = []
                     train_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_train += len(sentence_label_list)
         elif num_assigned_so_far_in_train > ideal_cutoff_for_train:
@@ -548,12 +581,20 @@ def make_classification_split(list_of_positive_sentences):
             num_to_go_for_test = ideal_cutoff_for_test - num_assigned_so_far_in_test
             if where_to_put <= (num_to_go_for_dev / (num_to_go_for_dev + num_to_go_for_test)):
                 for doctag in list_of_tags_that_need_to_go_together:
-                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    try:
+                        sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    except KeyError:
+                        assert allowed_to_not_have_matches_for_all_docs
+                        sentence_label_list = []
                     dev_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_dev += len(sentence_label_list)
             else:
                 for doctag in list_of_tags_that_need_to_go_together:
-                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    try:
+                        sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    except KeyError:
+                        assert allowed_to_not_have_matches_for_all_docs
+                        sentence_label_list = []
                     test_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_test += len(sentence_label_list)
         else:
@@ -563,23 +604,38 @@ def make_classification_split(list_of_positive_sentences):
             num_to_go_for_train = ideal_cutoff_for_train - num_assigned_so_far_in_train
             if where_to_put <= (num_to_go_for_test / (num_to_go_for_train + num_to_go_for_test + num_to_go_for_dev)):
                 for doctag in list_of_tags_that_need_to_go_together:
-                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    try:
+                        sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    except KeyError:
+                        assert allowed_to_not_have_matches_for_all_docs
+                        sentence_label_list = []
                     test_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_test += len(sentence_label_list)
             elif where_to_put <= ((num_to_go_for_test + num_to_go_for_dev) /
                                   (num_to_go_for_train + num_to_go_for_test + num_to_go_for_dev)):
                 for doctag in list_of_tags_that_need_to_go_together:
-                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    try:
+                        sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    except KeyError:
+                        assert allowed_to_not_have_matches_for_all_docs
+                        sentence_label_list = []
                     dev_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_dev += len(sentence_label_list)
             else:
                 for doctag in list_of_tags_that_need_to_go_together:
-                    sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    try:
+                        sentence_label_list = doctag_to_sentencelabellist[doctag]
+                    except KeyError:
+                        assert allowed_to_not_have_matches_for_all_docs
+                        sentence_label_list = []
                     train_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_train += len(sentence_label_list)
 
         for tag in list_of_tags_that_need_to_go_together:
-            del doctag_to_sentencelabellist[tag]
+            if not allowed_to_not_have_matches_for_all_docs:
+                del doctag_to_sentencelabellist[tag]
+            elif tag in doctag_to_sentencelabellist:
+                del doctag_to_sentencelabellist[tag]
 
     doctag_to_sentencelabellist = list(doctag_to_sentencelabellist.items())
     shuffle(doctag_to_sentencelabellist)
@@ -605,7 +661,7 @@ def make_classification_split(list_of_positive_sentences):
 
 
 def save_splits_as_csv(train, dev, test, train_filename, dev_filename, test_filename, label_key_filename,
-                       split_ex0_into_two_with_second_label: str=None):
+                       split_ex0_into_two_with_second_label: str=None, include_filename_as_field=False):
     make_directories_as_necessary(train_filename)
     make_directories_as_necessary(dev_filename)
     make_directories_as_necessary(test_filename)
@@ -621,9 +677,16 @@ def save_splits_as_csv(train, dev, test, train_filename, dev_filename, test_file
             strlabels_to_intlabels[strlabel] = next_available_intlabel
             next_available_intlabel += 1
         if split_ex0_into_two_with_second_label is None:
-            train[i] = (cur_example[0], strlabel, strlabels_to_intlabels[strlabel])
+            if include_filename_as_field:
+                train[i] = (cur_example[0], strlabel, strlabels_to_intlabels[strlabel], cur_example[2])
+            else:
+                train[i] = (cur_example[0], strlabel, strlabels_to_intlabels[strlabel])
         else:
-            train[i] = (cur_example[0][0], strlabel, strlabels_to_intlabels[strlabel], cur_example[0][1])
+            if include_filename_as_field:
+                train[i] = (cur_example[0][0], strlabel, strlabels_to_intlabels[strlabel], cur_example[0][1],
+                            cur_example[2])
+            else:
+                train[i] = (cur_example[0][0], strlabel, strlabels_to_intlabels[strlabel], cur_example[0][1])
     for i in range(len(dev)):
         cur_example = dev[i]
         strlabel = cur_example[1].strip()
@@ -631,9 +694,16 @@ def save_splits_as_csv(train, dev, test, train_filename, dev_filename, test_file
             strlabels_to_intlabels[strlabel] = next_available_intlabel
             next_available_intlabel += 1
         if split_ex0_into_two_with_second_label is None:
-            dev[i] = (cur_example[0], strlabel, strlabels_to_intlabels[strlabel])
+            if include_filename_as_field:
+                dev[i] = (cur_example[0], strlabel, strlabels_to_intlabels[strlabel], cur_example[2])
+            else:
+                dev[i] = (cur_example[0], strlabel, strlabels_to_intlabels[strlabel])
         else:
-            dev[i] = (cur_example[0][0], strlabel, strlabels_to_intlabels[strlabel], cur_example[0][1])
+            if include_filename_as_field:
+                dev[i] = (cur_example[0][0], strlabel, strlabels_to_intlabels[strlabel], cur_example[0][1],
+                          cur_example[2])
+            else:
+                dev[i] = (cur_example[0][0], strlabel, strlabels_to_intlabels[strlabel], cur_example[0][1])
     for i in range(len(test)):
         cur_example = test[i]
         strlabel = cur_example[1].strip()
@@ -641,9 +711,16 @@ def save_splits_as_csv(train, dev, test, train_filename, dev_filename, test_file
             strlabels_to_intlabels[strlabel] = next_available_intlabel
             next_available_intlabel += 1
         if split_ex0_into_two_with_second_label is None:
-            test[i] = (cur_example[0], strlabel, strlabels_to_intlabels[strlabel])
+            if include_filename_as_field:
+                test[i] = (cur_example[0], strlabel, strlabels_to_intlabels[strlabel], cur_example[2])
+            else:
+                test[i] = (cur_example[0], strlabel, strlabels_to_intlabels[strlabel])
         else:
-            test[i] = (cur_example[0][0], strlabel, strlabels_to_intlabels[strlabel], cur_example[0][1])
+            if include_filename_as_field:
+                test[i] = (cur_example[0][0], strlabel, strlabels_to_intlabels[strlabel], cur_example[0][1],
+                           cur_example[2])
+            else:
+                test[i] = (cur_example[0][0], strlabel, strlabels_to_intlabels[strlabel], cur_example[0][1])
     strlabel_intlabel_list = sorted(list(strlabels_to_intlabels.items()), key=lambda x: x[1])
     with open(label_key_filename, 'w') as f:
         for strlabel, intlabel in strlabel_intlabel_list:
@@ -652,6 +729,8 @@ def save_splits_as_csv(train, dev, test, train_filename, dev_filename, test_file
     column_list = ['text', 'strlabel', 'labels']
     if split_ex0_into_two_with_second_label is not None:
         column_list.append(split_ex0_into_two_with_second_label)
+    if include_filename_as_field:
+        column_list.append('filename')
     train_df = fix_df_format(pd.DataFrame(train, columns=column_list))
     train_df.to_csv(train_filename, index=False)
     dev_df = fix_df_format(pd.DataFrame(dev, columns=column_list))
@@ -825,14 +904,12 @@ def make_multiway_data_split(multiway_train_filename, multiway_dev_filename,
         assert positive_sentences_filename is not None
         positivesentences_tags = load_in_positive_sentences(positive_sentences_filename)
 
-    #set_of_positive_sents =
-    #for positive_sentence, tag, is_problem_filler, label in list_of_positive_sentences:
-
-    train, dev, test = make_classification_split(positivesentences_tags)
+    train, dev, test = make_classification_split(positivesentences_tags, include_filename_as_field=True,
+                                                 allowed_to_not_have_matches_for_all_docs=True)
     print('Made new multi-way classification data split.')
     train_df, dev_df, test_df, num_labels = \
         save_splits_as_csv(train, dev, test, multiway_train_filename, multiway_dev_filename, multiway_test_filename,
-                           multiway_label_key_filename)
+                           multiway_label_key_filename, include_filename_as_field=True)
     return train_df, dev_df, test_df, num_labels
 
 
@@ -919,27 +996,27 @@ def main(full_document_filename, binary_train_filename, binary_dev_filename, bin
     positivesentences_tags, tags_to_documents = get_positive_sentences_and_tagdocs(full_document_filename,
                                                                                    positive_sentence_filename)
 
-    """multiway_train_df, multiway_dev_df, multiway_test_df, multiway_num_labels = \
+    multiway_train_df, multiway_dev_df, multiway_test_df, multiway_num_labels = \
         make_multiway_data_split(multiway_train_filename, multiway_dev_filename, multiway_test_filename,
-                                 multiway_label_key_filename, positivesentences_tags=positivesentences_tags)"""
+                                 multiway_label_key_filename, positivesentences_tags=positivesentences_tags)
 
     positivesentences_tags, corresponding_indices_in_document = \
         get_corresponding_indices_in_document(positivesentences_tags, tags_to_documents, problem_report_filename,
                                               success_report_filename)
 
-    binary_train_df, binary_dev_df, binary_test_df, binary_num_labels = \
+    """binary_train_df, binary_dev_df, binary_test_df, binary_num_labels = \
         make_binary_data_split(binary_train_filename, binary_dev_filename, binary_test_filename,
                                binary_label_key_filename, binary_positive_sentences_spot_checking_fname,
                                binary_negative_sentences_spot_checking_fname,
                                positivesentences_tags=positivesentences_tags, tags_to_documents=tags_to_documents,
-                               corresponding_indices_in_document=corresponding_indices_in_document)
+                               corresponding_indices_in_document=corresponding_indices_in_document)"""
 
     """return multiway_train_df, multiway_dev_df, multiway_test_df, multiway_num_labels, \
            binary_train_df, binary_dev_df, binary_test_df, binary_num_labels"""
 
 
 if __name__ == '__main__':
-    random_for_seed_setting.seed(5)
+    random_for_seed_setting.seed(7)  # it was 5 for making binary data split, 7 for making multiway
     from config import full_document_filename, binary_train_filename, binary_dev_filename, \
         binary_test_filename, binary_label_key_filename, multiway_train_filename, multiway_dev_filename, \
         multiway_test_filename, multiway_label_key_filename, positive_sentence_filename, problem_report_filename, \

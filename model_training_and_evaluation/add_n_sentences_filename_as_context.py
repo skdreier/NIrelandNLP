@@ -1,17 +1,34 @@
-from prep_data import read_in_presplit_data, get_sentence_split_inds, fix_df_format, extract_and_tag_next_document
+from prep_data import read_in_presplit_data, get_sentence_split_inds, fix_df_format, extract_and_tag_next_document, \
+    get_indices_of_sentencematch_in_document
 import pandas as pd
+from util import make_directories_as_necessary
+import shutil
 
 full_doc_fname = '../orig_text_data/internment.txt'
 
-source_train_filename = 'data/binary_mindsduplicates_train.csv'
-source_dev_filename = 'data/binary_mindsduplicates_dev.csv'
-source_test_filename = 'data/binary_mindsduplicates_test.csv'
+source_train_filename = 'data/multiway_mindsduplicates/multiway_train.csv'
+source_dev_filename = 'data/multiway_mindsduplicates/multiway_dev.csv'
+source_test_filename = 'data/multiway_mindsduplicates/multiway_test.csv'
 
-new_train_filename = 'data/binary_mindsduplicates_withcontext_train.csv'
-new_dev_filename = 'data/binary_mindsduplicates_withcontext_dev.csv'
-new_test_filename = 'data/binary_mindsduplicates_withcontext_test.csv'
+new_train_filename = 'data/multiway_mindsduplicates_withcontext/multiway_train.csv'
+new_dev_filename = 'data/multiway_mindsduplicates_withcontext/multiway_dev.csv'
+new_test_filename = 'data/multiway_mindsduplicates_withcontext/multiway_test.csv'
 
 num_preceding_sents_to_use_as_context = 1
+
+def get_other_colnames(data_df):
+    non_text_columns = []
+    has_filename_col_already = False
+    for i, col_name in enumerate(data_df.columns):
+        col_name = str(col_name)
+        if col_name != 'text' and col_name != 'filename' and col_name != 'contextbefore':
+            non_text_columns.append(col_name)
+        elif col_name == 'filename':
+            has_filename_col_already = True
+        else:
+            assert i == 0  # we expect the text column to come first
+    return non_text_columns, has_filename_col_already
+
 
 # read train, dev, test files into different dictionaries
 # they should go to a list of (tuple of two things: number index in file, (all other associated tags as tuple))
@@ -26,13 +43,7 @@ def read_in_existing_csv_files(train_fname, dev_fname, test_fname):
     train_dict = {}
     dev_dict = {}
     test_dict = {}
-    non_text_columns = []
-    for i, col_name in enumerate(train_df.columns):
-        col_name = str(col_name)
-        if col_name != 'text' and col_name != 'filename' and col_name != 'contextbefore':
-            non_text_columns.append(col_name)
-        else:
-            assert i == 0  # we expect the text column to come first
+    non_text_columns, has_filename_col_already = get_other_colnames(train_df)
     for i, col_name in enumerate(dev_df.columns):
         col_name = str(col_name)
         assert (col_name == 'text' or col_name == 'filename' or col_name == 'contextbefore') or \
@@ -50,19 +61,28 @@ def read_in_existing_csv_files(train_fname, dev_fname, test_fname):
             text_from_row = row['text']
             all_other_parts_of_row = tuple([row[colname] for colname in non_text_columns])
             if text_from_row in dict_to_populate:
-                dict_to_populate[text_from_row].append([i, all_other_parts_of_row])
+                if has_filename_col_already:
+                    dict_to_populate[text_from_row].append([i, all_other_parts_of_row, row['filename']])
+                else:
+                    dict_to_populate[text_from_row].append([i, all_other_parts_of_row])
             else:
-                dict_to_populate[text_from_row] = [[i, all_other_parts_of_row]]
+                if has_filename_col_already:
+                    dict_to_populate[text_from_row] = [[i, all_other_parts_of_row, row['filename']]]
+                else:
+                    dict_to_populate[text_from_row] = [[i, all_other_parts_of_row]]
 
     populate_dict_with_data(train_df, train_dict, is_train_for_debugging=False)
     populate_dict_with_data(dev_df, dev_dict)
     populate_dict_with_data(test_df, test_dict)
 
-    return train_dict, dev_dict, test_dict, non_text_columns
+    return train_dict, dev_dict, test_dict, non_text_columns, has_filename_col_already
 
 
-def have_found_context_for_sentence(val_from_valuelist_for_sentence, num_nontext_cols_not_including_new_ones):
+def have_found_context_for_sentence(val_from_valuelist_for_sentence, num_nontext_cols_not_including_new_ones,
+                                    has_filename_col_already):
     if len(val_from_valuelist_for_sentence) == 2:
+        return False
+    elif has_filename_col_already and len(val_from_valuelist_for_sentence) == 3:
         return False
     elif len(val_from_valuelist_for_sentence) == 4:
         # we should add filename and contextbefore, in that order
@@ -75,13 +95,15 @@ def get_sentence_ind_in_file(val_from_valuelist_for_sentence):
 
 
 def get_start_end_inds_in_dict_containing_all_sentences(list_of_sentences, candidate_dict,
-                                                        num_nontext_cols_not_including_new_ones):
+                                                        num_nontext_cols_not_including_new_ones,
+                                                        has_filename_col_already):
     #print('\n\nStarting document')
     set_of_match_inds_in_df = {}
     set_of_sentences_processed_so_far = set()
     for i, sent in enumerate(list_of_sentences):
         for val in candidate_dict[sent]:
-            if not have_found_context_for_sentence(val, num_nontext_cols_not_including_new_ones):
+            if not have_found_context_for_sentence(val, num_nontext_cols_not_including_new_ones,
+                                                   has_filename_col_already):
                 assert sent in set_of_sentences_processed_so_far or val[0] not in set_of_match_inds_in_df
                 set_of_match_inds_in_df[val[0]] = sent
         set_of_sentences_processed_so_far.add(sent)
@@ -152,7 +174,8 @@ def get_start_end_inds_in_dict_containing_all_sentences(list_of_sentences, candi
     return start_ind, end_ind
 
 
-def find_which_split_the_document_got_sorted_into(list_of_sentences, candidate_dicts, num_non_text_columns):
+def find_which_split_the_document_got_sorted_into(list_of_sentences, candidate_dicts, num_non_text_columns,
+                                                  has_filename_col_already):
     winning_dict = None
     ind_of_start_sent_in_doc = None
     ind_of_end_sent_in_doc = None
@@ -166,7 +189,7 @@ def find_which_split_the_document_got_sorted_into(list_of_sentences, candidate_d
             if ind_of_start_sent_in_doc is None:
                 ind_of_start_sent_in_doc, ind_of_end_sent_in_doc = \
                     get_start_end_inds_in_dict_containing_all_sentences(list_of_sentences, candidate_dict,
-                                                                        num_non_text_columns)
+                                                                        num_non_text_columns, has_filename_col_already)
                 if ind_of_start_sent_in_doc is None:
                     continue  # not actually a winning dict
             assert winning_dict is None
@@ -176,7 +199,7 @@ def find_which_split_the_document_got_sorted_into(list_of_sentences, candidate_d
             for sent in list_of_sentences:
                 list_of_vals_to_check = []
                 for corr_val in winning_dict[sent]:
-                    if not have_found_context_for_sentence(corr_val, num_non_text_columns):
+                    if not have_found_context_for_sentence(corr_val, num_non_text_columns, has_filename_col_already):
                         list_of_vals_to_check.append(corr_val[0])
                 # at least one of the values in here needs to fall in the start-to-end range we defined
                 at_least_one_val_meets_criteria = False
@@ -233,7 +256,7 @@ def get_sentences_surrounding_first_mismatch(list_of_sentences, candidate_dict, 
 
 def add_contexts_for_document(list_of_sentences, corresponding_dict, document_filename,
                               ind_of_start_sent_in_original_splitfile, ind_of_end_sent_in_original_splitfile,
-                              num_nontext_cols):
+                              num_nontext_cols, has_filename_col_already):
     sent_to_numtimesoccurredindocsofar = {}
     for sentence_ind_for_end, sentence in enumerate(list_of_sentences):
         if sentence in sent_to_numtimesoccurredindocsofar:
@@ -249,7 +272,7 @@ def add_contexts_for_document(list_of_sentences, corresponding_dict, document_fi
         for i, val in enumerate(all_possible_vals):
             val_ind = get_sentence_ind_in_file(val)
             if ind_of_start_sent_in_original_splitfile <= val_ind <= ind_of_end_sent_in_original_splitfile \
-                    and not have_found_context_for_sentence(val, num_nontext_cols):
+                    and not have_found_context_for_sentence(val, num_nontext_cols, has_filename_col_already):
                 # assert matching_val is None (this breaks things if we have a duplicated sentence in the doc)
                 """if sentence == 'i.':
                     print('\tCONSIDERING ADDING CONTEXT: ' + str(num_matching_vals_passed_so_far) + ', ' + 
@@ -274,7 +297,8 @@ def add_contexts_for_document(list_of_sentences, corresponding_dict, document_fi
         if len(context) == 0:
             context = ' '
 
-        matching_val.append(document_filename)
+        if not has_filename_col_already:
+            matching_val.append(document_filename)
         matching_val.append(context)
 
 
@@ -301,6 +325,7 @@ def write_new_files(train_dict, dev_dict, test_dict, list_of_other_col_names, al
         list_of_instances = sorted(list_of_instances, key=(lambda x: x[0]))
         list_of_instances = [tup[1] for tup in list_of_instances]
         data_df = fix_df_format(pd.DataFrame(list_of_instances, columns=list_of_all_column_names))
+        make_directories_as_necessary(destination_filename)
         data_df.to_csv(destination_filename, index=False)
 
     write_split_to_file(train_dict, new_train_filename)
@@ -308,12 +333,124 @@ def write_new_files(train_dict, dev_dict, test_dict, list_of_other_col_names, al
     write_split_to_file(test_dict, new_test_filename)
 
 
-def main():
-    train_dict, dev_dict, test_dict, non_text_columns = read_in_existing_csv_files(source_train_filename,
-                                                                                   source_dev_filename,
-                                                                                   source_test_filename)
-    list_of_all_datasplit_dicts = [train_dict, dev_dict, test_dict]
+def get_context_for_positive_sents_in_doc(full_doc_text, list_of_positive_sents_purportedly_in_doc, doctag):
+    # get inds of all sents in full doc text
+    sentence_split_inds = get_sentence_split_inds(full_doc_text)
+    list_of_sentence_ind_tups = []
+    list_of_sentences = []
+    start_ind = 0
+    for split_ind in sentence_split_inds:
+        list_of_sentence_ind_tups.append((start_ind, split_ind))
+        list_of_sentences.append(full_doc_text[start_ind: split_ind].strip())
+        start_ind = split_ind
+    for i in range(len(list_of_sentence_ind_tups) - 1, -1, -1):
+        if len(list_of_sentences[i]) == 0:
+            del list_of_sentences[i]
+            del list_of_sentence_ind_tups[i]
 
+    list_of_corresponding_contexts = []
+
+    num_we_couldnt_find_context_for = 0
+    num_at_start_of_doc = 0
+    for positive_sentence in list_of_positive_sents_purportedly_in_doc:
+        index_tuple = get_indices_of_sentencematch_in_document(full_doc_text, positive_sentence, doctag, False, False,
+                                                               False, dont_print_at_all=True)
+        if index_tuple is None:
+            # we couldn't find a matching sentence
+            list_of_corresponding_contexts.append(' ')
+            num_we_couldnt_find_context_for += 1
+        else:
+            # we found a matching sentence, so figure out what the context before should be
+            # what is the latest sentence ending that is <= the start ending of our positive sentence?
+
+            neighbor_sentence_ind = None
+            for tupind in range(len(list_of_sentence_ind_tups) - 1, -1, -1):
+                ind_tup = list_of_sentence_ind_tups[tupind]
+                if ind_tup[1] <= index_tuple[0]:
+                    neighbor_sentence_ind = tupind
+                    break
+            if neighbor_sentence_ind is None:
+                num_at_start_of_doc += 1
+                list_of_corresponding_contexts.append(full_doc_text[: index_tuple[0]])
+            else:
+                # this neighbor sentence is guaranteed to appear in full-- append any extra that's cut off
+                # by the start of our positive sentence
+                list_of_corresponding_contexts.append(full_doc_text[list_of_sentence_ind_tups[neighbor_sentence_ind][0]:
+                                                                    index_tuple[0]])
+
+    return list_of_corresponding_contexts, num_we_couldnt_find_context_for, num_at_start_of_doc
+
+
+def augment_multiway_data(train_df, dev_df, test_df, tags_to_documents, other_old_columns,
+                          train_destination_fname, dev_destination_fname, test_destination_fname):
+    newdict = {}
+    for tag, doc in tags_to_documents.items():
+        newdict[tag[0] + '/' + tag[1]] = doc
+    tags_to_documents = newdict
+
+    def add_context_to_df(df):
+        doctag_to_positivesentlist = {}
+        for i, row in df.iterrows():
+            fname = str(row['filename'])
+            if fname in doctag_to_positivesentlist:
+                doctag_to_positivesentlist[fname].append(str(row['text']))
+            else:
+                doctag_to_positivesentlist[fname] = [str(row['text'])]
+
+        doctagpossent_to_context = {}
+        total_num_with_no_context = 0
+        total_num_at_start_of_doc = 0
+        for doctag in doctag_to_positivesentlist.keys():
+            sentlist = doctag_to_positivesentlist[doctag]
+            context_list, num_with_no_context, num_at_start_of_doc = \
+                get_context_for_positive_sents_in_doc(tags_to_documents[doctag], sentlist, doctag)
+            assert len(context_list) == len(sentlist), str(len(context_list)) + ', ' + str(len(sentlist))
+            total_num_with_no_context += num_with_no_context
+            total_num_at_start_of_doc += num_at_start_of_doc
+            for i in range(len(sentlist)):
+                doctagpossent_to_context[(doctag, sentlist[i])] = context_list[i]
+
+        list_of_instances = []
+        for i, row in df.iterrows():
+            list_of_instance_info = [row['text']]
+            for other_col in other_old_columns:
+                list_of_instance_info.append(row[other_col])
+            doctag = str(row['filename'])
+            list_of_instance_info.append(doctag)
+            list_of_instance_info.append(doctagpossent_to_context[(doctag, str(row['text']))])
+            list_of_instances.append(tuple(list_of_instance_info))
+
+        list_of_all_column_names = ['text'] + other_old_columns + ['filename', 'contextbefore']
+        data_df = fix_df_format(pd.DataFrame(list_of_instances, columns=list_of_all_column_names))
+
+        return data_df, total_num_with_no_context, total_num_at_start_of_doc
+
+    train_df, train_no_context, train_at_docstart = add_context_to_df(train_df)
+    make_directories_as_necessary(train_destination_fname)
+    train_df.to_csv(train_destination_fname, index=False)
+
+    dev_df, dev_no_context, dev_at_docstart = add_context_to_df(dev_df)
+    make_directories_as_necessary(dev_destination_fname)
+    dev_df.to_csv(dev_destination_fname, index=False)
+
+    test_df, test_no_context, test_at_docstart = add_context_to_df(test_df)
+    make_directories_as_necessary(test_destination_fname)
+    test_df.to_csv(test_destination_fname, index=False)
+
+    shutil.copy(source_train_filename[:source_train_filename.rfind('/') + 1] + 'multiway_classes.txt',
+                train_destination_fname[:train_destination_fname.rfind('/') + 1] + 'multiway_classes.txt')
+
+    print("Couldn't find context for " + str(train_no_context) + " training sentences out of " + str(train_df.shape[0]))
+    print(str(train_at_docstart) + ' / ' + str(train_df.shape[0]) + ' training sentences were at document start.')
+
+    print("Couldn't find context for " + str(dev_no_context) + " dev sentences out of " + str(dev_df.shape[0]))
+    print(str(dev_at_docstart) + ' / ' + str(dev_df.shape[0]) + ' dev sentences were at document start.')
+
+    print("Couldn't find context for " + str(test_no_context) + " test sentences out of " + str(test_df.shape[0]))
+    print(str(test_at_docstart) + ' / ' + str(test_df.shape[0]) + ' test sentences were at document start.')
+
+
+def main():
     previously_extracted_header = None
     tags_to_documents = {}
     with open(full_doc_fname, 'r', encoding='utf-8-sig') as f:
@@ -326,34 +463,57 @@ def main():
             else:
                 tags_to_documents[tag] = document
 
-    document_text_filename_tuples = [(doc, tag[0] + '/' + tag[1]) for tag, doc in tags_to_documents.items()]
+    # insert redirect to multiway here
+    if 'multiway' in source_train_filename:
+        # load in dataframes
+        train_df, dev_df, test_df, _ = read_in_presplit_data(source_train_filename, source_dev_filename,
+                                                             source_test_filename, None, shuffle_data=False)
 
-    # for each document:
-    #     split its sentences
-    #     figure out which data split a document (page) is in
-    #     add this document's sentences to a file
-    for document_tuple in document_text_filename_tuples:
-        document_text = document_tuple[0]
-        document_filename = document_tuple[1]
-        sentence_split_inds = get_sentence_split_inds(document_text)
-        list_of_sentences = []
-        start_ind = 0
-        for split_ind in sentence_split_inds:
-            list_of_sentences.append(document_text[start_ind: split_ind].strip())
-            start_ind = split_ind
-        for i in range(len(list_of_sentences) - 1, -1, -1):
-            if len(list_of_sentences[i]) == 0:
-                del list_of_sentences[i]
+        non_text_columns, has_filename_col_already = get_other_colnames(train_df)
+        assert has_filename_col_already
+        augment_multiway_data(train_df, dev_df, test_df, tags_to_documents, non_text_columns,
+                              new_train_filename, new_dev_filename, new_test_filename)
+        """
+        Couldn't find context for 169 training sentences out of 1647
+        215 / 1647 training sentences were at document start.
+        Couldn't find context for 20 dev sentences out of 208
+        27 / 208 dev sentences were at document start.
+        Couldn't find context for 25 test sentences out of 208
+        31 / 208 test sentences were at document start.
+        """
+    else:
+        train_dict, dev_dict, test_dict, non_text_columns, has_filename_col_already = \
+            read_in_existing_csv_files(source_train_filename, source_dev_filename, source_test_filename)
+        list_of_all_datasplit_dicts = [train_dict, dev_dict, test_dict]
 
-        (dict_corresponding_to_document, ind_of_start_sent_in_original_splitfile,
-        ind_of_end_sent_in_original_splitfile) = \
-            find_which_split_the_document_got_sorted_into(list_of_sentences, list_of_all_datasplit_dicts,
-                                                          len(non_text_columns))
-        add_contexts_for_document(list_of_sentences, dict_corresponding_to_document, document_filename,
-                                  ind_of_start_sent_in_original_splitfile, ind_of_end_sent_in_original_splitfile,
-                                  len(non_text_columns))
+        document_text_filename_tuples = [(doc, tag[0] + '/' + tag[1]) for tag, doc in tags_to_documents.items()]
 
-    write_new_files(train_dict, dev_dict, test_dict, non_text_columns, list_of_all_datasplit_dicts)
+        # for each document:
+        #     split its sentences
+        #     figure out which data split a document (page) is in
+        #     add this document's sentences to a file
+        for document_tuple in document_text_filename_tuples:
+            document_text = document_tuple[0]
+            document_filename = document_tuple[1]
+            sentence_split_inds = get_sentence_split_inds(document_text)
+            list_of_sentences = []
+            start_ind = 0
+            for split_ind in sentence_split_inds:
+                list_of_sentences.append(document_text[start_ind: split_ind].strip())
+                start_ind = split_ind
+            for i in range(len(list_of_sentences) - 1, -1, -1):
+                if len(list_of_sentences[i]) == 0:
+                    del list_of_sentences[i]
+
+            (dict_corresponding_to_document, ind_of_start_sent_in_original_splitfile,
+            ind_of_end_sent_in_original_splitfile) = \
+                find_which_split_the_document_got_sorted_into(list_of_sentences, list_of_all_datasplit_dicts,
+                                                              len(non_text_columns), has_filename_col_already)
+            add_contexts_for_document(list_of_sentences, dict_corresponding_to_document, document_filename,
+                                      ind_of_start_sent_in_original_splitfile, ind_of_end_sent_in_original_splitfile,
+                                      len(non_text_columns), has_filename_col_already)
+
+        write_new_files(train_dict, dev_dict, test_dict, non_text_columns, list_of_all_datasplit_dicts)
 
 
 if __name__ == '__main__':

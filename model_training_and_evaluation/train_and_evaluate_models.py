@@ -8,7 +8,8 @@ from util import make_directories_as_necessary
 from prep_data import main as prep_data_and_return_necessary_parts
 from prep_data import read_in_presplit_data, make_binary_data_split, make_multiway_data_split
 from detailed_performance_breakdown import get_recall_precision_curve_points, \
-    plot_two_precision_recalls_against_each_other, make_multilabel_csv, make_csv_used_to_compute_mcnemar_bowker
+    plot_two_precision_recalls_against_each_other, make_multilabel_csv, make_csv_used_to_compute_mcnemar_bowker, \
+    bootstrap_f1
 from config import full_document_filename, binary_train_filename, binary_dev_filename, \
     binary_test_filename, binary_label_key_filename, multiway_train_filename, multiway_dev_filename, \
     multiway_test_filename, multiway_label_key_filename, positive_sentence_filename, problem_report_filename, \
@@ -101,11 +102,21 @@ def report_mismatches_to_files(file_stub, true_labels, baseline_labels, model_la
 def clean_roberta_prediction_output(output):
     clean_labels = []
     for arr in output:
-        clean_labels.append(int(np.argmax(arr, axis=0)))
+        if isinstance(arr, int):
+            clean_labels.append(arr)
+        elif np.size(arr) == 1:
+            arr = arr.flatten()
+            element = arr[0]
+            if int(element) == element:
+                clean_labels.append(int(element))
+            else:
+                assert False, "Don't know how to interpret array of floats into labels: " + str(output)
+        else:
+            clean_labels.append(int(np.argmax(arr, axis=0)))
     return clean_labels
 
 
-def get_label_weights_and_report_class_imbalance(train_df, label_file=None):
+def get_label_weights_and_report_class_imbalance(train_df, label_file=None, datasplit='training'):
     df_with_class_counts = train_df['labels'].value_counts()
     labels_and_counts = []
     for label_ind, label_count in df_with_class_counts.iteritems():
@@ -127,7 +138,7 @@ def get_label_weights_and_report_class_imbalance(train_df, label_file=None):
     label_weights = []
     for label, count in labels_and_counts:
         label_weights.append(median_value / count)
-    print('Number of each class in the training data:')
+    print('Number of each class in the ' + datasplit + ' data:')
     for i in range(len(labels_and_counts)):
         print('\t' + corresponding_labels[i] + ': ' + str(labels_and_counts[i][1]) + ' => weight = ' +
               str(label_weights[i]))
@@ -162,8 +173,8 @@ def convert_labels_to_ten_label_setup(df_to_convert):
         old_strlabel = row['strlabel']
         old_label = row['labels']
         new_strlabel, new_label = convert_strlabel_to_new_strlabel(old_strlabel, old_label)
-        row['strlabel'] = new_strlabel
-        row['labels'] = new_label
+        df_to_convert.loc[i, 'strlabel'] = new_strlabel
+        df_to_convert.loc[i, 'labels'] = new_label
     return df_to_convert
 
 
@@ -200,14 +211,17 @@ def main():
     train_df, dev_df, test_df, num_labels = \
         get_multi_way_classification_data(multiway_train_filename, multiway_dev_filename,
                                           multiway_test_filename, multiway_label_key_filename)
-    use_ten_labels_instead = True
+    use_ten_labels_instead = False
     if use_ten_labels_instead:
+        print('Switching to ten-label setup instead.')
         num_labels = 10
         train_df = convert_labels_to_ten_label_setup(train_df)
         dev_df = convert_labels_to_ten_label_setup(dev_df)
         test_df = convert_labels_to_ten_label_setup(test_df)
 
-    label_weights = get_label_weights_and_report_class_imbalance(train_df)
+    label_weights = get_label_weights_and_report_class_imbalance(train_df, datasplit='training')
+    get_label_weights_and_report_class_imbalance(dev_df, datasplit='dev')
+    get_label_weights_and_report_class_imbalance(test_df, datasplit='test')
 
     best_f1 = -1
     best_param = None
@@ -241,10 +255,10 @@ def main():
                                   double_context_features=best_param[1])
     make_multilabel_csv(dev_predictions_of_best_lr_model, list_of_all_dev_labels,
                         multiway_label_key_filename, csv_filename_logreg_on_dev,
-                        datasplit_label='dev')
+                        datasplit_label='dev', using_ten_labels_instead=use_ten_labels_instead)
     make_multilabel_csv(list_of_all_predicted_lr_test_labels, list_of_all_test_labels,
                         multiway_label_key_filename, csv_filename_logreg_on_test,
-                        datasplit_label='test')
+                        datasplit_label='test', using_ten_labels_instead=use_ten_labels_instead)
 
     learning_rates_to_try = [1e-5, 2e-5, 3e-5]  # from RoBERTa paper
     batch_sizes_to_try = [32, 16]  # from RoBERTa and BERT papers
@@ -260,6 +274,7 @@ def main():
             if f1 > best_f1:
                 best_f1 = f1
                 best_param = (batch_size, learning_rate)
+    #best_param = (16, 1e-5)
     learning_rate = best_param[1]
     batch_size = best_param[0]
     print('For multiway case, best RoBERTa model had lr ' + str(learning_rate) + ' and batch size ' + str(
@@ -277,12 +292,17 @@ def main():
     list_of_all_predicted_roberta_test_labels = \
         clean_roberta_prediction_output(list_of_all_predicted_roberta_test_labels)
 
+    bootstrap_f1(list_of_all_predicted_roberta_dev_labels, dev_predictions_of_best_lr_model,
+                 list_of_all_dev_labels, 500, 'multiwayDEV_withcontext_bootstrappedf1s.csv')
+    bootstrap_f1(list_of_all_predicted_roberta_test_labels, list_of_all_predicted_lr_test_labels,
+                 list_of_all_test_labels, 500, 'multiwayTEST_withcontext_bootstrappedf1s.csv')
+
     make_multilabel_csv(list_of_all_predicted_roberta_dev_labels, list_of_all_dev_labels,
                         multiway_label_key_filename, csv_filename_roberta_on_dev,
-                        datasplit_label='dev')
+                        datasplit_label='dev', using_ten_labels_instead=use_ten_labels_instead)
     make_multilabel_csv(list_of_all_predicted_roberta_test_labels, list_of_all_test_labels,
                         multiway_label_key_filename, csv_filename_roberta_on_test,
-                        datasplit_label='test')
+                        datasplit_label='test', using_ten_labels_instead=use_ten_labels_instead)
     report_mismatches_to_files(multiway_output_report_filename_stub, list_of_all_test_labels,
                                list_of_all_predicted_lr_test_labels, list_of_all_predicted_roberta_test_labels,
                                test_df, multiway_label_key_filename, model_name='RoBERTa')
@@ -296,7 +316,9 @@ def main():
         get_binary_classification_data(binary_train_filename, binary_dev_filename,
                                        binary_test_filename, binary_label_key_filename)
 
-    label_weights = get_label_weights_and_report_class_imbalance(train_df)
+    label_weights = get_label_weights_and_report_class_imbalance(train_df, datasplit = 'training')
+    get_label_weights_and_report_class_imbalance(dev_df, datasplit='dev')
+    get_label_weights_and_report_class_imbalance(test_df, datasplit='test')
 
     best_f1 = -1
     best_param = None
@@ -347,6 +369,8 @@ def main():
             if f1 > best_f1:
                 best_f1 = f1
                 best_param = (batch_size, learning_rate)
+
+    #best_param = (32, 1e-5)
     learning_rate = best_param[1]
     batch_size = best_param[0]
     print('For binary case, best RoBERTa model had lr ' + str(learning_rate) + ' and batch size ' + str(batch_size) +
@@ -358,8 +382,15 @@ def main():
     f1, acc, list_of_all_predicted_roberta_test_logits, prec, rec = \
         run_best_model_on(output_dir, test_df, num_labels, label_weights, lowercase_all_text=True,
                           cuda_device=-1, string_prefix='Test ', f1_avg='binary', also_report_binary_precrec=True)
+    list_of_all_predicted_roberta_dev_labels = \
+        clean_roberta_prediction_output(list_of_all_predicted_roberta_dev_logits)
     list_of_all_predicted_roberta_test_labels = \
         clean_roberta_prediction_output(list_of_all_predicted_roberta_test_logits)
+
+    bootstrap_f1(list_of_all_predicted_roberta_dev_labels, list_of_all_predicted_lr_dev_labels,
+                 list_of_all_dev_labels, 500, 'binaryDEV_withcontext_bootstrappedf1s.csv')
+    bootstrap_f1(list_of_all_predicted_roberta_test_labels, list_of_all_predicted_lr_test_labels,
+                 list_of_all_test_labels, 500, 'binaryTEST_withcontext_bootstrappedf1s.csv')
 
     dev_roberta_precrec_curve_points = get_recall_precision_curve_points(list_of_all_predicted_roberta_dev_logits,
                                                                          list_of_all_dev_labels,
