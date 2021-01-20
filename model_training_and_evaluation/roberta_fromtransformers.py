@@ -323,6 +323,9 @@ def train(train_dataset, model, tokenizer, calc_binary_precrec_too, f1_avg_type,
             model.train()
             batch = tuple(t.to(device) for t in batch)
             inputs = {"input_ids": batch[0], "attention_mask": batch[1], "labels": batch[3]}
+
+            inputs['token_type_ids'] = batch[2]
+
             """if model_type != "distilbert":
                 inputs["token_type_ids"] = (
                     batch[2] if model_type in ["bert"] else None
@@ -476,6 +479,9 @@ def evaluate(model, tokenizer, calc_binary_precrec_too, task_name, output_dir, l
 
             with torch.no_grad():
                 inputs = {"input_ids": batch[0], "attention_mask": batch[1], "labels": batch[3]}
+
+                inputs['token_type_ids'] = batch[2]
+
                 """if model_type != "distilbert":
                     inputs["token_type_ids"] = (
                         batch[2] if model_type in ["bert"] else None

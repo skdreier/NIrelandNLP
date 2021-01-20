@@ -17,7 +17,9 @@ from config import full_document_filename, binary_train_filename, binary_dev_fil
     binary_negative_sentences_spot_checking_fname, output_binary_model_dir, output_multiway_model_dir, \
     csv_filename_logreg_on_test, csv_filename_logreg_on_dev, csv_filename_roberta_on_dev, \
     csv_filename_roberta_on_test, multiway_output_report_filename_stub, binary_output_report_filename_stub, \
-    dev_precreccurve_plot_filename, test_precreccurve_plot_filename, csv_filename_logregtest_vs_robertatest
+    dev_precreccurve_plot_filename, test_precreccurve_plot_filename, csv_filename_logregtest_vs_robertatest, \
+    use_ten_labels_instead, binary_dev_bootstrapped_f1_filename, binary_test_bootstrapped_f1_filename, \
+    multiway_dev_bootstrapped_f1_filename, multiway_test_bootstrapped_f1_filename
 
 
 def get_binary_classification_data(train_filename, dev_filename, test_filename, label_key_filename):
@@ -211,7 +213,6 @@ def main():
     train_df, dev_df, test_df, num_labels = \
         get_multi_way_classification_data(multiway_train_filename, multiway_dev_filename,
                                           multiway_test_filename, multiway_label_key_filename)
-    use_ten_labels_instead = True
     if use_ten_labels_instead:
         print('Switching to ten-label setup instead.')
         num_labels = 10
@@ -293,11 +294,9 @@ def main():
         clean_roberta_prediction_output(list_of_all_predicted_roberta_test_labels)
 
     bootstrap_f1(list_of_all_predicted_roberta_dev_labels, dev_predictions_of_best_lr_model,
-                 list_of_all_dev_labels, 500, 'multiwayDEV_withcontext_' + str(use_ten_labels_instead) +
-                 '_bootstrappedf1s.csv', num_labels)
+                 list_of_all_dev_labels, 500, multiway_dev_bootstrapped_f1_filename, num_labels)
     bootstrap_f1(list_of_all_predicted_roberta_test_labels, list_of_all_predicted_lr_test_labels,
-                 list_of_all_test_labels, 500, 'multiwayTEST_withcontext_' + str(use_ten_labels_instead) +
-                 '_bootstrappedf1s.csv', num_labels)
+                 list_of_all_test_labels, 500, multiway_test_bootstrapped_f1_filename, num_labels)
 
     make_multilabel_csv(list_of_all_predicted_roberta_dev_labels, list_of_all_dev_labels,
                         multiway_label_key_filename, csv_filename_roberta_on_dev,
@@ -390,9 +389,9 @@ def main():
         clean_roberta_prediction_output(list_of_all_predicted_roberta_test_logits)
 
     bootstrap_f1(list_of_all_predicted_roberta_dev_labels, list_of_all_predicted_lr_dev_labels,
-                 list_of_all_dev_labels, 500, 'binaryDEV_withcontext_bootstrappedf1s.csv', num_labels)
+                 list_of_all_dev_labels, 500, binary_dev_bootstrapped_f1_filename, num_labels)
     bootstrap_f1(list_of_all_predicted_roberta_test_labels, list_of_all_predicted_lr_test_labels,
-                 list_of_all_test_labels, 500, 'binaryTEST_withcontext_bootstrappedf1s.csv', num_labels)
+                 list_of_all_test_labels, 500, binary_test_bootstrapped_f1_filename, num_labels)
 
     dev_roberta_precrec_curve_points = get_recall_precision_curve_points(list_of_all_predicted_roberta_dev_logits,
                                                                          list_of_all_dev_labels,
