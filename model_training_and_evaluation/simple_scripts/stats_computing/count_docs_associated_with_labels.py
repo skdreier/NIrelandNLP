@@ -1,11 +1,12 @@
 import sys
-sys.path.append('..')
+sys.path.append('../..')
 
 
 from prep_data import load_in_positive_sentences
 
 
-use_sixway_label_set = True
+use_sixway_label_set = False
+use_ten_class = True
 fulllabel_to_sixway = {
     'J_Terrorism' : 'Terrorism',
     'J_Intl-Domestic_Precedent': 'Rights_not_violated',
@@ -23,10 +24,13 @@ fulllabel_to_sixway = {
 
 
 labels_to_tagsets = {}
-positivesentences_tags = load_in_positive_sentences('../../justifications_clean_text_ohe.csv')
+positivesentences_tags = load_in_positive_sentences('../../../justifications_clean_text_ohe.csv')
 for positivesentence, tag, is_problem_filler, label in positivesentences_tags:
     if use_sixway_label_set:
         label = fulllabel_to_sixway[label]
+    if use_ten_class:
+        if label == 'J_Last-resort' or label == 'J_Intelligence':
+            label = 'J_Misc'
     if not label in labels_to_tagsets:
         labels_to_tagsets[label] = set()
     labels_to_tagsets[label].add(tag)

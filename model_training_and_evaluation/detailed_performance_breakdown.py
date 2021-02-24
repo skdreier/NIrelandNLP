@@ -6,6 +6,10 @@ import matplotlib
 matplotlib.use('Agg')
 import seaborn as sns
 sns.set()
+from random import random
+from tqdm import tqdm
+from sklearn.metrics import f1_score
+import warnings
 
 
 def make_csv_used_to_compute_mcnemar_bowker(predicted_labels_1, model_name_1, predicted_labels_2, model_name_2,
@@ -13,12 +17,12 @@ def make_csv_used_to_compute_mcnemar_bowker(predicted_labels_1, model_name_1, pr
     highest_val_to_go_up_to = max(max(predicted_labels_1), max(predicted_labels_2))
     total_num_categories = highest_val_to_go_up_to + 1
     model1label_to_allcorrmodel2labels = {}
+    for i in range(highest_val_to_go_up_to + 1):
+        model1label_to_allcorrmodel2labels[i] = []
     assert len(predicted_labels_2) == len(predicted_labels_1)
     for i in range(len(predicted_labels_2)):
         label_1 = predicted_labels_1[i]
         label_2 = predicted_labels_2[i]
-        if label_1 not in model1label_to_allcorrmodel2labels:
-            model1label_to_allcorrmodel2labels[label_1] = []
         model1label_to_allcorrmodel2labels[label_1].append(label_2)
     model1label_to_model2label_to_count = {}
     for i in range(total_num_categories):
@@ -169,8 +173,47 @@ def get_recall_precision_curve_points(list_of_logits, actual_labels_as_list_of_i
     return recall_precision_points_to_return
 
 
+def bootstrap_f1(list_of_predicted_labels_roberta, list_of_predicted_labels_baseline, list_of_correct_labels,
+                 num_times_to_bootstrap, filename_to_write_data_to, num_labels):
+    tups_to_draw_from = \
+        list(zip(list_of_predicted_labels_roberta, list_of_predicted_labels_baseline, list_of_correct_labels))
+    length_of_list = len(list_of_predicted_labels_baseline)
+
+    def boostrap_once():
+        bootstrapped_data = []
+        for i in range(length_of_list):
+            ind_to_sample = int(length_of_list * random())
+            if ind_to_sample == length_of_list:
+                ind_to_sample -= 1
+            bootstrapped_data.append(tups_to_draw_from[ind_to_sample])
+
+        true_labels = [tup[2] for tup in bootstrapped_data]
+
+        if num_labels == 2:
+            average = 'binary'
+        else:
+            average = 'weighted'
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            f1_baseline = f1_score(true_labels, [tup[1] for tup in bootstrapped_data], average=average)
+            f1_roberta = f1_score(true_labels, [tup[0] for tup in bootstrapped_data], average=average)
+        warnings.filterwarnings('default')
+
+        return f1_roberta, f1_baseline
+
+    list_of_bootstrapped_f1_tups = []
+    for j in tqdm(range(num_times_to_bootstrap), total=num_times_to_bootstrap):
+        list_of_bootstrapped_f1_tups.append(boostrap_once())
+
+    with open(filename_to_write_data_to, 'w') as f:
+        f.write('bootstrapped_f1_roberta,bootstrapped_f1_baseline\n')
+        for roberta_val, baseline_val in list_of_bootstrapped_f1_tups:
+            f.write(str(roberta_val) + ',' + str(baseline_val) + '\n')
+    print('Wrote ' + filename_to_write_data_to)
+
+
 def make_multilabel_csv(list_of_predicted_labels, actual_labels_as_list_of_ints, class_key_filename, csv_filename,
-                        datasplit_label='test'):
+                        datasplit_label='test', using_ten_labels_instead = False):
     make_directories_as_necessary(csv_filename)
     precision_recall_f1_numtrulyinlabel_numguessedaslabel = \
         get_classwise_prec_rec_f1_numtrulyinlabel_numguessedaslabel(list_of_predicted_labels,
@@ -183,7 +226,12 @@ def make_multilabel_csv(list_of_predicted_labels, actual_labels_as_list_of_ints,
                 if ',' in line:
                     line = '"' + line + '"'
                 class_names.append(line)
-    assert len(class_names) == len(precision_recall_f1_numtrulyinlabel_numguessedaslabel)
+    if using_ten_labels_instead:
+        class_names = ["J_Terrorism", "J_Intl-Domestic_Precedent", "J_Denial", "J_Political-Strategic",
+                       "J_Development-Unity", "J_Legal_Procedure", "J_Emergency-Policy", "J_Law-and-order",
+                       "J_Utilitarian-Deterrence", 'J_Combined']
+    assert len(class_names) == len(precision_recall_f1_numtrulyinlabel_numguessedaslabel), \
+        str(len(class_names)) + ', ' + str(len(precision_recall_f1_numtrulyinlabel_numguessedaslabel))
 
     with open(csv_filename, 'w') as f:
         f.write(','.join(['label_ind', 'str_label', 'num_of_each_class_in_' + datasplit_label, 'precision',
