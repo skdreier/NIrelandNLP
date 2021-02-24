@@ -28,7 +28,6 @@ df_just['date'] = df_just.file_start_month.map(str) + "_" + df_just.file_start_y
 
 # Transform file var for sorting
 df = df_just[df_just['file_id'].str.contains(r'PREM_15')] # Subset to PREM_15 files
-
 df_1 = df[~df['file_id'].str.contains(r'PREM_15_\d{4}')] # Pull PREM files < 1000 to add "0" placeholder
 df_1["file_id"] = df_1["file_id"].str.replace(r"PREM_15_", "PREM_15_0").str.strip()
 df_2 = df[df['file_id'].str.contains(r'PREM_15_\d{4}')] # Pull PREM files >= 1000
@@ -146,4 +145,3 @@ plt.xlabel('File (Proxy for date)')
 
 plt.show()
 plt.savefig(folder_path + 'freq_plots/J_Political-Strategic_time.png')
-
