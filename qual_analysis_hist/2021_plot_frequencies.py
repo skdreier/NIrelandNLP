@@ -24,7 +24,9 @@ repo_path = os.path.join(repo_root) + '/'
 sys.path # make sure the repo is in the path 
 
 # Download justification file
-df_just = pd.read_csv(os.path.join(repo_path, "justifications_clean_text_ohe.csv"))
+df_just = pd.read_csv(os.path.join(repo_path, "justifications_clean_text_ohe.csv")) # This is for everything else
+#df_just = pd.read_csv(os.path.join(repo_path, "justifications_clean_text_ohe2.csv")) # Plots Internal Sit Parts 1-35
+# (Includes placeholder for 100 and 1014)
 
 # Build a date var for visualization
 df_just['file_start_year'] = df_just['file_start_year'].fillna(0.0).astype(int)
@@ -33,9 +35,6 @@ df_just['date'] = df_just.file_start_month.map(str) + "_" + df_just.file_start_y
 
 # Transform file var for sorting
 df = df_just[df_just['file_id'].str.contains(r'PREM_15')] # Subset to PREM_15 files
-
-df_just.shape
-df.shape
 
 df_1 = df[~df['file_id'].str.contains(r'PREM_15_\d{4}')] # Pull PREM files < 1000 to add "0" placeholder
 df_1["file_id"] = df_1["file_id"].str.replace(r"PREM_15_", "PREM_15_0").str.strip()
@@ -60,6 +59,8 @@ df_just = df_just.rename(index={'J_Last-resort':'Misc'})
 df_just = df_just.rename(index={'J_Intelligence':'Misc'})
 df_just = df_just.rename(index={'Misc':'Misc (incl Military)'})
 
+df_just.head
+
 #### Plot frequencies by rationalization category over all files (not just PREM 15) ####
 plt.figure(figsize=(12,10))
 
@@ -73,8 +74,7 @@ plt.subplots_adjust(bottom=.27)
 
 plt.savefig(folder_path + 'freq_plots_2021/2021_Just_freq.png')
 
-######### Plot frequencies of justifications over time ###########
-
+######### Plot frequencies of justifications over time (All PREM 15) ###########
 plt.figure(figsize=(15,10))
 
 plt.title("Frequencies Over Time", fontsize=20)
@@ -83,12 +83,84 @@ plt.xlabel('PREM 15 File ID (proxy for date)', fontsize=16)
 plt.ylabel('')
 plt.xticks(rotation=60, fontsize=14)
 plt.yticks(fontsize=14)
-plt.axvline(x=5.2, c='k')
-plt.text(5.8, 250, 'Internment Initiated:', c='k', fontsize=16)
-plt.text(5.8, 235, '9-10 August 1971', c='k', fontsize=16)
+plt.axvline(x=6.2, c='k')
+plt.text(6.8, 250, 'Internment Initiated:', c='k', fontsize=16)
+plt.text(6.8, 235, '9-10 August 1971', c='k', fontsize=16)
 plt.subplots_adjust(bottom=.1) # or whatever
     
 plt.savefig(folder_path + 'freq_plots_2021/2021_J_All_time.png')
+
+######### Plot frequencies of justifications over time ###########
+######### Only Plots PREM 15 Internal Situation 1-35 #############
+#### With document frequencies ####
+
+# Remove 0486
+df = df[df.prem_15 != "0486"]
+
+# Code to count in terminal:
+# ls *100.pdf | wc -l #Counts Prem 15 100 files
+# ls *100*.pdf | wc -l
+
+# Manually enter (agh) number of pages per file  
+data = [
+    [0, 143], #100
+    [1, 195], #101
+    [2, 145], #474
+    [3, 140], #475 #139+1 -- counted as 305??? ####
+    [4, 72],  #476
+    [5, 115], #477
+    [6, 275], #478 
+    [7, 149], #479
+    [8, 96], #480
+    [9, 95], #481
+    [10, 122], #482
+    [11, 180], #483
+    [12, 105], #484
+    [13, 134], #1000
+    [14, 144], #1001
+    [15, 156], #1002
+    [16, 133], #1003
+    [17, 110], #1004
+    [18, 128], #1005
+    [19, 94], #1006
+    [20, 144], #1007
+    [21, 118], #1008
+    [22, 127], #1009
+    [23, 194], #1010    
+    [24, 92], #1011    
+    [25, 192], #1012
+    [26, 132], #1013 # 131+1
+    [27, 125], #1014 #labeled as 1013, 124+1
+    [28, 188], #1015 
+    [29, 217], #1016     
+    [30, 188], #1689   
+    [31, 139], #1690     
+    [32, 118], #1691     
+    [33, 159], #1692     
+    [34, 145]  #1693     
+]
+x, y = zip(*data)
+
+plt.figure(figsize=(15,8))
+
+plt.title("Document and Justification Frequencies Over Time", fontsize=20)
+df.groupby('prem_15').text.count().plot.bar(ylim=0, label="Justification sentences per file")
+plt.plot(x, y, c="k", label="Pages per file")
+plt.scatter(x, y, c="k")
+plt.xlabel('PREM 15 Files: Internal Situation in Northern Ireland, Parts 1-35 (06/1970 - 07/1973)\nIncremental files cover between 1-5 months. Files provide proxy for date.', fontsize=16)
+plt.ylabel('')
+plt.xticks(rotation=60, fontsize=14)
+plt.yticks(fontsize=14)
+plt.axvline(x=6.2, c='k')
+plt.text(6.8, 350, 'Internment Initiated:', c='k', fontsize=16)
+plt.text(6.8, 335, '9-10 August 1971', c='k', fontsize=16)
+plt.subplots_adjust(bottom=.1) # or whatever
+#ax.legend([line1, line2, line3], ['label1', 'label2', 'label3'])
+plt.legend(loc="upper right", fontsize=16)
+plt.tight_layout()
+    
+plt.savefig(folder_path + 'freq_plots_2021/2021_J_All_time_pg_count.png')
+
 
 ######### Plot absolute and relative frequencies of justifications per category ##########
 
