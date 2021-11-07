@@ -23,6 +23,7 @@ import logging
 import os
 import random
 from math import ceil
+import shutil
 import warnings
 
 import numpy as np
@@ -35,6 +36,7 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
 import torch
 import os
 import pandas
+from config import actual_minibatch_size
 
 from sklearn.metrics import f1_score
 import transformers
@@ -167,7 +169,7 @@ def get_subdir_with_model_to_load(output_dir):
         return output_dir
 
 
-def run_best_model_on(output_dir, test_df, num_labels, label_weights, lowercase_all_text,
+def run_best_model_on(output_dir, test_df, num_labels, label_weights, lowercase_all_text, use_context,
                       cuda_device=-1, string_prefix='', f1_avg: str='weighted', print_results=True,
                       also_report_binary_precrec=False):
     output_dir = get_subdir_with_model_to_load(output_dir)
@@ -179,8 +181,8 @@ def run_best_model_on(output_dir, test_df, num_labels, label_weights, lowercase_
 
     model, tokenizer = load_in_pickled_model(output_dir, cuda_device, num_labels, label_weights, lowercase_all_text)
     result, model_outputs = evaluate(model, tokenizer, also_report_binary_precrec, "Classifying", output_dir,
-                                     cuda_device, 4, 1, device, "roberta", "classification", test_df, prefix="",
-                                     f1_avg_type=f1_avg, return_model_outputs_too=True)
+                                     cuda_device, actual_minibatch_size, 1, device, "roberta", "classification", test_df, prefix="",
+                                     f1_avg_type=f1_avg, return_model_outputs_too=True, use_context=use_context)
 
     if print_results:
         if also_report_binary_precrec:
@@ -204,12 +206,27 @@ def set_seed(seed, n_gpu):
         torch.cuda.manual_seed_all(seed)
 
 
+def create_position_ids_from_input_ids(input_ids, padding_idx, past_key_values_length=0):
+    """
+    Replace non-padding symbols with their position numbers. Position numbers begin at padding_idx+1. Padding symbols
+    are ignored. This is modified from fairseq's `utils.make_positions`.
+    Args:
+        x: torch.Tensor x:
+    Returns: torch.Tensor
+    """
+    # The series of casts and type-conversions here are carefully balanced to both work with ONNX export and XLA.
+    mask = input_ids.ne(padding_idx).int()
+    incremental_indices = (torch.cumsum(mask, dim=1).type_as(mask) + past_key_values_length) * mask
+    return incremental_indices.long() + padding_idx
+
+
 def train(train_dataset, model, tokenizer, calc_binary_precrec_too, f1_avg_type, seed, n_gpu, max_steps,
           local_rank, per_gpu_train_batch_size, gradient_accumulation_steps, num_train_epochs, weight_decay,
           learning_rate, adam_epsilon, warmup_steps, model_name_or_path, fp16, fp16_opt_level, device,
           model_type, max_grad_norm, logging_steps, evaluate_during_training, save_steps, per_gpu_eval_batch_size,
           task_name, output_mode, output_dir, dev_df, evaluate_at_end_of_epoch, save_at_end_of_epoch,
-          metric_to_improve_on, higher_metric_is_better, class_weights, num_classes, dict_of_info_for_debugging):
+          metric_to_improve_on, higher_metric_is_better, class_weights, num_classes, dict_of_info_for_debugging,
+          use_context):
     """ Train the model """
     if local_rank in [-1, 0]:
         tb_writer = SummaryWriter()
@@ -324,7 +341,24 @@ def train(train_dataset, model, tokenizer, calc_binary_precrec_too, f1_avg_type,
             batch = tuple(t.to(device) for t in batch)
             inputs = {"input_ids": batch[0], "attention_mask": batch[1], "labels": batch[3]}
 
-            inputs['token_type_ids'] = batch[2]
+            #inputs['token_type_ids'] = batch[2]
+
+            """dummy_torch_tensor = torch.tensor([1, 2, 3])
+            # now try stepping through what happens to the token type ids to see where an error occurs
+            inputs_embeds = model.roberta.embeddings.word_embeddings(inputs['input_ids'])
+            token_type_embeddings = model.roberta.embeddings.token_type_embeddings(inputs['token_type_ids'])
+            embeddings = inputs_embeds + token_type_embeddings
+            position_ids = create_position_ids_from_input_ids(
+                    inputs['input_ids'], model.roberta.embeddings.padding_idx, 0
+                ).to(device)
+            position_embeddings = model.roberta.embeddings.position_embeddings(position_ids)
+            embeddings += position_embeddings
+            embeddings = model.roberta.embeddings.LayerNorm(embeddings)
+            embeddings = model.roberta.embeddings.dropout(embeddings)"""
+
+            #print('We made it to here! Embeddings: ' + str(embeddings.shape))
+            # we do make it to here
+
 
             """if model_type != "distilbert":
                 inputs["token_type_ids"] = (
@@ -374,7 +408,7 @@ def train(train_dataset, model, tokenizer, calc_binary_precrec_too, f1_avg_type,
                 ):  # Only evaluate when single GPU otherwise metrics may not average well
                     results = evaluate(model, tokenizer, calc_binary_precrec_too, task_name, output_dir, local_rank,
                                        per_gpu_eval_batch_size, n_gpu, device, model_type, output_mode, dev_df,
-                                       f1_avg_type=f1_avg_type)
+                                       f1_avg_type=f1_avg_type, use_context=use_context)
                     for key, value in results.items():
                         tb_writer.add_scalar("eval_{}".format(key), value, global_step)
                     if (best_metric_val_seen is None or
@@ -407,12 +441,63 @@ def train(train_dataset, model, tokenizer, calc_binary_precrec_too, f1_avg_type,
                 torch.save(optimizer.state_dict(), os.path.join(cur_output_dir, "optimizer.pt"))
                 torch.save(scheduler.state_dict(), os.path.join(cur_output_dir, "scheduler.pt"))
                 logger.info("Saving optimizer and scheduler states to %s", cur_output_dir)
+                for existing_checkpoint_dir in glob.glob(os.path.join(output_dir, "checkpoint-") + '*'):
+                    step_in_name = existing_checkpoint_dir[existing_checkpoint_dir.rfind('checkpoint-') +
+                                                           len('checkpoint-'):]
+                    if step_in_name.endswith('/'):
+                        step_in_name = step_in_name[:-1]
+                    if int(step_in_name) != global_step:
+                        shutil.rmtree(existing_checkpoint_dir)
 
             just_reached_best_val_so_far = False
 
             if max_steps > 0 and global_step > max_steps:
                 epoch_iterator.close()
                 break
+        if (evaluate_at_end_of_epoch):
+            # Log metrics
+            results = evaluate(model, tokenizer, calc_binary_precrec_too, task_name, output_dir, local_rank,
+                               per_gpu_eval_batch_size, n_gpu, device, model_type, output_mode, dev_df,
+                               f1_avg_type=f1_avg_type, use_context=use_context)
+            for key, value in results.items():
+                tb_writer.add_scalar("eval_{}".format(key), value, global_step)
+            if (best_metric_val_seen is None or
+                    (higher_metric_is_better and results[metric_to_improve_on] > best_metric_val_seen) or
+                    ((not higher_metric_is_better) and results[metric_to_improve_on] < best_metric_val_seen)):
+                best_metric_val_seen = results[metric_to_improve_on]
+                just_reached_best_val_so_far = True
+            tb_writer.add_scalar("lr", scheduler.get_lr()[0], global_step)
+            tb_writer.add_scalar("loss", (tr_loss - logging_loss) / logging_steps, global_step)
+            logging_loss = tr_loss
+            """print('Just logged metrics and just_reached_best_val_so_far: ' + str(just_reached_best_val_so_far) +
+                  ', value is ' + str(best_metric_val_seen))"""
+
+        if just_reached_best_val_so_far:
+            """((local_rank in [-1, 0] and save_steps > 0 and global_step % save_steps == 0) or
+                (save_at_end_of_epoch and step == len(train_dataloader) - 1) or just_reached_best_val_so_far):"""
+            # Save model checkpoint
+            just_reached_best_val_so_far = False
+            cur_output_dir = os.path.join(output_dir, "checkpoint-{}".format(global_step))
+            if not os.path.exists(cur_output_dir):
+                os.makedirs(cur_output_dir)
+            """model_to_save = (
+                model.module if hasattr(model, "module") else model
+            )  # Take care of distributed/parallel training"""
+            model.save_pretrained(cur_output_dir)
+            tokenizer.save_pretrained(cur_output_dir)
+
+            logger.info("Saving model checkpoint to %s", cur_output_dir)
+
+            torch.save(optimizer.state_dict(), os.path.join(cur_output_dir, "optimizer.pt"))
+            torch.save(scheduler.state_dict(), os.path.join(cur_output_dir, "scheduler.pt"))
+            logger.info("Saving optimizer and scheduler states to %s", cur_output_dir)
+            for existing_checkpoint_dir in glob.glob(os.path.join(output_dir, "checkpoint-") + '*'):
+                step_in_name = existing_checkpoint_dir[existing_checkpoint_dir.rfind('checkpoint-') +
+                                                       len('checkpoint-'):]
+                if step_in_name.endswith('/'):
+                    step_in_name = step_in_name[:-1]
+                if int(step_in_name) != global_step:
+                    shutil.rmtree(existing_checkpoint_dir)
         if max_steps > 0 and global_step > max_steps:
             train_iterator.close()
             break
@@ -440,7 +525,7 @@ def calc_recall(preds: np.array, labels: np.array, f1_avg="weighted"):
 
 
 def evaluate(model, tokenizer, calc_binary_precrec_too, task_name, output_dir, local_rank,
-             per_gpu_eval_batch_size, n_gpu, device, model_type, output_mode, eval_df, prefix="",
+             per_gpu_eval_batch_size, n_gpu, device, model_type, output_mode, eval_df, use_context, prefix="",
              f1_avg_type="weighted", return_model_outputs_too=False):
     eval_task_names = (task_name,)
     eval_outputs_dirs = (output_dir,)
@@ -448,7 +533,7 @@ def evaluate(model, tokenizer, calc_binary_precrec_too, task_name, output_dir, l
     results = {}
     for eval_task, eval_output_dir in zip(eval_task_names, eval_outputs_dirs):
         eval_dataset = load_and_cache_examples(eval_df, tokenizer,
-                                               includes_context_column='contextbefore' in eval_df.columns)
+                                               includes_context_column=use_context)
         if isinstance(eval_dataset, tuple):
             fname_vars = eval_dataset[1]
             eval_dataset = eval_dataset[0]
@@ -480,7 +565,7 @@ def evaluate(model, tokenizer, calc_binary_precrec_too, task_name, output_dir, l
             with torch.no_grad():
                 inputs = {"input_ids": batch[0], "attention_mask": batch[1], "labels": batch[3]}
 
-                inputs['token_type_ids'] = batch[2]
+                #inputs['token_type_ids'] = batch[2]
 
                 """if model_type != "distilbert":
                     inputs["token_type_ids"] = (
@@ -571,7 +656,8 @@ def get_mask_from_sequence_lengths(
     return sequence_lengths.unsqueeze(1) >= range_tensor
 
 
-def load_and_cache_examples(data_df, tokenizer, includes_context_column=False):
+def load_and_cache_examples(data_df, tokenizer, includes_context_column=None):
+    assert includes_context_column is not None
     fname_to_var_key = load_in_fname_to_var_key()
     padding_token = tokenizer.pad_token_type_id
     if padding_token != 1:
@@ -613,6 +699,7 @@ def load_and_cache_examples(data_df, tokenizer, includes_context_column=False):
         all_token_type_ids = all_token_type_ids + 1
         one_where_context = get_mask_from_sequence_lengths(torch.tensor(num_in_context_before), max_length).long()
         all_token_type_ids = all_token_type_ids - one_where_context
+        all_token_type_ids = all_token_type_ids.long()
     all_labels = torch.tensor([row['labels'] for i, row in data_df.iterrows()], dtype=torch.long)
     if 'filename' in data_df.columns:
         fname_vars = torch.tensor([convert_fname_to_continuous_variable(fname_to_var_key, row['filename'])
@@ -651,6 +738,7 @@ def find_latest_metric_in_dict(dict_to_query, metric_name):
 
 
 def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int, learning_rate: float,
+                       use_context,
                        label_weights: List[float]=None, string_prefix='',
                        lowercase_all_text=True, cuda_device=-1, f1_avg='weighted', test_set=None,
                        print_results=True, also_report_binary_precrec=False):
@@ -668,9 +756,9 @@ def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int
     do_eval = True
     evaluate_during_training = False
     do_lower_case = lowercase_all_text
-    per_gpu_train_batch_size = 3  # batch_size
-    per_gpu_eval_batch_size = 3  # batch_size
-    gradient_accumulation_steps = ceil(batch_size / 8)
+    per_gpu_train_batch_size = actual_minibatch_size  # batch_size
+    per_gpu_eval_batch_size = actual_minibatch_size  # batch_size
+    gradient_accumulation_steps = ceil(batch_size / per_gpu_train_batch_size)
     learning_rate = learning_rate # 5e-5
     weight_decay = 0.0
     adam_epsilon = 1e-8
@@ -695,13 +783,16 @@ def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int
             os.path.exists(output_dir)
             and os.listdir(output_dir)
             and do_train
-            and not overwrite_output_dir
     ):
-        raise ValueError(
+        will_load_preexisting_model_instead = True
+        """if not overwrite_output_dir:
+            raise ValueError(
             "Output directory ({}) already exists and is not empty. Use --overwrite_output_dir to overcome.".format(
                 output_dir
             )
-        )
+        )"""
+    else:
+        will_load_preexisting_model_instead = False
 
     # Setup CUDA, GPU & distributed training
     if cuda_device == -1:
@@ -770,12 +861,17 @@ def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int
     model.to(device)
     print("model is on cuda: " + str(next(model.parameters()).device))
 
+
+    if will_load_preexisting_model_instead:
+        written_model_to_load = get_subdir_with_model_to_load(output_dir)
+        model, tokenizer = load_in_pickled_model(written_model_to_load, cuda_device, num_labels, label_weights,
+                                                 lowercase_all_text)
     # Training
-    if do_train:
+    elif do_train:
         dict_of_info_for_debugging = {'cuda_device': cuda_device, 'num_labels': num_labels,
                                       'label_weights': label_weights, 'lowercase_all_tokens': lowercase_all_text}
         train_dataset = load_and_cache_examples(train_df, tokenizer,
-                                                includes_context_column='contextbefore' in train_df.columns)
+                                                includes_context_column=use_context)
         global_step, tr_loss = train(train_dataset, model, tokenizer, also_report_binary_precrec, f1_avg,
                                      seed, n_gpu, max_steps, local_rank, per_gpu_train_batch_size,
                                      gradient_accumulation_steps, num_train_epochs, weight_decay,
@@ -784,25 +880,29 @@ def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int
                                      evaluate_during_training, save_steps, per_gpu_eval_batch_size, task_name,
                                      output_mode, output_dir, dev_df, evaluate_at_end_of_epoch, save_at_end_of_epoch,
                                      metric_to_perform_better_on, higher_is_better, label_weights, num_labels,
-                                     dict_of_info_for_debugging)
+                                     dict_of_info_for_debugging, use_context)
         logger.info(" global_step = %s, average loss = %s", global_step, tr_loss)
 
+        # now reload the best trained model
+        written_model_to_load = get_subdir_with_model_to_load(output_dir)
+        model, tokenizer = load_in_pickled_model(written_model_to_load, cuda_device, num_labels, label_weights, lowercase_all_text)
+
     # Saving best-practices: if you use defaults names for the model, you can reload it using from_pretrained()
-    if do_train and True:#(local_rank == -1 or torch.distributed.get_rank() == 0):
+    """if do_train and True:#(local_rank == -1 or torch.distributed.get_rank() == 0):
         logger.info("Saving model checkpoint to %s", output_dir)
         # Save a trained model, configuration and tokenizer using `save_pretrained()`.
-        # They can then be reloaded using `from_pretrained()`
-        """model_to_save = (
+        # They can then be reloaded using `from_pretrained()`"""
+    """    model_to_save = (
             model.module if hasattr(model, "module") else model
         )  # Take care of distributed/parallel training"""
-        model.save_pretrained(output_dir)
+    """    model.save_pretrained(output_dir)
         tokenizer.save_pretrained(output_dir)
 
         # Good practice: save your training arguments together with the trained model
 
         # Load a trained model and vocabulary that you have fine-tuned
         dir_to_load = get_subdir_with_model_to_load(output_dir)
-        model, tokenizer = load_in_pickled_model(dir_to_load, cuda_device, num_labels, label_weights, lowercase_all_text)
+        model, tokenizer = load_in_pickled_model(dir_to_load, cuda_device, num_labels, label_weights, lowercase_all_text)"""
 
     # Evaluation
     results = {}
@@ -824,11 +924,11 @@ def run_classification(train_df, dev_df, num_labels, output_dir, batch_size: int
             if test_set is None:
                 result = evaluate(model, tokenizer, also_report_binary_precrec, task_name, output_dir, local_rank,
                                   per_gpu_eval_batch_size, n_gpu, device, model_type, output_mode, dev_df,
-                                  prefix=prefix, f1_avg_type=f1_avg)
+                                  prefix=prefix, f1_avg_type=f1_avg, use_context=use_context)
             else:
                 result = evaluate(model, tokenizer, also_report_binary_precrec, task_name, output_dir, local_rank,
                                   per_gpu_eval_batch_size, n_gpu, device, model_type, output_mode, test_set,
-                                  prefix=prefix, f1_avg_type=f1_avg)
+                                  prefix=prefix, f1_avg_type=f1_avg, use_context=use_context)
             result = dict((k + "_{}".format(global_step), v) for k, v in result.items())
             results.update(result)
 

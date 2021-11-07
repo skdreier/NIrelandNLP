@@ -9,7 +9,8 @@ from scipy.sparse import hstack
 def run_classification(train_df, dev_df, regularization_weight, label_weights: List[float]=None,
                        lowercase_all_text=True, string_prefix='', print_results=True, f1_avg: str='weighted',
                        also_output_logits=False, also_report_binary_precrec=False, double_context_features=False,
-                       use_context=False):
+                       use_context=None):
+    assert use_context is not None
     list_of_all_training_text = []
     list_of_all_training_contexts = []
     list_of_all_training_labels = []

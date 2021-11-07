@@ -4,7 +4,8 @@ import random as random_for_seed_setting
 from random import shuffle, random
 from string import whitespace, punctuation
 from util import make_directories_as_necessary
-import spacy
+if False:
+    import spacy
 from analyze_doc_similarity import get_list_of_filenames_to_cluster_together
 
 
@@ -73,7 +74,7 @@ def extract_and_tag_next_document(line_iterator, previously_extracted_header=Non
             return False
         while len(line) > 0 and line[0].isdigit():
             line = line[1:]
-        if not line.startswith(' references coded [ '):
+        if not (line.startswith(' references coded [ ') or line.startswith(' reference coded [ ')):
             return False
         if line.strip().endswith('% Coverage]'):
             return extract_file_image_tag_from_relevant_part_of_header_string(suspected_relevant_part)
@@ -459,10 +460,39 @@ def get_lists_of_positive_negative_sentences_from_doc(document, list_of_positive
            [positive_sentence[1] for positive_sentence in positive_sentences]
 
 
+def add_docs_to_predetermined_split(list_of_tags, doctag_to_sentencelabellist, list_to_add_to,
+                                    allowed_to_not_have_matches_for_all_docs):
+    new_list_of_tags = []
+    for tag in list_of_tags:
+        parts_of_tag = tag.split('/')
+        new_list_of_tags.append((parts_of_tag[0], parts_of_tag[1]))
+    list_of_tags = new_list_of_tags
+
+    num_sentences_adding = 0
+    for doctag in list_of_tags:
+        try:
+            sentence_label_list = doctag_to_sentencelabellist[doctag]
+        except KeyError:
+            assert allowed_to_not_have_matches_for_all_docs
+            sentence_label_list = []
+        list_to_add_to += sentence_label_list
+        num_sentences_adding += len(sentence_label_list)
+
+    for tag in list_of_tags:
+        if not allowed_to_not_have_matches_for_all_docs:
+            del doctag_to_sentencelabellist[tag]
+        elif tag in doctag_to_sentencelabellist:
+            del doctag_to_sentencelabellist[tag]
+
+    return list_to_add_to, num_sentences_adding
+
+
 def make_classification_split(list_of_positive_sentences, include_filename_as_field=False,
-                              allowed_to_not_have_matches_for_all_docs=False):
+                              allowed_to_not_have_matches_for_all_docs=False, ideal_percent_test=.1,
+                              ideal_percent_dev=.1, scorelist_for_clustering=None, corr_tagpair_list=None):
     #shuffle(list_of_positive_sentences)
     doctag_to_sentencelabellist = {}
+    original_doctag_set = set()
     num_positive_sentences = len(list_of_positive_sentences)
     for positive_sentence, tag, is_problem_filler, label in list_of_positive_sentences:
         if tag not in doctag_to_sentencelabellist:
@@ -471,6 +501,7 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
             doctag_to_sentencelabellist[tag].append((positive_sentence, label))
         else:
             doctag_to_sentencelabellist[tag].append((positive_sentence, label, tag[0] + '/' + tag[1]))
+        original_doctag_set.add(tag)
     test_positive_sentences = []
     dev_positive_sentences = []
     train_positive_sentences = []
@@ -479,11 +510,54 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
     num_assigned_so_far_in_dev = 0
     num_assigned_so_far_in_train = 0
 
-    ideal_cutoff_for_test = int(.1 * num_positive_sentences)
-    ideal_cutoff_for_dev = int(.1 * num_positive_sentences)
+    ideal_cutoff_for_test = int(ideal_percent_test * num_positive_sentences)
+    ideal_cutoff_for_dev = int(ideal_percent_dev * num_positive_sentences)
     ideal_cutoff_for_train = num_positive_sentences - ideal_cutoff_for_test - ideal_cutoff_for_dev
 
-    list_of_taglists = get_list_of_filenames_to_cluster_together()
+    multiway_train_filename = 'data/multiway_mindsduplicates_withcontext/multiway_train.csv'
+    multiway_dev_filename = 'data/multiway_mindsduplicates_withcontext/multiway_dev.csv'
+    multiway_test_filename = 'data/multiway_mindsduplicates_withcontext/multiway_test.csv'
+    """train_df, dev_df, test_df, _ = \
+        read_in_presplit_data(multiway_train_filename, multiway_dev_filename, multiway_test_filename,
+                              'data/multiway_mindsduplicates_withcontext/multiway_classes.txt', shuffle_data=False)"""
+    train_df = None
+    dev_df = None
+    test_df = None
+    list_of_taglists = get_list_of_filenames_to_cluster_together(train_df_to_align_split_with=train_df,
+                                                                 dev_df_to_align_split_with=dev_df,
+                                                                 test_df_to_align_split_with=test_df,
+                                                                 scorelist_for_clustering=scorelist_for_clustering,
+                                                                 corr_tagpair_list=corr_tagpair_list)
+    try:
+        list_of_taglists[0][1][0]
+        includes_split_spec = True
+    except:
+        includes_split_spec = False
+    includes_split_spec = False
+
+    if includes_split_spec:
+        train_positive_sentences, num_sents_added = \
+            add_docs_to_predetermined_split(list_of_taglists[0][1], doctag_to_sentencelabellist,
+                                            train_positive_sentences, allowed_to_not_have_matches_for_all_docs)
+        num_assigned_so_far_in_train += num_sents_added
+
+        dev_positive_sentences, num_sents_added = \
+            add_docs_to_predetermined_split(list_of_taglists[1][1], doctag_to_sentencelabellist,
+                                            dev_positive_sentences, allowed_to_not_have_matches_for_all_docs)
+        num_assigned_so_far_in_dev += num_sents_added
+
+        test_positive_sentences, num_sents_added = \
+            add_docs_to_predetermined_split(list_of_taglists[2][1], doctag_to_sentencelabellist,
+                                            test_positive_sentences, allowed_to_not_have_matches_for_all_docs)
+        num_assigned_so_far_in_test += num_sents_added
+
+        print('Starting to assign remaining sentences with')
+        print('\t' + str(num_assigned_so_far_in_train) + ' sentences assigned to train so far')
+        print('\t' + str(num_assigned_so_far_in_dev) + ' sentences assigned to dev so far')
+        print('\t' + str(num_assigned_so_far_in_test) + ' sentences assigned to test so far')
+
+        list_of_taglists = list_of_taglists[3]
+
     # convert tags in list into same format as other tags-- right now these are like DEFE_13_1358/IMG_9776
     # needs to be (file name, image name) tuple
     new_list_of_taglists = []
@@ -505,7 +579,9 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
                 try:
                     sentence_label_list = doctag_to_sentencelabellist[doctag]
                 except KeyError:
-                    assert allowed_to_not_have_matches_for_all_docs
+                    assert allowed_to_not_have_matches_for_all_docs, str(doctag) + '\nIn original doctag set: ' + str(doctag in original_doctag_set) + '\nSample format of doctags: ' + \
+                                                                         str(list(
+                                                                             doctag_to_sentencelabellist.keys())[0])
                     sentence_label_list = []
                 train_positive_sentences += sentence_label_list
                 num_assigned_so_far_in_train += len(sentence_label_list)
@@ -516,7 +592,9 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
                 try:
                     sentence_label_list = doctag_to_sentencelabellist[doctag]
                 except KeyError:
-                    assert allowed_to_not_have_matches_for_all_docs
+                    assert allowed_to_not_have_matches_for_all_docs, str(doctag) + '\nIn original doctag set: ' + str(doctag in original_doctag_set) + '\nSample format of doctags: ' + \
+                                                                         str(list(
+                                                                             doctag_to_sentencelabellist.keys())[0])
                     sentence_label_list = []
                 dev_positive_sentences += sentence_label_list
                 num_assigned_so_far_in_dev += len(sentence_label_list)
@@ -527,7 +605,9 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
                 try:
                     sentence_label_list = doctag_to_sentencelabellist[doctag]
                 except KeyError:
-                    assert allowed_to_not_have_matches_for_all_docs
+                    assert allowed_to_not_have_matches_for_all_docs, str(doctag) + '\nIn original doctag set: ' + str(doctag in original_doctag_set) + '\nSample format of doctags: ' + \
+                                                                         str(list(
+                                                                             doctag_to_sentencelabellist.keys())[0])
                     sentence_label_list = []
                 test_positive_sentences += sentence_label_list
                 num_assigned_so_far_in_test += len(sentence_label_list)
@@ -540,7 +620,9 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
                     try:
                         sentence_label_list = doctag_to_sentencelabellist[doctag]
                     except KeyError:
-                        assert allowed_to_not_have_matches_for_all_docs
+                        assert allowed_to_not_have_matches_for_all_docs, str(doctag) + '\nIn original doctag set: ' + str(doctag in original_doctag_set) + '\nSample format of doctags: ' + \
+                                                                         str(list(
+                                                                             doctag_to_sentencelabellist.keys())[0])
                         sentence_label_list = []
                     dev_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_dev += len(sentence_label_list)
@@ -549,7 +631,9 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
                     try:
                         sentence_label_list = doctag_to_sentencelabellist[doctag]
                     except KeyError:
-                        assert allowed_to_not_have_matches_for_all_docs
+                        assert allowed_to_not_have_matches_for_all_docs, str(doctag) + '\nIn original doctag set: ' + str(doctag in original_doctag_set) + '\nSample format of doctags: ' + \
+                                                                         str(list(
+                                                                             doctag_to_sentencelabellist.keys())[0])
                         sentence_label_list = []
                     train_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_train += len(sentence_label_list)
@@ -562,7 +646,9 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
                     try:
                         sentence_label_list = doctag_to_sentencelabellist[doctag]
                     except KeyError:
-                        assert allowed_to_not_have_matches_for_all_docs
+                        assert allowed_to_not_have_matches_for_all_docs, str(doctag) + '\nIn original doctag set: ' + str(doctag in original_doctag_set) + '\nSample format of doctags: ' + \
+                                                                         str(list(
+                                                                             doctag_to_sentencelabellist.keys())[0])
                         sentence_label_list = []
                     test_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_test += len(sentence_label_list)
@@ -571,7 +657,9 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
                     try:
                         sentence_label_list = doctag_to_sentencelabellist[doctag]
                     except KeyError:
-                        assert allowed_to_not_have_matches_for_all_docs
+                        assert allowed_to_not_have_matches_for_all_docs, str(doctag) + '\nIn original doctag set: ' + str(doctag in original_doctag_set) + '\nSample format of doctags: ' + \
+                                                                         str(list(
+                                                                             doctag_to_sentencelabellist.keys())[0])
                         sentence_label_list = []
                     train_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_train += len(sentence_label_list)
@@ -584,7 +672,9 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
                     try:
                         sentence_label_list = doctag_to_sentencelabellist[doctag]
                     except KeyError:
-                        assert allowed_to_not_have_matches_for_all_docs
+                        assert allowed_to_not_have_matches_for_all_docs, str(doctag) + '\nIn original doctag set: ' + str(doctag in original_doctag_set) + '\nSample format of doctags: ' + \
+                                                                         str(list(
+                                                                             doctag_to_sentencelabellist.keys())[0])
                         sentence_label_list = []
                     dev_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_dev += len(sentence_label_list)
@@ -593,7 +683,9 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
                     try:
                         sentence_label_list = doctag_to_sentencelabellist[doctag]
                     except KeyError:
-                        assert allowed_to_not_have_matches_for_all_docs
+                        assert allowed_to_not_have_matches_for_all_docs, str(doctag) + '\nIn original doctag set: ' + str(doctag in original_doctag_set) + '\nSample format of doctags: ' + \
+                                                                         str(list(
+                                                                             doctag_to_sentencelabellist.keys())[0])
                         sentence_label_list = []
                     test_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_test += len(sentence_label_list)
@@ -607,7 +699,9 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
                     try:
                         sentence_label_list = doctag_to_sentencelabellist[doctag]
                     except KeyError:
-                        assert allowed_to_not_have_matches_for_all_docs
+                        assert allowed_to_not_have_matches_for_all_docs, str(doctag) + '\nIn original doctag set: ' + str(doctag in original_doctag_set) + '\nSample format of doctags: ' + \
+                                                                         str(list(
+                                                                             doctag_to_sentencelabellist.keys())[0])
                         sentence_label_list = []
                     test_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_test += len(sentence_label_list)
@@ -617,7 +711,9 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
                     try:
                         sentence_label_list = doctag_to_sentencelabellist[doctag]
                     except KeyError:
-                        assert allowed_to_not_have_matches_for_all_docs
+                        assert allowed_to_not_have_matches_for_all_docs, str(doctag) + '\nIn original doctag set: ' + str(doctag in original_doctag_set) + '\nSample format of doctags: ' + \
+                                                                         str(list(
+                                                                             doctag_to_sentencelabellist.keys())[0])
                         sentence_label_list = []
                     dev_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_dev += len(sentence_label_list)
@@ -626,7 +722,9 @@ def make_classification_split(list_of_positive_sentences, include_filename_as_fi
                     try:
                         sentence_label_list = doctag_to_sentencelabellist[doctag]
                     except KeyError:
-                        assert allowed_to_not_have_matches_for_all_docs
+                        assert allowed_to_not_have_matches_for_all_docs, str(doctag) + '\nIn original doctag set: ' + str(doctag in original_doctag_set) + '\nSample format of doctags: ' + \
+                                                                         str(list(
+                                                                             doctag_to_sentencelabellist.keys())[0])
                         sentence_label_list = []
                     train_positive_sentences += sentence_label_list
                     num_assigned_so_far_in_train += len(sentence_label_list)
@@ -996,20 +1094,24 @@ def main(full_document_filename, binary_train_filename, binary_dev_filename, bin
     positivesentences_tags, tags_to_documents = get_positive_sentences_and_tagdocs(full_document_filename,
                                                                                    positive_sentence_filename)
 
-    multiway_train_df, multiway_dev_df, multiway_test_df, multiway_num_labels = \
+    """multiway_train_df, multiway_dev_df, multiway_test_df, multiway_num_labels = \
         make_multiway_data_split(multiway_train_filename, multiway_dev_filename, multiway_test_filename,
-                                 multiway_label_key_filename, positivesentences_tags=positivesentences_tags)
+                                 multiway_label_key_filename, positivesentences_tags=positivesentences_tags)"""
 
     positivesentences_tags, corresponding_indices_in_document = \
         get_corresponding_indices_in_document(positivesentences_tags, tags_to_documents, problem_report_filename,
                                               success_report_filename)
 
-    """binary_train_df, binary_dev_df, binary_test_df, binary_num_labels = \
+    binary_train_df, binary_dev_df, binary_test_df, binary_num_labels = \
         make_binary_data_split(binary_train_filename, binary_dev_filename, binary_test_filename,
                                binary_label_key_filename, binary_positive_sentences_spot_checking_fname,
                                binary_negative_sentences_spot_checking_fname,
                                positivesentences_tags=positivesentences_tags, tags_to_documents=tags_to_documents,
-                               corresponding_indices_in_document=corresponding_indices_in_document)"""
+                               corresponding_indices_in_document=corresponding_indices_in_document)
+
+    print('Num train sents: ' + str(binary_train_df.shape[0]))
+    print('Num dev sents: ' + str(binary_dev_df.shape[0]))
+    print('Num test sents: ' + str(binary_test_df.shape[0]))
 
     """return multiway_train_df, multiway_dev_df, multiway_test_df, multiway_num_labels, \
            binary_train_df, binary_dev_df, binary_test_df, binary_num_labels"""

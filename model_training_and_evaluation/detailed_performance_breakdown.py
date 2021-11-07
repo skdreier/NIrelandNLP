@@ -6,6 +6,7 @@ import matplotlib
 matplotlib.use('Agg')
 import seaborn as sns
 sns.set()
+sns.color_palette("colorblind")
 from random import random
 from tqdm import tqdm
 from sklearn.metrics import f1_score
@@ -49,28 +50,21 @@ def make_csv_used_to_compute_mcnemar_bowker(predicted_labels_1, model_name_1, pr
         f.write(str_to_write)
 
 
-def plot_two_precision_recalls_against_each_other(recall_precision_points_one, label_one, recall_precision_points_two,
-                                                  label_two, plot_filename, plot_title=None):
+def plot_two_precision_recalls_against_each_other(recall_precision_points_lists, plot_labels,
+                                                  plot_filename, plot_title=None):
+    colors = ['#56B4E9', 'black', '#DE8F05']
     make_directories_as_necessary(plot_filename)
     fig = plt.figure()
 
-    recalls_one = []
-    precisions_one = []
-    for i in range(len(recall_precision_points_one)):
-        recalls_one.append(recall_precision_points_one[i][0])
-        precisions_one.append(recall_precision_points_one[i][1])
+    for j, recall_precision_points_list in enumerate(recall_precision_points_lists):
+        recalls_one = []
+        precisions_one = []
+        for i in range(len(recall_precision_points_list)):
+            recalls_one.append(recall_precision_points_list[i][0])
+            precisions_one.append(recall_precision_points_list[i][1])
+        plt.plot(recalls_one, precisions_one, label=plot_labels[j], color=colors[j])
     plt.ylim(0, 1.05)
     plt.xlim(0, 1.05)
-
-    plt.plot(recalls_one, precisions_one, label=label_one, color='blue')
-
-    recalls_two = []
-    precisions_two = []
-    for i in range(len(recall_precision_points_two)):
-        recalls_two.append(recall_precision_points_two[i][0])
-        precisions_two.append(recall_precision_points_two[i][1])
-
-    plt.plot(recalls_two, precisions_two, label=label_two, color='orange')
 
     plt.xlabel('Recall')
     plt.ylabel('Precision')
@@ -81,27 +75,23 @@ def plot_two_precision_recalls_against_each_other(recall_precision_points_one, l
     plt.savefig(plot_filename, bbox_inches='tight')
     plt.close(fig)
 
-    just_first_part_filename = plot_filename[:plot_filename.rfind('.')] + '-' + label_one.replace(' ', '_') + \
-                               plot_filename[plot_filename.rfind('.'):]
-    fig = plt.figure()
-    plt.plot(recalls_one, precisions_one, label=label_one, color='blue')
-    plt.xlabel('Recall')
-    plt.ylabel('Precision')
-    if plot_title is not None:
-        plt.title(plot_title)
-    plt.savefig(just_first_part_filename, bbox_inches='tight')
-    plt.close(fig)
-
-    just_second_part_filename = plot_filename[:plot_filename.rfind('.')] + '-' + label_two.replace(' ', '_') + \
-                                plot_filename[plot_filename.rfind('.'):]
-    fig = plt.figure()
-    plt.plot(recalls_two, precisions_two, label=label_two, color='orange')
-    plt.xlabel('Recall')
-    plt.ylabel('Precision')
-    if plot_title is not None:
-        plt.title(plot_title)
-    plt.savefig(just_second_part_filename, bbox_inches='tight')
-    plt.close(fig)
+    for j, recall_precision_points_list in enumerate(recall_precision_points_lists):
+        just_first_part_filename = plot_filename[:plot_filename.rfind('.')] + '-' + plot_labels[j].replace(' ', '_') + \
+                                   plot_filename[plot_filename.rfind('.'):]
+        recalls_one = []
+        precisions_one = []
+        for i in range(len(recall_precision_points_list)):
+            recalls_one.append(recall_precision_points_list[i][0])
+            precisions_one.append(recall_precision_points_list[i][1])
+        fig = plt.figure()
+        plt.plot(recalls_one, precisions_one, label=plot_labels[j], color=colors[j])
+        plt.xlabel('Recall')
+        plt.ylabel('Precision')
+        plt.legend()
+        if plot_title is not None:
+            plt.title(plot_title)
+        plt.savefig(just_first_part_filename, bbox_inches='tight')
+        plt.close(fig)
 
 
 def get_recall_precision_curve_points(list_of_logits, actual_labels_as_list_of_ints: List[int], string_prefix=''):
