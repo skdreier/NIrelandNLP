@@ -860,29 +860,91 @@ def read_in_presplit_data(train_filename, dev_filename, test_filename, label_key
 
 
 def reshuffle_second_df_so_its_order_matches_first(df1, df2):
+    # note: df1 contextbefores are the shortest of all of them
     assert df2.shape[0] == df1.shape[0], str(df1.shape) + str(df2.shape)
     dict_of_df2_contents = {}
     for index, row in df2.iterrows():
         text = row['text']
-        fname = row['fname']
+        fname = row['filename']
         label = row['labels']
-        assert (text, fname, label) not in dict_of_df2_contents, str(text, fname, label)
-        dict_of_df2_contents[(text, fname, label)] = index
+        if (text, fname, label) not in dict_of_df2_contents:
+            dict_of_df2_contents[(text, fname, label)] = [(index, row['contextbefore'])]
+        else:
+            dict_of_df2_contents[(text, fname, label)].append((index, row['contextbefore']))
     permutation_array_for_df2 = []
     for _, row in df1.iterrows():
         # find the index in df2 that matches
         text = row['text']
-        fname = row['fname']
+        fname = row['filename']
         label = row['labels']
-        assert (text, fname, label) in dict_of_df2_contents
-        permutation_array_for_df2.append(dict_of_df2_contents[(text, fname, label)])
-        del dict_of_df2_contents[(text, fname, label)]
+        assert (text, fname, label) in dict_of_df2_contents, str((text, fname, label))
+        if len(dict_of_df2_contents[(text, fname, label)]) == 1:
+            permutation_array_for_df2.append(dict_of_df2_contents[(text, fname, label)][0][0])
+            del dict_of_df2_contents[(text, fname, label)]
+        else:
+            # find the one whose context before most closely matches
+            possible_inds = dict_of_df2_contents[(text, fname, label)]
+            longer_context_that_worked = None
+            ind_that_works = None
+            for ind, longercontext in possible_inds:
+                assert isinstance(ind, int), ind
+                assert isinstance(longercontext, str), longercontext
+                if row['contextbefore'] == '':
+                    # look for an empty string
+                    if longercontext == '':
+                        assert ind_that_works is None, str(possible_inds)
+                        ind_that_works = ind
+                else:
+                    if longercontext.endswith(row['contextbefore']):
+                        if longer_context_that_worked is None:
+                            assert ind_that_works is None, str(possible_inds) + ', ' + str(row['contextbefore'])
+                            ind_that_works = ind
+                            longer_context_that_worked = longercontext
+                        else:
+                            # which of these longer contexts places ". " before row['contextbefore'] ?
+                            if longer_context_that_worked.endswith('. ' + row['contextbefore']):
+                                old_one_looks_like_sent_end = True
+                            else:
+                                old_one_looks_like_sent_end = False
+                            if longercontext.endswith('. ' + row['contextbefore']):
+                                new_one_looks_like_sent_end = True
+                            else:
+                                new_one_looks_like_sent_end = False
+                            assert (old_one_looks_like_sent_end or new_one_looks_like_sent_end), \
+                                   str(possible_inds) + ', ' + str(row['contextbefore'])
+                            if old_one_looks_like_sent_end and new_one_looks_like_sent_end:
+                                # then we assume these are ordered roughly the same way, and just choose the next
+                                # available one. So we pass on this next one.
+                                print('Making assumption about instance ordering for ' + str((text, fname, label)))
+                                pass
+                            elif new_one_looks_like_sent_end:
+                                longer_context_that_worked = longercontext
+                                ind_that_works = ind
+            assert ind_that_works is not None
+            permutation_array_for_df2.append(ind_that_works)
+            # now delete that ind's tuple
+            for i in range(len(possible_inds) - 1, -1, -1):
+                if possible_inds[i][0] == ind_that_works:
+                    del possible_inds[i]
     assert len(permutation_array_for_df2) == df2.shape[0], str(len(permutation_array_for_df2))
     permutation_array_for_df2 = np.array(permutation_array_for_df2)
+    assert isinstance(df2, pd.DataFrame)
+    assert isinstance(permutation_array_for_df2, np.ndarray)
     df2 = df2.reindex(permutation_array_for_df2).reset_index(drop=True)
-    assert str(df1) == str(df2), str(df1) + '\n\n' + str(df2)
+    assert str(df1['text']) == str(df2['text']), str(df1['text']) + '\n\n' + str(df2['text'])
     print('Reshuffled two DFs to match each other order-wise.')
     return df2
+
+
+def reshuffle_all_dfs_in_list_the_same_way(list_of_dfs):
+    for df in list_of_dfs[1:]:
+        assert list_of_dfs[0].shape[0] == df.shape[0]
+    shuffle_order = np.random.permutation(np.arange(list_of_dfs[0].shape[0], dtype=int))
+    for i in range(len(list_of_dfs)):
+        list_of_dfs[i] = list_of_dfs[i].reindex(shuffle_order).reset_index(drop=True)
+    for df in list_of_dfs[1:]:
+        assert str(df['text']) == str(list_of_dfs[0]['text']), str(df['text']) + '\n\n' + str(list_of_dfs[0]['text'])
+    return list_of_dfs
 
 
 def read_in_full_set_of_presplit_data_files(task, shuffle_data=True):
@@ -909,21 +971,17 @@ def read_in_full_set_of_presplit_data_files(task, shuffle_data=True):
     if shuffle_data:
         train_dfs = [train_df.sample(frac=1).reset_index(drop=True) for train_df in train_dfs]
     dev_dfs = [fix_df_format(pd.read_csv(dev_filename)) for dev_filename in dev_fnames]
+    for i in range(1, len(dev_dfs)):
+        dev_dfs[i] = reshuffle_second_df_so_its_order_matches_first(dev_dfs[0], dev_dfs[i])
     if shuffle_data:
-        dev_dfs[0] = dev_dfs[0].sample(frac=1).reset_index(drop=True)
-        for i in range(1, len(dev_dfs)):
-            dev_dfs[i] = reshuffle_second_df_so_its_order_matches_first(dev_dfs[0], dev_dfs[i])
-    else:
-        for i in range(1, len(dev_dfs)):
-            dev_dfs[i] = reshuffle_second_df_so_its_order_matches_first(dev_dfs[0], dev_dfs[i])
+        # reshuffle all dev_dfs the same way
+        dev_dfs = reshuffle_all_dfs_in_list_the_same_way(dev_dfs)
     test_dfs = [fix_df_format(pd.read_csv(test_filename)) for test_filename in test_fnames]
+    for i in range(1, len(test_dfs)):
+        test_dfs[i] = reshuffle_second_df_so_its_order_matches_first(test_dfs[0], test_dfs[i])
     if shuffle_data:
-        test_dfs[0] = test_dfs[0].sample(frac=1).reset_index(drop=True)
-        for i in range(1, len(test_dfs)):
-            test_dfs[i] = reshuffle_second_df_so_its_order_matches_first(test_dfs[0], test_dfs[i])
-    else:
-        for i in range(1, len(test_dfs)):
-            test_dfs[i] = reshuffle_second_df_so_its_order_matches_first(test_dfs[0], test_dfs[i])
+        # reshuffle all test_dfs the same way
+        test_dfs = reshuffle_all_dfs_in_list_the_same_way(test_dfs)
 
     num_labels = 0
     with open(label_key_filename, 'r') as f:
