@@ -8,7 +8,8 @@ from roberta_fromtransformers import run_best_model_on as run_best_roberta_model
 import numpy as np
 from util import make_directories_as_necessary
 from prep_data import main as prep_data_and_return_necessary_parts
-from prep_data import read_in_presplit_data, make_binary_data_split, make_multiway_data_split
+from prep_data import read_in_presplit_data, make_binary_data_split, make_multiway_data_split, \
+    read_in_full_set_of_presplit_data_files
 from detailed_performance_breakdown import get_recall_precision_curve_points, \
     plot_two_precision_recalls_against_each_other, make_multilabel_csv, make_csv_used_to_compute_mcnemar_bowker, \
     bootstrap_f1
@@ -22,14 +23,16 @@ from config import full_document_filename, binary_train_filename, binary_dev_fil
     dev_precreccurve_plot_filename, test_precreccurve_plot_filename, csv_filename_logregtest_vs_robertatest, \
     use_ten_labels_instead, binary_dev_bootstrapped_f1_filename, binary_test_bootstrapped_f1_filename, \
     multiway_dev_bootstrapped_f1_filename, multiway_test_bootstrapped_f1_filename, \
-    csv_filename_word2vec_on_dev, csv_filename_word2vec_on_test, use_context, lowercase_all_text
+    csv_filename_word2vec_on_dev, csv_filename_word2vec_on_test, use_context, lowercase_all_text, \
+    ignore_params_given_above_and_use_best_param_instead, \
+    additional_numcontextsents_to_restrict_to_if_ignoring_other_params
+from get_best_performing_hyperparams import get_best_set_of_hyperparams_for_model
 print('Everything has been imported.')
 
 
 def get_binary_classification_data(train_filename, dev_filename, test_filename, label_key_filename):
     train_df, dev_df, test_df, num_labels = \
         read_in_presplit_data(train_filename, dev_filename, test_filename, label_key_filename)
-    print('Read in existing binary data split.')
     print('For binary classification:')
     print('\t' + str(int(train_df.shape[0])) + ' training sentences')
     print('\t' + str(int(dev_df.shape[0])) + ' dev sentences')
@@ -40,7 +43,6 @@ def get_binary_classification_data(train_filename, dev_filename, test_filename, 
 def get_multi_way_classification_data(train_filename, dev_filename, test_filename, label_key_filename):
     train_df, dev_df, test_df, num_labels = \
         read_in_presplit_data(train_filename, dev_filename, test_filename, label_key_filename)
-    print('Read in existing multi-way data split.')
     print('For multi-way classification:')
     print('\t' + str(int(train_df.shape[0])) + ' training sentences')
     print('\t' + str(int(dev_df.shape[0])) + ' dev sentences')
@@ -186,6 +188,12 @@ def convert_labels_to_ten_label_setup(df_to_convert):
 
 def run_logreg_training_testing(train_df, dev_df, test_df, label_weights, use_context, lowercase_all_text,
                                 is_multiway, best_param=None):
+    if best_param is not None:
+        # (all_text_lowercased, num_sents_as_context, reg_weight, doubled_context_features)
+        print('Passed following set of best params for ' + ('multiway' if is_multiway else 'binary') +
+              '-task logistic regression: ' + str(best_param))
+        lowercase_all_text = best_param[0]
+        use_context = (best_param[1] != 0)  # num_sents_as_context
     best_f1 = -1
     if best_param is None:
         regularization_weights_to_try = [.0001, .001, .01, .1, 1, 10, 100, 1000]
@@ -203,17 +211,19 @@ def run_logreg_training_testing(train_df, dev_df, test_df, label_weights, use_co
                                               lowercase_all_text=lowercase_all_text)
                 if f1 > best_f1:
                     best_f1 = f1
-                    best_param = (regularization_weight, use_double_feature_val)
+                    best_param = (None, None, regularization_weight, use_double_feature_val)
+    best_reg_weight = best_param[2]
+    doubled_feats = best_param[3]
     print('For ' + ('multiway' if is_multiway else 'binary') +
-          ' case, best baseline logreg model had regularization weight ' + str(best_param[0]) +
-          ' and ' + ('NO ' if not best_param[1] else '') + 'doubled features, ' +
+          ' case, best baseline logreg model had regularization weight ' + str(best_reg_weight) +
+          ' and ' + ('NO ' if not doubled_feats else '') + 'doubled features, ' +
           'and achieved the following performance on the held-out test set:')
 
     outputs = \
-        run_logreg_classification(train_df, dev_df, regularization_weight=best_param[0],
+        run_logreg_classification(train_df, dev_df, regularization_weight=best_reg_weight,
                                   label_weights=label_weights, string_prefix='(Dev set)  ',
                                   also_report_binary_precrec=True, use_context=use_context,
-                                  double_context_features=best_param[1], also_output_logits=(not is_multiway),
+                                  double_context_features=doubled_feats, also_output_logits=(not is_multiway),
                                   f1_avg=('binary' if not is_multiway else 'weighted'),
                                   lowercase_all_text=lowercase_all_text)
     if is_multiway:
@@ -224,10 +234,10 @@ def run_logreg_training_testing(train_df, dev_df, test_df, label_weights, use_co
             outputs[0], outputs[1], outputs[2], outputs[3], outputs[4], outputs[5], outputs[6]
 
     outputs = \
-        run_logreg_classification(train_df, test_df, regularization_weight=best_param[0],
+        run_logreg_classification(train_df, test_df, regularization_weight=best_reg_weight,
                                   label_weights=label_weights, string_prefix='(Test set) ',
                                   also_report_binary_precrec=True, use_context=use_context,
-                                  double_context_features=best_param[1], also_output_logits=(not is_multiway),
+                                  double_context_features=doubled_feats, also_output_logits=(not is_multiway),
                                   f1_avg=('binary' if not is_multiway else 'weighted'),
                                   lowercase_all_text=lowercase_all_text)
     if is_multiway:
@@ -259,6 +269,12 @@ def run_logreg_training_testing(train_df, dev_df, test_df, label_weights, use_co
 def run_roberta_training_testing(train_df, dev_df, test_df, num_labels, label_weights, cuda_device,
                                  list_of_all_dev_labels, list_of_all_test_labels, use_context,
                                  is_multiway, best_param=None, lowercase_all_text=True):
+    if best_param is not None:
+        # (all_text_lowercased, num_sents_as_context, batch_size, learning_rate)
+        print('Passed following set of best params for ' + ('multiway' if is_multiway else 'binary') +
+              '-task RoBERTa: ' + str(best_param))
+        lowercase_all_text = best_param[0]
+        use_context = (best_param[1] != 0)  # num_sents_as_context
     print("Following cuda device for roberta: " + str(cuda_device))
     if is_multiway:
         output_model_dir_withextension = output_multiway_model_dir + '_roberta'
@@ -282,9 +298,9 @@ def run_roberta_training_testing(train_df, dev_df, test_df, num_labels, label_we
                                                use_context=use_context, lowercase_all_text=lowercase_all_text)
                 if f1 > best_f1:
                     best_f1 = f1
-                    best_param = (batch_size, learning_rate)
-    learning_rate = best_param[1]
-    batch_size = best_param[0]
+                    best_param = (None, None, batch_size, learning_rate)
+    learning_rate = best_param[3]
+    batch_size = best_param[2]
     print('For ' + ('multiway' if is_multiway else 'binary') +
           ' case, best RoBERTa model had lr ' + str(learning_rate) + ' and batch size ' + str(batch_size) +
           '. Performance:')
@@ -326,10 +342,25 @@ def run_roberta_training_testing(train_df, dev_df, test_df, num_labels, label_we
 def run_word2vecbaseline_training_testing(train_df, dev_df, test_df, num_labels, label_weights, cuda_device,
                                           list_of_all_dev_labels, list_of_all_test_labels, use_context,
                                           is_multiway, lowercase_all_text, use_lstm, best_param=None):
+    if best_param is not None:
+        print('Passed following set of best params for ' + ('multiway' if is_multiway else 'binary') +
+              '-task ' + ('LSTM' if use_lstm else 'FeedForward NN') + ': ' + str(best_param))
+        lowercase_all_text = best_param[0]
+        use_context = (best_param[1] != 0)  # num_sents_as_context
+        wordembeds_only_pretrained_on_positive_sents = best_param[5]
     print('Following cuda device for neural baseline: ' + str(cuda_device))
     if is_multiway:
-        output_model_dir_withextension = output_multiway_model_dir + '_word2vecbaselinemoredataembeds'
-        dir_with_pretrained_embeddings = 'multiway_word2vec_biggerdata_' + ('lowercase' if lowercase_all_text else 'fullcase') + '/'  # 'multiway_word2vec_justpositivesentences/'
+        if best_param is not None:
+            if wordembeds_only_pretrained_on_positive_sents:
+                if lowercase_all_text:
+                    output_model_dir_withextension = output_multiway_model_dir + '_word2vecbaseline'
+                else:
+                    output_model_dir_withextension = output_multiway_model_dir + '_word2vecbaselinefullcasesmallembeds'
+            else:
+                output_model_dir_withextension = output_multiway_model_dir + '_word2vecbaselinemoredataembeds'
+        else:
+            output_model_dir_withextension = output_multiway_model_dir + '_word2vecbaselinenewmodel'
+        dir_with_pretrained_embeddings = 'multiway_word2vec_biggerdata_' + ('lowercase' if lowercase_all_text else 'fullcase') + '/'  # 'multiway_word2vec_justpositivesentences_fullcase/'  # 'multiway_word2vec_justpositivesentences/'
     else:
         output_model_dir_withextension = output_binary_model_dir + '_word2vecbaselinemoredataembeds'
         dir_with_pretrained_embeddings = 'binary_word2vec_biggerdata_' + ('lowercase' if lowercase_all_text else 'fullcase') + '/'
@@ -365,10 +396,10 @@ def run_word2vecbaseline_training_testing(train_df, dev_df, test_df, num_labels,
                                                     use_context=use_context, use_lstm=use_lstm)
                     if f1 > best_f1:
                         best_f1 = f1
-                        best_param = (batch_size, learning_rate, separate_features_for_context)
-    learning_rate = best_param[1]
-    batch_size = best_param[0]
-    separate_features_for_context = best_param[2]
+                        best_param = (None, None, batch_size, learning_rate, separate_features_for_context)
+    learning_rate = best_param[3]
+    batch_size = best_param[2]
+    separate_features_for_context = best_param[4]
     print('For ' + ('multiway' if is_multiway else 'binary') +
           ' case, best ' + ('lstm' if use_lstm else 'feedforward') + ' word2vec baseline model had lr ' +
           str(learning_rate) + ', batch size ' + str(batch_size) +
@@ -445,43 +476,99 @@ def main():
     else:
         cuda_device = -1
 
-    use_best_nocontext_params = False
-    use_best_withcontext_params = False
-    assert not (use_best_nocontext_params and use_best_withcontext_params)
-    not_using_best_params = not (use_best_withcontext_params or use_best_nocontext_params)
+    pick_dfs_from_list = (ignore_params_given_above_and_use_best_param_instead and
+                          (additional_numcontextsents_to_restrict_to_if_ignoring_other_params is None))
+    pick_dfs_from_overridden_context_val = (ignore_params_given_above_and_use_best_param_instead and
+                                            (additional_numcontextsents_to_restrict_to_if_ignoring_other_params
+                                             is not None))
+    if pick_dfs_from_overridden_context_val:
+        if additional_numcontextsents_to_restrict_to_if_ignoring_other_params == 0:
+            assert not use_context
+        else:
+            assert use_context
+
+    if pick_dfs_from_list:
+        print('Will be evaluating ONLY best hparam settings for all models.')
+    elif pick_dfs_from_overridden_context_val:
+        print('Will be evaluating ONLY best hparam settings for all models with fixed num_context_sents ' +
+              str(additional_numcontextsents_to_restrict_to_if_ignoring_other_params) + '.')
 
     # multi-way classification
-    train_df, dev_df, test_df, num_labels = \
-        get_multi_way_classification_data(multiway_train_filename, multiway_dev_filename,
-                                          multiway_test_filename, multiway_label_key_filename)
+    if pick_dfs_from_list:
+        train_dfs, dev_dfs, test_dfs, num_labels = read_in_full_set_of_presplit_data_files('multiway',
+                                                                                           shuffle_data=True)
+    else:
+        if pick_dfs_from_overridden_context_val:
+            if additional_numcontextsents_to_restrict_to_if_ignoring_other_params == 0:
+                assert '_withcontext1_' in multiway_train_filename
+                assert '_withcontext1_' in multiway_dev_filename
+                assert '_withcontext1_' in multiway_test_filename
+            else:
+                checktag = \
+                    '_withcontext' + str(additional_numcontextsents_to_restrict_to_if_ignoring_other_params) + '_'
+                assert checktag in multiway_train_filename
+                assert checktag in multiway_dev_filename
+                assert checktag in multiway_test_filename
+        train_df, dev_df, test_df, num_labels = \
+            get_multi_way_classification_data(multiway_train_filename, multiway_dev_filename,
+                                              multiway_test_filename, multiway_label_key_filename)
+    print('Read in existing multi-way data split.')
     if use_ten_labels_instead:
         print('Switching to ten-label setup instead.')
         num_labels = 10
-        train_df = convert_labels_to_ten_label_setup(train_df)
-        dev_df = convert_labels_to_ten_label_setup(dev_df)
-        test_df = convert_labels_to_ten_label_setup(test_df)
+        if pick_dfs_from_list:
+            assert len(train_dfs) == len(dev_dfs)
+            assert len(dev_dfs) == len(test_dfs)
+            for i in range(len(train_dfs)):
+                train_dfs[i] = convert_labels_to_ten_label_setup(train_dfs[i])
+                dev_dfs[i] = convert_labels_to_ten_label_setup(dev_dfs[i])
+                test_dfs[i] = convert_labels_to_ten_label_setup(test_dfs[i])
+        else:
+            train_df = convert_labels_to_ten_label_setup(train_df)
+            dev_df = convert_labels_to_ten_label_setup(dev_df)
+            test_df = convert_labels_to_ten_label_setup(test_df)
 
-    label_weights = get_label_weights_and_report_class_imbalance(train_df, datasplit='training')
-    get_label_weights_and_report_class_imbalance(dev_df, datasplit='dev')
-    get_label_weights_and_report_class_imbalance(test_df, datasplit='test')
+    if pick_dfs_from_list:
+        label_weights = get_label_weights_and_report_class_imbalance(train_dfs[0], datasplit='training')
+        get_label_weights_and_report_class_imbalance(dev_dfs[0], datasplit='dev')
+        get_label_weights_and_report_class_imbalance(test_dfs[0], datasplit='test')
+    else:
+        label_weights = get_label_weights_and_report_class_imbalance(train_df, datasplit = 'training')
+        get_label_weights_and_report_class_imbalance(dev_df, datasplit='dev')
+        get_label_weights_and_report_class_imbalance(test_df, datasplit='test')
 
-    # for no-context: (1, False) # for with-context: (10, False)
-    best_param = None if not_using_best_params else ((1, False) if use_best_nocontext_params else (10, False))
+    # [OUT OF DATE] for no-context: (1, False) # for with-context: (10, False)
+    best_param = None if not ignore_params_given_above_and_use_best_param_instead else get_best_set_of_hyperparams_for_model('logreg', 'multiway', num_sents_as_context_param=additional_numcontextsents_to_restrict_to_if_ignoring_other_params)  # ((1, False) if use_best_nocontext_params else (10, False))
+    if pick_dfs_from_list:
+        num_context_sents = best_param[1]
+        train_df = train_dfs[max(0, num_context_sents - 1)]
+        dev_df = dev_dfs[max(0, num_context_sents - 1)]
+        test_df = test_dfs[max(0, num_context_sents - 1)]
     dev_predictions_of_best_lr_model, list_of_all_predicted_lr_test_labels, \
     list_of_all_dev_labels, list_of_all_test_labels = \
         run_logreg_training_testing(train_df, dev_df, test_df, label_weights, use_context, is_multiway=True,
                                     best_param=best_param, lowercase_all_text=lowercase_all_text)
 
-    # for no-context: (32, 1e-3, False)  # for with-context: (16, 1e-3, True)
-    best_param = None
+    # [OUT OF DATE] for no-context: (32, 1e-3, False)  # for with-context: (16, 1e-3, True)
+    best_param = None if not ignore_params_given_above_and_use_best_param_instead else get_best_set_of_hyperparams_for_model('feedforward', 'multiway', num_sents_as_context_param=additional_numcontextsents_to_restrict_to_if_ignoring_other_params)
+    if pick_dfs_from_list:
+        num_context_sents = best_param[1]
+        train_df = train_dfs[max(0, num_context_sents - 1)]
+        dev_df = dev_dfs[max(0, num_context_sents - 1)]
+        test_df = test_dfs[max(0, num_context_sents - 1)]
     dev_multiway_ff_f1, list_of_all_predicted_word2vec_ff_dev_labels, list_of_all_predicted_word2vec_ff_test_labels = \
         run_word2vecbaseline_training_testing(train_df, dev_df, test_df, num_labels, label_weights, cuda_device,
                                               list_of_all_dev_labels, list_of_all_test_labels, use_context,
                                               is_multiway=True, lowercase_all_text=lowercase_all_text,
                                               best_param=best_param, use_lstm=False)
 
-    # for no-context: (32, 1e-3, False)  # for with-context: (16, 1e-3, False)
-    best_param = None
+    # [OUT OF DATE] for no-context: (32, 1e-3, False)  # for with-context: (16, 1e-3, False)
+    best_param = None if not ignore_params_given_above_and_use_best_param_instead else get_best_set_of_hyperparams_for_model('lstm', 'multiway', num_sents_as_context_param=additional_numcontextsents_to_restrict_to_if_ignoring_other_params)
+    if pick_dfs_from_list:
+        num_context_sents = best_param[1]
+        train_df = train_dfs[max(0, num_context_sents - 1)]
+        dev_df = dev_dfs[max(0, num_context_sents - 1)]
+        test_df = test_dfs[max(0, num_context_sents - 1)]
     dev_multiway_lstm_f1, list_of_all_predicted_word2vec_lstm_dev_labels, \
     list_of_all_predicted_word2vec_lstm_test_labels = \
         run_word2vecbaseline_training_testing(train_df, dev_df, test_df, num_labels, label_weights, cuda_device,
@@ -489,8 +576,13 @@ def main():
                                               is_multiway=True, lowercase_all_text=lowercase_all_text,
                                               best_param=best_param, use_lstm=True)
 
-    # for no-context: (32, 3e-5) # for with-context: (32, 2e-5)
-    best_param = None if not_using_best_params else ((32, 3e-5) if use_best_nocontext_params else (32, 2e-5))
+    # [OUT OF DATE] for no-context: (32, 3e-5) # for with-context: (32, 2e-5)
+    best_param = None if not ignore_params_given_above_and_use_best_param_instead else get_best_set_of_hyperparams_for_model('RoBERTa', 'multiway', num_sents_as_context_param=additional_numcontextsents_to_restrict_to_if_ignoring_other_params)  # ((32, 3e-5) if use_best_nocontext_params else (32, 2e-5))
+    if pick_dfs_from_list:
+        num_context_sents = best_param[1]
+        train_df = train_dfs[max(0, num_context_sents - 1)]
+        dev_df = dev_dfs[max(0, num_context_sents - 1)]
+        test_df = test_dfs[max(0, num_context_sents - 1)]
     list_of_all_predicted_roberta_dev_labels, list_of_all_predicted_roberta_test_labels = \
         run_roberta_training_testing(train_df, dev_df, test_df, num_labels, label_weights, cuda_device,
                                      list_of_all_dev_labels, list_of_all_test_labels, use_context,
@@ -515,20 +607,54 @@ def main():
         get_binary_classification_data(binary_train_filename, binary_dev_filename,
                                        binary_test_filename, binary_label_key_filename)
 
-    label_weights = get_label_weights_and_report_class_imbalance(train_df, datasplit = 'training')
-    get_label_weights_and_report_class_imbalance(dev_df, datasplit='dev')
-    get_label_weights_and_report_class_imbalance(test_df, datasplit='test')
+    if pick_dfs_from_list:
+        train_dfs, dev_dfs, test_dfs, num_labels = read_in_full_set_of_presplit_data_files('binary',
+                                                                                           shuffle_data=True)
+    else:
+        if pick_dfs_from_overridden_context_val:
+            if additional_numcontextsents_to_restrict_to_if_ignoring_other_params == 0:
+                assert '_withcontext1_' in binary_train_filename
+                assert '_withcontext1_' in binary_dev_filename
+                assert '_withcontext1_' in binary_test_filename
+            else:
+                checktag = \
+                    '_withcontext' + str(additional_numcontextsents_to_restrict_to_if_ignoring_other_params) + '_'
+                assert checktag in binary_train_filename
+                assert checktag in binary_dev_filename
+                assert checktag in binary_test_filename
+        train_df, dev_df, test_df, num_labels = \
+            get_binary_classification_data(binary_train_filename, binary_dev_filename,
+                                           binary_test_filename, binary_label_key_filename)
+    print('Read in existing binary data split.')
 
-    # for no-context: (100, False) # for with-context: (100, False)
-    best_param = None if not_using_best_params else ((100, False) if use_best_nocontext_params else (100, False))
+    if pick_dfs_from_list:
+        label_weights = get_label_weights_and_report_class_imbalance(train_dfs[0], datasplit='training')
+        get_label_weights_and_report_class_imbalance(dev_dfs[0], datasplit='dev')
+        get_label_weights_and_report_class_imbalance(test_dfs[0], datasplit='test')
+    else:
+        label_weights = get_label_weights_and_report_class_imbalance(train_df, datasplit = 'training')
+        get_label_weights_and_report_class_imbalance(dev_df, datasplit='dev')
+        get_label_weights_and_report_class_imbalance(test_df, datasplit='test')
+
+    # [OUT OF DATE] for no-context: (100, False) # for with-context: (100, False)
+    best_param = None if not ignore_params_given_above_and_use_best_param_instead else get_best_set_of_hyperparams_for_model('logreg', 'binary', num_sents_as_context_param=additional_numcontextsents_to_restrict_to_if_ignoring_other_params)  # ((100, False) if use_best_nocontext_params else (100, False))
+    if pick_dfs_from_list:
+        num_context_sents = best_param[1]
+        train_df = train_dfs[max(0, num_context_sents - 1)]
+        dev_df = dev_dfs[max(0, num_context_sents - 1)]
+        test_df = test_dfs[max(0, num_context_sents - 1)]
     list_of_all_predicted_lr_dev_labels, list_of_all_predicted_lr_test_labels, \
     list_of_all_dev_labels, list_of_all_test_labels, dev_lr_precrec_curve_points, test_lr_precrec_curve_points = \
         run_logreg_training_testing(train_df, dev_df, test_df, label_weights, use_context, is_multiway=False,
                                     best_param=best_param, lowercase_all_text=lowercase_all_text)
 
-    # for no-context: (16, 1e-3, False)  # for with-context: (32, 5e-5, False)
-    best_param = None if not_using_best_params else ((16, 1e-3, False) if use_best_nocontext_params else
-                                                     (32, 5e-5, False))
+    # [OUT OF DATE] for no-context: (16, 1e-3, False)  # for with-context: (32, 5e-5, False)
+    best_param = None if not ignore_params_given_above_and_use_best_param_instead else get_best_set_of_hyperparams_for_model('feedforward', 'binary', num_sents_as_context_param=additional_numcontextsents_to_restrict_to_if_ignoring_other_params)  # ((16, 1e-3, False) if use_best_nocontext_params else (32, 5e-5, False))
+    if pick_dfs_from_list:
+        num_context_sents = best_param[1]
+        train_df = train_dfs[max(0, num_context_sents - 1)]
+        dev_df = dev_dfs[max(0, num_context_sents - 1)]
+        test_df = test_dfs[max(0, num_context_sents - 1)]
     dev_binary_ff_f1, list_of_all_predicted_word2vec_ff_dev_labels, list_of_all_predicted_word2vec_ff_test_labels, \
     dev_word2vec_ff_precrec_curve_points, test_word2vec_ff_precrec_curve_points = \
         run_word2vecbaseline_training_testing(train_df, dev_df, test_df, num_labels, label_weights, cuda_device,
@@ -536,9 +662,13 @@ def main():
                                               is_multiway=False, lowercase_all_text=lowercase_all_text,
                                               best_param=best_param, use_lstm=False)
 
-    # for no-context: (32, 5e-5, False)  # for with-context: (16, 1e-4, False)
-    best_param = None if not_using_best_params else ((32, 5e-5, False) if use_best_nocontext_params else
-                                                     (16, 1e-4, False))
+    # [OUT OF DATE] for no-context: (32, 5e-5, False)  # for with-context: (16, 1e-4, False)
+    best_param = None if not ignore_params_given_above_and_use_best_param_instead else get_best_set_of_hyperparams_for_model('lstm', 'binary', num_sents_as_context_param=additional_numcontextsents_to_restrict_to_if_ignoring_other_params)  # ((32, 5e-5, False) if use_best_nocontext_params else (16, 1e-4, False))
+    if pick_dfs_from_list:
+        num_context_sents = best_param[1]
+        train_df = train_dfs[max(0, num_context_sents - 1)]
+        dev_df = dev_dfs[max(0, num_context_sents - 1)]
+        test_df = test_dfs[max(0, num_context_sents - 1)]
     dev_binary_lstm_f1, list_of_all_predicted_word2vec_lstm_dev_labels, \
     list_of_all_predicted_word2vec_lstm_test_labels, dev_word2vec_lstm_precrec_curve_points, \
     test_word2vec_lstm_precrec_curve_points = \
@@ -547,8 +677,13 @@ def main():
                                               is_multiway=False, lowercase_all_text=lowercase_all_text,
                                               best_param=best_param, use_lstm=True)
 
-    # for no-context: (32, 1e-5) # for with-context: (32, 1e-5)
-    best_param = None if not_using_best_params else ((32, 1e-5) if use_best_nocontext_params else (32, 1e-5))
+    # [OUT OF DATE] for no-context: (32, 1e-5) # for with-context: (32, 1e-5)
+    best_param = None if not ignore_params_given_above_and_use_best_param_instead else get_best_set_of_hyperparams_for_model('RoBERTa', 'binary', num_sents_as_context_param=additional_numcontextsents_to_restrict_to_if_ignoring_other_params)  # ((32, 1e-5) if use_best_nocontext_params else (32, 1e-5))
+    if pick_dfs_from_list:
+        num_context_sents = best_param[1]
+        train_df = train_dfs[max(0, num_context_sents - 1)]
+        dev_df = dev_dfs[max(0, num_context_sents - 1)]
+        test_df = test_dfs[max(0, num_context_sents - 1)]
     list_of_all_predicted_roberta_dev_labels, list_of_all_predicted_roberta_test_labels, \
     dev_roberta_precrec_curve_points, test_roberta_precrec_curve_points = \
         run_roberta_training_testing(train_df, dev_df, test_df, num_labels, label_weights, cuda_device,

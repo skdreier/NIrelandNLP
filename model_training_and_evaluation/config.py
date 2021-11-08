@@ -9,14 +9,29 @@ positive_sentence_filename = '../justifications_clean_text_ohe.csv'
 
 use_context = True
 # must be at least 1; use_context will control whether it actually gets used or not
-num_context_sents_to_use = 2
-actual_minibatch_size = 4
+num_context_sents_to_use = 4
 lowercase_all_text = False
+ignore_params_given_above_and_use_best_param_instead = False
+additional_numcontextsents_to_restrict_to_if_ignoring_other_params = None
+
+if ignore_params_given_above_and_use_best_param_instead:
+    if additional_numcontextsents_to_restrict_to_if_ignoring_other_params is not None:
+        if additional_numcontextsents_to_restrict_to_if_ignoring_other_params == 0:
+            use_context = False
+            num_context_sents_to_use = 0
+        else:
+            use_context = True
+            num_context_sents_to_use = additional_numcontextsents_to_restrict_to_if_ignoring_other_params
+elif num_context_sents_to_use == 0:
+    assert not use_context
+context_sents_for_data_fnames = max(1, num_context_sents_to_use)
+
+actual_minibatch_size = 4
 use_ten_labels_instead = True
 
-binary_train_filename = "data/binary_full_mindsduplicates_withcontext"+str(num_context_sents_to_use)+"_train.csv"  # 'data/binary_train-withperplexities-85percentile.csv'
-binary_dev_filename = "data/binary_full_mindsduplicates_withcontext"+str(num_context_sents_to_use)+"_dev.csv"  # 'data/binary_dev-withperplexities-85percentile.csv'
-binary_test_filename = "data/binary_full_mindsduplicates_withcontext"+str(num_context_sents_to_use)+"_test.csv"  # 'data/binary_test-withperplexities-85percentile.csv'
+binary_train_filename = "data/binary_full_mindsduplicates_withcontext"+str(context_sents_for_data_fnames)+"_train.csv"  # 'data/binary_train-withperplexities-85percentile.csv'
+binary_dev_filename = "data/binary_full_mindsduplicates_withcontext"+str(context_sents_for_data_fnames)+"_dev.csv"  # 'data/binary_dev-withperplexities-85percentile.csv'
+binary_test_filename = "data/binary_full_mindsduplicates_withcontext"+str(context_sents_for_data_fnames)+"_test.csv"  # 'data/binary_test-withperplexities-85percentile.csv'
 binary_label_key_filename = 'data/binary_mindsduplicates_classes.txt'
 output_binary_model_dir = 'experiment_results/' + str(num_context_sents_to_use) + '_sents_as_context' + ('' if lowercase_all_text else '_CASED') + '/binary_model/'
 binary_output_report_filename_stub = 'output_analysis/nocontextFIXEDINDEX-binarybest'
@@ -36,9 +51,9 @@ if problem_report_filename and os.path.isfile(problem_report_filename):
 if success_report_filename and os.path.isfile(success_report_filename):
     os.remove(success_report_filename)
 
-multiway_train_filename = 'data/multiway_mindsduplicates_withcontext/multiway_withcontext' + str(num_context_sents_to_use) + '_train.csv'
-multiway_dev_filename = 'data/multiway_mindsduplicates_withcontext/multiway_withcontext' + str(num_context_sents_to_use) + '_dev.csv'
-multiway_test_filename = 'data/multiway_mindsduplicates_withcontext/multiway_withcontext' + str(num_context_sents_to_use) + '_test.csv'
+multiway_train_filename = 'data/multiway_mindsduplicates_withcontext/multiway_withcontext' + str(context_sents_for_data_fnames) + '_train.csv'
+multiway_dev_filename = 'data/multiway_mindsduplicates_withcontext/multiway_withcontext' + str(context_sents_for_data_fnames) + '_dev.csv'
+multiway_test_filename = 'data/multiway_mindsduplicates_withcontext/multiway_withcontext' + str(context_sents_for_data_fnames) + '_test.csv'
 multiway_label_key_filename = 'data/multiway_mindsduplicates_withcontext/multiway_classes.txt'
 multiway_dev_bootstrapped_f1_filename = 'experiment_results/' + str(num_context_sents_to_use) + '_sents_as_context' + ('' if lowercase_all_text else '_CASED') + '/output_analysis/multiwayDEV' + multiway_dir_extension + str(use_ten_labels_instead) + '_bootstrappedf1s.csv'
 multiway_test_bootstrapped_f1_filename = 'experiment_results/' + str(num_context_sents_to_use) + '_sents_as_context' + ('' if lowercase_all_text else '_CASED') + '/output_analysis/multiwayTEST' + multiway_dir_extension + str(use_ten_labels_instead) + '_bootstrappedf1s.csv'

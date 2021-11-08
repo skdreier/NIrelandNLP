@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from math import inf
 import random as random_for_seed_setting
 from random import shuffle, random
@@ -856,6 +857,80 @@ def read_in_presplit_data(train_filename, dev_filename, test_filename, label_key
                 if line.strip() != '':
                     num_labels += 1
     return train_df, dev_df, test_df, (num_labels if label_key_filename is not None else None)
+
+
+def reshuffle_second_df_so_its_order_matches_first(df1, df2):
+    assert df2.shape[0] == df1.shape[0], str(df1.shape) + str(df2.shape)
+    dict_of_df2_contents = {}
+    for index, row in df2.iterrows():
+        text = row['text']
+        fname = row['fname']
+        label = row['labels']
+        assert (text, fname, label) not in dict_of_df2_contents, str(text, fname, label)
+        dict_of_df2_contents[(text, fname, label)] = index
+    permutation_array_for_df2 = []
+    for _, row in df1.iterrows():
+        # find the index in df2 that matches
+        text = row['text']
+        fname = row['fname']
+        label = row['labels']
+        assert (text, fname, label) in dict_of_df2_contents
+        permutation_array_for_df2.append(dict_of_df2_contents[(text, fname, label)])
+        del dict_of_df2_contents[(text, fname, label)]
+    assert len(permutation_array_for_df2) == df2.shape[0], str(len(permutation_array_for_df2))
+    permutation_array_for_df2 = np.array(permutation_array_for_df2)
+    df2 = df2.reindex(permutation_array_for_df2).reset_index(drop=True)
+    assert str(df1) == str(df2), str(df1) + '\n\n' + str(df2)
+    print('Reshuffled two DFs to match each other order-wise.')
+    return df2
+
+
+def read_in_full_set_of_presplit_data_files(task, shuffle_data=True):
+    if task == 'binary':
+        train_fnames = ["data/binary_full_mindsduplicates_withcontext" + str(num_context_sents_to_use) + "_train.csv"
+                        for num_context_sents_to_use in range(1, 5)]
+        dev_fnames = ["data/binary_full_mindsduplicates_withcontext" + str(num_context_sents_to_use) + "_dev.csv"
+                      for num_context_sents_to_use in range(1, 5)]
+        test_fnames = ["data/binary_full_mindsduplicates_withcontext" + str(num_context_sents_to_use) + "_test.csv"
+                       for num_context_sents_to_use in range(1, 5)]
+        label_key_filename = 'data/binary_mindsduplicates_classes.txt'
+    else:
+        train_fnames = ['data/multiway_mindsduplicates_withcontext/multiway_withcontext' +
+                        str(num_context_sents_to_use) + '_train.csv' for num_context_sents_to_use in range(1, 5)]
+        dev_fnames = ['data/multiway_mindsduplicates_withcontext/multiway_withcontext' +
+                      str(num_context_sents_to_use) + '_dev.csv' for num_context_sents_to_use in range(1, 5)]
+        test_fnames = ['data/multiway_mindsduplicates_withcontext/multiway_withcontext' +
+                       str(num_context_sents_to_use) + '_test.csv' for num_context_sents_to_use in range(1, 5)]
+        label_key_filename = 'data/multiway_mindsduplicates_withcontext/multiway_classes.txt'
+
+    # dev and test instances for all dataframes must be in exactly the same order, no matter how many sentences
+    # of preceding context we're using
+    train_dfs = [fix_df_format(pd.read_csv(train_filename)) for train_filename in train_fnames]
+    if shuffle_data:
+        train_dfs = [train_df.sample(frac=1).reset_index(drop=True) for train_df in train_dfs]
+    dev_dfs = [fix_df_format(pd.read_csv(dev_filename)) for dev_filename in dev_fnames]
+    if shuffle_data:
+        dev_dfs[0] = dev_dfs[0].sample(frac=1).reset_index(drop=True)
+        for i in range(1, len(dev_dfs)):
+            dev_dfs[i] = reshuffle_second_df_so_its_order_matches_first(dev_dfs[0], dev_dfs[i])
+    else:
+        for i in range(1, len(dev_dfs)):
+            dev_dfs[i] = reshuffle_second_df_so_its_order_matches_first(dev_dfs[0], dev_dfs[i])
+    test_dfs = [fix_df_format(pd.read_csv(test_filename)) for test_filename in test_fnames]
+    if shuffle_data:
+        test_dfs[0] = test_dfs[0].sample(frac=1).reset_index(drop=True)
+        for i in range(1, len(test_dfs)):
+            test_dfs[i] = reshuffle_second_df_so_its_order_matches_first(test_dfs[0], test_dfs[i])
+    else:
+        for i in range(1, len(test_dfs)):
+            test_dfs[i] = reshuffle_second_df_so_its_order_matches_first(test_dfs[0], test_dfs[i])
+
+    num_labels = 0
+    with open(label_key_filename, 'r') as f:
+        for line in f:
+            if line.strip() != '':
+                num_labels += 1
+    return train_dfs, dev_dfs, test_dfs, num_labels
 
 
 def fix_df_format(df):
