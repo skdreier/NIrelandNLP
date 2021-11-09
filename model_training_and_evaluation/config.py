@@ -7,10 +7,10 @@ multiway_dir_extension = '_nocontextNEWEMBEDSFIXEDINDEX_10class'  # '_condensed'
 full_document_filename = '../orig_text_data/internment.txt'
 positive_sentence_filename = '../justifications_clean_text_ohe.csv'
 
-use_context = True
+use_context = False
 # must be at least 1; use_context will control whether it actually gets used or not
-num_context_sents_to_use = 4
-lowercase_all_text = False
+num_context_sents_to_use = 0
+lowercase_all_text = True
 ignore_params_given_above_and_use_best_param_instead = False
 additional_numcontextsents_to_restrict_to_if_ignoring_other_params = None
 

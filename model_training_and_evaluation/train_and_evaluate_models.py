@@ -51,7 +51,7 @@ def get_multi_way_classification_data(train_filename, dev_filename, test_filenam
 
 
 def report_mismatches_to_files(file_stub, true_labels, baseline_labels, model_labels, test_df,
-                               label_key_filename, model_name: str=None):
+                               label_key_filename, model_name: str=None, using_tenlabel_setup=False):
     make_directories_as_necessary(file_stub)
 
     counter = 0
@@ -60,8 +60,12 @@ def report_mismatches_to_files(file_stub, true_labels, baseline_labels, model_la
         for line in f:
             line = line.strip()
             if line != '':
-                inds_to_labels[counter] = line
-                counter += 1
+                if using_tenlabel_setup:
+                    newstrlabel, newind = convert_strlabel_to_new_strlabel(line, None)
+                    inds_to_labels[newind] = newstrlabel
+                else:
+                    inds_to_labels[counter] = line
+                    counter += 1
 
     correct_in_both = 0
     correct_in_both_f = open(file_stub + '_bothcorrect.txt', 'w')
@@ -77,6 +81,11 @@ def report_mismatches_to_files(file_stub, true_labels, baseline_labels, model_la
     for i, row in test_df.iterrows():
         sent = str(row['text'])
         label = str(row['strlabel'])
+        assert int(row['labels']) == true_labels[i]
+        assert inds_to_labels[int(row['labels'])] == row['strlabel'], str(row)
+        assert label == inds_to_labels[true_labels[i]], label + ', ' + str(row['labels']) + '; ' + \
+                                                        inds_to_labels[true_labels[i]] + ', ' + str(true_labels[i]) + \
+            '\n' + str(inds_to_labels)
         if true_labels[i] == model_labels[i]:
             if model_labels[i] == baseline_labels[i]:
                 correct_in_both_f.write(str(label) + '\t' + str(sent) + '\n')
@@ -153,30 +162,31 @@ def get_label_weights_and_report_class_imbalance(train_df, label_file=None, data
     return label_weights
 
 
-def convert_labels_to_ten_label_setup(df_to_convert):
-    def convert_strlabel_to_new_strlabel(old_strlabel, old_intlabel):
-        if old_strlabel == "J_Last-resort" or old_strlabel == "J_Misc" or old_strlabel == "J_Intelligence":
-            return "J_Combined", 9
-        elif old_strlabel == "J_Terrorism":
-            return old_strlabel, 0
-        elif old_strlabel == "J_Intl-Domestic_Precedent":
-            return old_strlabel, 1
-        elif old_strlabel == "J_Denial":
-            return old_strlabel, 2
-        elif old_strlabel == "J_Political-Strategic":
-            return old_strlabel, 3
-        elif old_strlabel == "J_Development-Unity":
-            return old_strlabel, 4
-        elif old_strlabel == "J_Legal_Procedure":
-            return old_strlabel, 5
-        elif old_strlabel == "J_Emergency-Policy":
-            return old_strlabel, 6
-        elif old_strlabel == "J_Law-and-order":
-            return old_strlabel, 7
-        elif old_strlabel == "J_Utilitarian-Deterrence":
-            return old_strlabel, 8
-        return None
+def convert_strlabel_to_new_strlabel(old_strlabel, old_intlabel):
+    if old_strlabel == "J_Last-resort" or old_strlabel == "J_Misc" or old_strlabel == "J_Intelligence":
+        return "J_Combined", 9
+    elif old_strlabel == "J_Terrorism":
+        return old_strlabel, 0
+    elif old_strlabel == "J_Intl-Domestic_Precedent":
+        return old_strlabel, 1
+    elif old_strlabel == "J_Denial":
+        return old_strlabel, 2
+    elif old_strlabel == "J_Political-Strategic":
+        return old_strlabel, 3
+    elif old_strlabel == "J_Development-Unity":
+        return old_strlabel, 4
+    elif old_strlabel == "J_Legal_Procedure":
+        return old_strlabel, 5
+    elif old_strlabel == "J_Emergency-Policy":
+        return old_strlabel, 6
+    elif old_strlabel == "J_Law-and-order":
+        return old_strlabel, 7
+    elif old_strlabel == "J_Utilitarian-Deterrence":
+        return old_strlabel, 8
+    return None
 
+
+def convert_labels_to_ten_label_setup(df_to_convert):
     for i, row in df_to_convert.iterrows():
         old_strlabel = row['strlabel']
         old_label = row['labels']
@@ -369,7 +379,7 @@ def run_word2vecbaseline_training_testing(train_df, dev_df, test_df, num_labels,
         if best_param is not None:
             if wordembeds_only_pretrained_on_positive_sents:
                 if lowercase_all_text:
-                    output_model_dir_withextension = base_output_multiway_model_dir + '_word2vecbaseline'
+                    output_model_dir_withextension = base_output_multiway_model_dir + '_word2vecbaselinelowercasesmallembeds'
                 else:
                     output_model_dir_withextension = base_output_multiway_model_dir + '_word2vecbaselinefullcasesmallembeds'
             else:
@@ -667,7 +677,8 @@ def main():
 
     report_mismatches_to_files(multiway_output_report_filename_stub, list_of_all_test_labels,
                                list_of_all_predicted_lr_test_labels, list_of_all_predicted_roberta_test_labels,
-                               test_df, multiway_label_key_filename, model_name='RoBERTa')
+                               test_df, multiway_label_key_filename, model_name='RoBERTa',
+                               using_tenlabel_setup=use_ten_labels_instead)
     make_csv_used_to_compute_mcnemar_bowker(list_of_all_predicted_roberta_test_labels, 'RoBERTa',
                                             list_of_all_predicted_lr_test_labels, 'LogReg',
                                             csv_filename_logregtest_vs_robertatest)
@@ -843,7 +854,8 @@ def main():
     make_directories_as_necessary(binary_output_report_filename_stub)
     report_mismatches_to_files(binary_output_report_filename_stub, list_of_all_test_labels,
                                list_of_all_predicted_lr_test_labels, list_of_all_predicted_roberta_test_labels,
-                               test_df, binary_label_key_filename, model_name='RoBERTa')
+                               test_df, binary_label_key_filename, model_name='RoBERTa',
+                               using_tenlabel_setup=False)
 
 
 if __name__ == '__main__':
