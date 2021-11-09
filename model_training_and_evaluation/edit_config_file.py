@@ -34,7 +34,7 @@ def change_variable_in_config_to_value(variable_name, desired_value):
                     new_f.write(line)
                     continue
                 line_parts = line.split('=')
-                if line_parts[0].strip() == variable_name:
+                if line_parts[0].rstrip() == variable_name:
                     found_match = True
                     comment_at_end_of_line = '#' in line  # not always true, but it is in our config file
                     if comment_at_end_of_line:
