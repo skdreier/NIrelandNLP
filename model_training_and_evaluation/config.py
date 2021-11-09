@@ -11,7 +11,7 @@ use_context = True
 # must be at least 1; use_context will control whether it actually gets used or not
 num_context_sents_to_use = 4
 lowercase_all_text = False
-ignore_params_given_above_and_use_best_param_instead = True
+ignore_params_given_above_and_use_best_param_instead = False
 additional_numcontextsents_to_restrict_to_if_ignoring_other_params = None
 
 actual_minibatch_size = 4

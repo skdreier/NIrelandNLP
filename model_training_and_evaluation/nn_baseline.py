@@ -99,6 +99,7 @@ class NNModel(torch.nn.Module):
         :param labels: one-dimensional LongTensor giving label
         :return:
         """
+        assert len(one_where_context.size()) == 2
         num_context_tokens = one_where_context.sum(1)
         if num_context_tokens.sum() == 0:
             using_context = False or self.process_context_separately
@@ -655,7 +656,7 @@ def load_and_cache_examples(data_df, lowercase_all_text, words_to_inds, includes
                                   for word in fully_encoded_text]
             length_of_each_maintext.append(len(fully_encoded_text))
             if len(fully_encoded_text) + len(contextbefore_tokens) > max_length:
-                max_length = len(fully_encoded_text)
+                max_length = len(fully_encoded_text) + len(contextbefore_tokens)
             input_ids_for_text.append(fully_encoded_text)
         input_ids_for_text = convert_list_of_inputs_id_tensors_to_single_tensor(input_ids_for_text, padding_token)
         input_ids_for_context = convert_list_of_inputs_id_tensors_to_single_tensor(input_ids_for_context, padding_token)

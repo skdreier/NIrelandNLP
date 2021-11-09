@@ -871,6 +871,8 @@ def reshuffle_second_df_so_its_order_matches_first(df1, df2):
             dict_of_df2_contents[(text, fname, label)] = [(index, row['contextbefore'])]
         else:
             dict_of_df2_contents[(text, fname, label)].append((index, row['contextbefore']))
+    inds_in_df1_that_correspond_to_making_an_assumption = []
+    fnames_we_had_trouble_with = []
     permutation_array_for_df2 = []
     for _, row in df1.iterrows():
         # find the index in df2 that matches
@@ -916,7 +918,8 @@ def reshuffle_second_df_so_its_order_matches_first(df1, df2):
                                 # then we assume these are ordered roughly the same way, and just choose the next
                                 # available one. So we pass on this next one.
                                 print('Making assumption about instance ordering for ' + str((text, fname, label)))
-                                pass
+                                fnames_we_had_trouble_with.append(fname)
+                                inds_in_df1_that_correspond_to_making_an_assumption.append(_)
                             elif new_one_looks_like_sent_end:
                                 longer_context_that_worked = longercontext
                                 ind_that_works = ind
@@ -927,11 +930,18 @@ def reshuffle_second_df_so_its_order_matches_first(df1, df2):
                 if possible_inds[i][0] == ind_that_works:
                     del possible_inds[i]
     assert len(permutation_array_for_df2) == df2.shape[0], str(len(permutation_array_for_df2))
+    assert len(set(permutation_array_for_df2)) == len(permutation_array_for_df2)
     permutation_array_for_df2 = np.array(permutation_array_for_df2)
     assert isinstance(df2, pd.DataFrame)
     assert isinstance(permutation_array_for_df2, np.ndarray)
     df2 = df2.reindex(permutation_array_for_df2).reset_index(drop=True)
     assert str(df1['text']) == str(df2['text']), str(df1['text']) + '\n\n' + str(df2['text'])
+    assert str(df1['labels']) == str(df2['labels']), str(df1['labels']) + '\n\n' + str(df2['labels'])
+    for ind in inds_in_df1_that_correspond_to_making_an_assumption:
+        # check these in particular, as the preceding checks might truncate the dataframe's content
+        assert str(df1['text'][ind]) == str(df2['text'][ind]), str(df1['text'][ind]) + '\n\n' + str(df2['text'][ind])
+        assert str(df1['labels'][ind]) == str(df2['labels'][ind]), \
+            str(df1['labels'][ind]) + '\n\n' + str(df2['labels'][ind])
     print('Reshuffled two DFs to match each other order-wise.')
     return df2
 
@@ -973,14 +983,14 @@ def read_in_full_set_of_presplit_data_files(task, shuffle_data=True):
     dev_dfs = [fix_df_format(pd.read_csv(dev_filename)) for dev_filename in dev_fnames]
     for i in range(1, len(dev_dfs)):
         dev_dfs[i] = reshuffle_second_df_so_its_order_matches_first(dev_dfs[0], dev_dfs[i])
-    if shuffle_data:
-        # reshuffle all dev_dfs the same way
+    if shuffle:
+        # no reason to shuffle dev_dfs beyond making their orders match
         dev_dfs = reshuffle_all_dfs_in_list_the_same_way(dev_dfs)
     test_dfs = [fix_df_format(pd.read_csv(test_filename)) for test_filename in test_fnames]
     for i in range(1, len(test_dfs)):
         test_dfs[i] = reshuffle_second_df_so_its_order_matches_first(test_dfs[0], test_dfs[i])
-    if shuffle_data:
-        # reshuffle all test_dfs the same way
+    if shuffle:
+        # no reason to shuffle test_dfs beyond making their orders match
         test_dfs = reshuffle_all_dfs_in_list_the_same_way(test_dfs)
 
     num_labels = 0
