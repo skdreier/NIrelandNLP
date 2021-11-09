@@ -22,7 +22,7 @@ def will_accept_filename_as_source_for_hyperparams(filename, model_type, task, h
             if pretrained_word2vec_embeddings_only_used_positive_sentences:
                 if lowercase:
                     # needs to be from the original runs
-                    if not filename.endswith('overallTerminalOutput.txt'):
+                    if not filename.endswith('OldsmallembedsWord2vecMultiway.txt'):
                         return False
                 else:
                     # needs to be from the most recent runs
@@ -76,10 +76,9 @@ def get_best_set_of_hyperparams_for_model(model_name, task, num_sents_as_context
                                 learning_rate = line[:line.index(', ')]
                                 learning_rate = float(learning_rate[learning_rate.rfind(' ') + 1:])
                                 doubled_context_features = (' NO doubled context features' not in line)
-                                if (task != 'binary' and fname.endswith('overallTerminalOutput.txt')) or \
+                                if (task != 'binary' and fname.endswith('OldsmallembedsWord2vecMultiway.txt')) or \
                                         fname.endswith('NewsmallembedsWord2vecMultiway.txt'):
-                                    if fname.endswith('NewsmallembedsWord2vecMultiway.txt'):
-                                        assert task != 'binary'
+                                    assert task != 'binary'
                                     word2vecembeds_only_pretrained_on_positive_sents = True
                                 else:
                                     word2vecembeds_only_pretrained_on_positive_sents = False
@@ -92,10 +91,9 @@ def get_best_set_of_hyperparams_for_model(model_name, task, num_sents_as_context
                                 learning_rate = line[:line.index(', ')]
                                 learning_rate = float(learning_rate[learning_rate.rfind(' ') + 1:])
                                 doubled_context_features = (' NO doubled context features' not in line)
-                                if (task != 'binary' and fname.endswith('overallTerminalOutput.txt')) or \
+                                if (task != 'binary' and fname.endswith('OldsmallembedsWord2vecMultiway.txt')) or \
                                         fname.endswith('NewsmallembedsWord2vecMultiway.txt'):
-                                    if fname.endswith('NewsmallembedsWord2vecMultiway.txt'):
-                                        assert task != 'binary'
+                                    assert task != 'binary'
                                     word2vecembeds_only_pretrained_on_positive_sents = True
                                 else:
                                     word2vecembeds_only_pretrained_on_positive_sents = False
@@ -149,10 +147,9 @@ def get_best_set_of_hyperparams_for_model(model_name, task, num_sents_as_context
                                 learning_rate = line[:line.index(', ')]
                                 learning_rate = float(learning_rate[learning_rate.rfind(' ') + 1:])
                                 doubled_context_features = (' NO doubled context features' not in line)
-                                if (task != 'binary' and fname.endswith('overallTerminalOutput.txt')) or \
+                                if (task != 'binary' and fname.endswith('OldsmallembedsWord2vecMultiway.txt')) or \
                                         fname.endswith('NewsmallembedsWord2vecMultiway.txt'):
-                                    if fname.endswith('NewsmallembedsWord2vecMultiway.txt'):
-                                        assert task != 'binary'
+                                    assert task != 'binary'
                                     word2vecembeds_only_pretrained_on_positive_sents = True
                                 else:
                                     word2vecembeds_only_pretrained_on_positive_sents = False
@@ -165,10 +162,9 @@ def get_best_set_of_hyperparams_for_model(model_name, task, num_sents_as_context
                                 learning_rate = line[:line.index(', ')]
                                 learning_rate = float(learning_rate[learning_rate.rfind(' ') + 1:])
                                 doubled_context_features = (' NO doubled context features' not in line)
-                                if (task != 'binary' and fname.endswith('overallTerminalOutput.txt')) or \
+                                if (task != 'binary' and fname.endswith('OldsmallembedsWord2vecMultiway.txt')) or \
                                         fname.endswith('NewsmallembedsWord2vecMultiway.txt'):
-                                    if fname.endswith('NewsmallembedsWord2vecMultiway.txt'):
-                                        assert task != 'binary'
+                                    assert task != 'binary'
                                     word2vecembeds_only_pretrained_on_positive_sents = True
                                 else:
                                     word2vecembeds_only_pretrained_on_positive_sents = False
