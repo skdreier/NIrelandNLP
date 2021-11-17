@@ -11,6 +11,8 @@ from random import random
 from tqdm import tqdm
 from sklearn.metrics import f1_score
 import warnings
+from glob import glob
+from prep_data import extract_and_tag_next_document, extract_file_image_tag_from_relevant_part_of_header_string
 
 
 def make_csv_used_to_compute_mcnemar_bowker(predicted_labels_1, model_name_1, predicted_labels_2, model_name_2,
@@ -92,6 +94,273 @@ def plot_two_precision_recalls_against_each_other(recall_precision_points_lists,
             plt.title(plot_title)
         plt.savefig(just_first_part_filename, bbox_inches='tight')
         plt.close(fig)
+
+
+def get_fname_to_date_dict(fnames_and_dates_dir='../orig_text_data/dates_0123/',
+                           all_txt_fnames_fname='simple_scripts/all_txt_filenames.txt'):
+    digital_filenametag_to_monthyear = {}
+
+    def img_num(img_string):
+        return int(img_string[img_string.index('_') + 1:])
+
+    def get_str_img_form(img_string):
+        part_after_underscore = img_string[img_string.index('_') + 1:]
+        for i in range(5 - len(part_after_underscore)):
+            part_after_underscore = '0' + part_after_underscore
+        return 'IMG_' + part_after_underscore
+
+    tag_img_physicalfname_date = []
+    physicalfname_to_earliestimgnum = {}
+    for fname in glob(fnames_and_dates_dir + '*.txt'):
+        if not fname.endswith('No_date.txt'):
+            corr_date = fname[fname.rfind('/') + 1: fname.rfind('.')]
+            if corr_date == '1967':
+                corr_date = '1967-01'
+
+            previously_extracted_header = None
+            tags_to_documents = {}
+            with open(fname, 'r', encoding='utf-8-sig') as f:
+                keep_going = True
+                while keep_going:
+                    document, tag, previously_extracted_header = \
+                        extract_and_tag_next_document(f, previously_extracted_header=previously_extracted_header)
+                    if document is None:
+                        keep_going = False
+                    else:
+                        tags_to_documents[tag] = document
+
+                for tag in tags_to_documents.keys():
+                    if not ((tag == ('DEFE_13_919', 'IMG_1959') and corr_date == '1965-02') or
+                            (tag == ('PREM_15_100', 'IMG_4540') and corr_date == '1970-06') or
+                            (tag == ('PREM_15_100', 'IMG_4541') and corr_date == '1970-06') or
+                            (tag == ('PREM_15_101', 'IMG_4676') and corr_date == '1970-07') or
+                            (tag == ('PREM_15_101', 'IMG_4679') and corr_date == '1970-07') or
+                            (tag == ('PREM_15_1693', 'IMG_9116') and corr_date == '1973-05') or
+                            (tag == ('PREM_15_1693', 'IMG_9117') and corr_date == '1973-05') or
+                            (tag == ('PREM_15_1693', 'IMG_9182') and corr_date == '1973-05') or
+                            (tag == ('PREM_15_476', 'IMG_5403') and corr_date == '1971-02')):
+                        tag_img_physicalfname_date.append((tag, tag[1], tag[0], corr_date))
+                        if tag[0] not in physicalfname_to_earliestimgnum:
+                            physicalfname_to_earliestimgnum[tag[0]] = img_num(tag[1])
+                        else:
+                            this_img_num = img_num(tag[1])
+                            if this_img_num < physicalfname_to_earliestimgnum[tag[0]]:
+                                physicalfname_to_earliestimgnum[tag[0]] = this_img_num
+
+    tag_img_physicalfname_date = sorted(tag_img_physicalfname_date, key=(lambda tup: tup[2] + '_' +
+                                                                                     get_str_img_form(tup[1])))
+
+    prev_physicalfname = None
+    prev_img = None
+    for i, tag_img_physicalfname_date_tup in enumerate(tag_img_physicalfname_date):
+        if prev_physicalfname is None:
+            prev_physicalfname = tag_img_physicalfname_date_tup[2]
+            prev_img = int(tag_img_physicalfname_date_tup[1][tag_img_physicalfname_date_tup[1].index('_') + 1:])
+        else:
+            cur_physicalfname = tag_img_physicalfname_date_tup[2]
+            cur_img = int(tag_img_physicalfname_date_tup[1][tag_img_physicalfname_date_tup[1].index('_') + 1:])
+            if cur_physicalfname == prev_physicalfname:
+                assert cur_img > prev_img, '\n' + '\n'.join([str(tag_img_physicalfname_date[i - 1]),
+                                                             str(tag_img_physicalfname_date_tup)])
+            prev_physicalfname = cur_physicalfname
+            prev_img = cur_img
+
+    all_valid_tags = set()
+    with open(all_txt_fnames_fname, 'r') as f:
+        for line in f:
+            line = line.strip()
+            line = line[:line.rfind('.')]
+            file_part, img_part = extract_file_image_tag_from_relevant_part_of_header_string(line)
+            earliest_allowed_imgnum_for_file = physicalfname_to_earliestimgnum[file_part]
+            if img_num(img_part) >= earliest_allowed_imgnum_for_file:
+                all_valid_tags.add((file_part, img_part))
+    print('There are ' + str(len(all_valid_tags)) + ' valid tags with inferrable dates.')
+
+    all_valid_tags = list(all_valid_tags)
+    # physicalfname, then img
+    all_valid_tags = sorted(all_valid_tags, key=(lambda tup: tup[0] + '_' + get_str_img_form(tup[1])))
+    prev_physicalfname = None
+    prev_img = None
+    for valid_tag in all_valid_tags:
+        if prev_physicalfname is None:
+            prev_physicalfname = valid_tag[0]
+            prev_img = int(valid_tag[1][valid_tag[1].index('_') + 1:])
+        else:
+            cur_physicalfname = valid_tag[0]
+            cur_img = int(valid_tag[1][valid_tag[1].index('_') + 1:])
+            if cur_physicalfname == prev_physicalfname:
+                assert cur_img > prev_img
+            prev_physicalfname = cur_physicalfname
+            prev_img = cur_img
+
+    assert all_valid_tags[0] == tag_img_physicalfname_date[0][0], str(all_valid_tags[0]) + '\n\n\n' + \
+                                                                  str(tag_img_physicalfname_date[0])
+    cur_valid_tag_index = 0
+    for i, tag_img_physicalfname_date_tup in enumerate(tag_img_physicalfname_date[:-1]):
+        assert cur_valid_tag_index < len(all_valid_tags)
+        is_last_of_physical_file = (tag_img_physicalfname_date_tup[2] != tag_img_physicalfname_date[i + 1][2])
+        if is_last_of_physical_file:
+            while all_valid_tags[cur_valid_tag_index][0] == tag_img_physicalfname_date_tup[2]:
+                # while the physical fname still matches
+                digital_filenametag_to_monthyear[all_valid_tags[cur_valid_tag_index]] = tag_img_physicalfname_date_tup[
+                    3]
+                cur_valid_tag_index += 1
+        else:
+            img_num_of_next_doc = tag_img_physicalfname_date[i + 1][1]
+            img_num_of_next_doc = int(img_num_of_next_doc[img_num_of_next_doc.index('_') + 1:])
+            img_num_of_cur_doc = tag_img_physicalfname_date[i][1]
+            img_num_of_cur_doc = int(img_num_of_cur_doc[img_num_of_cur_doc.index('_') + 1:])
+            assert img_num_of_cur_doc <= img_num(all_valid_tags[cur_valid_tag_index][1]), \
+                str(tag_img_physicalfname_date[i][0]) + '\n' + str(all_valid_tags[cur_valid_tag_index])
+            while (all_valid_tags[cur_valid_tag_index][0] == tag_img_physicalfname_date_tup[2] and
+                   img_num(all_valid_tags[cur_valid_tag_index][1]) < img_num_of_next_doc):
+                digital_filenametag_to_monthyear[all_valid_tags[cur_valid_tag_index]] = tag_img_physicalfname_date_tup[
+                    3]
+                cur_valid_tag_index += 1
+    assert all_valid_tags[cur_valid_tag_index][0] == tag_img_physicalfname_date[-1][2]
+    for i in range(cur_valid_tag_index, len(all_valid_tags)):
+        # while the physical fname still matches
+        digital_filenametag_to_monthyear[all_valid_tags[i]] = tag_img_physicalfname_date[-1][3]
+
+    dict_to_return = {tup[0][0] + '/' + tup[0][1]: tup[1] for tup in digital_filenametag_to_monthyear.items()}
+    return dict_to_return
+
+
+def get_file_start_date_end_date(source_fname='file_date.csv'):
+    def pad(month):
+        if len(month) < 2:
+            return '0' + month
+        return month
+
+    fname_to_startdateenddate = {}
+    with open(source_fname, 'r') as f:
+        f.readline()
+        for line in f:
+            if line.strip() == '':
+                continue
+            line = line.strip().split(',')
+            fname_to_startdateenddate[line[0]] = (line[1] + '-' + pad(line[2]), line[3] + '-' + pad(line[4]))
+    return fname_to_startdateenddate
+
+
+def make_data_file_for_binary_recall_histograms(list_of_logits, data_df, output_filename):
+    actual_labels_as_list_of_ints = list(data_df['labels'])
+    assert list_of_logits[0].shape[-1] == 2
+    assert actual_labels_as_list_of_ints.count(0) + actual_labels_as_list_of_ints.count(1) == \
+           len(actual_labels_as_list_of_ints)
+
+    list_of_instancebeingpositive_probs = []
+    for i, logit_pair in enumerate(list_of_logits):
+        denom = np.log(np.sum(np.exp(logit_pair)))
+        if len(list_of_logits[0].shape) == 2:
+            list_of_instancebeingpositive_probs.append(float(np.exp(logit_pair[0][1] - denom)))
+        else:
+            list_of_instancebeingpositive_probs.append(float(np.exp(logit_pair[1] - denom)))
+
+    recalls_to_plot_for = [None, .7, .8, .9]
+    list_of_filename_to_recoveredpositivecount_dicts = []
+    for recall in recalls_to_plot_for:
+        if recall is not None:
+            threshold = get_threshold_corresponding_to_recall(list_of_logits, actual_labels_as_list_of_ints, recall)
+        else:
+            threshold = None
+        labels_for_this_threshold = \
+            get_labels_according_to_positive_classification_threshold(list_of_instancebeingpositive_probs,
+                                                                      threshold=threshold)
+        assert len(labels_for_this_threshold) == data_df.shape[0]
+        filename_to_recoveredpositivecount_dicts = {}
+        for i, row in data_df.iterrows():
+            filename = row['filename']
+            label = labels_for_this_threshold[i]
+            if filename in filename_to_recoveredpositivecount_dicts:
+                filename_to_recoveredpositivecount_dicts[filename] = \
+                    filename_to_recoveredpositivecount_dicts[filename] + int(label == 1 and row['labels'] == 1)
+            else:
+                filename_to_recoveredpositivecount_dicts[filename] = int(label == 1 and row['labels'] == 1)
+
+        list_of_filename_to_recoveredpositivecount_dicts.append(filename_to_recoveredpositivecount_dicts)
+
+    filename_to_truepositivecount_dict = {}
+    for i, row in data_df.iterrows():
+        filename = row['filename']
+        label = row['labels']
+        if filename in filename_to_truepositivecount_dict:
+            filename_to_truepositivecount_dict[filename] = \
+                filename_to_truepositivecount_dict[filename] + int(label == 1 and row['labels'] == 1)
+        else:
+            filename_to_truepositivecount_dict[filename] = int(label == 1 and row['labels'] == 1)
+
+    # filter out all filenames that contribute no true positive sentences
+    fnames_to_filter_out = []
+    for filename, true_positive_count in filename_to_truepositivecount_dict.items():
+        if true_positive_count == 0:
+            fnames_to_filter_out.append(filename)
+    for fname in fnames_to_filter_out:
+        del filename_to_truepositivecount_dict[fname]
+        for recovereddict in list_of_filename_to_recoveredpositivecount_dicts:
+            del recovereddict[fname]
+
+    # get date corresponding to remaining filenames (date will be a string in format like '1965-02')
+    fname_to_date = get_fname_to_date_dict()
+    fnames_with_no_date = []
+    for fname in filename_to_truepositivecount_dict:
+        if fname not in fname_to_date:
+            fnames_with_no_date.append(fname)
+    fname_to_startdate_enddate = get_file_start_date_end_date()
+    for fname in tqdm(filename_to_truepositivecount_dict.keys(), total=len(filename_to_truepositivecount_dict)):
+        if fname not in fname_to_date:
+            fname_to_date[fname] = fname_to_startdate_enddate[fname.split('/')[0]][0] + '-' + \
+                                   fname_to_startdate_enddate[fname.split('/')[0]][1]
+    print('Fnames with dates we filled in from parent fname: ' + str(fnames_with_no_date))
+    # sort by filename first, then date second
+    sorted_fnames_dates = list(fname_to_date.items())
+    sorted_fnames_dates = sorted(sorted_fnames_dates, key=lambda x: x[0] + x[1])
+
+    with open(output_filename, 'w') as f:
+        f.write('filename,date,truepositivecount,defaultthreshold_positivesrecovered,' +
+                (','.join([str(recall) + 'recall_positivesrecovered' for recall in recalls_to_plot_for[1:]])) + '\n')
+        for fname, date in sorted_fnames_dates:
+            if fname in filename_to_truepositivecount_dict:
+                fields = [fname, date]
+                fields.append(str(filename_to_truepositivecount_dict[fname]))
+                for filename_to_recoveredpositivecount_dict in list_of_filename_to_recoveredpositivecount_dicts:
+                    fields.append(str(filename_to_recoveredpositivecount_dict[fname]))
+                f.write(','.join(fields) + '\n')
+    print('Wrote ' + output_filename)
+
+
+def get_labels_according_to_positive_classification_threshold(prob_for_each_instance_being_positive, threshold=None):
+    list_to_return = []
+    for i in range(len(prob_for_each_instance_being_positive)):
+        if threshold is None:
+            list_to_return.append(int(prob_for_each_instance_being_positive[i] >= .5))
+        else:
+            list_to_return.append(int(prob_for_each_instance_being_positive[i] >= threshold))
+    return list_to_return
+
+
+def get_threshold_corresponding_to_recall(list_of_logits, actual_labels_as_list_of_ints, desired_recall):
+    assert list_of_logits[0].shape[-1] == 2
+    assert actual_labels_as_list_of_ints.count(0) + actual_labels_as_list_of_ints.count(1) == \
+           len(actual_labels_as_list_of_ints)
+    list_of_probs = []
+    for i, logit_pair in enumerate(list_of_logits):
+        denom = np.log(np.sum(np.exp(logit_pair)))
+        list_of_probs.append((np.exp(logit_pair - denom), actual_labels_as_list_of_ints[i]))
+    if len(list_of_logits[0].shape) == 2:
+        sorted_by_prob = sorted(list_of_probs, key=lambda x: x[0][0][1], reverse=True)
+    else:
+        sorted_by_prob = sorted(list_of_probs, key=lambda x: x[0][1], reverse=True)
+
+    total_actual_positive_instances = actual_labels_as_list_of_ints.count(1)
+    total_true_positives_passed_so_far = 0
+    for i in range(len(sorted_by_prob)):
+        total_true_positives_passed_so_far += sorted_by_prob[i][1]  # 0 or 1
+        if total_true_positives_passed_so_far / total_actual_positive_instances >= desired_recall:
+            if i == len(sorted_by_prob) - 1:
+                return 0
+            else:
+                return (sorted_by_prob[i][0][1] + sorted_by_prob[i + 1][0][1]) / 2
 
 
 def get_recall_precision_curve_points(list_of_logits, actual_labels_as_list_of_ints: List[int], string_prefix=''):

@@ -12,7 +12,7 @@ from prep_data import read_in_presplit_data, make_binary_data_split, make_multiw
     read_in_full_set_of_presplit_data_files
 from detailed_performance_breakdown import get_recall_precision_curve_points, \
     plot_two_precision_recalls_against_each_other, make_multilabel_csv, make_csv_used_to_compute_mcnemar_bowker, \
-    bootstrap_f1
+    bootstrap_f1, make_data_file_for_binary_recall_histograms
 from config import full_document_filename, binary_train_filename, binary_dev_filename, \
     binary_test_filename, binary_label_key_filename, multiway_train_filename, multiway_dev_filename, \
     multiway_test_filename, multiway_label_key_filename, positive_sentence_filename, problem_report_filename, \
@@ -358,6 +358,8 @@ def run_roberta_training_testing(train_df, dev_df, test_df, num_labels, label_we
         test_roberta_precrec_curve_points = get_recall_precision_curve_points(list_of_all_predicted_roberta_test_logits,
                                                                               list_of_all_test_labels,
                                                                               string_prefix='(Test for RoBERTa) ')
+        make_data_file_for_binary_recall_histograms(list_of_all_predicted_roberta_test_logits, test_df,
+                                                    os.path.join(output_dir, 'data_for_recallFnameDateHist.csv'))
         return list_of_all_predicted_roberta_dev_labels, list_of_all_predicted_roberta_test_labels, \
             dev_roberta_precrec_curve_points, test_roberta_precrec_curve_points
 
