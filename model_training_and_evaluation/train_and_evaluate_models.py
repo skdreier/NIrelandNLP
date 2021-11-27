@@ -480,6 +480,10 @@ def run_word2vecbaseline_training_testing(train_df, dev_df, test_df, num_labels,
             dev_word2vec_precrec_curve_points, test_word2vec_precrec_curve_points
 
 
+def append_vsneuralbaseline_to_fname(fname):
+    return fname[:fname.rfind('.')] + '-vsneuralbaseline' + fname[fname.rfind('.'):]
+
+
 def main():
     if not os.path.isfile(binary_train_filename) and not os.path.isfile(multiway_train_filename):
         prep_data_and_return_necessary_parts(full_document_filename, binary_train_filename, binary_dev_filename,
@@ -672,10 +676,22 @@ def main():
                                      base_output_multiway_model_dir=base_multiway_output_model_dir,
                                      expected_dev_performance=expected_dev)
 
+    if dev_multiway_ff_f1 > dev_multiway_lstm_f1:
+        neural_baseline_test_labels = list_of_all_predicted_word2vec_ff_test_labels
+        neural_baseline_dev_labels = list_of_all_predicted_word2vec_ff_dev_labels
+    else:
+        neural_baseline_test_labels = list_of_all_predicted_word2vec_lstm_test_labels
+        neural_baseline_dev_labels = list_of_all_predicted_word2vec_lstm_dev_labels
     bootstrap_f1(list_of_all_predicted_roberta_dev_labels, dev_predictions_of_best_lr_model,
                  list_of_all_dev_labels, 500, multiway_dev_bootstrapped_f1_filename, num_labels)
     bootstrap_f1(list_of_all_predicted_roberta_test_labels, list_of_all_predicted_lr_test_labels,
                  list_of_all_test_labels, 500, multiway_test_bootstrapped_f1_filename, num_labels)
+    bootstrap_f1(list_of_all_predicted_roberta_dev_labels, neural_baseline_dev_labels,
+                 list_of_all_dev_labels, 500, append_vsneuralbaseline_to_fname(multiway_dev_bootstrapped_f1_filename),
+                 num_labels)
+    bootstrap_f1(list_of_all_predicted_roberta_test_labels, neural_baseline_test_labels,
+                 list_of_all_test_labels, 500, append_vsneuralbaseline_to_fname(multiway_test_bootstrapped_f1_filename),
+                 num_labels)
 
     report_mismatches_to_files(multiway_output_report_filename_stub, list_of_all_test_labels,
                                list_of_all_predicted_lr_test_labels, list_of_all_predicted_roberta_test_labels,
@@ -826,11 +842,6 @@ def main():
                                      base_output_binary_model_dir=base_binary_output_model_dir,
                                      expected_dev_performance=expected_dev)
 
-    bootstrap_f1(list_of_all_predicted_roberta_dev_labels, list_of_all_predicted_lr_dev_labels,
-                 list_of_all_dev_labels, 500, binary_dev_bootstrapped_f1_filename, num_labels)
-    bootstrap_f1(list_of_all_predicted_roberta_test_labels, list_of_all_predicted_lr_test_labels,
-                 list_of_all_test_labels, 500, binary_test_bootstrapped_f1_filename, num_labels)
-
     dev_precrec_points = [dev_lr_precrec_curve_points, dev_roberta_precrec_curve_points]
     dev_precrec_labels = ['LogReg baseline', 'Finetuned RoBERTa']
     test_precrec_points = [test_lr_precrec_curve_points, test_roberta_precrec_curve_points]
@@ -840,11 +851,28 @@ def main():
         dev_precrec_labels.insert(1, 'FeedForward baseline')
         test_precrec_points.insert(1, test_word2vec_ff_precrec_curve_points)
         test_precrec_labels.insert(1, 'FeedForward baseline')
+        neural_baseline_test_labels = list_of_all_predicted_word2vec_ff_test_labels
+        neural_baseline_dev_labels = list_of_all_predicted_word2vec_ff_dev_labels
     else:
         dev_precrec_points.insert(1, dev_word2vec_lstm_precrec_curve_points)
         dev_precrec_labels.insert(1, 'LSTM baseline')
         test_precrec_points.insert(1, test_word2vec_lstm_precrec_curve_points)
         test_precrec_labels.insert(1, 'LSTM baseline')
+        neural_baseline_test_labels = list_of_all_predicted_word2vec_lstm_test_labels
+        neural_baseline_dev_labels = list_of_all_predicted_word2vec_lstm_dev_labels
+
+    bootstrap_f1(list_of_all_predicted_roberta_dev_labels, list_of_all_predicted_lr_dev_labels,
+                 list_of_all_dev_labels, 500, binary_dev_bootstrapped_f1_filename, num_labels)
+    bootstrap_f1(list_of_all_predicted_roberta_test_labels, list_of_all_predicted_lr_test_labels,
+                 list_of_all_test_labels, 500, binary_test_bootstrapped_f1_filename, num_labels)
+    bootstrap_f1(list_of_all_predicted_roberta_dev_labels, neural_baseline_dev_labels,
+                 list_of_all_dev_labels, 500, append_vsneuralbaseline_to_fname(binary_dev_bootstrapped_f1_filename),
+                 num_labels)
+    bootstrap_f1(list_of_all_predicted_roberta_test_labels, neural_baseline_test_labels,
+                 list_of_all_test_labels, 500, append_vsneuralbaseline_to_fname(binary_test_bootstrapped_f1_filename),
+                 num_labels)
+
+
     plot_two_precision_recalls_against_each_other(dev_precrec_points,
                                                   dev_precrec_labels,
                                                   dev_precreccurve_plot_filename,

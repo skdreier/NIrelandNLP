@@ -9,7 +9,7 @@ sns.set()
 sns.color_palette("colorblind")
 from random import random
 from tqdm import tqdm
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, precision_score, recall_score
 import warnings
 from glob import glob
 from prep_data import extract_and_tag_next_document, extract_file_image_tag_from_relevant_part_of_header_string
@@ -438,7 +438,7 @@ def bootstrap_f1(list_of_predicted_labels_roberta, list_of_predicted_labels_base
         list(zip(list_of_predicted_labels_roberta, list_of_predicted_labels_baseline, list_of_correct_labels))
     length_of_list = len(list_of_predicted_labels_baseline)
 
-    def boostrap_once():
+    def bootstrap_once(metric_function_to_apply):
         bootstrapped_data = []
         for i in range(length_of_list):
             ind_to_sample = int(length_of_list * random())
@@ -454,21 +454,45 @@ def bootstrap_f1(list_of_predicted_labels_roberta, list_of_predicted_labels_base
             average = 'weighted'
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
-            f1_baseline = f1_score(true_labels, [tup[1] for tup in bootstrapped_data], average=average)
-            f1_roberta = f1_score(true_labels, [tup[0] for tup in bootstrapped_data], average=average)
+            f1_baseline = metric_function_to_apply(true_labels, [tup[1] for tup in bootstrapped_data], average=average)
+            f1_roberta = metric_function_to_apply(true_labels, [tup[0] for tup in bootstrapped_data], average=average)
         warnings.filterwarnings('default')
 
         return f1_roberta, f1_baseline
 
     list_of_bootstrapped_f1_tups = []
     for j in tqdm(range(num_times_to_bootstrap), total=num_times_to_bootstrap):
-        list_of_bootstrapped_f1_tups.append(boostrap_once())
+        list_of_bootstrapped_f1_tups.append(bootstrap_once(f1_score))
 
     with open(filename_to_write_data_to, 'w') as f:
         f.write('bootstrapped_f1_roberta,bootstrapped_f1_baseline\n')
         for roberta_val, baseline_val in list_of_bootstrapped_f1_tups:
             f.write(str(roberta_val) + ',' + str(baseline_val) + '\n')
+
+    list_of_bootstrapped_recall_tups = []
+    for j in tqdm(range(num_times_to_bootstrap), total=num_times_to_bootstrap):
+        list_of_bootstrapped_recall_tups.append(bootstrap_once(recall_score))
+
+    with open(filename_to_write_data_to[:filename_to_write_data_to.rfind('.')] + '-recall' +
+              filename_to_write_data_to[filename_to_write_data_to.rfind('.'):], 'w') as f:
+        f.write('bootstrapped_recall_roberta,bootstrapped_recall_baseline\n')
+        for roberta_val, baseline_val in list_of_bootstrapped_recall_tups:
+            f.write(str(roberta_val) + ',' + str(baseline_val) + '\n')
+
+    list_of_bootstrapped_precision_tups = []
+    for j in tqdm(range(num_times_to_bootstrap), total=num_times_to_bootstrap):
+        list_of_bootstrapped_precision_tups.append(bootstrap_once(precision_score))
+
+    with open(filename_to_write_data_to[:filename_to_write_data_to.rfind('.')] + '-precision' +
+              filename_to_write_data_to[filename_to_write_data_to.rfind('.'):], 'w') as f:
+        f.write('bootstrapped_precision_roberta,bootstrapped_precision_baseline\n')
+        for roberta_val, baseline_val in list_of_bootstrapped_precision_tups:
+            f.write(str(roberta_val) + ',' + str(baseline_val) + '\n')
     print('Wrote ' + filename_to_write_data_to)
+    print('Wrote ' + filename_to_write_data_to[:filename_to_write_data_to.rfind('.')] + '-recall' +
+              filename_to_write_data_to[filename_to_write_data_to.rfind('.'):])
+    print('Wrote ' + filename_to_write_data_to[:filename_to_write_data_to.rfind('.')] + '-precision' +
+          filename_to_write_data_to[filename_to_write_data_to.rfind('.'):])
 
 
 def make_multilabel_csv(list_of_predicted_labels, actual_labels_as_list_of_ints, class_key_filename, csv_filename,

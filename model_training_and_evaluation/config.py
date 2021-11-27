@@ -7,9 +7,9 @@ multiway_dir_extension = '_nocontextNEWEMBEDSFIXEDINDEX_10class'  # '_condensed'
 full_document_filename = '../orig_text_data/internment.txt'
 positive_sentence_filename = '../justifications_clean_text_ohe.csv'
 
-use_context = False
+use_context = True
 # must be at least 1; use_context will control whether it actually gets used or not
-num_context_sents_to_use = 0
+num_context_sents_to_use = 1
 lowercase_all_text = True
 ignore_params_given_above_and_use_best_param_instead = False
 additional_numcontextsents_to_restrict_to_if_ignoring_other_params = None
@@ -52,9 +52,9 @@ binary_dev_filename = "data/binary_full_mindsduplicates_withcontext"+str(context
 binary_test_filename = "data/binary_full_mindsduplicates_withcontext"+str(context_sents_for_data_fnames)+"_test.csv"  # 'data/binary_test-withperplexities-85percentile.csv'
 binary_label_key_filename = 'data/binary_mindsduplicates_classes.txt'
 output_binary_model_dir = get_model_dir('binary', num_context_sents_to_use, lowercase_all_text)
-binary_output_report_filename_stub = 'output_analysis/nocontextFIXEDINDEX-binarybest'
-binary_dev_bootstrapped_f1_filename = 'binaryDEV_nocontextFIXEDINDEX_bootstrappedf1s.csv'
-binary_test_bootstrapped_f1_filename = 'binaryTEST_nocontextFIXEDINDEX_bootstrappedf1s.csv'
+binary_output_report_filename_stub = 'experiment_results/' + subdir_of_expresults + '/output_analysis/nocontextFIXEDINDEX-binarybest'
+binary_dev_bootstrapped_f1_filename = 'experiment_results/' + subdir_of_expresults + '/output_analysis/binaryDEV_nocontextFIXEDINDEX_bootstrappedf1s.csv'
+binary_test_bootstrapped_f1_filename = 'experiment_results/' + subdir_of_expresults + '/output_analysis/binaryTEST_nocontextFIXEDINDEX_bootstrappedf1s.csv'
 
 # relevant for making the data
 binary_positive_sentences_spot_checking_fname = 'data/binary_extracted_positive_sentences_withcontextmasking_correctedsavelocation.txt'
